@@ -1,0 +1,13 @@
+# Goal — raw joint control. Manual/teach use only (calibration, jogging,
+# full override) — never reachable from a recipe step.
+float64[] target_joints
+float64 speed_scale
+---
+# Result
+bool success
+uint32 error_code
+sensor_msgs/JointState final_state
+---
+# Feedback
+float32 percent_complete
+sensor_msgs/JointState current_state

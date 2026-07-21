@@ -1,0 +1,14 @@
+# Goal
+string vision_id
+string operation          # e.g. locate_part, verify_presence, read_barcode
+float64[] params
+---
+# Result
+bool success
+uint32 error_code
+geometry_msgs/Pose detected_pose   # populated for locate-type operations
+string detected_value              # populated for read/verify-type operations
+---
+# Feedback
+string status              # CAPTURING/PROCESSING
+float32 percent_complete

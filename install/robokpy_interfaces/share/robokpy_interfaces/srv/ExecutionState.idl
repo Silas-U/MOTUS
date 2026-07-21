@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/ExecutionState.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    struct ExecutionState_Request {
+      string new_state;
+    };
+    struct ExecutionState_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

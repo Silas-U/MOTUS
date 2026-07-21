@@ -1,0 +1,15 @@
+# Request
+float64[] q                # joint angles in radians
+
+---
+
+# Response
+bool success
+float64[] jacobian_flat    # flattened 6xn Jacobian (row-major: 6*n floats)
+int32 rows                 # always 6
+int32 cols                 # n = num_active_joints
+float64 manipulability     # Yoshikawa manipulability measure
+float64 condition_number   # SVD condition number
+int32 rank                 # matrix rank
+bool is_near_singular      # true if manipulability < threshold
+string message

@@ -1,0 +1,45 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robokpy_interfaces/action/ExecuteVisionOp.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module robokpy_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct ExecuteVisionOp_Goal {
+      string vision_id;
+
+      @verbatim (language="comment", text=
+        "e.g. locate_part, verify_presence, read_barcode")
+      string operation;
+
+      sequence<double> params;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct ExecuteVisionOp_Result {
+      boolean success;
+
+      uint32 error_code;
+
+      @verbatim (language="comment", text=
+        "populated for locate-type operations")
+      geometry_msgs::msg::Pose detected_pose;
+
+      @verbatim (language="comment", text=
+        "populated for read/verify-type operations")
+      string detected_value;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct ExecuteVisionOp_Feedback {
+      @verbatim (language="comment", text=
+        "CAPTURING/PROCESSING")
+      string status;
+
+      float percent_complete;
+    };
+  };
+};

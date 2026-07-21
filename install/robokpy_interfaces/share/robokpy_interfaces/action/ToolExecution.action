@@ -1,0 +1,11 @@
+# Goal: Peripheral tool activation
+string tool_id
+string command
+float64 timeout_duration
+---
+# Result
+bool success
+string status_message
+---
+# Feedback
+float64 percent_complete

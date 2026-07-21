@@ -1,0 +1,13 @@
+# Request
+string   parent_model     # model owning parent_link
+string   parent_link
+string   child_model      # empty => auto-detect
+string   child_link       # empty => auto-detect
+bool     attach
+uint32   joint_id          # only used when attach=false
+
+---
+# Response
+bool     success
+string   message
+uint32   joint_id

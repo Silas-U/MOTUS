@@ -1,0 +1,56 @@
+
+gripper_1:
+  backend: gripper_action
+  action_name: /gripper_action_controller/gripper_cmd
+  joint_name: robotiq_85_left_knuckle_joint
+  open_position: 0.001
+  closed_position: 0.554
+  max_effort: 5.0
+  action_timeout: 5.0
+
+
+gripper_2:
+  backend: gripper_action
+  action_name: /gripper_action_controller/gripper_cmd
+  joint_name: right_finger_joint
+  open_position: 0.0015
+  closed_position: 0.035
+  max_effort: 5.0
+  action_timeout: 5.0
+
+vacuum_1:
+  backend: mock
+  open_delay: 0.3
+  close_delay: 0.5
+
+pneumatic_0:
+  backend: digital_io
+  pin_open: 17
+  pin_close: 27
+  feedback_pin: 22
+  open_state: high
+  pulse_ms: 100
+
+robotiq_85:
+  backend: modbus
+  host: 192.168.1.11
+  port: 502
+  register_cmd: 0
+  value_open: 0
+  value_close: 255
+
+pneumatic_1:
+  backend: mock
+  open_delay: 0.1
+  close_delay: 0.1
+
+vacuum_2:
+  backend: ros_topic
+  topic: /vacuum_controller/cmd
+  on_value: on
+  off_value: off
+
+cnc_machine:
+  backend: mock
+  on_delay: 50.0   # simulated machining cycle time (seconds)
+  off_delay: 0.5

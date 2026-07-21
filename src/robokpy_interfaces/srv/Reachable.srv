@@ -1,0 +1,12 @@
+# Request
+float64[7] target_pose     # [x, y, z, qx, qy, qz, qw]
+float64[] seed             # initial joint config seed (optional, empty = zeros)
+float64 tol                # convergence tolerance (default 1e-3 if 0)
+
+---
+
+# Response
+bool reachable
+float64[] q                # joint solution if reachable, empty otherwise
+float64 error              # final IK error norm
+string message

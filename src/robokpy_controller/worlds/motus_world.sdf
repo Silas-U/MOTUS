@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!--
+  Try inserting a model:
+gz service -s /world/empty/create \
+--reqtype gz.msgs.EntityFactory \
+--reptype gz.msgs.Boolean \
+--timeout 300 \
+--req 'sdf: '\
+'"<?xml version=\"1.0\" ?>'\
+'<sdf version=\"1.6\">'\
+'<model name=\"spawned_model\">'\
+'<link name=\"link\">'\
+'<visual name=\"visual\">'\
+'<geometry><sphere><radius>1.0</radius></sphere></geometry>'\
+'</visual>'\
+'<collision name=\"visual\">'\
+'<geometry><sphere><radius>1.0</radius></sphere></geometry>'\
+'</collision>'\
+'</link>'\
+'</model>'\
+'</sdf>" '\
+'pose: {position: {z: 10}} '\
+'name: "new_name" '\
+'allow_renaming: true'
+  Then try deleting it:
+gz service -s /world/empty/remove \
+--reqtype gz.msgs.Entity \
+--reptype gz.msgs.Boolean \
+--timeout 300 \
+--req 'name: "new_name" type: MODEL'
+  Try inserting a light:
+gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 300 --req 'sdf: '\
+'"<?xml version=\"1.0\" ?>'\
+'<sdf version=\"1.6\">'\
+'<light name=\"spawned_light\" type=\"directional\">'\
+'<pose>0 0 10 0.1 1.0 0</pose>'\
+'</light>'\
+'</sdf>"'
+  Then try deleting it:
+gz service -s /world/empty/remove \
+--reqtype gz.msgs.Entity \
+--reptype gz.msgs.Boolean \
+--timeout 300 \
+--req 'name: "spawned_light" type: LIGHT'
+  Insert a light using a message and allow_renaming:
+gz service -s /world/empty/create \
+--reqtype gz.msgs.EntityFactory \
+--reptype gz.msgs.Boolean \
+--timeout 300 \
+--req 'allow_renaming: true, light: {name: "spawned_light", type: 2, diffuse: {r: 1}}'
+-->
+<sdf version="1.6">
+  <world name="motus_world">
+    <!-- Switched from 'ode' to 'dartsim': ode does not support
+         URDF <mimic> joint constraints in this gz-sim version
+         (confirmed via boot-log error: "Attempting to create a
+         mimic constraint ... but the chosen physics engine does
+         not support mimic constraints"). dartsim has proper mimic
+         support, needed for the gripper's finger_joint_mirror.
+
+         NOTE: dartsim does not use the <ode><solver><iters>...
+         block — that tuning was ode-specific and has been removed.
+         dartsim has its own internal solver defaults; there is no
+         equivalent knob typically needed for a simple pick-and-place
+         rig like this. Re-check RTF after this switch — dartsim and
+         ode have different performance characteristics on the same
+         hardware, it may not stay at 1.0 out of the box. -->
+    <physics name="motus_physics" type="dartsim">
+      <max_step_size>0.008</max_step_size>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-contact-system"
+      name="gz::sim::systems::Contact">
+    </plugin>
+    <!-- <plugin
+        filename="libgrasp_attach_plugin.so"
+        name="robokpy_interfaces::GraspAttachPlugin">
+        <search_radius>0.08</search_radius>
+    </plugin> -->
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+    <light type="directional" name="sun">
+      <cast_shadows>False</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="grasp_test_box">
+      <pose>-0.132990 0.492449 0.014999 0 0 0</pose>
+      <!-- <static>false</static> -->
+      <link name="link">
+        <inertial><mass>0.005</mass></inertial>
+        <collision name="collision">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

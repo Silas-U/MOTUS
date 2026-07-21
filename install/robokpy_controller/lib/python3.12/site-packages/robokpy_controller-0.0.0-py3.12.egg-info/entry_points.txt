@@ -1,0 +1,15 @@
+[console_scripts]
+joint_jog_server = robokpy_controller.joint_jog_server:main
+kinematic_solver = robokpy_controller.kinematic_solver:main
+kinematics_server = robokpy_controller.kinematics_server:main
+motion_planner = robokpy_controller.motion_planner:main
+orchestrator = robokpy_controller.orchestrator:main
+pose_target_interface = robokpy_controller.pose_target_interface:main
+robot_command_server = robokpy_controller.robot_command_server:main
+robot_description_viewer = robokpy_controller.robot_description_viewer:main
+robot_state_interface_virtual = robokpy_controller.robot_state_interface_virtual:main
+robot_state_manager = robokpy_controller.robot_state_manager:main
+safety_bridge = robokpy_controller.safety_bridge:main
+tool_action_server = robokpy_controller.tool_action_server:main
+trajectory_plotter = robokpy_controller.trajectory_plotter:main
+virtual_jog_relay = robokpy_controller.virtual_jog_relay:main

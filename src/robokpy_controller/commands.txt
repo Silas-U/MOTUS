@@ -1,0 +1,7 @@
+# Start teaching a brand-new recipe that doesn't exist as YAML yet
+ros2 param set /pose_target_interface teach_session_override new_pick_recipe
+
+# ... capture waypoints via the marker's menu, write them out ...
+
+# Go back to auto-following whatever recipe is loaded
+ros2 param set /pose_target_interface teach_session_override ""

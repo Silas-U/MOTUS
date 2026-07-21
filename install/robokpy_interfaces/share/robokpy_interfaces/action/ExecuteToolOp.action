@@ -1,0 +1,13 @@
+# Goal
+string tool_id
+string command          # e.g. open/close/set_do/grasp/release
+float64[] params
+---
+# Result
+bool success
+uint32 error_code
+string final_state
+---
+# Feedback
+string status           # MOVING/STALLED/HANDSHAKING
+float32 percent_complete

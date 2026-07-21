@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/Reachable.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    typedef double double__7[7];
+    @verbatim (language="comment", text=
+      "Request")
+    struct Reachable_Request {
+      @verbatim (language="comment", text=
+        "[x, y, z, qx, qy, qz, qw]")
+      double__7 target_pose;
+
+      @verbatim (language="comment", text=
+        "initial joint config seed (optional, empty = zeros)")
+      sequence<double> seed;
+
+      @verbatim (language="comment", text=
+        "convergence tolerance (default 1e-3 if 0)")
+      double tol;
+    };
+    struct Reachable_Response {
+      @verbatim (language="comment", text=
+        "Response")
+      boolean reachable;
+
+      @verbatim (language="comment", text=
+        "joint solution if reachable, empty otherwise")
+      sequence<double> q;
+
+      @verbatim (language="comment", text=
+        "final IK error norm")
+      double error;
+
+      string message;
+    };
+  };
+};

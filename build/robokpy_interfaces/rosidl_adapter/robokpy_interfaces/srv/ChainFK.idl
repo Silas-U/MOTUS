@@ -1,0 +1,41 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/ChainFK.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct ChainFK_Request {
+      @verbatim (language="comment", text=
+        "joint angles for active joints in chain (radians)")
+      sequence<double> q;
+
+      @verbatim (language="comment", text=
+        "name of base link")
+      string base_link;
+
+      @verbatim (language="comment", text=
+        "name of end link")
+      string end_link;
+    };
+    typedef double double__7[7];
+    typedef double double__6[6];
+    struct ChainFK_Response {
+      @verbatim (language="comment", text=
+        "Response")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "[x, y, z, qx, qy, qz, qw]")
+      double__7 pose;
+
+      @verbatim (language="comment", text=
+        "[x, y, z, roll, pitch, yaw] in radians")
+      double__6 pose_euler;
+
+      string message;
+    };
+  };
+};

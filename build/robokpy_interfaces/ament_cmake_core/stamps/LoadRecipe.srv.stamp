@@ -1,0 +1,9 @@
+# Request
+string recipe_path   # absolute path, or a filename resolved under
+                      # <robokpy_controller share>/recipes/
+---
+# Response
+bool success
+string message
+string recipe_id
+string content_hash

@@ -1,0 +1,14 @@
+# Request
+float64[7] target_pose     # [x, y, z, qx, qy, qz, qw]
+int32[] mask               # [px, py, pz, rx, ry, rz] — 1=constrained, 0=free
+float64[] seed             # initial joint config seed (optional, empty = zeros)
+float64 tol                # convergence tolerance (default 1e-3 if 0)
+int32 max_iter             # max iterations (default 30 if 0)
+
+---
+
+# Response
+bool success
+float64[] q                # joint angles in radians
+float64 error              # final error norm
+string message

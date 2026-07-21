@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/LoadRecipe.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct LoadRecipe_Request {
+      @verbatim (language="comment", text=
+        "absolute path, or a filename resolved under" "\n"
+        "<robokpy_controller share>/recipes/")
+      string recipe_path;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct LoadRecipe_Response {
+      boolean success;
+
+      string message;
+
+      string recipe_id;
+
+      string content_hash;
+    };
+  };
+};

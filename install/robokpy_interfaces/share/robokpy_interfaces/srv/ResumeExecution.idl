@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/ResumeExecution.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct ResumeExecution_Request {
+      @verbatim (language="comment", text=
+        "step currently held for operator")
+      string step_id;
+
+      @verbatim (language="comment", text=
+        "true = resume, false = abort the held step instead")
+      boolean proceed;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct ResumeExecution_Response {
+      boolean accepted;
+
+      string message;
+    };
+  };
+};

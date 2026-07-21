@@ -1,0 +1,13 @@
+# Request
+float64[] q                # joint angles in radians (length = num_active_joints)
+bool include_tf_tree       # if true, return all intermediate link transforms
+
+---
+
+# Response
+bool success
+float64[7] pose            # [x, y, z, qx, qy, qz, qw]
+float64[6] pose_euler      # [x, y, z, roll, pitch, yaw] in radians
+float64[] tf_tree_flat     # flattened 4x4 transforms (16 floats per link, row-major)
+int32 num_links            # number of transforms in tf_tree_flat
+string message

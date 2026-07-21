@@ -1,0 +1,100 @@
+// generated from rosidl_typesupport_fastrtps_cpp/resource/idl__rosidl_typesupport_fastrtps_cpp.hpp.em
+// with input from robokpy_interfaces:msg/CellState.idl
+// generated code does not contain a copyright notice
+
+#ifndef ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
+#define ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_
+
+#include <cstddef>
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h"
+#include "robokpy_interfaces/msg/detail/cell_state__struct.hpp"
+
+#ifndef _WIN32
+# pragma GCC diagnostic push
+# pragma GCC diagnostic ignored "-Wunused-parameter"
+# ifdef __clang__
+#  pragma clang diagnostic ignored "-Wdeprecated-register"
+#  pragma clang diagnostic ignored "-Wreturn-type-c-linkage"
+# endif
+#endif
+#ifndef _WIN32
+# pragma GCC diagnostic pop
+#endif
+
+#include "fastcdr/Cdr.h"
+
+namespace robokpy_interfaces
+{
+
+namespace msg
+{
+
+namespace typesupport_fastrtps_cpp
+{
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+cdr_serialize(
+  const robokpy_interfaces::msg::CellState & ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+cdr_deserialize(
+  eprosima::fastcdr::Cdr & cdr,
+  robokpy_interfaces::msg::CellState & ros_message);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+get_serialized_size(
+  const robokpy_interfaces::msg::CellState & ros_message,
+  size_t current_alignment);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+max_serialized_size_CellState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+bool
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+cdr_serialize_key(
+  const robokpy_interfaces::msg::CellState & ros_message,
+  eprosima::fastcdr::Cdr &);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+get_serialized_size_key(
+  const robokpy_interfaces::msg::CellState & ros_message,
+  size_t current_alignment);
+
+size_t
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+max_serialized_size_key_CellState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+}  // namespace typesupport_fastrtps_cpp
+
+}  // namespace msg
+
+}  // namespace robokpy_interfaces
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+ROSIDL_TYPESUPPORT_FASTRTPS_CPP_PUBLIC_robokpy_interfaces
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_cpp, robokpy_interfaces, msg, CellState)();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_FASTRTPS_CPP_HPP_

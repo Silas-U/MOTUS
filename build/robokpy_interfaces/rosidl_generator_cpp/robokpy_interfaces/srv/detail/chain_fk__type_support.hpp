@@ -1,0 +1,71 @@
+// generated from rosidl_generator_cpp/resource/idl__type_support.hpp.em
+// with input from robokpy_interfaces:srv/ChainFK.idl
+// generated code does not contain a copyright notice
+
+#ifndef ROBOKPY_INTERFACES__SRV__DETAIL__CHAIN_FK__TYPE_SUPPORT_HPP_
+#define ROBOKPY_INTERFACES__SRV__DETAIL__CHAIN_FK__TYPE_SUPPORT_HPP_
+
+#include "rosidl_typesupport_interface/macros.h"
+
+#include "robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp"
+
+#include "rosidl_typesupport_cpp/service_type_support.hpp"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+// Forward declare the get type support functions for this type.
+ROSIDL_GENERATOR_CPP_PUBLIC_robokpy_interfaces
+const rosidl_service_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(
+  rosidl_typesupport_cpp,
+  robokpy_interfaces,
+  srv,
+  ChainFK
+)();
+#ifdef __cplusplus
+}
+#endif
+
+#include "rosidl_typesupport_cpp/message_type_support.hpp"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+// Forward declare the get type support functions for this type.
+ROSIDL_GENERATOR_CPP_PUBLIC_robokpy_interfaces
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+  rosidl_typesupport_cpp,
+  robokpy_interfaces,
+  srv,
+  ChainFK_Request
+)();
+#ifdef __cplusplus
+}
+#endif
+
+// already included above
+// #include "rosidl_typesupport_cpp/message_type_support.hpp"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+// Forward declare the get type support functions for this type.
+ROSIDL_GENERATOR_CPP_PUBLIC_robokpy_interfaces
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+  rosidl_typesupport_cpp,
+  robokpy_interfaces,
+  srv,
+  ChainFK_Response
+)();
+#ifdef __cplusplus
+}
+#endif
+
+
+#endif  // ROBOKPY_INTERFACES__SRV__DETAIL__CHAIN_FK__TYPE_SUPPORT_HPP_

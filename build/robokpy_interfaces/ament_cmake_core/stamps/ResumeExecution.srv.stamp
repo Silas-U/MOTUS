@@ -1,0 +1,7 @@
+# Request
+string step_id      # step currently held for operator
+bool proceed         # true = resume, false = abort the held step instead
+---
+# Response
+bool accepted
+string message

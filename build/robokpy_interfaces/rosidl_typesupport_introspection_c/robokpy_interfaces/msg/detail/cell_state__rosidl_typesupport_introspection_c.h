@@ -1,0 +1,26 @@
+// generated from rosidl_typesupport_introspection_c/resource/idl__rosidl_typesupport_introspection_c.h.em
+// with input from robokpy_interfaces:msg/CellState.idl
+// generated code does not contain a copyright notice
+
+#ifndef ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_
+#define ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h"
+
+ROSIDL_TYPESUPPORT_INTROSPECTION_C_PUBLIC_robokpy_interfaces
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, robokpy_interfaces, msg, CellState)();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // ROBOKPY_INTERFACES__MSG__DETAIL__CELL_STATE__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_

@@ -1,0 +1,47 @@
+recipe_id: pick_place_v1
+
+steps:
+  - id: approach
+    type: move
+    target_pose: {x: 0.40, y: 0.10, z: 0.25, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    blend_radius: 0.02
+    speed_scale: 0.8
+    depends_on: []
+
+  - id: grip_close
+    type: tool
+    tool_id: gripper_1
+    command: close
+    # Overlap: start closing the gripper once the approach is 80% done,
+    # instead of waiting for it to fully stop.
+    depends_on:
+      - {progress: approach, threshold: 0.8}
+    recovery: retry
+    max_retries: 2
+
+  - id: lift
+    type: move
+    # Same x/y as approach, raised in z — a real Cartesian continuation
+    # of the previous move, not an arbitrary joint configuration.
+    target_pose: {x: 0.40, y: 0.10, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    blend_radius: 0.0
+    depends_on: [grip_close]
+
+  - id: settle
+    type: wait
+    duration_sec: 0.5
+    depends_on: [lift]
+
+  # - id: vacuum_on
+  #   type: io
+  #   io_id: pneumatic_1
+  #   command: on
+  #   depends_on: [settle]
+
+  - id: home
+    type: move
+    # Same x/y as approach, raised in z — a real Cartesian continuation
+    # of the previous move, not an arbitrary joint configuration.
+    target_pose: {x: 0.40, y: 0.20, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    blend_radius: 0.0
+    depends_on: [settle]

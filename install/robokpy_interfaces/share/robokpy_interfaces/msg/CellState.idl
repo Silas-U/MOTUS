@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robokpy_interfaces/msg/CellState.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module robokpy_interfaces {
+  module msg {
+    module CellState_Constants {
+      const uint8 IDLE = 0;
+      const uint8 PLANNING = 1;
+      const uint8 EXECUTING = 2;
+      const uint8 PAUSED = 3;
+      const uint8 ERROR = 4;
+      const uint8 ESTOP = 5;
+    };
+    struct CellState {
+      uint8 state;
+
+      string active_recipe_id;
+
+      string last_error;
+
+      builtin_interfaces::msg::Time stamp;
+    };
+  };
+};

@@ -1,0 +1,1352 @@
+[0.000000] (-) TimerEvent: {}
+[0.004456] (robokpy) JobQueued: {'identifier': 'robokpy', 'dependencies': OrderedDict()}
+[0.004592] (robokpy_interfaces) JobQueued: {'identifier': 'robokpy_interfaces', 'dependencies': OrderedDict()}
+[0.004656] (robokpy_controller) JobQueued: {'identifier': 'robokpy_controller', 'dependencies': OrderedDict({'robokpy_interfaces': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces'})}
+[0.004718] (robokpy_interfaces) JobStarted: {'identifier': 'robokpy_interfaces'}
+[0.031852] (robokpy) JobStarted: {'identifier': 'robokpy'}
+[0.050388] (robokpy_interfaces) JobProgress: {'identifier': 'robokpy_interfaces', 'progress': 'cmake'}
+[0.051574] (robokpy_interfaces) JobProgress: {'identifier': 'robokpy_interfaces', 'progress': 'build'}
+[0.052819] (robokpy_interfaces) Command: {'cmd': ['/bin/cmake', '--build', '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2804-3-meta-Inspiron-3542_TIME456892', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2468', 'SYSTEMD_EXEC_PID': '2804', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '6951', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install:/home/meta/Documents/robotics_workspace/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:22088', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2767,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2767', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'b366c0b6ed0245a8b3bfaf329e9c14c2', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:49952133-c710-474c-9266-3338ca521720', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy'}), 'shell': False}
+[0.099839] (-) TimerEvent: {}
+[0.122213] (robokpy_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.178228] (robokpy_interfaces) StdoutLine: {'line': b'-- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.199960] (-) TimerEvent: {}
+[0.300386] (-) TimerEvent: {}
+[0.358284] (robokpy_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.364489] (robokpy_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.400510] (-) TimerEvent: {}
+[0.443254] (robokpy_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.500629] (-) TimerEvent: {}
+[0.508143] (robokpy_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.511950] (robokpy_interfaces) StdoutLine: {'line': b'-- Found action_msgs: 2.0.2 (/opt/ros/jazzy/share/action_msgs/cmake)\n'}
+[0.600757] (-) TimerEvent: {}
+[0.703995] (-) TimerEvent: {}
+[0.753553] (robokpy_interfaces) StdoutLine: {'line': b'-- Found trajectory_msgs: 5.3.5 (/opt/ros/jazzy/share/trajectory_msgs/cmake)\n'}
+[0.804134] (-) TimerEvent: {}
+[0.904608] (-) TimerEvent: {}
+[1.007665] (-) TimerEvent: {}
+[1.108130] (-) TimerEvent: {}
+[1.209756] (-) TimerEvent: {}
+[1.311459] (-) TimerEvent: {}
+[1.411879] (-) TimerEvent: {}
+[1.512280] (-) TimerEvent: {}
+[1.612767] (-) TimerEvent: {}
+[1.713249] (-) TimerEvent: {}
+[1.813721] (-) TimerEvent: {}
+[1.914138] (-) TimerEvent: {}
+[2.014568] (-) TimerEvent: {}
+[2.028536] (robokpy_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[2.114694] (-) TimerEvent: {}
+[2.215110] (-) TimerEvent: {}
+[2.315520] (-) TimerEvent: {}
+[2.415953] (-) TimerEvent: {}
+[2.438354] (robokpy_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.516080] (-) TimerEvent: {}
+[2.616502] (-) TimerEvent: {}
+[2.716970] (-) TimerEvent: {}
+[2.738486] (robokpy) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/robokpy', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/build/robokpy/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/build/robokpy/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/meta/Documents/robotics_workspace_new/src/robokpy', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2804-3-meta-Inspiron-3542_TIME456892', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2468', 'SYSTEMD_EXEC_PID': '2804', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '6951', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install:/home/meta/Documents/robotics_workspace/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:22088', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2767,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2767', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'b366c0b6ed0245a8b3bfaf329e9c14c2', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:49952133-c710-474c-9266-3338ca521720', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/robokpy', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.817086] (-) TimerEvent: {}
+[2.917521] (-) TimerEvent: {}
+[2.997278] (robokpy_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.000043] (robokpy_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[3.017663] (-) TimerEvent: {}
+[3.118089] (-) TimerEvent: {}
+[3.220500] (-) TimerEvent: {}
+[3.320947] (-) TimerEvent: {}
+[3.421382] (-) TimerEvent: {}
+[3.524486] (-) TimerEvent: {}
+[3.624886] (-) TimerEvent: {}
+[3.725316] (-) TimerEvent: {}
+[3.739559] (robokpy_interfaces) StdoutLine: {'line': b'-- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[3.754844] (robokpy) StdoutLine: {'line': b'running egg_info\n'}
+[3.827498] (-) TimerEvent: {}
+[3.903226] (robokpy) StdoutLine: {'line': b'writing ../../build/robokpy/robokpy.egg-info/PKG-INFO\n'}
+[3.904039] (robokpy) StdoutLine: {'line': b'writing dependency_links to ../../build/robokpy/robokpy.egg-info/dependency_links.txt\n'}
+[3.904702] (robokpy) StdoutLine: {'line': b'writing requirements to ../../build/robokpy/robokpy.egg-info/requires.txt\n'}
+[3.905570] (robokpy) StdoutLine: {'line': b'writing top-level names to ../../build/robokpy/robokpy.egg-info/top_level.txt\n'}
+[3.926914] (robokpy_interfaces) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[3.928263] (-) TimerEvent: {}
+[3.956516] (robokpy_interfaces) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[3.959446] (robokpy_interfaces) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[3.965585] (robokpy_interfaces) StdoutLine: {'line': b'-- Configuring done (3.9s)\n'}
+[4.028386] (-) TimerEvent: {}
+[4.115641] (robokpy) StdoutLine: {'line': b"reading manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'\n"}
+[4.118238] (robokpy) StdoutLine: {'line': b"writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'\n"}
+[4.118880] (robokpy) StdoutLine: {'line': b'running build\n'}
+[4.119199] (robokpy) StdoutLine: {'line': b'running build_py\n'}
+[4.120379] (robokpy) StdoutLine: {'line': b'running install\n'}
+[4.128505] (-) TimerEvent: {}
+[4.146867] (robokpy) StdoutLine: {'line': b'running install_lib\n'}
+[4.158459] (robokpy_interfaces) StdoutLine: {'line': b'-- Generating done (0.2s)\n'}
+[4.166334] (robokpy_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces\n'}
+[4.229529] (-) TimerEvent: {}
+[4.268163] (robokpy_interfaces) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[4.275639] (robokpy) StdoutLine: {'line': b'running install_data\n'}
+[4.276098] (robokpy) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.280486] (robokpy_interfaces) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_robokpy_interfaces\n'}
+[4.330504] (-) TimerEvent: {}
+[4.423496] (robokpy) StdoutLine: {'line': b"removing '/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[4.423979] (robokpy) StdoutLine: {'line': b'Copying ../../build/robokpy/robokpy.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info\n'}
+[4.424518] (robokpy) StdoutLine: {'line': b'running install_scripts\n'}
+[4.430621] (-) TimerEvent: {}
+[4.531091] (-) TimerEvent: {}
+[4.631505] (-) TimerEvent: {}
+[4.731923] (-) TimerEvent: {}
+[4.832701] (-) TimerEvent: {}
+[4.935512] (-) TimerEvent: {}
+[5.038085] (-) TimerEvent: {}
+[5.134947] (robokpy) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy/install.log'\n"}
+[5.138680] (-) TimerEvent: {}
+[5.233234] (robokpy) CommandEnded: {'returncode': 0}
+[5.238849] (-) TimerEvent: {}
+[5.267839] (robokpy) JobEnded: {'identifier': 'robokpy', 'rc': 0}
+[5.328765] (robokpy_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[5.338973] (-) TimerEvent: {}
+[5.414636] (robokpy_interfaces) StdoutLine: {'line': b'writing robokpy_interfaces.egg-info/PKG-INFO\n'}
+[5.415296] (robokpy_interfaces) StdoutLine: {'line': b'writing dependency_links to robokpy_interfaces.egg-info/dependency_links.txt\n'}
+[5.415824] (robokpy_interfaces) StdoutLine: {'line': b'writing top-level names to robokpy_interfaces.egg-info/top_level.txt\n'}
+[5.439085] (-) TimerEvent: {}
+[5.539476] (-) TimerEvent: {}
+[5.639878] (-) TimerEvent: {}
+[5.654348] (robokpy_interfaces) StdoutLine: {'line': b"reading manifest file 'robokpy_interfaces.egg-info/SOURCES.txt'\n"}
+[5.655883] (robokpy_interfaces) StdoutLine: {'line': b"writing manifest file 'robokpy_interfaces.egg-info/SOURCES.txt'\n"}
+[5.715266] (robokpy_interfaces) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_robokpy_interfaces_egg\n'}
+[5.739990] (-) TimerEvent: {}
+[5.840328] (-) TimerEvent: {}
+[5.940706] (-) TimerEvent: {}
+[6.041061] (-) TimerEvent: {}
+[6.141517] (-) TimerEvent: {}
+[6.200725] (robokpy_interfaces) StdoutLine: {'line': b'[  1%] Built target robokpy_interfaces__rosidl_generator_type_description\n'}
+[6.223642] (robokpy_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[6.241635] (-) TimerEvent: {}
+[6.246077] (robokpy_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[6.341772] (-) TimerEvent: {}
+[6.442168] (-) TimerEvent: {}
+[6.542567] (-) TimerEvent: {}
+[6.642955] (-) TimerEvent: {}
+[6.743352] (-) TimerEvent: {}
+[6.843757] (-) TimerEvent: {}
+[6.944144] (-) TimerEvent: {}
+[7.044504] (-) TimerEvent: {}
+[7.144906] (-) TimerEvent: {}
+[7.245286] (-) TimerEvent: {}
+[7.345688] (-) TimerEvent: {}
+[7.446120] (-) TimerEvent: {}
+[7.546576] (-) TimerEvent: {}
+[7.646983] (-) TimerEvent: {}
+[7.747369] (-) TimerEvent: {}
+[7.847763] (-) TimerEvent: {}
+[7.948125] (-) TimerEvent: {}
+[8.048501] (-) TimerEvent: {}
+[8.148882] (-) TimerEvent: {}
+[8.249262] (-) TimerEvent: {}
+[8.349672] (-) TimerEvent: {}
+[8.450046] (-) TimerEvent: {}
+[8.550420] (-) TimerEvent: {}
+[8.650817] (-) TimerEvent: {}
+[8.751214] (-) TimerEvent: {}
+[8.851612] (-) TimerEvent: {}
+[8.951991] (-) TimerEvent: {}
+[9.052372] (-) TimerEvent: {}
+[9.152781] (-) TimerEvent: {}
+[9.253177] (-) TimerEvent: {}
+[9.354501] (-) TimerEvent: {}
+[9.454919] (-) TimerEvent: {}
+[9.555304] (-) TimerEvent: {}
+[9.655700] (-) TimerEvent: {}
+[9.756081] (-) TimerEvent: {}
+[9.856493] (-) TimerEvent: {}
+[9.956932] (-) TimerEvent: {}
+[10.057812] (-) TimerEvent: {}
+[10.160509] (-) TimerEvent: {}
+[10.260955] (-) TimerEvent: {}
+[10.361407] (-) TimerEvent: {}
+[10.431574] (robokpy_interfaces) StdoutLine: {'line': b'[  2%] Built target robokpy_interfaces__cpp\n'}
+[10.461509] (-) TimerEvent: {}
+[10.561858] (-) TimerEvent: {}
+[10.663652] (-) TimerEvent: {}
+[10.764129] (-) TimerEvent: {}
+[10.867116] (-) TimerEvent: {}
+[10.971512] (-) TimerEvent: {}
+[11.073492] (-) TimerEvent: {}
+[11.166275] (robokpy_interfaces) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__type_support.c.o\x1b[0m\n'}
+[11.168343] (robokpy_interfaces) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__functions.c.o\x1b[0m\n'}
+[11.168717] (robokpy_interfaces) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.c.o\x1b[0m\n'}
+[11.169010] (robokpy_interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.c.o\x1b[0m\n'}
+[11.173612] (-) TimerEvent: {}
+[11.276517] (-) TimerEvent: {}
+[11.373804] (robokpy_interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__functions.c.o\x1b[0m\n'}
+[11.376646] (-) TimerEvent: {}
+[11.417636] (robokpy_interfaces) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__type_support.c.o\x1b[0m\n'}
+[11.421518] (robokpy_interfaces) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/fk__description.c.o\x1b[0m\n'}
+[11.476781] (-) TimerEvent: {}
+[11.515498] (robokpy_interfaces) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/fk__functions.c.o\x1b[0m\n'}
+[11.561553] (robokpy_interfaces) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/fk__type_support.c.o\x1b[0m\n'}
+[11.576911] (-) TimerEvent: {}
+[11.604837] (robokpy_interfaces) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/ik__description.c.o\x1b[0m\n'}
+[11.656630] (robokpy_interfaces) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/ik__functions.c.o\x1b[0m\n'}
+[11.677043] (-) TimerEvent: {}
+[11.706714] (robokpy_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/ik__type_support.c.o\x1b[0m\n'}
+[11.777175] (-) TimerEvent: {}
+[11.783165] (robokpy_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__description.c.o\x1b[0m\n'}
+[11.822521] (robokpy_interfaces) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__functions.c.o\x1b[0m\n'}
+[11.853050] (robokpy_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__type_support.c.o\x1b[0m\n'}
+[11.878524] (-) TimerEvent: {}
+[11.980176] (-) TimerEvent: {}
+[12.018613] (robokpy_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__functions.c.o\x1b[0m\n'}
+[12.019326] (robokpy_interfaces) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__description.c.o\x1b[0m\n'}
+[12.081268] (-) TimerEvent: {}
+[12.085396] (robokpy_interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.c.o\x1b[0m\n'}
+[12.154509] (robokpy_interfaces) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__description.c.o\x1b[0m\n'}
+[12.182524] (-) TimerEvent: {}
+[12.227252] (robokpy_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__functions.c.o\x1b[0m\n'}
+[12.229363] (robokpy_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.o\x1b[0m\n'}
+[12.282659] (-) TimerEvent: {}
+[12.313907] (robokpy_interfaces) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__description.c.o\x1b[0m\n'}
+[12.342758] (robokpy_interfaces) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__functions.c.o\x1b[0m\n'}
+[12.379087] (robokpy_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.o\x1b[0m\n'}
+[12.382793] (-) TimerEvent: {}
+[12.486898] (-) TimerEvent: {}
+[12.507585] (robokpy_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__description.c.o\x1b[0m\n'}
+[12.524134] (robokpy_interfaces) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__functions.c.o\x1b[0m\n'}
+[12.529901] (robokpy_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__type_support.c.o\x1b[0m\n'}
+[12.589531] (-) TimerEvent: {}
+[12.622168] (robokpy_interfaces) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/robot_trajectory__description.c.o\x1b[0m\n'}
+[12.670550] (robokpy_interfaces) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/robot_trajectory__functions.c.o\x1b[0m\n'}
+[12.689671] (-) TimerEvent: {}
+[12.705649] (robokpy_interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/robot_trajectory__type_support.c.o\x1b[0m\n'}
+[12.789815] (-) TimerEvent: {}
+[12.812214] (robokpy_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/tool_execution__description.c.o\x1b[0m\n'}
+[12.850899] (robokpy_interfaces) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/tool_execution__functions.c.o\x1b[0m\n'}
+[12.889957] (-) TimerEvent: {}
+[12.991315] (-) TimerEvent: {}
+[13.092108] (-) TimerEvent: {}
+[13.111474] (robokpy_interfaces) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/action/detail/tool_execution__type_support.c.o\x1b[0m\n'}
+[13.192252] (-) TimerEvent: {}
+[13.293729] (-) TimerEvent: {}
+[13.347866] (robokpy_interfaces) StdoutLine: {'line': b'[ 27%] \x1b[32m\x1b[1mLinking C shared library librobokpy_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[13.393918] (-) TimerEvent: {}
+[13.466887] (robokpy_interfaces) StdoutLine: {'line': b'[ 27%] Built target robokpy_interfaces__rosidl_generator_c\n'}
+[13.494104] (-) TimerEvent: {}
+[13.499507] (robokpy_interfaces) StdoutLine: {'line': b'[ 27%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[13.500066] (robokpy_interfaces) StdoutLine: {'line': b'[ 27%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[13.506569] (robokpy_interfaces) StdoutLine: {'line': b'[ 28%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[13.507075] (robokpy_interfaces) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[13.594223] (-) TimerEvent: {}
+[13.694659] (-) TimerEvent: {}
+[13.795073] (-) TimerEvent: {}
+[13.896494] (-) TimerEvent: {}
+[13.996893] (-) TimerEvent: {}
+[14.097297] (-) TimerEvent: {}
+[14.199489] (-) TimerEvent: {}
+[14.299926] (-) TimerEvent: {}
+[14.400360] (-) TimerEvent: {}
+[14.500820] (-) TimerEvent: {}
+[14.602665] (-) TimerEvent: {}
+[14.703132] (-) TimerEvent: {}
+[14.803604] (-) TimerEvent: {}
+[14.904076] (-) TimerEvent: {}
+[15.006671] (-) TimerEvent: {}
+[15.107114] (-) TimerEvent: {}
+[15.207552] (-) TimerEvent: {}
+[15.307939] (-) TimerEvent: {}
+[15.408365] (-) TimerEvent: {}
+[15.511495] (-) TimerEvent: {}
+[15.612279] (-) TimerEvent: {}
+[15.713838] (-) TimerEvent: {}
+[15.814243] (-) TimerEvent: {}
+[15.914666] (-) TimerEvent: {}
+[16.015063] (-) TimerEvent: {}
+[16.115480] (-) TimerEvent: {}
+[16.217493] (-) TimerEvent: {}
+[16.317900] (-) TimerEvent: {}
+[16.418305] (-) TimerEvent: {}
+[16.518734] (-) TimerEvent: {}
+[16.619174] (-) TimerEvent: {}
+[16.721495] (-) TimerEvent: {}
+[16.821895] (-) TimerEvent: {}
+[16.922290] (-) TimerEvent: {}
+[17.025495] (-) TimerEvent: {}
+[17.125901] (-) TimerEvent: {}
+[17.226316] (-) TimerEvent: {}
+[17.326726] (-) TimerEvent: {}
+[17.428502] (-) TimerEvent: {}
+[17.530090] (-) TimerEvent: {}
+[17.632670] (-) TimerEvent: {}
+[17.735608] (-) TimerEvent: {}
+[17.836057] (-) TimerEvent: {}
+[17.938834] (-) TimerEvent: {}
+[18.039641] (-) TimerEvent: {}
+[18.143513] (-) TimerEvent: {}
+[18.164201] (robokpy_interfaces) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp.o\x1b[0m\n'}
+[18.215577] (robokpy_interfaces) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.cpp.o\x1b[0m\n'}
+[18.243634] (-) TimerEvent: {}
+[18.344074] (-) TimerEvent: {}
+[18.410624] (robokpy_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.cpp.o\x1b[0m\n'}
+[18.444194] (-) TimerEvent: {}
+[18.544942] (-) TimerEvent: {}
+[18.592021] (robokpy_interfaces) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/fk__type_support.cpp.o\x1b[0m\n'}
+[18.647502] (-) TimerEvent: {}
+[18.747956] (-) TimerEvent: {}
+[18.766354] (robokpy_interfaces) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/ik__type_support.cpp.o\x1b[0m\n'}
+[18.848087] (-) TimerEvent: {}
+[18.940615] (robokpy_interfaces) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/jacobian__type_support.cpp.o\x1b[0m\n'}
+[18.948211] (-) TimerEvent: {}
+[19.048998] (-) TimerEvent: {}
+[19.115463] (robokpy_interfaces) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.cpp.o\x1b[0m\n'}
+[19.149122] (-) TimerEvent: {}
+[19.250686] (-) TimerEvent: {}
+[19.292878] (robokpy_interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.cpp.o\x1b[0m\n'}
+[19.350806] (-) TimerEvent: {}
+[19.454893] (-) TimerEvent: {}
+[19.485868] (robokpy_interfaces) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.o\x1b[0m\n'}
+[19.556381] (-) TimerEvent: {}
+[19.659349] (-) TimerEvent: {}
+[19.683523] (robokpy_interfaces) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/grasp_attach__type_support.cpp.o\x1b[0m\n'}
+[19.759496] (-) TimerEvent: {}
+[19.809084] (robokpy_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.cpp.o\x1b[0m\n'}
+[19.853719] (robokpy_interfaces) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/robot_trajectory__type_support.cpp.o\x1b[0m\n'}
+[19.859617] (-) TimerEvent: {}
+[19.961629] (-) TimerEvent: {}
+[20.064659] (-) TimerEvent: {}
+[20.142169] (robokpy_interfaces) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/tool_execution__type_support.cpp.o\x1b[0m\n'}
+[20.153562] (robokpy_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.c.o\x1b[0m\n'}
+[20.165511] (-) TimerEvent: {}
+[20.265995] (-) TimerEvent: {}
+[20.335594] (robokpy_interfaces) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.c.o\x1b[0m\n'}
+[20.367516] (-) TimerEvent: {}
+[20.376544] (robokpy_interfaces) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX shared library librobokpy_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[20.467645] (-) TimerEvent: {}
+[20.523545] (robokpy_interfaces) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/fk__type_support.c.o\x1b[0m\n'}
+[20.541834] (robokpy_interfaces) StdoutLine: {'line': b'[ 43%] Built target robokpy_interfaces__rosidl_typesupport_c\n'}
+[20.567775] (-) TimerEvent: {}
+[20.578647] (robokpy_interfaces) StdoutLine: {'line': b'[ 44%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[20.667915] (-) TimerEvent: {}
+[20.760405] (robokpy_interfaces) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/ik__type_support.c.o\x1b[0m\n'}
+[20.771554] (-) TimerEvent: {}
+[20.872035] (-) TimerEvent: {}
+[20.972832] (-) TimerEvent: {}
+[20.994905] (robokpy_interfaces) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/jacobian__type_support.c.o\x1b[0m\n'}
+[21.072962] (-) TimerEvent: {}
+[21.175713] (-) TimerEvent: {}
+[21.200980] (robokpy_interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.c.o\x1b[0m\n'}
+[21.275848] (-) TimerEvent: {}
+[21.376303] (-) TimerEvent: {}
+[21.439750] (robokpy_interfaces) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.o\x1b[0m\n'}
+[21.447195] (robokpy_interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/fk__type_support.cpp.o\x1b[0m\n'}
+[21.477511] (-) TimerEvent: {}
+[21.578349] (-) TimerEvent: {}
+[21.649706] (robokpy_interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.o\x1b[0m\n'}
+[21.678508] (-) TimerEvent: {}
+[21.778991] (-) TimerEvent: {}
+[21.831940] (robokpy_interfaces) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/grasp_attach__type_support.c.o\x1b[0m\n'}
+[21.879115] (-) TimerEvent: {}
+[21.982021] (-) TimerEvent: {}
+[22.017389] (robokpy_interfaces) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/action/detail/robot_trajectory__type_support.c.o\x1b[0m\n'}
+[22.084510] (-) TimerEvent: {}
+[22.184942] (-) TimerEvent: {}
+[22.289500] (-) TimerEvent: {}
+[22.392218] (-) TimerEvent: {}
+[22.494964] (-) TimerEvent: {}
+[22.541839] (robokpy_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/action/detail/tool_execution__type_support.c.o\x1b[0m\n'}
+[22.596760] (-) TimerEvent: {}
+[22.699512] (-) TimerEvent: {}
+[22.799949] (-) TimerEvent: {}
+[22.901555] (-) TimerEvent: {}
+[23.002069] (-) TimerEvent: {}
+[23.032831] (robokpy_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking C shared library librobokpy_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[23.105532] (-) TimerEvent: {}
+[23.131468] (robokpy_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/ik__type_support.cpp.o\x1b[0m\n'}
+[23.208566] (-) TimerEvent: {}
+[23.241484] (robokpy_interfaces) StdoutLine: {'line': b'[ 51%] Built target robokpy_interfaces__rosidl_typesupport_introspection_c\n'}
+[23.271009] (robokpy_interfaces) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/jacobian__type_support.cpp.o\x1b[0m\n'}
+[23.308704] (-) TimerEvent: {}
+[23.406414] (robokpy_interfaces) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.cpp.o\x1b[0m\n'}
+[23.410503] (-) TimerEvent: {}
+[23.510931] (-) TimerEvent: {}
+[23.612525] (-) TimerEvent: {}
+[23.714164] (-) TimerEvent: {}
+[23.818325] (-) TimerEvent: {}
+[23.921111] (-) TimerEvent: {}
+[24.021520] (-) TimerEvent: {}
+[24.121977] (-) TimerEvent: {}
+[24.225516] (-) TimerEvent: {}
+[24.325983] (-) TimerEvent: {}
+[24.426453] (-) TimerEvent: {}
+[24.526927] (-) TimerEvent: {}
+[24.627380] (-) TimerEvent: {}
+[24.727880] (-) TimerEvent: {}
+[24.828400] (-) TimerEvent: {}
+[24.931516] (-) TimerEvent: {}
+[25.010630] (robokpy_interfaces) StdoutLine: {'line': b'[ 54%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[25.031631] (-) TimerEvent: {}
+[25.054003] (robokpy_interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.cpp.o\x1b[0m\n'}
+[25.131753] (-) TimerEvent: {}
+[25.236501] (-) TimerEvent: {}
+[25.336968] (-) TimerEvent: {}
+[25.439592] (-) TimerEvent: {}
+[25.540048] (-) TimerEvent: {}
+[25.631520] (robokpy_interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.cpp.o\x1b[0m\n'}
+[25.640172] (-) TimerEvent: {}
+[25.742875] (-) TimerEvent: {}
+[25.843333] (-) TimerEvent: {}
+[25.944808] (-) TimerEvent: {}
+[26.045327] (-) TimerEvent: {}
+[26.148512] (-) TimerEvent: {}
+[26.248991] (-) TimerEvent: {}
+[26.349418] (-) TimerEvent: {}
+[26.450108] (-) TimerEvent: {}
+[26.553491] (-) TimerEvent: {}
+[26.653894] (-) TimerEvent: {}
+[26.756498] (-) TimerEvent: {}
+[26.856904] (-) TimerEvent: {}
+[26.957363] (-) TimerEvent: {}
+[27.058040] (-) TimerEvent: {}
+[27.159857] (-) TimerEvent: {}
+[27.160926] (robokpy_interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.cpp.o\x1b[0m\n'}
+[27.262503] (-) TimerEvent: {}
+[27.362926] (-) TimerEvent: {}
+[27.466502] (-) TimerEvent: {}
+[27.566930] (-) TimerEvent: {}
+[27.667348] (-) TimerEvent: {}
+[27.767797] (-) TimerEvent: {}
+[27.874377] (-) TimerEvent: {}
+[27.979132] (-) TimerEvent: {}
+[28.081408] (-) TimerEvent: {}
+[28.181825] (-) TimerEvent: {}
+[28.288767] (-) TimerEvent: {}
+[28.325593] (robokpy_interfaces) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/fk__type_support_c.cpp.o\x1b[0m\n'}
+[28.390498] (-) TimerEvent: {}
+[28.492100] (-) TimerEvent: {}
+[28.593725] (-) TimerEvent: {}
+[28.695691] (-) TimerEvent: {}
+[28.798634] (-) TimerEvent: {}
+[28.900499] (-) TimerEvent: {}
+[29.000942] (-) TimerEvent: {}
+[29.105825] (-) TimerEvent: {}
+[29.207386] (-) TimerEvent: {}
+[29.307840] (-) TimerEvent: {}
+[29.409337] (-) TimerEvent: {}
+[29.511671] (-) TimerEvent: {}
+[29.513524] (robokpy_interfaces) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.o\x1b[0m\n'}
+[29.611790] (-) TimerEvent: {}
+[29.712577] (-) TimerEvent: {}
+[29.814509] (-) TimerEvent: {}
+[29.914965] (-) TimerEvent: {}
+[30.015421] (-) TimerEvent: {}
+[30.117587] (-) TimerEvent: {}
+[30.218106] (-) TimerEvent: {}
+[30.318693] (-) TimerEvent: {}
+[30.328876] (robokpy_interfaces) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.cpp.o\x1b[0m\n'}
+[30.418824] (-) TimerEvent: {}
+[30.523517] (-) TimerEvent: {}
+[30.624009] (-) TimerEvent: {}
+[30.724472] (-) TimerEvent: {}
+[30.787494] (robokpy_interfaces) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/ik__type_support_c.cpp.o\x1b[0m\n'}
+[30.824592] (-) TimerEvent: {}
+[30.926200] (-) TimerEvent: {}
+[31.030513] (-) TimerEvent: {}
+[31.130987] (-) TimerEvent: {}
+[31.144830] (robokpy_interfaces) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/grasp_attach__type_support.cpp.o\x1b[0m\n'}
+[31.231121] (-) TimerEvent: {}
+[31.331945] (-) TimerEvent: {}
+[31.432772] (-) TimerEvent: {}
+[31.537045] (-) TimerEvent: {}
+[31.638674] (-) TimerEvent: {}
+[31.740316] (-) TimerEvent: {}
+[31.842659] (-) TimerEvent: {}
+[31.945656] (-) TimerEvent: {}
+[32.047257] (-) TimerEvent: {}
+[32.065581] (robokpy_interfaces) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.cpp.o\x1b[0m\n'}
+[32.147399] (-) TimerEvent: {}
+[32.249285] (-) TimerEvent: {}
+[32.350971] (-) TimerEvent: {}
+[32.451879] (-) TimerEvent: {}
+[32.555940] (-) TimerEvent: {}
+[32.657593] (-) TimerEvent: {}
+[32.752541] (robokpy_interfaces) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/action/robot_trajectory__type_support.cpp.o\x1b[0m\n'}
+[32.757723] (-) TimerEvent: {}
+[32.858173] (-) TimerEvent: {}
+[32.959521] (-) TimerEvent: {}
+[33.036480] (robokpy_interfaces) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.cpp.o\x1b[0m\n'}
+[33.059665] (-) TimerEvent: {}
+[33.099994] (robokpy_interfaces) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/jacobian__type_support_c.cpp.o\x1b[0m\n'}
+[33.160533] (-) TimerEvent: {}
+[33.261668] (-) TimerEvent: {}
+[33.362869] (-) TimerEvent: {}
+[33.464846] (-) TimerEvent: {}
+[33.566525] (-) TimerEvent: {}
+[33.667023] (-) TimerEvent: {}
+[33.769517] (-) TimerEvent: {}
+[33.790237] (robokpy_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.cpp.o\x1b[0m\n'}
+[33.869649] (-) TimerEvent: {}
+[33.970110] (-) TimerEvent: {}
+[34.070913] (-) TimerEvent: {}
+[34.173513] (-) TimerEvent: {}
+[34.273969] (-) TimerEvent: {}
+[34.374443] (-) TimerEvent: {}
+[34.476520] (-) TimerEvent: {}
+[34.576995] (-) TimerEvent: {}
+[34.678516] (-) TimerEvent: {}
+[34.781522] (-) TimerEvent: {}
+[34.882006] (-) TimerEvent: {}
+[34.982499] (-) TimerEvent: {}
+[35.082964] (-) TimerEvent: {}
+[35.184942] (-) TimerEvent: {}
+[35.287523] (-) TimerEvent: {}
+[35.303540] (robokpy_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.cpp.o\x1b[0m\n'}
+[35.387659] (-) TimerEvent: {}
+[35.488110] (-) TimerEvent: {}
+[35.510522] (robokpy_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/fk__type_support.cpp.o\x1b[0m\n'}
+[35.588247] (-) TimerEvent: {}
+[35.659294] (robokpy_interfaces) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/fk__type_support.cpp.o\x1b[0m\n'}
+[35.688383] (-) TimerEvent: {}
+[35.789933] (-) TimerEvent: {}
+[35.892321] (-) TimerEvent: {}
+[35.948022] (robokpy_interfaces) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/action/tool_execution__type_support.cpp.o\x1b[0m\n'}
+[35.992471] (-) TimerEvent: {}
+[36.092934] (-) TimerEvent: {}
+[36.195891] (-) TimerEvent: {}
+[36.296376] (-) TimerEvent: {}
+[36.399521] (-) TimerEvent: {}
+[36.499997] (-) TimerEvent: {}
+[36.600490] (-) TimerEvent: {}
+[36.702889] (-) TimerEvent: {}
+[36.803392] (-) TimerEvent: {}
+[36.906524] (-) TimerEvent: {}
+[37.007003] (-) TimerEvent: {}
+[37.107495] (-) TimerEvent: {}
+[37.208004] (-) TimerEvent: {}
+[37.309950] (-) TimerEvent: {}
+[37.410468] (-) TimerEvent: {}
+[37.484121] (robokpy_interfaces) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.cpp.o\x1b[0m\n'}
+[37.511789] (-) TimerEvent: {}
+[37.537236] (robokpy_interfaces) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/ik__type_support.cpp.o\x1b[0m\n'}
+[37.613517] (-) TimerEvent: {}
+[37.713949] (-) TimerEvent: {}
+[37.815521] (-) TimerEvent: {}
+[37.915998] (-) TimerEvent: {}
+[38.018730] (-) TimerEvent: {}
+[38.124836] (-) TimerEvent: {}
+[38.227769] (-) TimerEvent: {}
+[38.328880] (-) TimerEvent: {}
+[38.429368] (-) TimerEvent: {}
+[38.530648] (-) TimerEvent: {}
+[38.593699] (robokpy_interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/ik__type_support.cpp.o\x1b[0m\n'}
+[38.633527] (-) TimerEvent: {}
+[38.734099] (-) TimerEvent: {}
+[38.810664] (robokpy_interfaces) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library librobokpy_interfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[38.836526] (-) TimerEvent: {}
+[38.936959] (-) TimerEvent: {}
+[39.037479] (-) TimerEvent: {}
+[39.135913] (robokpy_interfaces) StdoutLine: {'line': b'[ 69%] Built target robokpy_interfaces__rosidl_typesupport_cpp\n'}
+[39.137578] (-) TimerEvent: {}
+[39.169605] (robokpy_interfaces) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/jacobian__type_support.cpp.o\x1b[0m\n'}
+[39.237719] (-) TimerEvent: {}
+[39.338228] (-) TimerEvent: {}
+[39.438791] (-) TimerEvent: {}
+[39.544318] (-) TimerEvent: {}
+[39.644872] (-) TimerEvent: {}
+[39.727216] (robokpy_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.cpp.o\x1b[0m\n'}
+[39.745010] (-) TimerEvent: {}
+[39.840490] (robokpy_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/jacobian__type_support.cpp.o\x1b[0m\n'}
+[39.845194] (-) TimerEvent: {}
+[39.945951] (-) TimerEvent: {}
+[40.052521] (-) TimerEvent: {}
+[40.153015] (-) TimerEvent: {}
+[40.253518] (-) TimerEvent: {}
+[40.356521] (-) TimerEvent: {}
+[40.456990] (-) TimerEvent: {}
+[40.559704] (-) TimerEvent: {}
+[40.660251] (-) TimerEvent: {}
+[40.764381] (-) TimerEvent: {}
+[40.872523] (-) TimerEvent: {}
+[40.972994] (-) TimerEvent: {}
+[41.073481] (-) TimerEvent: {}
+[41.173941] (-) TimerEvent: {}
+[41.194362] (robokpy_interfaces) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.cpp.o\x1b[0m\n'}
+[41.274081] (-) TimerEvent: {}
+[41.377872] (-) TimerEvent: {}
+[41.478375] (-) TimerEvent: {}
+[41.578883] (-) TimerEvent: {}
+[41.682728] (-) TimerEvent: {}
+[41.783226] (-) TimerEvent: {}
+[41.873523] (robokpy_interfaces) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.cpp.o\x1b[0m\n'}
+[41.883361] (-) TimerEvent: {}
+[41.930797] (robokpy_interfaces) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/grasp_attach__type_support_c.cpp.o\x1b[0m\n'}
+[41.984598] (-) TimerEvent: {}
+[42.085128] (-) TimerEvent: {}
+[42.185629] (-) TimerEvent: {}
+[42.286126] (-) TimerEvent: {}
+[42.387699] (-) TimerEvent: {}
+[42.490920] (-) TimerEvent: {}
+[42.591399] (-) TimerEvent: {}
+[42.677705] (robokpy_interfaces) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.cpp.o\x1b[0m\n'}
+[42.693629] (-) TimerEvent: {}
+[42.794176] (-) TimerEvent: {}
+[42.894670] (-) TimerEvent: {}
+[42.995148] (-) TimerEvent: {}
+[43.098728] (-) TimerEvent: {}
+[43.199211] (-) TimerEvent: {}
+[43.278872] (robokpy_interfaces) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.cpp.o\x1b[0m\n'}
+[43.299346] (-) TimerEvent: {}
+[43.401922] (-) TimerEvent: {}
+[43.502390] (-) TimerEvent: {}
+[43.602859] (-) TimerEvent: {}
+[43.706527] (-) TimerEvent: {}
+[43.807025] (-) TimerEvent: {}
+[43.907533] (-) TimerEvent: {}
+[44.008378] (-) TimerEvent: {}
+[44.064735] (robokpy_interfaces) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.cpp.o\x1b[0m\n'}
+[44.108516] (-) TimerEvent: {}
+[44.123536] (robokpy_interfaces) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/robot_trajectory__type_support_c.cpp.o\x1b[0m\n'}
+[44.208649] (-) TimerEvent: {}
+[44.309447] (-) TimerEvent: {}
+[44.411697] (-) TimerEvent: {}
+[44.512493] (-) TimerEvent: {}
+[44.614658] (-) TimerEvent: {}
+[44.717535] (-) TimerEvent: {}
+[44.818082] (-) TimerEvent: {}
+[44.921519] (-) TimerEvent: {}
+[45.026530] (-) TimerEvent: {}
+[45.127026] (-) TimerEvent: {}
+[45.227531] (-) TimerEvent: {}
+[45.328324] (-) TimerEvent: {}
+[45.432810] (-) TimerEvent: {}
+[45.533323] (-) TimerEvent: {}
+[45.636524] (-) TimerEvent: {}
+[45.737032] (-) TimerEvent: {}
+[45.842527] (-) TimerEvent: {}
+[45.941653] (robokpy_interfaces) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/grasp_attach__type_support.cpp.o\x1b[0m\n'}
+[45.942609] (-) TimerEvent: {}
+[46.024001] (robokpy_interfaces) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/tool_execution__type_support_c.cpp.o\x1b[0m\n'}
+[46.045524] (-) TimerEvent: {}
+[46.147173] (-) TimerEvent: {}
+[46.247680] (-) TimerEvent: {}
+[46.348198] (-) TimerEvent: {}
+[46.452040] (-) TimerEvent: {}
+[46.552523] (-) TimerEvent: {}
+[46.561853] (robokpy_interfaces) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/action/detail/robot_trajectory__type_support.cpp.o\x1b[0m\n'}
+[46.623500] (robokpy_interfaces) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.cpp.o\x1b[0m\n'}
+[46.652668] (-) TimerEvent: {}
+[46.754362] (-) TimerEvent: {}
+[46.856052] (-) TimerEvent: {}
+[46.957744] (-) TimerEvent: {}
+[47.058254] (-) TimerEvent: {}
+[47.162723] (-) TimerEvent: {}
+[47.263210] (-) TimerEvent: {}
+[47.363741] (-) TimerEvent: {}
+[47.468524] (-) TimerEvent: {}
+[47.569049] (-) TimerEvent: {}
+[47.669527] (-) TimerEvent: {}
+[47.772292] (-) TimerEvent: {}
+[47.783878] (robokpy_interfaces) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/grasp_attach__type_support.cpp.o\x1b[0m\n'}
+[47.873518] (-) TimerEvent: {}
+[47.974002] (-) TimerEvent: {}
+[48.076631] (-) TimerEvent: {}
+[48.178731] (-) TimerEvent: {}
+[48.280368] (-) TimerEvent: {}
+[48.382726] (-) TimerEvent: {}
+[48.484520] (-) TimerEvent: {}
+[48.563018] (robokpy_interfaces) StdoutLine: {'line': b'[ 81%] \x1b[32m\x1b[1mLinking CXX shared library librobokpy_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[48.584655] (-) TimerEvent: {}
+[48.685155] (-) TimerEvent: {}
+[48.785733] (-) TimerEvent: {}
+[48.888755] (-) TimerEvent: {}
+[48.899907] (robokpy_interfaces) StdoutLine: {'line': b'[ 81%] Built target robokpy_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[48.932498] (robokpy_interfaces) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/action/detail/tool_execution__type_support.cpp.o\x1b[0m\n'}
+[48.989517] (-) TimerEvent: {}
+[49.089982] (-) TimerEvent: {}
+[49.163889] (robokpy_interfaces) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/action/detail/dds_fastrtps/robot_trajectory__type_support.cpp.o\x1b[0m\n'}
+[49.190131] (-) TimerEvent: {}
+[49.290650] (-) TimerEvent: {}
+[49.391161] (-) TimerEvent: {}
+[49.493773] (-) TimerEvent: {}
+[49.594267] (-) TimerEvent: {}
+[49.694772] (-) TimerEvent: {}
+[49.795273] (-) TimerEvent: {}
+[49.897931] (-) TimerEvent: {}
+[49.999541] (-) TimerEvent: {}
+[50.100086] (-) TimerEvent: {}
+[50.202524] (-) TimerEvent: {}
+[50.303008] (-) TimerEvent: {}
+[50.331042] (robokpy_interfaces) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/action/detail/dds_fastrtps/tool_execution__type_support.cpp.o\x1b[0m\n'}
+[50.404521] (-) TimerEvent: {}
+[50.504989] (-) TimerEvent: {}
+[50.606551] (-) TimerEvent: {}
+[50.709533] (-) TimerEvent: {}
+[50.810096] (-) TimerEvent: {}
+[50.918525] (-) TimerEvent: {}
+[51.019062] (-) TimerEvent: {}
+[51.119852] (-) TimerEvent: {}
+[51.222500] (-) TimerEvent: {}
+[51.325620] (-) TimerEvent: {}
+[51.426170] (-) TimerEvent: {}
+[51.529240] (-) TimerEvent: {}
+[51.581832] (robokpy_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking CXX shared library librobokpy_interfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[51.629545] (-) TimerEvent: {}
+[51.730560] (-) TimerEvent: {}
+[51.834344] (-) TimerEvent: {}
+[51.934863] (-) TimerEvent: {}
+[51.947092] (robokpy_interfaces) StdoutLine: {'line': b'[ 84%] Built target robokpy_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[52.035008] (-) TimerEvent: {}
+[52.135488] (-) TimerEvent: {}
+[52.235940] (-) TimerEvent: {}
+[52.336393] (-) TimerEvent: {}
+[52.436879] (-) TimerEvent: {}
+[52.537357] (-) TimerEvent: {}
+[52.637851] (-) TimerEvent: {}
+[52.738326] (-) TimerEvent: {}
+[52.838801] (-) TimerEvent: {}
+[52.939262] (-) TimerEvent: {}
+[53.039729] (-) TimerEvent: {}
+[53.140176] (-) TimerEvent: {}
+[53.240670] (-) TimerEvent: {}
+[53.262923] (robokpy_interfaces) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking CXX shared library librobokpy_interfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[53.340792] (-) TimerEvent: {}
+[53.441209] (-) TimerEvent: {}
+[53.503244] (robokpy_interfaces) StdoutLine: {'line': b'[ 85%] Built target robokpy_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[53.541333] (robokpy_interfaces) StdoutLine: {'line': b'[ 85%] Built target robokpy_interfaces\n'}
+[53.541655] (-) TimerEvent: {}
+[53.583845] (robokpy_interfaces) StdoutLine: {'line': b'[ 86%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[53.641787] (-) TimerEvent: {}
+[53.742191] (-) TimerEvent: {}
+[53.842622] (-) TimerEvent: {}
+[53.943072] (-) TimerEvent: {}
+[54.043503] (-) TimerEvent: {}
+[54.143895] (-) TimerEvent: {}
+[54.244298] (-) TimerEvent: {}
+[54.344725] (-) TimerEvent: {}
+[54.445113] (-) TimerEvent: {}
+[54.545548] (-) TimerEvent: {}
+[54.645932] (-) TimerEvent: {}
+[54.746318] (-) TimerEvent: {}
+[54.846730] (-) TimerEvent: {}
+[54.947119] (-) TimerEvent: {}
+[55.047500] (-) TimerEvent: {}
+[55.147901] (-) TimerEvent: {}
+[55.248227] (-) TimerEvent: {}
+[55.348507] (-) TimerEvent: {}
+[55.448826] (-) TimerEvent: {}
+[55.549149] (-) TimerEvent: {}
+[55.649509] (-) TimerEvent: {}
+[55.749883] (-) TimerEvent: {}
+[55.850260] (-) TimerEvent: {}
+[55.950616] (-) TimerEvent: {}
+[56.050963] (-) TimerEvent: {}
+[56.151315] (-) TimerEvent: {}
+[56.251657] (-) TimerEvent: {}
+[56.351992] (-) TimerEvent: {}
+[56.452320] (-) TimerEvent: {}
+[56.552663] (-) TimerEvent: {}
+[56.652998] (-) TimerEvent: {}
+[56.753352] (-) TimerEvent: {}
+[56.853698] (-) TimerEvent: {}
+[56.954025] (-) TimerEvent: {}
+[57.054370] (-) TimerEvent: {}
+[57.154705] (-) TimerEvent: {}
+[57.255025] (-) TimerEvent: {}
+[57.355346] (-) TimerEvent: {}
+[57.455681] (-) TimerEvent: {}
+[57.555993] (-) TimerEvent: {}
+[57.656362] (-) TimerEvent: {}
+[57.756735] (-) TimerEvent: {}
+[57.857093] (-) TimerEvent: {}
+[57.957470] (-) TimerEvent: {}
+[58.057830] (-) TimerEvent: {}
+[58.158191] (-) TimerEvent: {}
+[58.258509] (-) TimerEvent: {}
+[58.358878] (-) TimerEvent: {}
+[58.459304] (-) TimerEvent: {}
+[58.559729] (-) TimerEvent: {}
+[58.660124] (-) TimerEvent: {}
+[58.760508] (-) TimerEvent: {}
+[58.860880] (-) TimerEvent: {}
+[58.961252] (-) TimerEvent: {}
+[59.061674] (-) TimerEvent: {}
+[59.162064] (-) TimerEvent: {}
+[59.262471] (-) TimerEvent: {}
+[59.362860] (-) TimerEvent: {}
+[59.463266] (-) TimerEvent: {}
+[59.563662] (-) TimerEvent: {}
+[59.664031] (-) TimerEvent: {}
+[59.764407] (-) TimerEvent: {}
+[59.864798] (-) TimerEvent: {}
+[59.965173] (-) TimerEvent: {}
+[60.065569] (-) TimerEvent: {}
+[60.165979] (-) TimerEvent: {}
+[60.266395] (-) TimerEvent: {}
+[60.366816] (-) TimerEvent: {}
+[60.467198] (-) TimerEvent: {}
+[60.567568] (-) TimerEvent: {}
+[60.667966] (-) TimerEvent: {}
+[60.768710] (-) TimerEvent: {}
+[60.869117] (-) TimerEvent: {}
+[60.882209] (robokpy_interfaces) StdoutLine: {'line': b'[ 86%] Built target robokpy_interfaces__py\n'}
+[60.955550] (robokpy_interfaces) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.c.o\x1b[0m\n'}
+[60.955963] (robokpy_interfaces) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.c.o\x1b[0m\n'}
+[60.956257] (robokpy_interfaces) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_fk_s.c.o\x1b[0m\n'}
+[60.958176] (robokpy_interfaces) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_ik_s.c.o\x1b[0m\n'}
+[60.969265] (-) TimerEvent: {}
+[61.072660] (-) TimerEvent: {}
+[61.173158] (-) TimerEvent: {}
+[61.273644] (-) TimerEvent: {}
+[61.374127] (-) TimerEvent: {}
+[61.474617] (-) TimerEvent: {}
+[61.561638] (robokpy_interfaces) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_jacobian_s.c.o\x1b[0m\n'}
+[61.574750] (-) TimerEvent: {}
+[61.586719] (robokpy_interfaces) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.o\x1b[0m\n'}
+[61.674884] (-) TimerEvent: {}
+[61.755636] (robokpy_interfaces) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.o\x1b[0m\n'}
+[61.775023] (-) TimerEvent: {}
+[61.779039] (robokpy_interfaces) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.o\x1b[0m\n'}
+[61.877526] (-) TimerEvent: {}
+[61.978035] (-) TimerEvent: {}
+[62.078506] (-) TimerEvent: {}
+[62.178996] (-) TimerEvent: {}
+[62.282944] (-) TimerEvent: {}
+[62.307535] (robokpy_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c.o\x1b[0m\n'}
+[62.383090] (-) TimerEvent: {}
+[62.411489] (robokpy_interfaces) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_robot_trajectory_s.c.o\x1b[0m\n'}
+[62.420108] (robokpy_interfaces) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_tool_execution_s.c.o\x1b[0m\n'}
+[62.483323] (-) TimerEvent: {}
+[62.585996] (-) TimerEvent: {}
+[62.686465] (-) TimerEvent: {}
+[62.786925] (-) TimerEvent: {}
+[62.887374] (-) TimerEvent: {}
+[62.987836] (-) TimerEvent: {}
+[63.088200] (-) TimerEvent: {}
+[63.107903] (robokpy_interfaces) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library librobokpy_interfaces__rosidl_generator_py.so\x1b[0m\n'}
+[63.188328] (-) TimerEvent: {}
+[63.214726] (robokpy_interfaces) StdoutLine: {'line': b'[ 95%] Built target robokpy_interfaces__rosidl_generator_py\n'}
+[63.278712] (robokpy_interfaces) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[63.283637] (robokpy_interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[63.285847] (robokpy_interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[63.288552] (-) TimerEvent: {}
+[63.389005] (-) TimerEvent: {}
+[63.491694] (-) TimerEvent: {}
+[63.592155] (-) TimerEvent: {}
+[63.692635] (-) TimerEvent: {}
+[63.793066] (-) TimerEvent: {}
+[63.893525] (-) TimerEvent: {}
+[63.997169] (-) TimerEvent: {}
+[64.101769] (-) TimerEvent: {}
+[64.202224] (-) TimerEvent: {}
+[64.249979] (robokpy_interfaces) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[64.302367] (-) TimerEvent: {}
+[64.356672] (robokpy_interfaces) StdoutLine: {'line': b'[ 98%] Built target robokpy_interfaces_s__rosidl_typesupport_c\n'}
+[64.389286] (robokpy_interfaces) StdoutLine: {'line': b'[ 99%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[64.402517] (-) TimerEvent: {}
+[64.406504] (robokpy_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[64.461876] (robokpy_interfaces) StdoutLine: {'line': b'[100%] Built target robokpy_interfaces_s__rosidl_typesupport_introspection_c\n'}
+[64.481068] (robokpy_interfaces) StdoutLine: {'line': b'[100%] Built target robokpy_interfaces_s__rosidl_typesupport_fastrtps_c\n'}
+[64.502641] (-) TimerEvent: {}
+[64.506669] (robokpy_interfaces) CommandEnded: {'returncode': 0}
+[64.602755] (-) TimerEvent: {}
+[64.703094] (-) TimerEvent: {}
+[64.803495] (-) TimerEvent: {}
+[64.903875] (-) TimerEvent: {}
+[65.004202] (-) TimerEvent: {}
+[65.036772] (robokpy_interfaces) JobProgress: {'identifier': 'robokpy_interfaces', 'progress': 'install'}
+[65.053712] (robokpy_interfaces) Command: {'cmd': ['/bin/cmake', '--install', '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces'], 'cwd': '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2804-3-meta-Inspiron-3542_TIME456892', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2468', 'SYSTEMD_EXEC_PID': '2804', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '6951', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install:/home/meta/Documents/robotics_workspace/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:22088', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2767,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2767', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'b366c0b6ed0245a8b3bfaf329e9c14c2', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:49952133-c710-474c-9266-3338ca521720', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy'}), 'shell': False}
+[65.071262] (robokpy_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[65.071677] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/ament_index/resource_index/rosidl_interfaces/robokpy_interfaces\n'}
+[65.071985] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ExecutionState.json\n'}
+[65.072228] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SystemMode.json\n'}
+[65.072678] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/FK.json\n'}
+[65.073064] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/IK.json\n'}
+[65.073596] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Jacobian.json\n'}
+[65.073948] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Reachable.json\n'}
+[65.074334] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ChainFK.json\n'}
+[65.074737] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SetPlanningTipLink.json\n'}
+[65.075122] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/GraspAttach.json\n'}
+[65.075682] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/RobotTrajectory.json\n'}
+[65.076063] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/ToolExecution.json\n'}
+[65.076400] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.076753] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.076913] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/set_planning_tip_link.h\n'}
+[65.077177] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/execution_state.h\n'}
+[65.077444] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/ik.h\n'}
+[65.077705] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/system_mode.h\n'}
+[65.077935] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/fk.h\n'}
+[65.078179] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.078500] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__struct.h\n'}
+[65.078739] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__struct.h\n'}
+[65.079016] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__functions.h\n'}
+[65.079374] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__type_support.c\n'}
+[65.079711] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__functions.h\n'}
+[65.080063] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__struct.h\n'}
+[65.080381] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__description.c\n'}
+[65.080758] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__functions.h\n'}
+[65.081159] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__functions.h\n'}
+[65.081501] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__functions.c\n'}
+[65.081889] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__type_support.h\n'}
+[65.082179] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__type_support.h\n'}
+[65.082488] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__description.c\n'}
+[65.082850] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__functions.c\n'}
+[65.083209] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.h\n'}
+[65.083585] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__functions.h\n'}
+[65.083939] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__type_support.c\n'}
+[65.084254] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__description.c\n'}
+[65.084664] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__functions.h\n'}
+[65.085017] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__struct.h\n'}
+[65.085306] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h\n'}
+[65.085627] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__type_support.c\n'}
+[65.085955] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__description.c\n'}
+[65.086305] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__type_support.c\n'}
+[65.086710] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__functions.c\n'}
+[65.087063] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__type_support.c\n'}
+[65.087389] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c\n'}
+[65.087774] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__description.c\n'}
+[65.088103] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__struct.h\n'}
+[65.088394] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__type_support.h\n'}
+[65.088715] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__struct.h\n'}
+[65.089016] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__functions.c\n'}
+[65.089369] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__functions.h\n'}
+[65.089759] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__type_support.h\n'}
+[65.090071] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__functions.c\n'}
+[65.090447] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__type_support.c\n'}
+[65.090775] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__description.c\n'}
+[65.091123] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__functions.c\n'}
+[65.091505] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__functions.c\n'}
+[65.091910] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__type_support.c\n'}
+[65.092218] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__type_support.h\n'}
+[65.092564] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__description.c\n'}
+[65.092913] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__type_support.h\n'}
+[65.093230] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__functions.c\n'}
+[65.093649] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__functions.c\n'}
+[65.094026] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__description.c\n'}
+[65.094379] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__struct.h\n'}
+[65.094760] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__type_support.c\n'}
+[65.095080] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__type_support.h\n'}
+[65.095459] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__description.c\n'}
+[65.095803] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__struct.h\n'}
+[65.096083] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__functions.h\n'}
+[65.096446] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__type_support.h\n'}
+[65.096823] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__functions.h\n'}
+[65.097297] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/grasp_attach.h\n'}
+[65.097702] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/reachable.h\n'}
+[65.097945] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/chain_fk.h\n'}
+[65.098203] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/jacobian.h\n'}
+[65.098506] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.098738] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/robot_trajectory.h\n'}
+[65.099024] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.099331] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__type_support.h\n'}
+[65.099605] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__type_support.h\n'}
+[65.099862] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__description.c\n'}
+[65.100162] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__functions.h\n'}
+[65.100622] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__functions.c\n'}
+[65.101042] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__type_support.c\n'}
+[65.101317] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__struct.h\n'}
+[65.101598] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__functions.h\n'}
+[65.102008] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__description.c\n'}
+[65.102418] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__type_support.c\n'}
+[65.102710] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__functions.c\n'}
+[65.103119] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__struct.h\n'}
+[65.103412] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/tool_execution.h\n'}
+[65.103706] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg\n'}
+[65.103978] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[65.104244] (-) TimerEvent: {}
+[65.104405] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/library_path.sh\n'}
+[65.104694] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/library_path.dsv\n'}
+[65.105094] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_generator_c.so\n'}
+[65.107805] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_generator_c.so" to ""\n'}
+[65.109078] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.109704] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.110036] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.110269] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__rosidl_typesupport_fastrtps_c.h\n'}
+[65.110569] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__rosidl_typesupport_fastrtps_c.h\n'}
+[65.110743] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__rosidl_typesupport_fastrtps_c.h\n'}
+[65.110949] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__rosidl_typesupport_fastrtps_c.h\n'}
+[65.111154] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__rosidl_typesupport_fastrtps_c.h\n'}
+[65.111395] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__rosidl_typesupport_fastrtps_c.h\n'}
+[65.111647] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__rosidl_typesupport_fastrtps_c.h\n'}
+[65.111797] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__rosidl_typesupport_fastrtps_c.h\n'}
+[65.112026] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__rosidl_typesupport_fastrtps_c.h\n'}
+[65.112297] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.112575] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.112742] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__rosidl_typesupport_fastrtps_c.h\n'}
+[65.112995] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__rosidl_typesupport_fastrtps_c.h\n'}
+[65.113253] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg\n'}
+[65.113393] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[65.113733] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[65.115897] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[65.116394] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.116591] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.116778] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.117029] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__type_support.c\n'}
+[65.117231] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__rosidl_typesupport_introspection_c.h\n'}
+[65.117495] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__type_support.c\n'}
+[65.117677] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__rosidl_typesupport_introspection_c.h\n'}
+[65.117914] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__type_support.c\n'}
+[65.118171] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__rosidl_typesupport_introspection_c.h\n'}
+[65.118512] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__rosidl_typesupport_introspection_c.h\n'}
+[65.118826] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__type_support.c\n'}
+[65.119202] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__type_support.c\n'}
+[65.119624] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c\n'}
+[65.119950] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__rosidl_typesupport_introspection_c.h\n'}
+[65.120272] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__type_support.c\n'}
+[65.120647] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__rosidl_typesupport_introspection_c.h\n'}
+[65.120965] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__type_support.c\n'}
+[65.121327] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__type_support.c\n'}
+[65.121734] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__rosidl_typesupport_introspection_c.h\n'}
+[65.122036] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__rosidl_typesupport_introspection_c.h\n'}
+[65.122347] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__rosidl_typesupport_introspection_c.h\n'}
+[65.122692] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.123025] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.123218] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__rosidl_typesupport_introspection_c.h\n'}
+[65.123455] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__rosidl_typesupport_introspection_c.h\n'}
+[65.123672] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__type_support.c\n'}
+[65.123940] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__type_support.c\n'}
+[65.124394] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg\n'}
+[65.124656] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[65.125033] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[65.126973] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[65.127397] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_c.so\n'}
+[65.128805] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[65.129199] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.129365] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.129617] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/system_mode.hpp\n'}
+[65.129764] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/set_planning_tip_link.hpp\n'}
+[65.130022] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/execution_state.hpp\n'}
+[65.130278] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/jacobian.hpp\n'}
+[65.130519] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/grasp_attach.hpp\n'}
+[65.130762] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.131019] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__struct.hpp\n'}
+[65.131266] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__struct.hpp\n'}
+[65.131644] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__type_support.hpp\n'}
+[65.131984] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__type_support.hpp\n'}
+[65.132298] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__type_support.hpp\n'}
+[65.132653] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__type_support.hpp\n'}
+[65.132969] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__struct.hpp\n'}
+[65.133330] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__traits.hpp\n'}
+[65.133689] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__struct.hpp\n'}
+[65.134040] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__type_support.hpp\n'}
+[65.134367] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__struct.hpp\n'}
+[65.134746] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__traits.hpp\n'}
+[65.135094] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__type_support.hpp\n'}
+[65.135413] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__traits.hpp\n'}
+[65.135795] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__type_support.hpp\n'}
+[65.136120] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__traits.hpp\n'}
+[65.136472] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__builder.hpp\n'}
+[65.136830] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__builder.hpp\n'}
+[65.137148] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.hpp\n'}
+[65.137456] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__struct.hpp\n'}
+[65.137797] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__traits.hpp\n'}
+[65.138130] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__builder.hpp\n'}
+[65.138465] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__traits.hpp\n'}
+[65.138833] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__type_support.hpp\n'}
+[65.139152] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__traits.hpp\n'}
+[65.139490] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__builder.hpp\n'}
+[65.139838] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__builder.hpp\n'}
+[65.140157] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__builder.hpp\n'}
+[65.140504] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__builder.hpp\n'}
+[65.140830] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__builder.hpp\n'}
+[65.141157] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__struct.hpp\n'}
+[65.141538] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__traits.hpp\n'}
+[65.141889] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__builder.hpp\n'}
+[65.142226] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__struct.hpp\n'}
+[65.142625] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__traits.hpp\n'}
+[65.142947] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.hpp\n'}
+[65.143309] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/ik.hpp\n'}
+[65.143616] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/reachable.hpp\n'}
+[65.143918] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/fk.hpp\n'}
+[65.144220] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/chain_fk.hpp\n'}
+[65.144557] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.144811] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/robot_trajectory.hpp\n'}
+[65.145059] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/tool_execution.hpp\n'}
+[65.145310] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.145582] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__type_support.hpp\n'}
+[65.145791] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__struct.hpp\n'}
+[65.145993] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__builder.hpp\n'}
+[65.146266] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__struct.hpp\n'}
+[65.146636] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__type_support.hpp\n'}
+[65.146914] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__traits.hpp\n'}
+[65.147250] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__traits.hpp\n'}
+[65.147624] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__builder.hpp\n'}
+[65.147926] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg\n'}
+[65.148201] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[65.148473] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.148789] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.148956] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.149103] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.149345] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.149595] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.149859] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.150202] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.150590] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.150978] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.151303] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/dds_fastrtps\n'}
+[65.151563] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.151886] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.152222] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.152519] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.152756] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.153004] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[65.153206] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/dds_fastrtps\n'}
+[65.153467] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg\n'}
+[65.153689] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[65.153947] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[65.191800] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[65.192385] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces\n'}
+[65.192617] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv\n'}
+[65.192828] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail\n'}
+[65.193024] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.193276] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/ik__type_support.cpp\n'}
+[65.193559] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__type_support.cpp\n'}
+[65.193727] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.193978] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__type_support.cpp\n'}
+[65.194229] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/system_mode__type_support.cpp\n'}
+[65.194588] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.cpp\n'}
+[65.194988] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.195338] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/jacobian__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.195716] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.196015] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__type_support.cpp\n'}
+[65.196404] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.196758] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/grasp_attach__type_support.cpp\n'}
+[65.197149] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/execution_state__type_support.cpp\n'}
+[65.197590] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/set_planning_tip_link__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.197897] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/reachable__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.198228] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/fk__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.198606] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/srv/detail/chain_fk__type_support.cpp\n'}
+[65.198968] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action\n'}
+[65.199261] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail\n'}
+[65.199547] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.199725] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__rosidl_typesupport_introspection_cpp.hpp\n'}
+[65.199976] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/tool_execution__type_support.cpp\n'}
+[65.200197] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces/robokpy_interfaces/action/detail/robot_trajectory__type_support.cpp\n'}
+[65.201083] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[65.204350] (-) TimerEvent: {}
+[65.205624] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[65.206350] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_cpp.so\n'}
+[65.210777] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[65.211235] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/pythonpath.sh\n'}
+[65.211561] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/pythonpath.dsv\n'}
+[65.211755] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces-0.0.0-py3.12.egg-info\n'}
+[65.211963] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[65.212226] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[65.212507] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[65.212730] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[65.212991] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces\n'}
+[65.213242] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv\n'}
+[65.213507] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_jacobian.py\n'}
+[65.213719] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_grasp_attach_s.c\n'}
+[65.213967] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_execution_state_s.c\n'}
+[65.214183] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_fk_s.c\n'}
+[65.214511] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_reachable_s.c\n'}
+[65.214872] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_fk.py\n'}
+[65.215314] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_execution_state.py\n'}
+[65.215721] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_jacobian_s.c\n'}
+[65.216022] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_system_mode.py\n'}
+[65.216364] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_chain_fk.py\n'}
+[65.216747] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_reachable.py\n'}
+[65.217104] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_system_mode_s.c\n'}
+[65.217454] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_ik_s.c\n'}
+[65.217850] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/__init__.py\n'}
+[65.218141] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_ik.py\n'}
+[65.218526] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_grasp_attach.py\n'}
+[65.218873] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_set_planning_tip_link_s.c\n'}
+[65.219209] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_set_planning_tip_link.py\n'}
+[65.219635] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_chain_fk_s.c\n'}
+[65.219993] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_c.so\n'}
+[65.220611] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[65.221373] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action\n'}
+[65.221640] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_tool_execution.py\n'}
+[65.222023] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_robot_trajectory.py\n'}
+[65.222415] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_tool_execution_s.c\n'}
+[65.222792] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/__init__.py\n'}
+[65.223054] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_robot_trajectory_s.c\n'}
+[65.223390] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[65.224045] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[65.224900] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[65.225517] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/__init__.py\n'}
+[65.225817] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[65.304492] (-) TimerEvent: {}
+[65.405642] (-) TimerEvent: {}
+[65.445535] (robokpy_interfaces) StdoutLine: {'line': b"Listing '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces'...\n"}
+[65.446013] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/__init__.py'...\n"}
+[65.446322] (robokpy_interfaces) StdoutLine: {'line': b"Listing '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action'...\n"}
+[65.446656] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/__init__.py'...\n"}
+[65.446949] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_robot_trajectory.py'...\n"}
+[65.447229] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/action/_tool_execution.py'...\n"}
+[65.447534] (robokpy_interfaces) StdoutLine: {'line': b"Listing '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv'...\n"}
+[65.447831] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/__init__.py'...\n"}
+[65.448111] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_chain_fk.py'...\n"}
+[65.448394] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_execution_state.py'...\n"}
+[65.448720] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_fk.py'...\n"}
+[65.449057] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_grasp_attach.py'...\n"}
+[65.449338] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_ik.py'...\n"}
+[65.449661] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_jacobian.py'...\n"}
+[65.449943] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_reachable.py'...\n"}
+[65.450211] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_set_planning_tip_link.py'...\n"}
+[65.450540] (robokpy_interfaces) StdoutLine: {'line': b"Compiling '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/srv/_system_mode.py'...\n"}
+[65.461826] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[65.462856] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[65.463491] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[65.464471] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[65.465071] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_c.so\n'}
+[65.466060] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages/robokpy_interfaces/robokpy_interfaces_s__rosidl_typesupport_c.so" to ""\n'}
+[65.466623] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_generator_py.so\n'}
+[65.468079] (robokpy_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/librobokpy_interfaces__rosidl_generator_py.so" to ""\n'}
+[65.468552] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ExecutionState.idl\n'}
+[65.468975] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SystemMode.idl\n'}
+[65.469356] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/FK.idl\n'}
+[65.469763] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/IK.idl\n'}
+[65.470155] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Jacobian.idl\n'}
+[65.470504] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Reachable.idl\n'}
+[65.470815] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ChainFK.idl\n'}
+[65.471153] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SetPlanningTipLink.idl\n'}
+[65.471473] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/GraspAttach.idl\n'}
+[65.471917] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/RobotTrajectory.idl\n'}
+[65.472240] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/ToolExecution.idl\n'}
+[65.472672] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ExecutionState.srv\n'}
+[65.473039] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SystemMode.srv\n'}
+[65.473355] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/FK.srv\n'}
+[65.473757] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/IK.srv\n'}
+[65.474060] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Jacobian.srv\n'}
+[65.474387] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/Reachable.srv\n'}
+[65.474732] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/ChainFK.srv\n'}
+[65.475038] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/SetPlanningTipLink.srv\n'}
+[65.475461] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/srv/GraspAttach.srv\n'}
+[65.475862] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/RobotTrajectory.action\n'}
+[65.476225] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/action/ToolExecution.action\n'}
+[65.476628] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include\n'}
+[65.476927] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/include/robokpy_interfaces\n'}
+[65.477255] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/ament_index/resource_index/package_run_dependencies/robokpy_interfaces\n'}
+[65.477605] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/ament_index/resource_index/parent_prefix_path/robokpy_interfaces\n'}
+[65.477948] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/ament_prefix_path.sh\n'}
+[65.478236] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/ament_prefix_path.dsv\n'}
+[65.478591] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/path.sh\n'}
+[65.478878] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/environment/path.dsv\n'}
+[65.479230] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/local_setup.bash\n'}
+[65.479602] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/local_setup.sh\n'}
+[65.479932] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/local_setup.zsh\n'}
+[65.480208] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/local_setup.dsv\n'}
+[65.480583] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.dsv\n'}
+[65.480886] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/ament_index/resource_index/packages/robokpy_interfaces\n'}
+[65.481187] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_cExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_cExport-noconfig.cmake].\n'}
+[65.481549] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_cExport.cmake\n'}
+[65.481920] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[65.482217] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake].\n'}
+[65.482631] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[65.482918] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[65.483212] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake].\n'}
+[65.483572] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[65.483875] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[65.484220] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cExport-noconfig.cmake].\n'}
+[65.484625] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[65.484920] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[65.485230] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_cppExport.cmake\n'}
+[65.485604] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake].\n'}
+[65.485907] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[65.486210] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[65.486573] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cppExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake].\n'}
+[65.486933] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[65.487233] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[65.487618] (robokpy_interfaces) StdoutLine: {'line': b'-- Old export file "/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cppExport.cmake" will be replaced.  Removing files [/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cppExport-noconfig.cmake].\n'}
+[65.488001] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[65.488302] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[65.488707] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_pyExport.cmake\n'}
+[65.489000] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/export_robokpy_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[65.489357] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[65.489724] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[65.490033] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[65.490448] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[65.490877] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[65.491220] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[65.491527] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[65.491838] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfacesConfig.cmake\n'}
+[65.492115] (robokpy_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/cmake/robokpy_interfacesConfig-version.cmake\n'}
+[65.492366] (robokpy_interfaces) StdoutLine: {'line': b'-- Installing: /home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.xml\n'}
+[65.495389] (robokpy_interfaces) CommandEnded: {'returncode': 0}
+[65.506327] (-) TimerEvent: {}
+[65.606730] (-) TimerEvent: {}
+[65.707082] (-) TimerEvent: {}
+[65.807497] (-) TimerEvent: {}
+[65.907998] (-) TimerEvent: {}
+[66.008322] (-) TimerEvent: {}
+[66.061112] (robokpy_interfaces) JobEnded: {'identifier': 'robokpy_interfaces', 'rc': 0}
+[66.063560] (robokpy_controller) JobStarted: {'identifier': 'robokpy_controller'}
+[66.108474] (-) TimerEvent: {}
+[66.208864] (-) TimerEvent: {}
+[66.309245] (-) TimerEvent: {}
+[66.409623] (-) TimerEvent: {}
+[66.509942] (-) TimerEvent: {}
+[66.610297] (-) TimerEvent: {}
+[66.710681] (-) TimerEvent: {}
+[66.811063] (-) TimerEvent: {}
+[66.911487] (-) TimerEvent: {}
+[67.011896] (-) TimerEvent: {}
+[67.112322] (-) TimerEvent: {}
+[67.216328] (-) TimerEvent: {}
+[67.316755] (-) TimerEvent: {}
+[67.417215] (-) TimerEvent: {}
+[67.517949] (-) TimerEvent: {}
+[67.618488] (-) TimerEvent: {}
+[67.719189] (-) TimerEvent: {}
+[67.819913] (-) TimerEvent: {}
+[67.922511] (-) TimerEvent: {}
+[68.022970] (-) TimerEvent: {}
+[68.123319] (-) TimerEvent: {}
+[68.223689] (-) TimerEvent: {}
+[68.324036] (-) TimerEvent: {}
+[68.424376] (-) TimerEvent: {}
+[68.524747] (-) TimerEvent: {}
+[68.625126] (-) TimerEvent: {}
+[68.725532] (-) TimerEvent: {}
+[68.747037] (robokpy_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/robokpy_controller', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2804-3-meta-Inspiron-3542_TIME456892', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2468', 'SYSTEMD_EXEC_PID': '2804', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '6951', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install:/home/meta/Documents/robotics_workspace/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:22088', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2767,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2767', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'b366c0b6ed0245a8b3bfaf329e9c14c2', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace/install/robokpy_controller:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:49952133-c710-474c-9266-3338ca521720', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace/install/robokpy_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[68.825634] (-) TimerEvent: {}
+[68.925984] (-) TimerEvent: {}
+[69.026319] (-) TimerEvent: {}
+[69.126648] (-) TimerEvent: {}
+[69.226981] (-) TimerEvent: {}
+[69.327320] (-) TimerEvent: {}
+[69.427745] (-) TimerEvent: {}
+[69.528097] (-) TimerEvent: {}
+[69.610886] (robokpy_controller) StdoutLine: {'line': b'running egg_info\n'}
+[69.628213] (-) TimerEvent: {}
+[69.691146] (robokpy_controller) StdoutLine: {'line': b'writing ../../build/robokpy_controller/robokpy_controller.egg-info/PKG-INFO\n'}
+[69.691792] (robokpy_controller) StdoutLine: {'line': b'writing dependency_links to ../../build/robokpy_controller/robokpy_controller.egg-info/dependency_links.txt\n'}
+[69.692710] (robokpy_controller) StdoutLine: {'line': b'writing entry points to ../../build/robokpy_controller/robokpy_controller.egg-info/entry_points.txt\n'}
+[69.693109] (robokpy_controller) StdoutLine: {'line': b'writing requirements to ../../build/robokpy_controller/robokpy_controller.egg-info/requires.txt\n'}
+[69.693446] (robokpy_controller) StdoutLine: {'line': b'writing top-level names to ../../build/robokpy_controller/robokpy_controller.egg-info/top_level.txt\n'}
+[69.728327] (-) TimerEvent: {}
+[69.828659] (-) TimerEvent: {}
+[69.853581] (robokpy_controller) StdoutLine: {'line': b"reading manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'\n"}
+[69.857803] (robokpy_controller) StdoutLine: {'line': b"writing manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'\n"}
+[69.858517] (robokpy_controller) StdoutLine: {'line': b'running build\n'}
+[69.858870] (robokpy_controller) StdoutLine: {'line': b'running build_py\n'}
+[69.859921] (robokpy_controller) StdoutLine: {'line': b'running install\n'}
+[69.872738] (robokpy_controller) StdoutLine: {'line': b'running install_lib\n'}
+[69.928783] (-) TimerEvent: {}
+[69.952069] (robokpy_controller) StdoutLine: {'line': b'running install_data\n'}
+[69.953856] (robokpy_controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[70.028913] (-) TimerEvent: {}
+[70.035703] (robokpy_controller) StdoutLine: {'line': b"removing '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[70.036453] (robokpy_controller) StdoutLine: {'line': b'Copying ../../build/robokpy_controller/robokpy_controller.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info\n'}
+[70.038243] (robokpy_controller) StdoutLine: {'line': b'running install_scripts\n'}
+[70.129033] (-) TimerEvent: {}
+[70.229452] (-) TimerEvent: {}
+[70.329867] (-) TimerEvent: {}
+[70.430279] (-) TimerEvent: {}
+[70.491907] (robokpy_controller) StdoutLine: {'line': b'Installing cnc_machine_tending script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.492415] (robokpy_controller) StdoutLine: {'line': b'Installing cnc_test script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.492824] (robokpy_controller) StdoutLine: {'line': b'Installing gripper_mimic_action_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.493215] (robokpy_controller) StdoutLine: {'line': b'Installing kinematic_solver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.493603] (robokpy_controller) StdoutLine: {'line': b'Installing kinematics_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.493994] (robokpy_controller) StdoutLine: {'line': b'Installing motion_controller script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.494372] (robokpy_controller) StdoutLine: {'line': b'Installing motion_planner script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.494748] (robokpy_controller) StdoutLine: {'line': b'Installing pick_place_task script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.495121] (robokpy_controller) StdoutLine: {'line': b'Installing pose_target_interface script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.495499] (robokpy_controller) StdoutLine: {'line': b'Installing robot_command_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.495906] (robokpy_controller) StdoutLine: {'line': b'Installing robot_description_viewer script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.496275] (robokpy_controller) StdoutLine: {'line': b'Installing robot_state_interface_virtual script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.496646] (robokpy_controller) StdoutLine: {'line': b'Installing robot_state_manager script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.497019] (robokpy_controller) StdoutLine: {'line': b'Installing sequence_publisher script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.497385] (robokpy_controller) StdoutLine: {'line': b'Installing tool_manager script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.497777] (robokpy_controller) StdoutLine: {'line': b'Installing trajectory_plotter script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[70.498788] (robokpy_controller) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log'\n"}
+[70.530440] (-) TimerEvent: {}
+[70.562042] (robokpy_controller) CommandEnded: {'returncode': 0}
+[70.573274] (robokpy_controller) JobEnded: {'identifier': 'robokpy_controller', 'rc': 0}
+[70.574925] (-) EventReactorShutdown: {}

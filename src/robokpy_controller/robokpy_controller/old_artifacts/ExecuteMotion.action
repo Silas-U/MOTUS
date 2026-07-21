@@ -1,0 +1,27 @@
+# Goal — ONE step's target, generated just-in-time by motion_planner
+# using the exact same create_trajectory(waypoints=[start,end], ...)
+# pattern it already uses for every single move. blend_radius is
+# author-set per step (matches the existing SegmentConfig field) —
+# no look-ahead target needed; create_trajectory already handles
+# blending given just this step's blend_radius/n_blend.
+string step_id
+uint8 JOINT_TARGET=0
+uint8 POSE_TARGET=1
+uint8 target_type
+float64[] target_joints          # used if target_type == JOINT_TARGET
+geometry_msgs/Pose target_pose    # used if target_type == POSE_TARGET
+
+string traj_method                # 'js' | 'ts'
+string traj_type                  # 'lspb' | 'blend' | etc — matches SegmentConfig
+float64 blend_radius
+float64 speed_scale
+---
+# Result
+bool success
+uint32 error_code
+sensor_msgs/JointState final_state
+builtin_interfaces/Duration actual_duration
+---
+# Feedback — plain progress on this one step.
+float32 percent_complete
+sensor_msgs/JointState current_state

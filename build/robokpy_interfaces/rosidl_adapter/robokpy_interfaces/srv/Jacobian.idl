@@ -1,0 +1,51 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/Jacobian.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct Jacobian_Request {
+      @verbatim (language="comment", text=
+        "joint angles in radians")
+      sequence<double> q;
+    };
+    struct Jacobian_Response {
+      @verbatim (language="comment", text=
+        "Response")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "flattened 6xn Jacobian (row-major: 6*n floats)")
+      sequence<double> jacobian_flat;
+
+      @verbatim (language="comment", text=
+        "always 6")
+      int32 rows;
+
+      @verbatim (language="comment", text=
+        "n = num_active_joints")
+      int32 cols;
+
+      @verbatim (language="comment", text=
+        "Yoshikawa manipulability measure")
+      double manipulability;
+
+      @verbatim (language="comment", text=
+        "SVD condition number")
+      double condition_number;
+
+      @verbatim (language="comment", text=
+        "matrix rank")
+      int32 rank;
+
+      @verbatim (language="comment", text=
+        "true if manipulability < threshold")
+      boolean is_near_singular;
+
+      string message;
+    };
+  };
+};

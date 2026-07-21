@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robokpy_interfaces/action/SetJointTarget.action
+// generated code does not contain a copyright notice
+
+#include "sensor_msgs/msg/JointState.idl"
+
+module robokpy_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal — raw joint control. Manual/teach use only (calibration, jogging," "\n"
+      "full override) — never reachable from a recipe step.")
+    struct SetJointTarget_Goal {
+      sequence<double> target_joints;
+
+      double speed_scale;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct SetJointTarget_Result {
+      boolean success;
+
+      uint32 error_code;
+
+      sensor_msgs::msg::JointState final_state;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct SetJointTarget_Feedback {
+      float percent_complete;
+
+      sensor_msgs::msg::JointState current_state;
+    };
+  };
+};

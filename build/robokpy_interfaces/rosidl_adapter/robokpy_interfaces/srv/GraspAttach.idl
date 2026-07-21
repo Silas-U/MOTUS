@@ -1,0 +1,41 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/GraspAttach.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct GraspAttach_Request {
+      @verbatim (language="comment", text=
+        "model owning parent_link")
+      string parent_model;
+
+      string parent_link;
+
+      @verbatim (language="comment", text=
+        "empty => auto-detect")
+      string child_model;
+
+      @verbatim (language="comment", text=
+        "empty => auto-detect")
+      string child_link;
+
+      boolean attach;
+
+      @verbatim (language="comment", text=
+        "only used when attach=false")
+      uint32 joint_id;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct GraspAttach_Response {
+      boolean success;
+
+      string message;
+
+      uint32 joint_id;
+    };
+  };
+};

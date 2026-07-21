@@ -1,0 +1,53 @@
+[3.025s] Invoking command in '/home/meta/Documents/robotics_workspace_new/src/robokpy': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data
+[3.938s] running egg_info
+[3.939s] creating ../../build/robokpy/robokpy.egg-info
+[4.020s] writing ../../build/robokpy/robokpy.egg-info/PKG-INFO
+[4.021s] writing dependency_links to ../../build/robokpy/robokpy.egg-info/dependency_links.txt
+[4.021s] writing requirements to ../../build/robokpy/robokpy.egg-info/requires.txt
+[4.022s] writing top-level names to ../../build/robokpy/robokpy.egg-info/top_level.txt
+[4.022s] writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+[4.187s] reading manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+[4.189s] writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+[4.189s] running build
+[4.190s] running build_py
+[4.190s] creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build
+[4.191s] creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib
+[4.191s] creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.191s] copying robokpy/jacobian.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.192s] copying robokpy/ik.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.192s] copying robokpy/trajectory.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.192s] copying robokpy/model.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.193s] copying robokpy/try.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.193s] copying robokpy/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.193s] copying robokpy/fk.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.194s] copying robokpy/Init_Model.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+[4.194s] running install
+[4.209s] running install_lib
+[4.291s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.292s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/jacobian.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.292s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/ik.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.292s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/trajectory.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.293s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/model.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.293s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/try.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.294s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.294s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/fk.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.294s] copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/Init_Model.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+[4.295s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/jacobian.py to jacobian.cpython-312.pyc
+[4.299s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/ik.py to ik.cpython-312.pyc
+[4.303s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/trajectory.py to trajectory.cpython-312.pyc
+[4.322s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/model.py to model.cpython-312.pyc
+[4.326s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/try.py to try.cpython-312.pyc
+[4.327s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/__init__.py to __init__.cpython-312.pyc
+[4.328s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/fk.py to fk.cpython-312.pyc
+[4.333s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/Init_Model.py to Init_Model.cpython-312.pyc
+[4.334s] running install_data
+[4.335s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index
+[4.335s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index
+[4.336s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index/packages
+[4.336s] copying resource/robokpy -> /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index/packages
+[4.336s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy
+[4.337s] running install_egg_info
+[4.429s] Copying ../../build/robokpy/robokpy.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info
+[4.432s] running install_scripts
+[4.934s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy/install.log'
+[5.004s] Invoked command in '/home/meta/Documents/robotics_workspace_new/src/robokpy' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robokpy_interfaces/action/ToolExecution.action
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal: Peripheral tool activation")
+    struct ToolExecution_Goal {
+      string tool_id;
+
+      string command;
+
+      double timeout_duration;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct ToolExecution_Result {
+      boolean success;
+
+      string status_message;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct ToolExecution_Feedback {
+      double percent_complete;
+    };
+  };
+};

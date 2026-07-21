@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/SystemMode.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    struct SystemMode_Request {
+      string new_mode;
+    };
+    struct SystemMode_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

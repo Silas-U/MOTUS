@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_fk_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_fk_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_ik_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_ik_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_jacobian_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_jacobian_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.c.o.d"
+  "librobokpy_interfaces__rosidl_generator_py.pdb"
+  "librobokpy_interfaces__rosidl_generator_py.so"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

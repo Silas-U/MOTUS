@@ -1,0 +1,31 @@
+# Goal — one or more legs executed as ONE continuous JTC trajectory.
+# Only the LAST leg ends at zero velocity (a genuine stop); every
+# intermediate leg blends into the next via its own blend_radius,
+# exactly like a hand-authored multi-segment trajectory — this is what
+# lets a chain of consecutive recipe steps (e.g. traverse -> descend)
+# move as one continuous path instead of stopping at every step.
+# All legs are pose targets — recipe MoveSteps are pose-only by design
+# (raw joint targets are a separate, non-scriptable capability via
+# joint_jog_server), so there is no joint-targeted leg variant here.
+string[] leg_step_ids
+geometry_msgs/Pose[] leg_target_poses
+string[] leg_traj_methods
+string[] leg_traj_types
+float64[] leg_blend_radii   # blend INTO the next leg; last entry always forced to 0.0 by the orchestrator
+float64 speed_scale
+---
+# Result
+bool success
+uint32 error_code
+sensor_msgs/JointState final_state
+builtin_interfaces/Duration actual_duration
+string failed_leg_step_id   # which leg was in progress when a failure occurred; empty on success
+---
+# Feedback — reports which leg is CURRENTLY executing and progress
+# WITHIN that leg specifically (not the whole merged run), so a
+# progress(step_id, threshold) dependency on any leg — first, middle,
+# or last — keeps its original, unchanged meaning regardless of how
+# many steps got merged around it.
+string current_leg_step_id
+float32 leg_percent_complete
+sensor_msgs/JointState current_state

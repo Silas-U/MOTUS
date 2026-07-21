@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robokpy_interfaces/action/ExecuteToolOp.action
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct ExecuteToolOp_Goal {
+      string tool_id;
+
+      @verbatim (language="comment", text=
+        "e.g. open/close/set_do/grasp/release")
+      string command;
+
+      sequence<double> params;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct ExecuteToolOp_Result {
+      boolean success;
+
+      uint32 error_code;
+
+      string final_state;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct ExecuteToolOp_Feedback {
+      @verbatim (language="comment", text=
+        "MOVING/STALLED/HANDSHAKING")
+      string status;
+
+      float percent_complete;
+    };
+  };
+};

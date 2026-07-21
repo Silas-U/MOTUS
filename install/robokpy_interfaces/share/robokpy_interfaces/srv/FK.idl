@@ -1,0 +1,45 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/FK.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct FK_Request {
+      @verbatim (language="comment", text=
+        "joint angles in radians (length = num_active_joints)")
+      sequence<double> q;
+
+      @verbatim (language="comment", text=
+        "if true, return all intermediate link transforms")
+      boolean include_tf_tree;
+    };
+    typedef double double__7[7];
+    typedef double double__6[6];
+    struct FK_Response {
+      @verbatim (language="comment", text=
+        "Response")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "[x, y, z, qx, qy, qz, qw]")
+      double__7 pose;
+
+      @verbatim (language="comment", text=
+        "[x, y, z, roll, pitch, yaw] in radians")
+      double__6 pose_euler;
+
+      @verbatim (language="comment", text=
+        "flattened 4x4 transforms (16 floats per link, row-major)")
+      sequence<double> tf_tree_flat;
+
+      @verbatim (language="comment", text=
+        "number of transforms in tf_tree_flat")
+      int32 num_links;
+
+      string message;
+    };
+  };
+};
