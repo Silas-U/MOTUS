@@ -77,6 +77,9 @@ CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/r
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/GraspAttach.srv
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/ResumeExecution.srv
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/LoadRecipe.srv
+CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/SpawnObject.srv
+CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/DespawnObject.srv
+CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/ResolveObjectPose.srv
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/msg/CellState.msg
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteMotion.action
 CMakeFiles/robokpy_interfaces: /home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteToolOp.action

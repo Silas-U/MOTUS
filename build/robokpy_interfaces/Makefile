@@ -850,6 +850,78 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.s
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.s
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.i: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.s: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.o: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.i: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.s: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s: rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+
 rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.c.o
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.o
 
@@ -1354,6 +1426,78 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.c.s
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.c.s
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.i: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.s: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.o: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.i: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.s: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s: rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+
 rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.c.o
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.o
 
@@ -1497,6 +1641,78 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_sup
 rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.i: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.s: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.o: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.i: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.s: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.c.s
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s: rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_c.dir/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
+.PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.o: rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.c.o
 .PHONY : rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.o
@@ -1786,6 +2002,30 @@ rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.s
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c.s
 
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.o: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.o
+
+# target to build an object file
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o
+
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.i: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i
+
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.s: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s
+
 rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.o: rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.c.o
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.o
 
@@ -1954,6 +2194,30 @@ rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.s
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c.s
 
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.o: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.o
+
+# target to build an object file
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o
+
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.i: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i
+
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.s: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s
+
 rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.o: rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c.o
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.o
 
@@ -2001,6 +2265,30 @@ rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.s: rosidl_ge
 rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.s
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c.s
+
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.o: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.o
+
+# target to build an object file
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o
+
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.i: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i
+
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.s: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s
+.PHONY : rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s
 
 rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.o: rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.c.o
 .PHONY : rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.o
@@ -2170,6 +2458,30 @@ rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.cpp.s
 
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.i: rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.s: rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp.o
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.o
 
@@ -2338,6 +2650,30 @@ rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.cpp.s
 
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.i: rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.s: rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+
 rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.cpp.o
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.o
 
@@ -2385,6 +2721,30 @@ rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.
 rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s
+
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.i: rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.s: rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
 
 rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.o: rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.cpp.o
 .PHONY : rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.o
@@ -2554,6 +2914,30 @@ rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.cpp.s
 
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.o
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.i: rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.i
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.s: rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.cpp.s
+
 rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.cpp.o
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.o
 
@@ -2722,6 +3106,30 @@ rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.cpp.s
 
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.o
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.i: rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.i
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.s: rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.cpp.s
+
 rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.cpp.o
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.o
 
@@ -2769,6 +3177,30 @@ rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_suppor
 rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.cpp.s
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.o
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.i: rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.i
+
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.s: rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.cpp.s
 
 rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.o: rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.cpp.o
 .PHONY : rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.o
@@ -2938,6 +3370,30 @@ rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_suppo
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.cpp.s
 
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.i: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.s: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.cpp.s
+
 rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.o
 
@@ -3106,6 +3562,30 @@ rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_supp
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.cpp.s
 
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.i: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.s: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.cpp.s
+
 rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.o
 
@@ -3153,6 +3633,30 @@ rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_lin
 rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.cpp.s
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.i: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.s: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.cpp.s
 
 rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.o: rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.o
@@ -3322,6 +3826,30 @@ rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.cpp.s
 
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.i: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.s: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.cpp.s
+
 rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.o
 
@@ -3490,6 +4018,30 @@ rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reach
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.cpp.s
 
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.i: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.s: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.cpp.s
+
 rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.o
 
@@ -3537,6 +4089,30 @@ rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_p
 rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.cpp.s
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.i: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.s: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.cpp.s
 
 rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.o: rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.cpp.o
 .PHONY : rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.o
@@ -3706,6 +4282,30 @@ rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.c.s
 
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.o
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.i
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.c.s
+
 rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.c.o
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.o
 
@@ -3874,6 +4474,30 @@ rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.c.s
 
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.o
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.i
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.c.s
+
 rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.c.o
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.o
 
@@ -3921,6 +4545,30 @@ rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_ti
 rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.c.s
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.o
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.i
+
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.c.s
 
 rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.o: rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.c.o
 .PHONY : rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.o
@@ -4090,6 +4738,30 @@ rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__typ
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.cpp.s
 
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.i: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.s: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.cpp.s
+
 rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.cpp.o
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.o
 
@@ -4258,6 +4930,30 @@ rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__ty
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.cpp.s
 
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.cpp.s
+
 rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.cpp.o
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.o
 
@@ -4305,6 +5001,30 @@ rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_
 rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.cpp.s
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.i: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.s: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robokpy_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.cpp.s
 
 rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.o: rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.cpp.o
 .PHONY : rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.o
@@ -4416,6 +5136,15 @@ help:
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__description.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__description.s"
@@ -4479,6 +5208,15 @@ help:
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__description.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__description.s"
@@ -4497,6 +5235,15 @@ help:
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__description.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.s"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i"
+	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.o"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.i"
 	@echo "... rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__description.s"
@@ -4533,6 +5280,9 @@ help:
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.s"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.o"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.i"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.s"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.s"
@@ -4554,12 +5304,18 @@ help:
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.s"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.o"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.i"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.s"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.s"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.s"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.o"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.i"
+	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.s"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.o"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.i"
 	@echo "... rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.s"
@@ -4581,6 +5337,9 @@ help:
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/chain_fk__type_support.s"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.o"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.i"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/despawn_object__type_support.s"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.s"
@@ -4602,12 +5361,18 @@ help:
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/reachable__type_support.s"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.o"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.i"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resolve_object_pose__type_support.s"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/resume_execution__type_support.s"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.o"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.i"
+	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/spawn_object__type_support.s"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.o"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.i"
 	@echo "... rosidl_typesupport_c/robokpy_interfaces/srv/system_mode__type_support.s"
@@ -4629,6 +5394,9 @@ help:
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/chain_fk__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/despawn_object__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/execution_state__type_support.s"
@@ -4650,12 +5418,18 @@ help:
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/reachable__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resolve_object_pose__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/resume_execution__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/spawn_object__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robokpy_interfaces/srv/system_mode__type_support.s"
@@ -4677,6 +5451,9 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/chain_fk__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/despawn_object__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/execution_state__type_support_c.s"
@@ -4698,12 +5475,18 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/reachable__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/resume_execution__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/spawn_object__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robokpy_interfaces/srv/detail/system_mode__type_support_c.s"
@@ -4725,6 +5508,9 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/chain_fk__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/despawn_object__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/execution_state__type_support.s"
@@ -4746,12 +5532,18 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/reachable__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resolve_object_pose__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/resume_execution__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/spawn_object__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robokpy_interfaces/srv/detail/dds_fastrtps/system_mode__type_support.s"
@@ -4773,6 +5565,9 @@ help:
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/chain_fk__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/despawn_object__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/execution_state__type_support.s"
@@ -4794,12 +5589,18 @@ help:
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/reachable__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/resume_execution__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/spawn_object__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robokpy_interfaces/srv/detail/system_mode__type_support.s"
@@ -4821,6 +5622,9 @@ help:
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/execution_state__type_support.s"
@@ -4842,12 +5646,18 @@ help:
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/reachable__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/resume_execution__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robokpy_interfaces/srv/detail/system_mode__type_support.s"

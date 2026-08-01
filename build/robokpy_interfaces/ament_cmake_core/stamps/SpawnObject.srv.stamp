@@ -1,0 +1,25 @@
+# Request
+# type_id must match an entry in objects.yaml's object_types (e.g.
+# "cube_small", "cube_large") — the spawner picks the first free
+# instance slot of this type from the bounded catalog pool and
+# generates its SDF automatically. Pose is given directly rather than
+# as geometry_msgs/Pose so this stays a plain-field .srv consistent
+# with the rest of the interfaces in this package (GraspAttach.srv,
+# ExecuteToolOp.action) — no nested message dependency needed.
+string   type_id
+float64  x
+float64  y
+float64  z
+float64  qx
+float64  qy
+float64  qz
+float64  qw
+
+---
+# Response
+bool     success
+string   message
+string   child_model   # the actual catalog instance name assigned
+                        # (e.g. "cube_small_3") — empty on failure.
+                        # Callers need this to later despawn or to
+                        # pass into GraspAttach.srv's child_model field.

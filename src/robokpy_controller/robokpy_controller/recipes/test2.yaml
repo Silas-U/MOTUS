@@ -1,0 +1,184 @@
+recipe_id: grasp_attach_pipeline_test_v1
+
+# End-to-end smoke test for everything built this session:
+#   spawn (object_spawner) -> tool attach (GraspAttachBackend manual
+#   path + GraspAttach.srv bridge + DetachableJoint) -> place ->
+#   release -> despawn (object_spawner)
+#
+# Vision is intentionally OUT of this recipe for now: no real vision
+# node exists yet (still just a foundation/mimic), so grip_close_a
+# uses GraspAttachBackend's manual attach path (command:
+# "attach:<child_model>") instead of from_vision_step, bypassing
+# object_pose_resolver entirely. This recipe validates the mechanical
+# spawn->pick->place->despawn pipeline only, not vision resolution —
+# swap grip_close_a back to from_vision_step (see this file's git
+# history / earlier version) once a real vision backend exists.
+#
+# ASSUMPTIONS worth checking before running:
+#   - grip_close_a hardcodes child_model "cube_small_1" — see its own
+#     comment for why, and the known limitation (breaks on a second
+#     run without restarting object_spawner).
+#   - all three new .srv files + all four new nodes need to actually
+#     be built/running (grasp_attach_bridge, object_spawner,
+#     object_pose_resolver, plus tool_action_server's updated
+#     GraspAttachBackend) for this to run for real — see motus.md
+#     for the remaining build steps.
+
+steps:
+
+# ============================================================================
+# INITIALIZATION
+# ============================================================================
+
+- id: move_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  # Waits on spawn_target so the pick motion never starts until the
+  # object is actually spawned AND settled (spawn_object now blocks
+  # internally on a confirmed detach — see object_spawner.py — but
+  # nothing previously forced the DAG itself to wait for that before
+  # dispatching this chain). Added here rather than on traverse_to_a
+  # so every OTHER edge in the merged move_home->traverse_to_a->
+  # descend_pick_a chain stays a single plain dependency, unchanged —
+  # only the chain's first node gets the extra wait.
+  depends_on: [spawn_target]
+
+# ============================================================================
+# SPAWN
+# ============================================================================
+
+- id: spawn_target
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.10
+  # Resting height on the bare floor: cube_small is a 0.03m box
+  # (objects.yaml), so its center sits at half that above the ground
+  # plane (z=0) once settled. No table/support surface exists in
+  # motus_world.sdf yet — spawning at a mid-air height (was 0.15,
+  # assuming a ~13cm table) meant the cube free-fell before the arm
+  # ever got there. Revisit this once a real table model is added.
+  z: 0.015
+  qw: 1.0
+  depends_on: []
+
+# ============================================================================
+# PICK (STATION A)
+# ============================================================================
+
+- id: traverse_to_a
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  depends_on: [move_home]
+
+- id: descend_pick_a
+  type: move
+  traj_method: ts
+  target_pose:
+    # z is wrist_3_link's IK target, NOT the finger pads' contact
+    # height — target_pose has no TCP offset applied yet (see
+    # kinematic_solver.py, not yet reviewed for this). Measured via
+    # `gz model -m ur_robot -l`: fingertip-pad midpoint sits ~0.1045m
+    # below wrist_3_link's own origin when pointing straight down
+    # (this recipe's orientation, qy=1). Cube floor-resting height is
+    # z=0.015 (see spawn_target), so wrist_3_link needs to stop at
+    # 0.015 + 0.1045 = 0.1195 for the actual pads to reach the cube.
+    # x/y offset between wrist_3_link and the fingertip midpoint is
+    # sub-millimeter — gripper is coaxial with the wrist, no lateral
+    # correction needed.
+    {x: 0.40, y: 0.10, z: 0.1195, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  speed_scale: 0.50
+  depends_on: [traverse_to_a]
+
+- id: grip_close_a
+  type: tool
+  tool_id: grasp_attach_1
+  # Manual attach path (bypasses object_pose_resolver/vision entirely —
+  # see GraspAttachBackend's two supported paths). "cube_small_1" is
+  # hardcoded rather than threaded from spawn_target's result: this
+  # recipe only ever spawns one instance, and ObjectCatalog always
+  # hands out the first free slot, so on a fresh launch this is
+  # deterministic. KNOWN LIMITATION: this breaks if the recipe is run
+  # twice without restarting object_spawner (in_use tracking would
+  # hand out cube_small_2 on the second run) — fine for this smoke
+  # test, not something to copy into a real multi-run recipe without
+  # a proper from_spawn_step-style result-threading link for ToolStep
+  # (which doesn't exist yet — only SpawnStep's despawn has that).
+  command: "attach:cube_small_1"
+  recovery: abort
+  max_retries: 2
+  depends_on:
+    - {progress: descend_pick_a, threshold: 0.90}
+
+- id: retract_a
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  depends_on: [grip_close_a]
+
+# ============================================================================
+# PLACE (STATION B)
+# ============================================================================
+
+- id: traverse_to_b
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  depends_on: [retract_a]
+
+- id: descend_place_b
+  type: move
+  traj_method: ts
+  target_pose:
+    # Same wrist_3_link-to-fingertip offset correction as
+    # descend_pick_a — see its comment for the derivation.
+    {x: 0.40, y: -0.30, z: 0.1195, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  speed_scale: 0.50
+  depends_on: [traverse_to_b]
+
+- id: release_b
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on:
+    - {progress: descend_place_b, threshold: 0.90}
+
+- id: retract_b
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  recovery: hold_for_operator
+  depends_on: [release_b]
+
+# ============================================================================
+# CLEANUP
+# ============================================================================
+
+- id: despawn_target
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target
+  depends_on: [spawn_target, release_b]
+
+- id: return_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  depends_on: [retract_b]

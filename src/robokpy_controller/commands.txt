@@ -5,3 +5,20 @@ ros2 param set /pose_target_interface teach_session_override new_pick_recipe
 
 # Go back to auto-following whatever recipe is loaded
 ros2 param set /pose_target_interface teach_session_override ""
+
+
+- id: locate_a
+  type: vision
+  vision_id: cam1
+  operation: locate_part
+  depends_on: []
+
+- id: grip_close_a
+  type: tool
+  tool_id: grasp_attach_1
+  command: attach
+  from_vision_step: locate_a
+  depends_on: [locate_a]
+
+pkill -9 -f "ros2|gz sim|robokpy_controller"
+ros2 daemon stop && ros2 daemon start

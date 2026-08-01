@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/DespawnObject.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request" "\n"
+      "The exact catalog instance name returned by a prior SpawnObject" "\n"
+      "call (e.g. \"cube_small_3\") — not a type_id. Despawning targets one" "\n"
+      "specific instance, not \"any instance of this type\", since multiple" "\n"
+      "instances of the same type may be spawned simultaneously.")
+    struct DespawnObject_Request {
+      string child_model;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct DespawnObject_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

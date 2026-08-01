@@ -693,6 +693,19 @@ class MotionPlanner(Node):
             # ever have zero exit velocity.
             blend_radius = goal.leg_blend_radii[i] if i < n_legs - 1 else 0.0
 
+            # Also force a real stop at any boundary where traj_method
+            # changes (e.g. js -> ts). Each leg's exit/entry velocity is
+            # computed independently by _generate_leg with no knowledge
+            # of the adjacent leg — js (joint-space interpolation) and ts
+            # (Cartesian-space + IK) produce unrelated joint-space
+            # velocity vectors at the seam, so blending across a
+            # traj_method change is a real kink, not a smooth corner.
+            # TODO: replace with explicit velocity-continuity enforcement
+            # across the seam (match leg i's exit joint-velocity to leg
+            # i+1's entry joint-velocity) instead of just flattening it.
+            if i < n_legs - 1 and goal.leg_traj_methods[i + 1] != traj_method:
+                blend_radius = 0.0
+
             p = goal.leg_target_poses[i]
             target_pose_arr = np.array([
                 p.position.x, p.position.y, p.position.z,

@@ -1,0 +1,19 @@
+[7.914s] Invoking command in '/home/meta/Documents/robotics_workspace_new/src/robokpy': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data
+[11.150s] running egg_info
+[11.413s] writing ../../build/robokpy/robokpy.egg-info/PKG-INFO
+[11.413s] writing dependency_links to ../../build/robokpy/robokpy.egg-info/dependency_links.txt
+[11.414s] writing requirements to ../../build/robokpy/robokpy.egg-info/requires.txt
+[11.414s] writing top-level names to ../../build/robokpy/robokpy.egg-info/top_level.txt
+[12.001s] reading manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+[12.008s] writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+[12.009s] running build
+[12.009s] running build_py
+[12.025s] running install
+[12.078s] running install_lib
+[12.352s] running install_data
+[12.353s] running install_egg_info
+[12.424s] removing '/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info' (and everything under it)
+[12.426s] Copying ../../build/robokpy/robokpy.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info
+[12.430s] running install_scripts
+[13.917s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy/install.log'
+[14.058s] Invoked command in '/home/meta/Documents/robotics_workspace_new/src/robokpy' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data

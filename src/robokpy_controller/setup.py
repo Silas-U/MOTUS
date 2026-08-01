@@ -21,6 +21,9 @@ glob('launch/*.launch.py')),
     (os.path.join('share', package_name, 'config'),
 glob('config/*.rviz') + glob('config/*.yaml')),
 
+    (os.path.join('share', package_name, 'data_files'),
+glob('data_files/*.rviz') + glob('data_files/*.yaml')),
+
     (os.path.join('share', package_name, 'urdf'),
 glob('urdf/*.urdf')),
 
@@ -67,6 +70,9 @@ entry_points={
 'virtual_jog_relay = robokpy_controller.virtual_jog_relay:main',
 'safety_bridge = robokpy_controller.safety_bridge:main',
 'joint_jog_server = robokpy_controller.joint_jog_server:main',
+'grasp_attach_bridge = robokpy_controller.grasp_attach_bridge:main',
+'object_spawner = robokpy_controller.object_spawner:main',
+'object_pose_resolver = robokpy_controller.object_pose_resolver:main',
         ],
     },
 )

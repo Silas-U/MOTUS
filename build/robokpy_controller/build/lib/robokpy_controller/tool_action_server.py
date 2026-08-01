@@ -29,6 +29,14 @@
 #                   gz_ros2_control's native mimic support. No
 #                   max_effort/stall feedback; fire-and-forget position
 #                   command.
+#   'grasp_attach'  — sim-only pick backend calling GraspAttach.srv to
+#                   weld/un-weld a target object to the gripper's
+#                   parent_link. Vision-driven: params=[x,y,z(,max_distance)]
+#                   resolved to a child_model via object_pose_resolver's
+#                   /resolve_object_pose service. Manual/primitive:
+#                   command "attach:<child_model>" bypasses the resolver.
+#                   Detach targets the joint_id returned by the prior
+#                   attach call.
 #
 # Tool configuration is loaded from the 'tools' ROS2 parameter
 # which is a JSON string defining each tool's backend and settings.
@@ -73,10 +81,11 @@ from sensor_msgs.msg import JointState
 import json
 import time
 import asyncio
+import inspect
 import threading
 from typing import Optional, Dict, Any, Callable
 from rclpy.task import Future
-from robokpy_interfaces.srv import GraspAttach
+from robokpy_interfaces.srv import GraspAttach, ResolveObjectPose
 from robokpy_interfaces.action import ExecuteToolOp
 
 
@@ -136,13 +145,24 @@ def _future_with_timeout(node: Node, future, timeout_sec: float):
 async def _wait_for_server_async(node: Node, client, timeout_sec: float,
                                   poll_period: float = 0.05) -> bool:
     """Non-blocking equivalent of client.wait_for_server(timeout_sec=...)
-    — polls client.server_is_ready() via a repeating node timer instead
-    of blocking a thread. No executor thread is held while waiting."""
+    — polls readiness via a repeating node timer instead of blocking a
+    thread. No executor thread is held while waiting.
+
+    Shared between rclpy.action.ActionClient instances (readiness via
+    server_is_ready()) and plain node.create_client(...) service Client
+    instances (readiness via service_is_ready() — no server_is_ready()
+    method exists on that class). Both are passed through this same
+    helper (see call sites), so it has to support both rather than
+    assuming one."""
+    is_service_client = hasattr(client, 'service_is_ready')
+
     fut = Future()
     state = {'elapsed': 0.0}
 
     def _poll():
-        if client.server_is_ready():
+        ready = (client.service_is_ready() if is_service_client
+                  else client.server_is_ready())
+        if ready:
             state['timer'].cancel()
             state['timer'].destroy()
             if not fut.done():
@@ -805,6 +825,325 @@ class ModbusBackend(ToolBackend):
             self._client.close()
 
 
+# ── Sim grasp/attach backend (GraspAttach.srv) ────────────
+
+class GraspAttachBackend(ToolBackend):
+    """
+    Grasp/release backend for simulated picking. Calls the GraspAttach
+    service to weld/un-weld a target object (child_model/child_link)
+    to the gripper's parent_link, matching GraspAttach.srv exactly:
+
+        request:  parent_model, parent_link, child_model, child_link,
+                  attach, joint_id (only used when attach=false)
+        response: success, message, joint_id
+
+    Detach is by joint_id (returned from the prior attach call), not
+    by name — so only one object can be held per backend instance at
+    a time, and there's no ambiguity about which weld is being undone
+    even with multiple/stacked objects in the scene.
+
+    params IS float64[] (confirmed against the real ExecuteToolOp.action
+    — the earlier JSON-string assumption here was wrong and has been
+    corrected). Two ways to specify the attach target, so this works
+    both with real vision and by hand:
+
+    Command format:
+      "attach" / "grip" / "close" with params=[x, y, z] or
+                                   params=[x, y, z, max_distance]
+        — vision-driven path: resolves the position to a live catalog
+          instance via object_pose_resolver's /resolve_object_pose
+          service. max_distance overrides the resolve_max_distance
+          config default if provided as a 4th element.
+
+      "attach:<child_model>" / "grip:<child_model>" (params ignored)
+        — manual/primitive path: skips the resolver entirely, for
+          hand-authored recipes or testing without vision running.
+
+      "detach" / "release" / "open"  — detach the currently-held joint
+
+    Config keys:
+      service_name         : GraspAttach service name (default '/grasp_attach')
+      parent_model          : model owning parent_link (default '')
+      parent_link           : gripper link objects are welded to (default '<tool_id>_tcp')
+      service_timeout       : seconds to wait for service up / response (default 5.0)
+      pose_resolver_service : ResolveObjectPose service name (default '/resolve_object_pose')
+      resolve_max_distance  : meters, default threshold for the vision-driven
+                              path when params doesn't supply a 4th element (default 0.05)
+      gripper_action_name   : ParallelGripperCommand action name (default
+                              '/gripper_action_controller/gripper_cmd', same
+                              server GripperActionBackend drives — see below)
+      gripper_joint_name    : primary gripper joint (default
+                              'robotiq_85_left_knuckle_joint')
+      gripper_open_position, gripper_closed_position, gripper_max_effort,
+      gripper_action_timeout : same meaning/defaults as GripperActionBackend
+
+    REALISM: attach now physically closes the gripper (via the same
+    ParallelGripperCommand action GripperActionBackend uses) BEFORE
+    welding, and opens it AFTER un-welding on release — previously
+    this backend only ever called GraspAttach.srv directly, so the
+    object teleported into a rigid weld with the fingers never
+    visibly moving at all. The close goal's result.stalled (a real
+    effort-controller stall/contact signal, already used by
+    GripperActionBackend) is logged for visibility but does NOT
+    currently gate whether the weld proceeds — closing without a
+    stall still welds. Gating on it would give a genuine physical
+    grasp-failure check, but that's a scope expansion beyond "make
+    this look realistic" and would add a new failure mode to an
+    already-working pipeline without being asked; left as a documented
+    option for later rather than applied here.
+    """
+
+    def __init__(self, tool_id: str, config: dict, logger, node: Node):
+        super().__init__(tool_id, config, logger)
+        self._node = node
+        service_name = config.get('service_name', '/grasp_attach')
+        self._client = node.create_client(GraspAttach, service_name)
+        self._parent_model = config.get('parent_model', '')
+        self._parent_link = config.get('parent_link', f'{tool_id}_tcp')
+        self._timeout = config.get('service_timeout', 5.0)
+
+        pose_resolver_service = config.get('pose_resolver_service', '/resolve_object_pose')
+        self._resolver_client = node.create_client(ResolveObjectPose, pose_resolver_service)
+        self._default_max_distance = float(config.get('resolve_max_distance', 0.05))
+
+        # Same physical gripper GripperActionBackend drives — same
+        # action, same defaults, so a recipe using both backends
+        # (or switching between them) moves the same joint the same way.
+        gripper_action_name = config.get(
+            'gripper_action_name', '/gripper_action_controller/gripper_cmd')
+        self._gripper_client = ActionClient(node, ParallelGripperCommand, gripper_action_name)
+        self._gripper_joint_name = config.get(
+            'gripper_joint_name', 'robotiq_85_left_knuckle_joint')
+        self._gripper_open_pos = config.get('gripper_open_position', 0.001)
+        self._gripper_closed_pos = config.get('gripper_closed_position', 0.554)
+        self._gripper_max_effort = config.get('gripper_max_effort', 50.0)
+        self._gripper_timeout = config.get('gripper_action_timeout', 5.0)
+
+        # currently-held joint, if any (detach targets this specific joint_id)
+        self._held_joint_id: Optional[int] = None
+        self._held_child_desc: Optional[str] = None  # for logging only
+
+    async def _move_gripper(self, position: float) -> tuple:
+        """Send one ParallelGripperCommand goal and await its result.
+        Returns (ok, stalled, reached_goal) — ok=False on any failure
+        to send/accept/complete the goal (already logged internally,
+        caller just needs to know whether to proceed)."""
+        server_ready = await _wait_for_server_async(
+            self._node, self._gripper_client, self._gripper_timeout)
+        if not server_ready:
+            self.logger.error(
+                f'[GRASP_ATTACH] {self.tool_id}: gripper action server unavailable')
+            return False, False, False
+
+        goal = ParallelGripperCommand.Goal()
+        goal.command = JointState()
+        goal.command.name = [self._gripper_joint_name]
+        goal.command.position = [float(position)]
+        goal.command.velocity = []
+        goal.command.effort = (
+            [float(self._gripper_max_effort)] if self._gripper_max_effort else []
+        )
+
+        send_future = self._gripper_client.send_goal_async(goal)
+        try:
+            goal_handle = await _future_with_timeout(
+                self._node, send_future, self._gripper_timeout)
+        except TimeoutError:
+            self.logger.warn(
+                f'[GRASP_ATTACH] {self.tool_id}: gripper goal-send timed out')
+            return False, False, False
+
+        if not goal_handle.accepted:
+            self.logger.error(
+                f'[GRASP_ATTACH] {self.tool_id}: gripper goal rejected')
+            return False, False, False
+
+        result_future = goal_handle.get_result_async()
+        try:
+            result_response = await _future_with_timeout(
+                self._node, result_future, self._gripper_timeout)
+        except TimeoutError:
+            try:
+                goal_handle.cancel_goal_async()
+            except Exception as e:
+                self.logger.error(f'[GRASP_ATTACH] {self.tool_id}: cancel failed: {e}')
+            self.logger.warn(f'[GRASP_ATTACH] {self.tool_id}: gripper move timed out')
+            return False, False, False
+
+        result = result_response.result
+        return True, result.stalled, result.reached_goal
+
+    async def _resolve(self, x: float, y: float, z: float, max_distance: float):
+        """Call object_pose_resolver to turn a position into a
+        (child_model, child_link), or return (None, None) on failure."""
+        server_ready = await _wait_for_server_async(
+            self._node, self._resolver_client, self._timeout)
+        if not server_ready:
+            self.logger.error(
+                f'[GRASP_ATTACH] {self.tool_id}: pose resolver service unavailable')
+            return None, None
+
+        req = ResolveObjectPose.Request()
+        req.x = x
+        req.y = y
+        req.z = z
+        req.max_distance = max_distance
+
+        future = self._resolver_client.call_async(req)
+        try:
+            response = await _future_with_timeout(self._node, future, self._timeout)
+        except TimeoutError:
+            self.logger.warn(f'[GRASP_ATTACH] {self.tool_id}: pose resolve timed out')
+            return None, None
+
+        if not response.success:
+            self.logger.warn(
+                f'[GRASP_ATTACH] {self.tool_id}: pose resolve failed: {response.message}')
+            return None, None
+
+        return response.child_model, response.child_link
+
+    async def execute(self, command: str, params: list = None) -> str:
+        cmd = command.lower().strip()
+        params = params or []
+
+        if cmd in ('attach', 'grip', 'close') or cmd.startswith(('attach:', 'grip:')):
+            if self._held_joint_id is not None:
+                self.logger.warn(
+                    f'[GRASP_ATTACH] {self.tool_id}: already holding joint '
+                    f'{self._held_joint_id} ("{self._held_child_desc}") — '
+                    f'release before attaching another')
+                return 'error_already_holding'
+
+            if ':' in cmd:
+                # manual/primitive path — explicit child_model, resolver skipped
+                child_model = command.split(':', 1)[1].strip()
+                if not child_model:
+                    self.logger.warn(
+                        f'[GRASP_ATTACH] {self.tool_id}: "{command}" missing child_model')
+                    return 'error_missing_target'
+                child_link = ''  # bridge/GraspAttach side resolves link via catalog if needed
+                return await self._call(attach=True, child_model=child_model,
+                                         child_link=child_link)
+
+            # vision-driven path — params must carry a position
+            if len(params) < 3:
+                self.logger.warn(
+                    f'[GRASP_ATTACH] {self.tool_id}: attach requires params=[x,y,z'
+                    f'(,max_distance)], got {params!r}')
+                return 'error_missing_target'
+
+            x, y, z = params[0], params[1], params[2]
+            max_distance = float(params[3]) if len(params) >= 4 else self._default_max_distance
+
+            child_model, child_link = await self._resolve(x, y, z, max_distance)
+            if child_model is None:
+                return 'error_resolve_failed'
+
+            return await self._call(attach=True, child_model=child_model,
+                                     child_link=child_link)
+
+        elif cmd in ('detach', 'release', 'open'):
+            if self._held_joint_id is None:
+                self.logger.info(
+                    f'[GRASP_ATTACH] {self.tool_id}: release with nothing held — no-op')
+                return 'released_empty'
+            return await self._call(attach=False, child_model='', child_link='')
+
+        else:
+            self.logger.warn(
+                f'[GRASP_ATTACH] {self.tool_id}: unknown command "{cmd}"')
+            return f'unknown_command_{cmd}'
+
+    async def _call(self, attach: bool, child_model: str, child_link: str) -> str:
+        if attach:
+            # Close BEFORE welding — a real gripper makes contact first,
+            # then the weld is what makes that hold rigid/reliable in
+            # sim (friction-only contact would be brittle without
+            # careful tuning). stalled is logged for visibility (real
+            # effort-controller contact signal, same one
+            # GripperActionBackend uses) but doesn't gate the weld —
+            # see class docstring for why.
+            ok, stalled, reached_goal = await self._move_gripper(self._gripper_closed_pos)
+            if not ok:
+                return 'error_gripper_close_failed'
+            self.logger.info(
+                f'[GRASP_ATTACH] {self.tool_id}: gripper closed '
+                f'(stalled={stalled}, reached_goal={reached_goal}) — welding next')
+
+        server_ready = await _wait_for_server_async(
+            self._node, self._client, self._timeout)
+        if not server_ready:
+            self.logger.error(
+                f'[GRASP_ATTACH] {self.tool_id}: GraspAttach service unavailable')
+            if attach:
+                await self._move_gripper(self._gripper_open_pos)
+            return 'error_no_server'
+
+        req = GraspAttach.Request()
+        req.parent_model = self._parent_model
+        req.parent_link = self._parent_link
+        req.child_model = child_model
+        req.child_link = child_link
+        req.attach = attach
+        # "only used when attach=false" per GraspAttach.srv
+        req.joint_id = self._held_joint_id if (not attach and self._held_joint_id is not None) else 0
+
+        send_future = self._client.call_async(req)
+        action = 'attach' if attach else 'detach'
+        try:
+            response = await _future_with_timeout(
+                self._node, send_future, self._timeout)
+        except TimeoutError:
+            target = f'{child_model}/{child_link}' if attach else str(self._held_joint_id)
+            self.logger.warn(
+                f'[GRASP_ATTACH] {self.tool_id}: {action} ({target}) timed out')
+            if attach:
+                await self._move_gripper(self._gripper_open_pos)
+            return 'timeout'
+
+        if not response.success:
+            self.logger.error(
+                f'[GRASP_ATTACH] {self.tool_id}: {action} failed: {response.message}')
+            if attach:
+                await self._move_gripper(self._gripper_open_pos)
+            return 'error_service_failed'
+
+        if attach:
+            self._held_joint_id = response.joint_id
+            self._held_child_desc = child_model or child_link
+            self.logger.info(
+                f'[GRASP_ATTACH] {self.tool_id}: attached "{self._held_child_desc}" '
+                f'to {self._parent_link} (joint_id={self._held_joint_id})')
+            return 'closed_grasped'
+        else:
+            self.logger.info(
+                f'[GRASP_ATTACH] {self.tool_id}: detached joint {self._held_joint_id} '
+                f'("{self._held_child_desc}")')
+            self._held_joint_id = None
+            self._held_child_desc = None
+
+            # Open AFTER un-welding — the object is physically free
+            # before the fingers visibly release it, not the other way
+            # around (opening first would show open fingers around a
+            # still-rigidly-welded object).
+            ok, _stalled, _reached_goal = await self._move_gripper(self._gripper_open_pos)
+            if not ok:
+                # Weld is already undone at this point — don't fail the
+                # whole release over a cosmetic open-goal issue.
+                self.logger.warn(
+                    f'[GRASP_ATTACH] {self.tool_id}: detach succeeded but '
+                    f'gripper open command failed — fingers may still show closed')
+                return 'opened_gripper_move_failed'
+            return 'opened'
+
+    def cleanup(self):
+        if self._held_joint_id is not None:
+            self.logger.warn(
+                f'[GRASP_ATTACH] {self.tool_id}: shutting down while still '
+                f'holding joint {self._held_joint_id} ("{self._held_child_desc}")')
+
+
 # =========================================================
 # TOOL MANAGER NODE
 # =========================================================
@@ -910,18 +1249,14 @@ class ToolActionServer(Node):
         elif backend_type == 'modbus':
             return ModbusBackend(tool_id, config, self.get_logger())
 
+        elif backend_type == 'grasp_attach':
+            return GraspAttachBackend(tool_id, config, self.get_logger(), self)
+
         else:
-            # NOTE: 'grasp_attach' is referenced in this project's tools.yaml
-            # and in the error message below, but no GraspAttachBackend class
-            # exists in the tool_manager.py that was provided for this
-            # conversion — flagging rather than fabricating one. If it exists
-            # elsewhere, add its branch here; otherwise it needs to be
-            # written before any tool_id configured with backend=grasp_attach
-            # will load.
             raise ValueError(
                 f'Unknown backend type: "{backend_type}". '
                 f'Valid: mock, gripper_action, gripper_position, gripper_effort, '
-                f'digital_io, ros_topic, modbus'
+                f'digital_io, ros_topic, modbus, grasp_attach'
             )
 
     # =========================================================
@@ -963,10 +1298,18 @@ class ToolActionServer(Node):
         # before, unchanged.
         async with lock:
             try:
+                sig = inspect.signature(backend.execute)
+                accepts_params = len(sig.parameters) >= 2
                 if asyncio.iscoroutinefunction(backend.execute):
-                    status = await backend.execute(goal.command)
+                    if accepts_params:
+                        status = await backend.execute(goal.command, goal.params)
+                    else:
+                        status = await backend.execute(goal.command)
                 else:
-                    status = backend.execute(goal.command)
+                    if accepts_params:
+                        status = backend.execute(goal.command, goal.params)
+                    else:
+                        status = backend.execute(goal.command)
             except Exception as e:
                 self.get_logger().error(
                     f'Tool execution error [{goal.tool_id}:{goal.command}]: {e}')

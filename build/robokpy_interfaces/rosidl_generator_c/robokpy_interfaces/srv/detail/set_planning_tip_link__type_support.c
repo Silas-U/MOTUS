@@ -4,9 +4,9 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h"
-#include "robokpy_interfaces/srv/detail/set_planning_tip_link__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/srv/detail/set_planning_tip_link__functions.h"
+#include "robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h"
 #include "robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.h"
 
 #ifdef __cplusplus

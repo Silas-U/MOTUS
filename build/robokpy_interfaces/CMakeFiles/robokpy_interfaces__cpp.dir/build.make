@@ -121,6 +121,21 @@ CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__struct.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__traits.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__type_support.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/spawn_object.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__builder.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__struct.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__traits.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/despawn_object.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__builder.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__struct.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__traits.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/resolve_object_pose.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__builder.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__struct.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__traits.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/cell_state.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/detail/cell_state__builder.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/detail/cell_state__struct.hpp
@@ -178,6 +193,9 @@ rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/GraspAttach.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/ResumeExecution.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/LoadRecipe.idl
+rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/SpawnObject.idl
+rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/DespawnObject.idl
+rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/srv/ResolveObjectPose.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/msg/CellState.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/ExecuteMotion.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl
@@ -446,6 +464,51 @@ rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__traits.hpp: rosi
 rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/load_recipe__type_support.hpp
 
+rosidl_generator_cpp/robokpy_interfaces/srv/spawn_object.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/spawn_object.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__builder.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__builder.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__struct.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__struct.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__traits.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__traits.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/despawn_object.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/despawn_object.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__builder.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__builder.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__struct.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__struct.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__traits.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__traits.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/resolve_object_pose.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/resolve_object_pose.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__builder.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__builder.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__struct.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__struct.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__traits.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__traits.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.hpp
+
 rosidl_generator_cpp/robokpy_interfaces/msg/cell_state.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/msg/cell_state.hpp
 
@@ -552,10 +615,15 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/detail/cell
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/detail/cell_state__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/chain_fk.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/despawn_object.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/chain_fk__builder.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/chain_fk__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/chain_fk__traits.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/chain_fk__type_support.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__builder.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__struct.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__traits.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/despawn_object__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/execution_state__builder.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/execution_state__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/execution_state__traits.hpp
@@ -584,6 +652,10 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/reac
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/reachable__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/reachable__traits.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/reachable__type_support.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__builder.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__struct.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__traits.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resume_execution__builder.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resume_execution__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/resume_execution__traits.hpp
@@ -592,6 +664,10 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/set_
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__traits.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__builder.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__struct.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__traits.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/spawn_object__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/system_mode__builder.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/system_mode__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/detail/system_mode__traits.hpp
@@ -603,8 +679,10 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/ik.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/jacobian.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/load_recipe.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/reachable.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/resolve_object_pose.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/resume_execution.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/set_planning_tip_link.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/spawn_object.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/srv/system_mode.hpp
 robokpy_interfaces__cpp: CMakeFiles/robokpy_interfaces__cpp.dir/build.make
 .PHONY : robokpy_interfaces__cpp

@@ -1,0 +1,18 @@
+Option 1 (Recommended): Add io_wait to the DSL
+
+If you're designing an industrial recipe language, I'd extend the validator.
+
+type: io_wait
+io_id: part_sensor_a
+expected: "on"
+timeout_sec: 2.0
+
+io_wait is a very common primitive in industrial automation. 
+It makes recipes much clearer than overloading io with special commands.
+
+move
+tool
+io
+wait
+vision
+io_wait **

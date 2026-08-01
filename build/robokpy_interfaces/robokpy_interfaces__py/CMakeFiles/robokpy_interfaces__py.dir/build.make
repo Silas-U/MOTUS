@@ -80,6 +80,9 @@ include /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rob
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resume_execution.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_load_recipe.py
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object.py
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object.py
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/msg/_cell_state.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_motion.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op.py
@@ -99,6 +102,9 @@ include /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rob
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c
@@ -129,6 +135,9 @@ rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesuppo
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/GraspAttach.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/ResumeExecution.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/LoadRecipe.idl
+rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/SpawnObject.idl
+rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/DespawnObject.idl
+rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/srv/ResolveObjectPose.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/msg/CellState.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/ExecuteMotion.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl
@@ -274,6 +283,15 @@ rosidl_generator_py/robokpy_interfaces/srv/_resume_execution.py: rosidl_generato
 rosidl_generator_py/robokpy_interfaces/srv/_load_recipe.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_load_recipe.py
 
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_spawn_object.py
+
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_despawn_object.py
+
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose.py
+
 rosidl_generator_py/robokpy_interfaces/msg/_cell_state.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/msg/_cell_state.py
 
@@ -331,6 +349,15 @@ rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c: rosidl_generat
 rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c
 
+rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c
+
+rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c
+
+rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c
+
 rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c
 
@@ -365,6 +392,8 @@ robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/__init__.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_chain_fk.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_chain_fk_s.c
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object.py
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_execution_state.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_execution_state_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_fk.py
@@ -379,10 +408,14 @@ robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_load_recipe.
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_reachable.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_reachable_s.c
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose.py
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resume_execution.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_set_planning_tip_link_s.c
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object.py
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_system_mode.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/_system_mode_s.c
 robokpy_interfaces__py: /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py.dir/build.make

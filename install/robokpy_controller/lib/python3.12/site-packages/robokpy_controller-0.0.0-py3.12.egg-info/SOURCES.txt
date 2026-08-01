@@ -10,6 +10,7 @@ setup.py
 ../../build/robokpy_controller/robokpy_controller.egg-info/zip-safe
 config/6dof_controller.yaml
 config/config.rviz
+config/objects.yaml
 config/robokpy_configs.yaml
 config/tools.yaml
 config/ur5e_2fgripper_controllers.yaml
@@ -45,9 +46,13 @@ meshes/ur5e/visual/wrist3.dae
 resource/robokpy_controller
 robokpy_controller/__init__.py
 robokpy_controller/data_logger.py
+robokpy_controller/grasp_attach_bridge.py
 robokpy_controller/joint_jog_server.py
 robokpy_controller/kinematic_solver.py
 robokpy_controller/motion_planner.py
+robokpy_controller/object_catalog.py
+robokpy_controller/object_pose_resolver.py
+robokpy_controller/object_spawner.py
 robokpy_controller/orchestrator.py
 robokpy_controller/pose_target_interface.py
 robokpy_controller/recipe_compiler.py
@@ -61,6 +66,8 @@ robokpy_controller/virtual_jog_relay.py
 robokpy_controller/recipes/pick_place_multi_station_v1.yaml
 robokpy_controller/recipes/pick_place_reorient_v1.yaml
 robokpy_controller/recipes/pick_place_v1.yaml
+robokpy_controller/recipes/test.yaml
+robokpy_controller/recipes/test2.yaml
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py

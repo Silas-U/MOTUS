@@ -1,0 +1,269 @@
+recipe_id: pick_place_multi_station_v2
+
+# Layout (tool-down orientation)
+# Quaternion: qx=0.0, qy=1.0, qz=0.0, qw=0.0
+#
+# Home:
+#   x=0.45, y= 0.00, z=0.45
+#
+# Station A (Pick):
+#   x=0.40, y= 0.10
+#
+# Station B (Place):
+#   x=0.40, y=-0.30
+#
+# Station C (Pick):
+#   x=0.55, y= 0.10
+#
+# Station D (Place):
+#   x=0.55, y=-0.30
+#
+# Heights:
+#   Safe Height : z=0.30
+#   Pick/Place  : z=0.15
+
+steps:
+
+# ============================================================================
+# INITIALIZATION
+# ============================================================================
+
+- id: move_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 1.0
+  depends_on: []
+
+# ============================================================================
+# CYCLE 1 : STATION A -> STATION B
+# ============================================================================
+
+- id: traverse_to_a
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  speed_scale: 1.0
+  depends_on: [move_home]
+
+- id: descend_pick_a
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: 0.10, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 0.50
+  depends_on: [traverse_to_a]
+
+- id: verify_part_present_a
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on:
+    - {progress: descend_pick_a, threshold: 0.80}
+
+- id: grip_close_a
+  type: tool
+  tool_id: gripper_1
+  command: close
+  recovery: retry
+  max_retries: 2
+  depends_on:
+    - verify_part_present_a
+    - {progress: descend_pick_a, threshold: 0.90}
+
+- id: verify_grip_a
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on: [grip_close_a]
+
+- id: retract_a
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  depends_on: [verify_grip_a]
+
+- id: traverse_to_b
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  speed_scale: 1.0
+  depends_on: [retract_a]
+
+- id: blowoff_b
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on:
+    - {progress: traverse_to_b, threshold: 0.90}
+
+- id: blowoff_delay
+  type: wait
+  duration_sec: 0.15
+  depends_on: [blowoff_b]
+
+- id: blowoff_b_off
+  type: io
+  io_id: mock
+  command: "off"
+  depends_on: [blowoff_delay]
+
+- id: descend_place_b
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 0.50
+  depends_on:
+    - traverse_to_b
+    - blowoff_b_off
+
+- id: grip_open_b
+  type: tool
+  tool_id: gripper_1
+  command: open
+  recovery: retry
+  max_retries: 2
+  depends_on:
+    - {progress: descend_place_b, threshold: 0.90}
+
+- id: verify_release_b
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on: [grip_open_b]
+
+- id: retract_b
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  recovery: hold_for_operator
+  depends_on: [verify_release_b]
+
+# ============================================================================
+# CYCLE 2 : STATION C -> STATION D
+# ============================================================================
+
+- id: traverse_to_c
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.55, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  speed_scale: 1.0
+  depends_on: [retract_b]
+
+- id: descend_pick_c
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.55, y: 0.10, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 0.50
+  depends_on: [traverse_to_c]
+
+- id: verify_part_present_c
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on:
+    - {progress: descend_pick_c, threshold: 0.80}
+
+- id: grip_close_c
+  type: tool
+  tool_id: gripper_1
+  command: close
+  recovery: retry
+  max_retries: 2
+  depends_on:
+    - verify_part_present_c
+    - {progress: descend_pick_c, threshold: 0.90}
+
+- id: verify_grip_c
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on: [grip_close_c]
+
+- id: retract_c
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.55, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  depends_on: [verify_grip_c]
+
+- id: traverse_to_d
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.55, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.03
+  speed_scale: 1.0
+  depends_on: [retract_c]
+
+- id: descend_place_d
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.55, y: -0.30, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 0.50
+  depends_on: [traverse_to_d]
+
+- id: grip_open_d
+  type: tool
+  tool_id: gripper_1
+  command: open
+  recovery: retry
+  max_retries: 2
+  depends_on:
+    - {progress: descend_place_d, threshold: 0.90}
+
+- id: verify_release_d
+  type: io
+  io_id: mock
+  command: "on"
+  depends_on: [grip_open_d]
+
+- id: retract_d
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.55, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.02
+  speed_scale: 0.60
+  depends_on: [verify_release_d]
+
+# ============================================================================
+# END OF CYCLE
+# ============================================================================
+
+- id: cycle_settle
+  type: wait
+  duration_sec: 0.50
+  depends_on: [retract_d]
+
+- id: return_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  speed_scale: 1.0
+  depends_on: [cycle_settle]

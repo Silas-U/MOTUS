@@ -1,0 +1,53 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robokpy_interfaces/srv/ResolveObjectPose.srv
+// generated code does not contain a copyright notice
+
+
+module robokpy_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request" "\n"
+      "A detected position (e.g. from a VisionStep's locate_part result) to" "\n"
+      "match against the live poses of currently-spawned catalog instances." "\n"
+      "Orientation deliberately omitted — disambiguating WHICH instance this" "\n"
+      "is (including stacked-object cases) only needs position; matching" "\n"
+      "orientation too would reject correct matches whenever the object had" "\n"
+      "settled/rotated slightly after being placed.")
+    struct ResolveObjectPose_Request {
+      double x;
+
+      double y;
+
+      double z;
+
+      @verbatim (language="comment", text=
+        "meters — reject the match if the nearest known" "\n"
+        "instance is farther than this. Required, not" "\n"
+        "defaulted, so callers make a deliberate choice" "\n"
+        "given their object spacing (this is exactly" "\n"
+        "the \"stacked objects\" scenario from earlier —" "\n"
+        "too generous a threshold risks matching the" "\n"
+        "wrong instance).")
+      double max_distance;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct ResolveObjectPose_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "empty on failure")
+      string child_model;
+
+      @verbatim (language="comment", text=
+        "empty on failure")
+      string child_link;
+
+      @verbatim (language="comment", text=
+        "actual distance to the matched instance, meters")
+      double distance;
+
+      string message;
+    };
+  };
+};

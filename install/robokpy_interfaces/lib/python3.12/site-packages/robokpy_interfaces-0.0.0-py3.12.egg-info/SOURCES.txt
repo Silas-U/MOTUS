@@ -15,6 +15,8 @@ robokpy_interfaces/msg/__init__.py
 robokpy_interfaces/msg/_cell_state.py
 robokpy_interfaces/srv/__init__.py
 robokpy_interfaces/srv/_chain_fk.py
+robokpy_interfaces/srv/_despawn_object.py
+robokpy_interfaces/srv/_despawnobject.py
 robokpy_interfaces/srv/_execution_state.py
 robokpy_interfaces/srv/_fk.py
 robokpy_interfaces/srv/_grasp_attach.py
@@ -22,6 +24,9 @@ robokpy_interfaces/srv/_ik.py
 robokpy_interfaces/srv/_jacobian.py
 robokpy_interfaces/srv/_load_recipe.py
 robokpy_interfaces/srv/_reachable.py
+robokpy_interfaces/srv/_resolve_object_pose.py
 robokpy_interfaces/srv/_resume_execution.py
 robokpy_interfaces/srv/_set_planning_tip_link.py
+robokpy_interfaces/srv/_spawn_object.py
+robokpy_interfaces/srv/_spawnobject.py
 robokpy_interfaces/srv/_system_mode.py

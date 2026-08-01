@@ -5,9 +5,9 @@
 #include <string.h>
 
 #include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/srv/detail/execution_state__type_support.h"
 #include "robokpy_interfaces/srv/detail/execution_state__functions.h"
 #include "robokpy_interfaces/srv/detail/execution_state__struct.h"
-#include "robokpy_interfaces/srv/detail/execution_state__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

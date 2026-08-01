@@ -2,6 +2,10 @@ from robokpy_interfaces.srv._chain_fk import ChainFK  # noqa: F401
 from robokpy_interfaces.srv._chain_fk import ChainFK_Event  # noqa: F401
 from robokpy_interfaces.srv._chain_fk import ChainFK_Request  # noqa: F401
 from robokpy_interfaces.srv._chain_fk import ChainFK_Response  # noqa: F401
+from robokpy_interfaces.srv._despawn_object import DespawnObject  # noqa: F401
+from robokpy_interfaces.srv._despawn_object import DespawnObject_Event  # noqa: F401
+from robokpy_interfaces.srv._despawn_object import DespawnObject_Request  # noqa: F401
+from robokpy_interfaces.srv._despawn_object import DespawnObject_Response  # noqa: F401
 from robokpy_interfaces.srv._execution_state import ExecutionState  # noqa: F401
 from robokpy_interfaces.srv._execution_state import ExecutionState_Event  # noqa: F401
 from robokpy_interfaces.srv._execution_state import ExecutionState_Request  # noqa: F401
@@ -30,6 +34,10 @@ from robokpy_interfaces.srv._reachable import Reachable  # noqa: F401
 from robokpy_interfaces.srv._reachable import Reachable_Event  # noqa: F401
 from robokpy_interfaces.srv._reachable import Reachable_Request  # noqa: F401
 from robokpy_interfaces.srv._reachable import Reachable_Response  # noqa: F401
+from robokpy_interfaces.srv._resolve_object_pose import ResolveObjectPose  # noqa: F401
+from robokpy_interfaces.srv._resolve_object_pose import ResolveObjectPose_Event  # noqa: F401
+from robokpy_interfaces.srv._resolve_object_pose import ResolveObjectPose_Request  # noqa: F401
+from robokpy_interfaces.srv._resolve_object_pose import ResolveObjectPose_Response  # noqa: F401
 from robokpy_interfaces.srv._resume_execution import ResumeExecution  # noqa: F401
 from robokpy_interfaces.srv._resume_execution import ResumeExecution_Event  # noqa: F401
 from robokpy_interfaces.srv._resume_execution import ResumeExecution_Request  # noqa: F401
@@ -38,6 +46,10 @@ from robokpy_interfaces.srv._set_planning_tip_link import SetPlanningTipLink  # 
 from robokpy_interfaces.srv._set_planning_tip_link import SetPlanningTipLink_Event  # noqa: F401
 from robokpy_interfaces.srv._set_planning_tip_link import SetPlanningTipLink_Request  # noqa: F401
 from robokpy_interfaces.srv._set_planning_tip_link import SetPlanningTipLink_Response  # noqa: F401
+from robokpy_interfaces.srv._spawn_object import SpawnObject  # noqa: F401
+from robokpy_interfaces.srv._spawn_object import SpawnObject_Event  # noqa: F401
+from robokpy_interfaces.srv._spawn_object import SpawnObject_Request  # noqa: F401
+from robokpy_interfaces.srv._spawn_object import SpawnObject_Response  # noqa: F401
 from robokpy_interfaces.srv._system_mode import SystemMode  # noqa: F401
 from robokpy_interfaces.srv._system_mode import SystemMode_Event  # noqa: F401
 from robokpy_interfaces.srv._system_mode import SystemMode_Request  # noqa: F401

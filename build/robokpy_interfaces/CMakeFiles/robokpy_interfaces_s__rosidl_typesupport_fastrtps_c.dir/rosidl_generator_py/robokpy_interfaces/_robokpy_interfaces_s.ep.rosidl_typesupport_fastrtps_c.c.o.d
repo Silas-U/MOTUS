@@ -268,6 +268,15 @@ CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_genera
  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__type_support.h \
  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__struct.h \
  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__functions.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__struct.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__struct.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__struct.h \
+ /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.h \
  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__type_support.h \
  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__struct.h \
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h \

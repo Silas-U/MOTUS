@@ -32,13 +32,13 @@ from ament_index_python.packages import get_package_share_directory
 
 from robokpy_interfaces.action import ExecuteMotion, ExecuteToolOp, ExecuteVisionOp
 from robokpy_interfaces.msg import CellState as CellStateMsg
-from robokpy_interfaces.srv import ResumeExecution, LoadRecipe
+from robokpy_interfaces.srv import ResumeExecution, LoadRecipe, SpawnObject, DespawnObject
 
 from .recipe_compiler import RecipeCompiler, RecipeValidationError
 
 
 from .steps import (
-    RecoveryPolicy, Step, MoveStep, ToolStep, IOStep, WaitStep, VisionStep,
+    RecoveryPolicy, Step, MoveStep, ToolStep, IOStep, WaitStep, VisionStep, SpawnStep,
 )
 
 
@@ -59,7 +59,7 @@ class Orchestrator(Node):
     # a stale/duplicate action-server response being swallowed at the
     # DDS layer (see 'Ignoring unexpected goal response' warning) or
     # any other silently-dropped result.
-    DEFAULT_GOAL_TIMEOUT_SEC = 10.0
+    DEFAULT_GOAL_TIMEOUT_SEC = 30.0
 
     def __init__(self):
         super().__init__('orchestrator')
@@ -71,6 +71,13 @@ class Orchestrator(Node):
             self, ExecuteToolOp, 'execute_tool_op', callback_group=self._cb_group)
         self._vision_client = ActionClient(
             self, ExecuteVisionOp, 'execute_vision_op', callback_group=self._cb_group)
+
+        # Plain services, not actions — object_spawner.py has no
+        # feedback/progress concept, just a request/response.
+        self._spawn_client = self.create_client(
+            SpawnObject, 'spawn_object', callback_group=self._cb_group)
+        self._despawn_client = self.create_client(
+            DespawnObject, 'despawn_object', callback_group=self._cb_group)
 
         self._safety_sub = self.create_subscription(
             Bool, '/safety_state', self._safety_cb, 10, callback_group=self._cb_group)
@@ -317,6 +324,8 @@ class Orchestrator(Node):
             self._dispatch_tool(step)
         elif isinstance(step, VisionStep):
             self._dispatch_vision(step)
+        elif isinstance(step, SpawnStep):
+            self._dispatch_spawn(step)
         elif isinstance(step, WaitStep):
             self._dispatch_wait(step)
 
@@ -355,7 +364,27 @@ class Orchestrator(Node):
         goal = ExecuteToolOp.Goal()
         goal.tool_id = step.tool_id if isinstance(step, ToolStep) else step.io_id
         goal.command = step.command
-        goal.params = step.params
+
+        # Vision->grasp threading: recipe_compiler already guarantees (at
+        # compile time) that from_vision_step, if set, is a real VisionStep
+        # AND a full completion dependency of this step — so self._results
+        # is guaranteed populated by the time this dispatches. Defensive
+        # check kept anyway since "guaranteed by another module" is still
+        # worth verifying at the point it actually matters.
+        if isinstance(step, ToolStep) and step.from_vision_step:
+            vision_result = self._results.get(step.from_vision_step)
+            if vision_result is None:
+                self.get_logger().error(
+                    f'[DAG] {step.step_id}: from_vision_step='
+                    f'"{step.from_vision_step}" has no stored result — '
+                    f'this should be unreachable given recipe_compiler\'s '
+                    f'validation; treating as failed rather than guessing')
+                self._on_step_failed(step.step_id)
+                return
+            pos = vision_result.detected_pose.position
+            goal.params = [pos.x, pos.y, pos.z]
+        else:
+            goal.params = step.params
 
         if not self._tool_client.wait_for_server(timeout_sec=2.0):
             self.get_logger().error(
@@ -380,6 +409,63 @@ class Orchestrator(Node):
 
         future = self._vision_client.send_goal_async(goal)
         future.add_done_callback(lambda f: self._on_goal_accepted(step.step_id, f, epoch))
+
+    def _dispatch_spawn(self, step: SpawnStep):
+        # Plain service calls, not actions — object_spawner.py has no
+        # goal-accepted/feedback phase, just request/response, so this
+        # skips the two-phase pattern _dispatch_tool/_dispatch_vision use.
+        epoch = self._new_epoch(step.step_id)
+        self._arm_watchdog(step.step_id, epoch, self.DEFAULT_GOAL_TIMEOUT_SEC)
+
+        if step.operation == 'spawn':
+            if not self._spawn_client.wait_for_service(timeout_sec=2.0):
+                self.get_logger().error(
+                    f'[DAG] {step.step_id}: /spawn_object service not '
+                    f'available — is object_spawner running?')
+                self._cancel_watchdog(step.step_id)
+                self._on_step_failed(step.step_id)
+                return
+            req = SpawnObject.Request()
+            req.type_id = step.type_id
+            req.x, req.y, req.z = step.x, step.y, step.z
+            req.qx, req.qy, req.qz, req.qw = step.qx, step.qy, step.qz, step.qw
+            future = self._spawn_client.call_async(req)
+
+        else:  # despawn
+            if not self._despawn_client.wait_for_service(timeout_sec=2.0):
+                self.get_logger().error(
+                    f'[DAG] {step.step_id}: /despawn_object service not '
+                    f'available — is object_spawner running?')
+                self._cancel_watchdog(step.step_id)
+                self._on_step_failed(step.step_id)
+                return
+
+            # recipe_compiler guarantees (at compile time) that exactly
+            # one of child_model/from_spawn_step is set, and that
+            # from_spawn_step, if used, is a full completion dependency
+            # of this step — so self._results is guaranteed populated
+            # here. Defensive check kept anyway, same reasoning as the
+            # from_vision_step check in _dispatch_tool.
+            if step.from_spawn_step:
+                spawn_result = self._results.get(step.from_spawn_step)
+                if spawn_result is None:
+                    self.get_logger().error(
+                        f'[DAG] {step.step_id}: from_spawn_step='
+                        f'"{step.from_spawn_step}" has no stored result — '
+                        f'this should be unreachable given recipe_compiler\'s '
+                        f'validation; treating as failed rather than guessing')
+                    self._cancel_watchdog(step.step_id)
+                    self._on_step_failed(step.step_id)
+                    return
+                child_model = spawn_result.child_model
+            else:
+                child_model = step.child_model
+
+            req = DespawnObject.Request()
+            req.child_model = child_model
+            future = self._despawn_client.call_async(req)
+
+        future.add_done_callback(lambda f: self._on_spawn_result(step.step_id, f, epoch))
 
     def _dispatch_wait(self, step: WaitStep):
         def fire():
@@ -450,6 +536,23 @@ class Orchestrator(Node):
             f'[DAG] {step_id}: result success={result.success} error_code={result.error_code}')
         if result.success:
             self._results[step_id] = result
+            self._on_step_completed(step_id)
+        else:
+            self._on_step_failed(step_id)
+
+    def _on_spawn_result(self, step_id: str, future, epoch: int):
+        if not self._is_current(step_id, epoch):
+            self.get_logger().warn(
+                f'[DAG] {step_id}: ignoring stale spawn/despawn result (epoch {epoch} superseded)')
+            return
+        self._cancel_watchdog(step_id)
+        # Plain service response, not an action result — no nested .result.
+        response = future.result()
+        self.get_logger().info(
+            f'[DAG] {step_id}: spawn/despawn result success={response.success} '
+            f'message={response.message}')
+        if response.success:
+            self._results[step_id] = response
             self._on_step_completed(step_id)
         else:
             self._on_step_failed(step_id)

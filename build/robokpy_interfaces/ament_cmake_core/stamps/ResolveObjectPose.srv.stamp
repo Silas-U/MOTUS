@@ -1,0 +1,25 @@
+# Request
+# A detected position (e.g. from a VisionStep's locate_part result) to
+# match against the live poses of currently-spawned catalog instances.
+# Orientation deliberately omitted — disambiguating WHICH instance this
+# is (including stacked-object cases) only needs position; matching
+# orientation too would reject correct matches whenever the object had
+# settled/rotated slightly after being placed.
+float64  x
+float64  y
+float64  z
+float64  max_distance   # meters — reject the match if the nearest known
+                         # instance is farther than this. Required, not
+                         # defaulted, so callers make a deliberate choice
+                         # given their object spacing (this is exactly
+                         # the "stacked objects" scenario from earlier —
+                         # too generous a threshold risks matching the
+                         # wrong instance).
+
+---
+# Response
+bool     success
+string   child_model    # empty on failure
+string   child_link      # empty on failure
+float64  distance        # actual distance to the matched instance, meters
+string   message

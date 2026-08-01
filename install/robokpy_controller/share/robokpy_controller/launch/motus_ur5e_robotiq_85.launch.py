@@ -3,6 +3,7 @@ from launch.actions import (
     DeclareLaunchArgument,
     RegisterEventHandler,
     IncludeLaunchDescription,
+    TimerAction,
 )
 from launch.conditions import IfCondition, UnlessCondition
 from launch.event_handlers import OnProcessExit
@@ -18,6 +19,7 @@ import yaml
 
 from launch.actions import SetEnvironmentVariable
 from ament_index_python.packages import get_package_prefix
+from robokpy_controller.object_catalog import ObjectCatalog
 
 
 
@@ -63,6 +65,13 @@ def generate_launch_description():
     rviz_config           = os.path.join(pkg, 'config',  'config.rviz')
     robokpy_config_yaml_path = os.path.join(pkg, 'config', 'robokpy_configs.yaml')
     tool_config_path = os.path.join(pkg, 'config', 'tools.yaml')
+    objects_config_path = os.path.join(pkg, 'config', 'objects.yaml')
+
+    # Single ObjectCatalog instance, reused below for: (1) the
+    # DetachableJoint plugin splice into the sim URDF, (2) injecting
+    # parent_model/parent_link into tools.yaml's grasp_attach entries,
+    # (3) the ros_gz_bridge topic-mapping args further down.
+    catalog = ObjectCatalog(objects_config_path)
 
     # =========================================================
     # URDF Loading
@@ -84,6 +93,15 @@ def generate_launch_description():
         'CONTROLLERS_YAML_PATH', controllers_yaml_path
     )
 
+    # object catalog -> DetachableJoint plugins spliced into the sim
+    # URDF (model-level <gazebo> block, no reference= attribute needed
+    # — DetachableJoint is a model-scoped system, not a per-link one).
+    # One plugin per possible catalog instance (bounded catalog) — see
+    # object_catalog.py / objects.yaml for the design rationale.
+    robot_description_sim_gz = robot_description_sim_gz.replace(
+        '</robot>', catalog.to_gazebo_plugin_sdf() + '\n</robot>'
+    )
+
     gz_urdf_file = os.path.join(tempfile.gettempdir(), 'ur5e_sim_gz.urdf')
     with open(gz_urdf_file, 'w') as f:
         f.write(robot_description_sim_gz)
@@ -101,7 +119,18 @@ def generate_launch_description():
     # =========================================================
 
     with open(tool_config_path, 'r') as f:
-        tools_config = json.dumps(yaml.safe_load(f))
+        tools_dict = yaml.safe_load(f)
+
+    # objects.yaml is the single source of truth for parent_model/
+    # parent_link (see object_catalog.py) — inject into any tool
+    # configured with backend: grasp_attach so tools.yaml doesn't
+    # have to duplicate (and risk drifting from) those values.
+    for tool_id, cfg in tools_dict.items():
+        if cfg.get('backend') == 'grasp_attach':
+            cfg.setdefault('parent_model', catalog.parent_model)
+            cfg.setdefault('parent_link', catalog.parent_link)
+
+    tools_config = json.dumps(tools_dict)
 
     # =========================================================
     # Gazebo Nodes (sim-only)
@@ -150,6 +179,84 @@ def generate_launch_description():
             '-topic', 'gz_robot_description',
             '-x', '0.0', '-y', '0.0', '-z', '0.0',
         ],
+        condition  = IfCondition(use_sim)
+    )
+
+    # Bridges every catalog instance's attach/detach topic (ROS->GZ,
+    # gz.msgs.Empty) — same parameter_bridge mechanism as gz_clock_bridge.
+    grasp_attach_gz_bridge = Node(
+        package    = 'ros_gz_bridge',
+        executable = 'parameter_bridge',
+        name       = 'grasp_attach_gz_bridge',
+        output     = 'screen',
+        arguments  = catalog.to_ros_gz_bridge_args(),
+        condition  = IfCondition(use_sim)
+    )
+
+    # Implements GraspAttach.srv on top of the bridged topics above.
+    grasp_attach_bridge_node = Node(
+        package    = 'robokpy_controller',
+        executable = 'grasp_attach_bridge',
+        name       = 'grasp_attach_bridge',
+        output     = 'screen',
+        parameters = [{'objects_config_path': objects_config_path}],
+        condition  = IfCondition(use_sim)
+    )
+
+    # Bridges the standard gz-sim world entity-management services
+    # (already available since motus_world.sdf loads the
+    # gz-sim-user-commands-system plugin) to their ros_gz_interfaces
+    # ROS2 equivalents, for object_spawner to call.
+    entity_management_gz_bridge = Node(
+        package    = 'ros_gz_bridge',
+        executable = 'parameter_bridge',
+        name       = 'entity_management_gz_bridge',
+        output     = 'screen',
+        arguments  = [
+            '/world/motus_world/create@ros_gz_interfaces/srv/SpawnEntity',
+            '/world/motus_world/remove@ros_gz_interfaces/srv/DeleteEntity',
+        ],
+        condition  = IfCondition(use_sim)
+    )
+
+    # Catalog-aware spawn/despawn for recipe-time object placement.
+    object_spawner_node = Node(
+        package    = 'robokpy_controller',
+        executable = 'object_spawner',
+        name       = 'object_spawner',
+        output     = 'screen',
+        parameters = [{
+            'objects_config_path': objects_config_path,
+            'world_name': 'motus_world',
+        }],
+        condition  = IfCondition(use_sim)
+    )
+
+    # Live model poses (GZ->ROS) as TFMessage rather than PoseArray —
+    # PoseArray entries carry no per-entity name, which the pose
+    # resolver needs to know WHICH object a pose belongs to.
+    # dynamic_pose/info (not pose/info) since catalog objects are all
+    # non-static — no need to also stream static entities.
+    object_pose_gz_bridge = Node(
+        package    = 'ros_gz_bridge',
+        executable = 'parameter_bridge',
+        name       = 'object_pose_gz_bridge',
+        output     = 'screen',
+        arguments  = [
+            '/world/motus_world/dynamic_pose/info@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
+        ],
+        condition  = IfCondition(use_sim)
+    )
+
+    # Matches a vision-detected position to a live catalog instance —
+    # see object_pose_resolver.py docstring for the child_frame_id
+    # caveat to verify before relying on this.
+    object_pose_resolver_node = Node(
+        package    = 'robokpy_controller',
+        executable = 'object_pose_resolver',
+        name       = 'object_pose_resolver',
+        output     = 'screen',
+        parameters = [{'objects_config_path': objects_config_path}],
         condition  = IfCondition(use_sim)
     )
 
@@ -314,12 +421,39 @@ def generate_launch_description():
             output     = 'screen',
         ),
 
+        # Node(
+        #     package    = 'robokpy_controller',
+        #     executable = 'orchestrator',
+        #     name       = 'orchestrator',
+        #     output     = 'screen',
+        #     parameters = [robokpy_config_yaml_path]
+        # ),
+
+                # REAL HARDWARE: start orchestrator immediately
         Node(
             package    = 'robokpy_controller',
             executable = 'orchestrator',
             name       = 'orchestrator',
             output     = 'screen',
-            parameters = [robokpy_config_yaml_path]
+            parameters = [robokpy_config_yaml_path],
+            condition  = UnlessCondition(use_sim)
+        ),
+
+        # SIMULATION: delay orchestrator so Gazebo + bridges are ready
+        # before the recipe's spawn_target fires. 8s wasn't enough
+        # margin on slower hardware for Gazebo startup + world load +
+        # the spawn_entity->controller-spawner chain to finish before
+        # entity_management_gz_bridge's service actually appears.
+        TimerAction(
+            period=20.0,
+            actions=[Node(
+                package    = 'robokpy_controller',
+                executable = 'orchestrator',
+                name       = 'orchestrator',
+                output     = 'screen',
+                parameters = [robokpy_config_yaml_path]
+            )],
+            condition=IfCondition(use_sim)
         ),
 
         Node(
@@ -360,6 +494,12 @@ def generate_launch_description():
         gazebo,
         gz_clock_bridge,
         spawn_entity,
+        grasp_attach_gz_bridge,
+        grasp_attach_bridge_node,
+        entity_management_gz_bridge,
+        object_spawner_node,
+        object_pose_gz_bridge,
+        object_pose_resolver_node,
 
         RegisterEventHandler(
             event_handler=OnProcessExit(

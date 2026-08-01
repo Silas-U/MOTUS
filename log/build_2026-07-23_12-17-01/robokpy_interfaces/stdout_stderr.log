@@ -1,0 +1,48 @@
+-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found action_msgs: 2.0.2 (/opt/ros/jazzy/share/action_msgs/cmake)
+-- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+-- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[31mCMake Error at /opt/ros/jazzy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:57 (message):
+  execute_process(/bin/python3 -m rosidl_adapter --package-name
+  robokpy_interfaces --arguments-file
+  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter__arguments__robokpy_interfaces.json
+  --output-dir
+  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces
+  --output-file
+  /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces.idls)
+  returned error code 1:
+
+  Traceback (most recent call last):
+
+    File "<frozen runpy>", line 198, in _run_module_as_main
+    File "<frozen runpy>", line 88, in _run_code
+    File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_adapter/__main__.py", line 19, in <module>
+      sys.exit(main())
+               ^^^^^^
+    File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_adapter/main.py", line 53, in main
+      abs_idl_file = convert_to_idl(
+                     ^^^^^^^^^^^^^^^
+    File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_adapter/__init__.py", line 24, in convert_to_idl
+      return convert_srv_to_idl(
+             ^^^^^^^^^^^^^^^^^^^
+    File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_adapter/srv/__init__.py", line 28, in convert_srv_to_idl
+      srv = parse_service_string(package_name, input_file.stem, content)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_adapter/parser.py", line 855, in parse_service_string
+      raise InvalidServiceSpecification(
+
+  rosidl_adapter.parser.InvalidServiceSpecification: Could not find unique
+  separator '---' between request and response
+
+Call Stack (most recent call first):
+  /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:132 (rosidl_adapt_interfaces)
+  CMakeLists.txt:16 (rosidl_generate_interfaces)
+
+[0m
+-- Configuring incomplete, errors occurred!
+gmake: *** [Makefile:4865: cmake_check_build_system] Error 1

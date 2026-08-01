@@ -1,8 +1,11 @@
 [console_scripts]
+grasp_attach_bridge = robokpy_controller.grasp_attach_bridge:main
 joint_jog_server = robokpy_controller.joint_jog_server:main
 kinematic_solver = robokpy_controller.kinematic_solver:main
 kinematics_server = robokpy_controller.kinematics_server:main
 motion_planner = robokpy_controller.motion_planner:main
+object_pose_resolver = robokpy_controller.object_pose_resolver:main
+object_spawner = robokpy_controller.object_spawner:main
 orchestrator = robokpy_controller.orchestrator:main
 pose_target_interface = robokpy_controller.pose_target_interface:main
 robot_command_server = robokpy_controller.robot_command_server:main

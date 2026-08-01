@@ -10,6 +10,8 @@ msg/CellState.idl
 msg/CellState.msg
 srv/ChainFK.idl
 srv/ChainFK.srv
+srv/DespawnObject.idl
+srv/DespawnObject.srv
 srv/ExecutionState.idl
 srv/ExecutionState.srv
 srv/FK.idl
@@ -24,9 +26,13 @@ srv/LoadRecipe.idl
 srv/LoadRecipe.srv
 srv/Reachable.idl
 srv/Reachable.srv
+srv/ResolveObjectPose.idl
+srv/ResolveObjectPose.srv
 srv/ResumeExecution.idl
 srv/ResumeExecution.srv
 srv/SetPlanningTipLink.idl
 srv/SetPlanningTipLink.srv
+srv/SpawnObject.idl
+srv/SpawnObject.srv
 srv/SystemMode.idl
 srv/SystemMode.srv

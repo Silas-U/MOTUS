@@ -1,0 +1,11 @@
+# Request
+# The exact catalog instance name returned by a prior SpawnObject
+# call (e.g. "cube_small_3") — not a type_id. Despawning targets one
+# specific instance, not "any instance of this type", since multiple
+# instances of the same type may be spawned simultaneously.
+string   child_model
+
+---
+# Response
+bool     success
+string   message

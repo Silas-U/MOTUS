@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "rosidl_generator_type_description/robokpy_interfaces/action/SetJointTarget.json"
   "rosidl_generator_type_description/robokpy_interfaces/msg/CellState.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/ChainFK.json"
+  "rosidl_generator_type_description/robokpy_interfaces/srv/DespawnObject.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/ExecutionState.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/FK.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/GraspAttach.json"
@@ -13,8 +14,10 @@ file(REMOVE_RECURSE
   "rosidl_generator_type_description/robokpy_interfaces/srv/Jacobian.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/LoadRecipe.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/Reachable.json"
+  "rosidl_generator_type_description/robokpy_interfaces/srv/ResolveObjectPose.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/ResumeExecution.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/SetPlanningTipLink.json"
+  "rosidl_generator_type_description/robokpy_interfaces/srv/SpawnObject.json"
   "rosidl_generator_type_description/robokpy_interfaces/srv/SystemMode.json"
 )
 

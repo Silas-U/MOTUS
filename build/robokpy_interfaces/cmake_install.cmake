@@ -91,6 +91,18 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/srv/SpawnObject.json")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/srv/DespawnObject.json")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/srv/ResolveObjectPose.json")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/msg" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/msg/CellState.json")
 endif()
 
@@ -467,6 +479,18 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/srv/SpawnObject.idl")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/srv/DespawnObject.idl")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/srv/ResolveObjectPose.idl")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/msg" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/msg/CellState.idl")
 endif()
 
@@ -528,6 +552,18 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/LoadRecipe.srv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/SpawnObject.srv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/DespawnObject.srv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/ResolveObjectPose.srv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

@@ -1,0 +1,271 @@
+[0.754s] DEBUG:colcon:Command line arguments: ['/bin/colcon', 'build']
+[0.754s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7a939ad04350>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7a939ad04050>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7a939ad04050>>, mixin_verb=('build',))
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.220s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/meta/Documents/robotics_workspace_new'
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.220s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.347s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['ignore', 'ignore_ament_install']
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'ignore'
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'ignore_ament_install'
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['colcon_pkg']
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'colcon_pkg'
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['colcon_meta']
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'colcon_meta'
+[1.348s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['ros']
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'ros'
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['cmake', 'python']
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'cmake'
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'python'
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extensions ['python_setup_py']
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(Docs) by extension 'python_setup_py'
+[1.349s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.350s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extensions ['ignore', 'ignore_ament_install']
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extension 'ignore'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extension 'ignore_ament_install'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extensions ['colcon_pkg']
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extension 'colcon_pkg'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extensions ['colcon_meta']
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extension 'colcon_meta'
+[1.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extensions ['ros']
+[1.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy) by extension 'ros'
+[1.419s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robokpy' with type 'ros.ament_python' and name 'robokpy'
+[1.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extension 'ignore'
+[1.419s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extension 'ignore_ament_install'
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extensions ['colcon_pkg']
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extension 'colcon_pkg'
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extensions ['colcon_meta']
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extension 'colcon_meta'
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extensions ['ros']
+[1.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_controller) by extension 'ros'
+[1.449s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robokpy_controller' with type 'ros.ament_python' and name 'robokpy_controller'
+[1.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extension 'ignore'
+[1.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extension 'ignore_ament_install'
+[1.449s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extensions ['colcon_pkg']
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extension 'colcon_pkg'
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extensions ['colcon_meta']
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extension 'colcon_meta'
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extensions ['ros']
+[1.450s] Level 1:colcon.colcon_core.package_identification:_identify(src/robokpy_interfaces) by extension 'ros'
+[1.462s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robokpy_interfaces' with type 'ros.ament_cmake' and name 'robokpy_interfaces'
+[1.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.714s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.714s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.853s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/meta/Documents/robotics_workspace_new/install
+[1.893s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 429 installed packages in /opt/ros/jazzy
+[1.895s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[7.461s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_args' from command line to 'None'
+[7.461s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_target' from command line to 'None'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_clean_cache' from command line to 'False'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_clean_first' from command line to 'False'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'cmake_force_configure' from command line to 'False'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'ament_cmake_args' from command line to 'None'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'catkin_cmake_args' from command line to 'None'
+[7.462s] Level 5:colcon.colcon_core.verb:set package 'robokpy' build argument 'catkin_skip_building_tests' from command line to 'False'
+[7.462s] DEBUG:colcon.colcon_core.verb:Building package 'robokpy' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/meta/Documents/robotics_workspace_new/build/robokpy', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/meta/Documents/robotics_workspace_new/install/robokpy', 'merge_install': False, 'path': '/home/meta/Documents/robotics_workspace_new/src/robokpy', 'symlink_install': False, 'test_result_base': None}
+[7.463s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_args' from command line to 'None'
+[7.463s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_target' from command line to 'None'
+[7.463s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[7.463s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[7.464s] DEBUG:colcon.colcon_core.verb:Building package 'robokpy_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces', 'merge_install': False, 'path': '/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces', 'symlink_install': False, 'test_result_base': None}
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_args' from command line to 'None'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_target' from command line to 'None'
+[7.464s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_clean_first' from command line to 'False'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'cmake_force_configure' from command line to 'False'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'ament_cmake_args' from command line to 'None'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[7.465s] Level 5:colcon.colcon_core.verb:set package 'robokpy_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[7.465s] DEBUG:colcon.colcon_core.verb:Building package 'robokpy_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller', 'merge_install': False, 'path': '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller', 'symlink_install': False, 'test_result_base': None}
+[7.465s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[7.466s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[7.467s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces' with build type 'ament_cmake'
+[7.467s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces'
+[7.541s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[7.542s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.542s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.572s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/meta/Documents/robotics_workspace_new/src/robokpy' with build type 'ament_python'
+[7.573s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy', 'ament_prefix_path')
+[7.575s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/ament_prefix_path.ps1'
+[7.605s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/ament_prefix_path.dsv'
+[7.606s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/ament_prefix_path.sh'
+[7.608s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.608s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.623s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces -- -j4 -l4
+[8.395s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/meta/Documents/robotics_workspace_new/src/robokpy'
+[8.396s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[8.396s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[22.109s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces -- -j4 -l4
+[23.151s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces
+[26.217s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robokpy_interfaces)
+[26.218s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces
+[26.892s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces' for CMake module files
+[26.894s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces' for CMake config files
+[26.896s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'cmake_prefix_path')
+[26.897s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.ps1'
+[26.898s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.dsv'
+[26.899s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.sh'
+[26.900s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib'
+[26.901s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'ld_library_path_lib')
+[26.901s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.ps1'
+[26.902s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.dsv'
+[26.903s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.sh'
+[26.904s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/bin'
+[26.904s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/pkgconfig/robokpy_interfaces.pc'
+[26.905s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages'
+[26.905s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'pythonpath')
+[26.906s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.ps1'
+[26.907s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.dsv'
+[26.929s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.sh'
+[26.931s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/bin'
+[26.932s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.ps1'
+[26.945s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.dsv'
+[26.975s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.sh'
+[27.009s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.bash'
+[27.107s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.zsh'
+[27.162s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/colcon-core/packages/robokpy_interfaces)
+[28.497s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robokpy_interfaces)
+[28.498s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces' for CMake module files
+[28.500s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces' for CMake config files
+[28.502s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'cmake_prefix_path')
+[28.503s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.ps1'
+[28.504s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.dsv'
+[28.505s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/cmake_prefix_path.sh'
+[28.507s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib'
+[28.507s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'ld_library_path_lib')
+[28.507s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.ps1'
+[28.508s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.dsv'
+[28.509s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/ld_library_path_lib.sh'
+[28.510s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/bin'
+[28.510s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/pkgconfig/robokpy_interfaces.pc'
+[28.511s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages'
+[28.511s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_interfaces', 'pythonpath')
+[28.512s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.ps1'
+[28.513s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.dsv'
+[28.513s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/hook/pythonpath.sh'
+[28.515s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/bin'
+[28.516s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.ps1'
+[28.517s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.dsv'
+[28.518s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.sh'
+[28.519s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.bash'
+[28.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/robokpy_interfaces/package.zsh'
+[28.522s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/share/colcon-core/packages/robokpy_interfaces)
+[28.522s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller' with build type 'ament_python'
+[28.523s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_controller', 'ament_prefix_path')
+[28.523s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/ament_prefix_path.ps1'
+[28.526s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/ament_prefix_path.dsv'
+[28.526s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/ament_prefix_path.sh'
+[28.528s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[28.528s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[30.447s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller'
+[30.448s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[30.448s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[33.627s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy_controller build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log --single-version-externally-managed install_data
+[33.629s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/meta/Documents/robotics_workspace_new/src/robokpy': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data
+[36.216s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy' for CMake module files
+[36.218s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/meta/Documents/robotics_workspace_new/src/robokpy' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy/install.log --single-version-externally-managed install_data
+[36.219s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy' for CMake config files
+[36.220s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy/lib'
+[36.220s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy/bin'
+[36.220s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/pkgconfig/robokpy.pc'
+[36.221s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages'
+[36.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy', 'pythonpath')
+[36.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/pythonpath.ps1'
+[36.223s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/pythonpath.dsv'
+[36.224s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/hook/pythonpath.sh'
+[36.226s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy/bin'
+[36.226s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robokpy)
+[36.227s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/package.ps1'
+[36.229s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/package.dsv'
+[36.229s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/package.sh'
+[36.230s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/package.bash'
+[36.231s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy/package.zsh'
+[36.232s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/meta/Documents/robotics_workspace_new/install/robokpy/share/colcon-core/packages/robokpy)
+[36.247s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller' for CMake module files
+[36.248s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy_controller build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log --single-version-externally-managed install_data
+[36.250s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller' for CMake config files
+[36.251s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib'
+[36.252s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/bin'
+[36.252s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/pkgconfig/robokpy_controller.pc'
+[36.252s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages'
+[36.252s] Level 1:colcon.colcon_core.shell:create_environment_hook('robokpy_controller', 'pythonpath')
+[36.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/pythonpath.ps1'
+[36.254s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/pythonpath.dsv'
+[36.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/hook/pythonpath.sh'
+[36.256s] Level 1:colcon.colcon_core.environment:checking '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/bin'
+[36.256s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robokpy_controller)
+[36.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/package.ps1'
+[36.258s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/package.dsv'
+[36.259s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/package.sh'
+[36.262s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/package.bash'
+[36.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/package.zsh'
+[36.264s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/colcon-core/packages/robokpy_controller)
+[36.265s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[36.265s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[36.266s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[36.266s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[36.540s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[36.540s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[36.540s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[36.598s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[36.598s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/meta/Documents/robotics_workspace_new/install/local_setup.ps1'
+[36.628s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/meta/Documents/robotics_workspace_new/install/_local_setup_util_ps1.py'
+[36.650s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/meta/Documents/robotics_workspace_new/install/setup.ps1'
+[36.653s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/meta/Documents/robotics_workspace_new/install/local_setup.sh'
+[36.654s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/meta/Documents/robotics_workspace_new/install/_local_setup_util_sh.py'
+[36.655s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/meta/Documents/robotics_workspace_new/install/setup.sh'
+[36.657s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/meta/Documents/robotics_workspace_new/install/local_setup.bash'
+[36.670s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/meta/Documents/robotics_workspace_new/install/setup.bash'
+[36.674s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/meta/Documents/robotics_workspace_new/install/local_setup.zsh'
+[36.692s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/meta/Documents/robotics_workspace_new/install/setup.zsh'

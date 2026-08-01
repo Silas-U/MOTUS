@@ -50,6 +50,15 @@ class ToolStep(Step):
     tool_id: str = ''
     command: str = ''
     params: list = field(default_factory=list)
+    # If set, overrides `params` at dispatch time with the position
+    # (x, y, z) from the named VisionStep's detected_pose result —
+    # this is the vision->grasp threading link (see GraspAttachBackend,
+    # object_pose_resolver). Must reference a VisionStep step_id that
+    # is ALSO listed in this step's depends_on as a full completion
+    # dependency (not a progress tuple) — recipe_compiler validates
+    # this at compile time so the result can never be missing at
+    # dispatch time.
+    from_vision_step: str = ''
 
 
 @dataclass
@@ -73,3 +82,37 @@ class VisionStep(Step):
     vision_id: str = ''
     operation: str = ''
     params: list = field(default_factory=list)
+
+
+@dataclass
+class SpawnStep(Step):
+    """Spawns or despawns a catalog object instance at recipe time
+    (see object_spawner.py, objects.yaml). Two modes via `operation`:
+
+      operation='spawn'   — type_id required; x,y,z(,qx,qy,qz,qw) give
+                             the spawn pose. Assigns a free instance
+                             from the bounded catalog pool for that
+                             type; the assigned child_model comes back
+                             in this step's stored result.
+
+      operation='despawn' — needs exactly one of child_model (hand-typed
+                             instance name) or from_spawn_step (pull the
+                             child_model from an earlier SpawnStep's
+                             result instead — analogous to
+                             ToolStep.from_vision_step). If
+                             from_spawn_step is set it must also be a
+                             full completion dependency of this step,
+                             same rule and same reason as
+                             from_vision_step.
+    """
+    operation: str = 'spawn'   # 'spawn' | 'despawn'
+    type_id: str = ''
+    x: float = 0.0
+    y: float = 0.0
+    z: float = 0.0
+    qx: float = 0.0
+    qy: float = 0.0
+    qz: float = 0.0
+    qw: float = 1.0
+    child_model: str = ''      # despawn only — hand-typed target instance
+    from_spawn_step: str = ''  # despawn only — pull child_model from this SpawnStep's result

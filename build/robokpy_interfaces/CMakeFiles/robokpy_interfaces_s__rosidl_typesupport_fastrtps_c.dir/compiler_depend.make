@@ -21,6 +21,9 @@ CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_genera
   rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__struct.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__type_support.h \
@@ -42,12 +45,18 @@ CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_genera
   rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__type_support.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__struct.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__type_support.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__struct.h \
+  rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__functions.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__struct.h \
   rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__type_support.h \
@@ -416,11 +425,15 @@ CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_genera
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
-/usr/include/python3.12/cpython/compile.h:
-
-/usr/include/python3.12/cpython/sysmodule.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_hash.h:
 
@@ -438,10 +451,6 @@ CMakeFiles/robokpy_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_genera
 
 /usr/include/python3.12/boolobject.h:
 
-/usr/include/python3.12/abstract.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/ik__functions.h:
-
 /usr/include/linux/stddef.h:
 
 /usr/include/linux/posix_types.h:
@@ -452,19 +461,9 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/ik__functions.h:
 
 /usr/include/python3.12/cpython/funcobject.h:
 
-/usr/include/limits.h:
-
 /usr/include/features-time64.h:
 
 /usr/include/python3.12/iterobject.h:
-
-/usr/include/assert.h:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h:
-
-/usr/include/python3.12/genericaliasobject.h:
-
-/usr/include/python3.12/cpython/dictobject.h:
 
 /usr/include/pthread.h:
 
@@ -475,6 +474,10 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/ik__functions.h:
 rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__struct.h:
 
 /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/header__struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__type_support.h:
 
 /usr/include/asm-generic/posix_types.h:
 
@@ -506,6 +509,8 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/ik__struct.h:
 
 /usr/include/alloca.h:
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__type_support.h:
+
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h:
 
 /opt/ros/jazzy/include/rcutils/rcutils/macros.h:
@@ -522,29 +527,37 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/ik__struct.h:
 
 /opt/ros/jazzy/include/rcutils/rcutils/visibility_control.h:
 
-/usr/include/python3.12/cpython/context.h:
+rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__struct.h:
 
-/usr/include/linux/types.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__struct.h:
 
-rosidl_generator_c/robokpy_interfaces/msg/detail/cell_state__functions.h:
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h:
+
+/usr/include/assert.h:
+
+/usr/include/python3.12/genericaliasobject.h:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h:
+
+/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/python3.12/cpython/genobject.h:
 
 /usr/include/python3.12/cpython/pymem.h:
 
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h:
+/usr/include/python3.12/abstract.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/ik__functions.h:
 
-rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__functions.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__struct.h:
 
-rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__functions.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__type_support.h:
 
-rosidl_generator_c/robokpy_interfaces/action/detail/set_joint_target__functions.h:
+/usr/include/linux/types.h:
 
-/usr/include/python3.12/Python.h:
-
-/usr/include/python3.12/dictobject.h:
+rosidl_generator_c/robokpy_interfaces/msg/detail/cell_state__functions.h:
 
 /usr/include/ctype.h:
 
@@ -558,17 +571,9 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__functions.h:
 
 rosidl_generator_c/robokpy_interfaces/msg/detail/cell_state__struct.h:
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__functions.h:
+
 /opt/ros/jazzy/include/rcutils/rcutils/types/rcutils_ret.h:
-
-rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__struct.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__struct.h:
-
-/usr/include/python3.12/cpython/fileobject.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/python3.12/cpython/floatobject.h:
 
 /opt/ros/jazzy/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h:
 
@@ -580,15 +585,25 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__struct.h:
 
 rosidl_generator_c/robokpy_interfaces/msg/rosidl_generator_c__visibility_control.h:
 
-rosidl_generator_c/robokpy_interfaces/action/detail/set_joint_target__struct.h:
-
 rosidl_generator_c/robokpy_interfaces/srv/detail/fk__type_support.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h:
 
-/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.h:
+rosidl_generator_c/robokpy_interfaces/action/detail/set_joint_target__functions.h:
 
-/usr/include/x86_64-linux-gnu/bits/confname.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/despawn_object__functions.h:
+
+rosidl_generator_c/robokpy_interfaces/action/detail/set_joint_target__struct.h:
+
+/usr/include/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__functions.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__functions.h:
+
+/usr/include/python3.12/cpython/context.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h:
 
@@ -598,29 +613,25 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__struct.h
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/python3.12/pyconfig.h:
+
+/opt/ros/jazzy/include/rcutils/rcutils/sha256.h:
+
 /usr/include/linux/errno.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__type_support.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 rosidl_generator_c/robokpy_interfaces/action/detail/execute_vision_op__type_support.h:
 
 /usr/include/linux/limits.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
 rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__functions.h:
 
 /usr/include/errno.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/python3.12/cpython/descrobject.h:
-
-/opt/ros/jazzy/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__struct.h:
-
 rosidl_generator_c/robokpy_interfaces/action/detail/execute_vision_op__functions.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__struct.h:
 
 /usr/include/asm-generic/int-ll64.h:
 
@@ -629,6 +640,26 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/fk__functions.h:
 rosidl_generator_c/robokpy_interfaces/action/detail/execute_tool_op__struct.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__struct.h:
+
+rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__type_support.h:
+
+rosidl_generator_c/robokpy_interfaces/action/detail/execute_tool_op__type_support.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/x86_64-linux-gnu/sys/stat.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__type_support.h:
+
+/usr/include/python3.12/modsupport.h:
+
+/usr/include/python3.12/pyframe.h:
+
+/usr/include/linux/stat.h:
 
 /usr/include/inttypes.h:
 
@@ -642,37 +673,9 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__struct.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__functions.h:
 
-rosidl_generator_c/robokpy_interfaces/action/detail/execute_motion__type_support.h:
-
-rosidl_generator_c/robokpy_interfaces/action/detail/execute_tool_op__type_support.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__functions.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
-/opt/ros/jazzy/include/rcutils/rcutils/sha256.h:
-
-/usr/include/x86_64-linux-gnu/sys/stat.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__type_support.h:
-
-/usr/include/python3.12/modsupport.h:
-
-/usr/include/python3.12/pyframe.h:
-
-/usr/include/linux/stat.h:
-
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c:
 
 /usr/include/python3.12/pymacro.h:
-
-/usr/include/python3.12/cpython/abstract.h:
-
-/usr/include/python3.12/bltinmodule.h:
-
-/usr/include/python3.12/cpython/code.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
@@ -680,15 +683,19 @@ rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesuppo
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__functions.h:
 
-/usr/include/python3.12/cpython/fileutils.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__type_support.h:
-
 /usr/include/python3.12/codecs.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
 
 /usr/include/python3.12/pybuffer.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/python3.12/cpython/pyfpe.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__struct.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__type_support.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/reachable__struct.h:
 
@@ -706,9 +713,9 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__function
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/fk__struct.h:
 
-/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__functions.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__struct.h:
 
@@ -718,6 +725,8 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__struct.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/set_planning_tip_link__type_support.h:
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/spawn_object__type_support.h:
+
 rosidl_generator_c/robokpy_interfaces/srv/detail/chain_fk__type_support.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__functions.h:
@@ -725,6 +734,38 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__functions.h:
 /usr/include/python3.12/structseq.h:
 
 rosidl_generator_c/robokpy_interfaces/srv/detail/system_mode__struct.h:
+
+/usr/include/python3.12/cpython/abstract.h:
+
+/usr/include/python3.12/bltinmodule.h:
+
+/usr/include/python3.12/cpython/code.h:
+
+/usr/include/python3.12/cpython/compile.h:
+
+/usr/include/python3.12/cpython/sysmodule.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/opt/ros/jazzy/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__struct.h:
+
+/usr/include/python3.12/cpython/descrobject.h:
+
+/usr/include/python3.12/Python.h:
+
+/usr/include/python3.12/dictobject.h:
+
+/usr/include/python3.12/cpython/dictobject.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/python3.12/cpython/fileobject.h:
+
+rosidl_generator_c/robokpy_interfaces/srv/detail/resume_execution__type_support.h:
+
+/usr/include/python3.12/cpython/fileutils.h:
+
+/usr/include/python3.12/cpython/floatobject.h:
 
 /usr/include/python3.12/cpython/import.h:
 
@@ -846,6 +887,8 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/load_recipe__struct.h:
 
 /usr/include/python3.12/pylifecycle.h:
 
+rosidl_generator_c/robokpy_interfaces/srv/detail/resolve_object_pose__struct.h:
+
 /usr/include/python3.12/pymacconfig.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
@@ -961,19 +1004,3 @@ rosidl_generator_c/robokpy_interfaces/srv/detail/grasp_attach__type_support.h:
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/python3.12/pyconfig.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/python3.12/cpython/pyfpe.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/jacobian__struct.h:
-
-rosidl_generator_c/robokpy_interfaces/srv/detail/execution_state__type_support.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:

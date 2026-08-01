@@ -1,0 +1,46 @@
+# objects.yaml — Motus sim object catalog
+#
+# Bounded-catalog design (see motus.md / this session's discussion):
+# native gz-sim DetachableJoint fixes child_model/child_link at SDF
+# definition time, so arbitrary runtime-named objects can't be
+# attached to on the fly. Instead: every object TYPE that might ever
+# be grasped is declared here once, and the spawn script pre-generates
+# a DetachableJoint plugin for every possible INSTANCE (up to
+# max_instances) at launch time. Which instances are actually spawned
+# into the world at a given moment can change freely at runtime —
+# only the set of *possible* instances is bounded.
+#
+# Naming convention (enforced by object_catalog.py, not here):
+#   instance N of type "cube_small" -> child_model "cube_small_N" (1-indexed)
+#   child_link is the same for every instance of a type.
+
+gripper:
+  parent_model: ur_robot          # model name the robot is spawned as (see spawn_entity in the launch file)
+  parent_link: wrist_3_link       # CORRECTED after `gz model -m ur_robot -l` in real sim: "tcp" does NOT
+                                   # exist as a link — it, robotiq_85_base_link, tool0, flange, base, and
+                                   # ft_frame all got lumped into wrist_3_link during URDF->SDF conversion
+                                   # (everything downstream of wrist_3_link is connected by fixed joints
+                                   # only, until the finger revolute joints). wrist_3_link is the last
+                                   # link in that chain confirmed to exist as a real SDF entity.
+                                   # This is fine for DetachableJoint: it welds at whatever relative pose
+                                   # exists between parent_link and the object at attach time — it doesn't
+                                   # need a symbolically-placed TCP frame, just a real link that physically
+                                   # moves with the gripper (which wrist_3_link now effectively is, since
+                                   # the whole gripper body is rigidly lumped onto it).
+
+object_types:
+  cube_small:
+    child_link: link              # link name inside each spawned instance's SDF
+    geometry:
+      shape: box
+      size: [0.03, 0.03, 0.03]    # matches grasp_test_box's existing dimensions
+      mass: 0.005
+    max_instances: 6              # bounded pool — actual spawned count at runtime can be 0..6
+
+  cube_large:
+    child_link: link
+    geometry:
+      shape: box
+      size: [0.05, 0.05, 0.05]
+      mass: 0.015
+    max_instances: 4

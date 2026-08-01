@@ -223,10 +223,52 @@ CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robok
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.s"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.s
 
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o: rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c > CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.i
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.s
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o: rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c > CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.i
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.s
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o: rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c > CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.i
+
+CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s"
+	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.s
+
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o: rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c
 
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.i: cmake_force
@@ -240,7 +282,7 @@ CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robok
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o: rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c
 
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.i: cmake_force
@@ -254,7 +296,7 @@ CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robok
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c
 
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.i: cmake_force
@@ -268,7 +310,7 @@ CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robok
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o: rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c
 
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.i: cmake_force
@@ -282,7 +324,7 @@ CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robok
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o: rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o"
 	/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o -MF CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o.d -o CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c
 
 CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c.i: cmake_force
@@ -306,6 +348,9 @@ robokpy_interfaces__rosidl_generator_py_OBJECTS = \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.o" \
+"CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o" \
+"CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o" \
+"CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o" \
@@ -326,6 +371,9 @@ librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__ro
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_grasp_attach_s.c.o
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resume_execution_s.c.o
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_load_recipe_s.c.o
+librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_spawn_object_s.c.o
+librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_despawn_object_s.c.o
+librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/srv/_resolve_object_pose_s.c.o
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/msg/_cell_state_s.c.o
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o
@@ -401,7 +449,7 @@ librobokpy_interfaces__rosidl_generator_py.so: /opt/ros/jazzy/lib/libbuiltin_int
 librobokpy_interfaces__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 librobokpy_interfaces__rosidl_generator_py.so: /opt/ros/jazzy/lib/librcutils.so
 librobokpy_interfaces__rosidl_generator_py.so: CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C shared library librobokpy_interfaces__rosidl_generator_py.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking C shared library librobokpy_interfaces__rosidl_generator_py.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
