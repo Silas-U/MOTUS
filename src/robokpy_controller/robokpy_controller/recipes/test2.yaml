@@ -80,19 +80,22 @@ steps:
 - id: descend_pick_a
   type: move
   traj_method: ts
+  # Position comes from spawn_target's actual spawn pose, automatically
+  # combined with the gripper's calibrated approach_offset (0.0507m,
+  # objects.yaml) and grasp_insertion_depth() (0 at the default
+  # engagement_fraction=0.5) — see orchestrator.py's
+  # _resolve_move_target_pose(). No hand-authored x/y/z here at all
+  # anymore, which is the whole point: this recipe went through THREE
+  # different manually-tuned z values earlier this session (0.15
+  # assuming a table, 0.015 the raw centroid, 0.1195 double-counting
+  # the gripper offset) before landing on empirically-correct 0.0657 —
+  # every one of those was a symptom of hand-computing something that
+  # belongs in exactly one place now.
+  from_spawn_step: spawn_target
   target_pose:
-    # z is wrist_3_link's IK target, NOT the finger pads' contact
-    # height — target_pose has no TCP offset applied yet (see
-    # kinematic_solver.py, not yet reviewed for this). Measured via
-    # `gz model -m ur_robot -l`: fingertip-pad midpoint sits ~0.1045m
-    # below wrist_3_link's own origin when pointing straight down
-    # (this recipe's orientation, qy=1). Cube floor-resting height is
-    # z=0.015 (see spawn_target), so wrist_3_link needs to stop at
-    # 0.015 + 0.1045 = 0.1195 for the actual pads to reach the cube.
-    # x/y offset between wrist_3_link and the fingertip midpoint is
-    # sub-millimeter — gripper is coaxial with the wrist, no lateral
-    # correction needed.
-    {x: 0.40, y: 0.10, z: 0.1195, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    # Only orientation is used here — see from_spawn_step's docstring
+    # in steps.py. Straight-down approach.
+    {qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   speed_scale: 0.50
   depends_on: [traverse_to_a]
 
@@ -141,9 +144,17 @@ steps:
   type: move
   traj_method: ts
   target_pose:
-    # Same wrist_3_link-to-fingertip offset correction as
-    # descend_pick_a — see its comment for the derivation.
-    {x: 0.40, y: -0.30, z: 0.1195, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    # from_spawn_step doesn't apply here — it ties position to the
+    # spawn step's own x/y, but this is a place location, not the pick
+    # location. z is the same empirically-validated value as
+    # descend_pick_a (0.0657 = cube's floor-resting 0.015 +
+    # approach_offset 0.0507 + grasp_insertion_depth() 0 at default
+    # engagement_fraction) — same object, same gripper, same floor
+    # height, just a different x/y. KNOWN GAP: if a "place at an
+    # explicit x/y but still derive z from catalog geometry" pattern
+    # comes up again, that's worth its own from_spawn_step-style
+    # mechanism rather than hardcoding this number by hand like this.
+    {x: 0.40, y: -0.30, z: 0.0657, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   speed_scale: 0.50
   depends_on: [traverse_to_b]
 
@@ -170,15 +181,15 @@ steps:
 # CLEANUP
 # ============================================================================
 
-- id: despawn_target
-  type: spawn
-  operation: despawn
-  from_spawn_step: spawn_target
-  depends_on: [spawn_target, release_b]
-
 - id: return_home
   type: move
   traj_method: js
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   depends_on: [retract_b]
+
+- id: despawn_target
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target
+  depends_on: [spawn_target, return_home]

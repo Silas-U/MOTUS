@@ -29,12 +29,14 @@ from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import Bool
 from std_srvs.srv import Trigger
 from ament_index_python.packages import get_package_share_directory
+from geometry_msgs.msg import Pose
 
 from robokpy_interfaces.action import ExecuteMotion, ExecuteToolOp, ExecuteVisionOp
 from robokpy_interfaces.msg import CellState as CellStateMsg
 from robokpy_interfaces.srv import ResumeExecution, LoadRecipe, SpawnObject, DespawnObject
 
 from .recipe_compiler import RecipeCompiler, RecipeValidationError
+from .object_catalog import ObjectCatalog, ObjectInstance
 
 
 from .steps import (
@@ -78,6 +80,17 @@ class Orchestrator(Node):
             SpawnObject, 'spawn_object', callback_group=self._cb_group)
         self._despawn_client = self.create_client(
             DespawnObject, 'despawn_object', callback_group=self._cb_group)
+
+        # Needed to resolve MoveStep.from_spawn_step at dispatch time
+        # (grasp_approach_offset) — same objects_config_path convention
+        # as object_spawner.py/grasp_attach_bridge.py/object_pose_resolver.py.
+        self.declare_parameter('objects_config_path', '')
+        objects_config_path = self.get_parameter('objects_config_path').value
+        if not objects_config_path:
+            raise RuntimeError(
+                'orchestrator requires the objects_config_path parameter '
+                '(path to objects.yaml) — none was provided')
+        self._catalog = ObjectCatalog(objects_config_path)
 
         self._safety_sub = self.create_subscription(
             Bool, '/safety_state', self._safety_cb, 10, callback_group=self._cb_group)
@@ -329,12 +342,78 @@ class Orchestrator(Node):
         elif isinstance(step, WaitStep):
             self._dispatch_wait(step)
 
+    def _resolve_move_target_pose(self, step: MoveStep) -> Optional[Pose]:
+        """Returns step.target_pose unchanged if from_spawn_step isn't
+        set. Otherwise composes the actual grasp target from the
+        referenced SpawnStep's own compile-time pose plus the
+        catalog's grasp_approach_offset() — this is what replaces
+        hand-tuning a z value per recipe (see motus.md's whole TCP-
+        offset saga this session). Returns None on failure so the
+        caller can fail the dispatch cleanly instead of sending a
+        bogus goal."""
+        if not step.from_spawn_step:
+            return step.target_pose
+
+        spawn_step = self._steps.get(step.from_spawn_step)
+        if spawn_step is None or not isinstance(spawn_step, SpawnStep):
+            self.get_logger().error(
+                f'[DAG] {step.step_id}: from_spawn_step='
+                f'"{step.from_spawn_step}" does not resolve to a SpawnStep — '
+                f'this should be unreachable given recipe_compiler\'s '
+                f'validation; treating as failed rather than guessing')
+            return None
+
+        otype = self._catalog.types.get(spawn_step.type_id)
+        if otype is None:
+            self.get_logger().error(
+                f'[DAG] {step.step_id}: from_spawn_step="{step.from_spawn_step}" '
+                f'has type_id="{spawn_step.type_id}", which is not in the '
+                f'loaded object catalog — treating as failed rather than guessing')
+            return None
+
+        # Throwaway instance — grasp_approach_offset only reads
+        # type_id (via its ObjectType lookup) and child_link, neither
+        # of which depends on which specific spawned instance this
+        # ends up being; the actual child_model is decided later, at
+        # runtime, by object_spawner's free-slot picker.
+        inst = ObjectInstance(
+            child_model='(resolved at dispatch time, not yet known)',
+            child_link=otype.child_link, type_id=spawn_step.type_id)
+        offset = self._catalog.grasp_approach_offset(
+            inst, approach_axis=step.approach_axis,
+            engagement_fraction=step.engagement_fraction)
+
+        pose = Pose()
+        pose.position.x = spawn_step.x
+        pose.position.y = spawn_step.y
+        pose.position.z = spawn_step.z
+        # Orientation is the recipe's own grasp-approach decision, not
+        # inherited from the spawned object's orientation — see
+        # recipe_compiler._build_move, which requires target_pose to
+        # still be given (for its orientation fields) alongside
+        # from_spawn_step for exactly this reason.
+        pose.orientation.x = step.target_pose.orientation.x
+        pose.orientation.y = step.target_pose.orientation.y
+        pose.orientation.z = step.target_pose.orientation.z
+        pose.orientation.w = step.target_pose.orientation.w
+        if step.approach_axis == 'x':
+            pose.position.x += offset
+        elif step.approach_axis == 'y':
+            pose.position.y += offset
+        else:
+            pose.position.z += offset
+        return pose
+
     def _dispatch_motion_run(self, run: list):
         goal = ExecuteMotion.Goal()
         goal.leg_step_ids = list(run)
         for step_id in run:
             step = self._steps[step_id]
-            goal.leg_target_poses.append(step.target_pose)
+            target_pose = self._resolve_move_target_pose(step)
+            if target_pose is None:
+                self._on_step_failed(step_id)
+                return
+            goal.leg_target_poses.append(target_pose)
             goal.leg_traj_methods.append(step.traj_method)
             goal.leg_traj_types.append(step.traj_type)
             goal.leg_blend_radii.append(step.blend_radius)
@@ -347,9 +426,9 @@ class Orchestrator(Node):
             return
 
         def feedback_cb(feedback_msg):
-            self.get_logger().info(
-                f'[DAG] run {run}: leg={feedback_msg.feedback.current_leg_step_id} '
-                f'leg_percent_complete={feedback_msg.feedback.leg_percent_complete:.2f}')
+            # self.get_logger().info(
+            #     f'[DAG] run {run}: leg={feedback_msg.feedback.current_leg_step_id} '
+            #     f'leg_percent_complete={feedback_msg.feedback.leg_percent_complete:.2f}')
             self._on_progress(feedback_msg.feedback.current_leg_step_id, feedback_msg.feedback.leg_percent_complete)
 
         # Watchdog/epoch keyed on the run's final member — that's the one

@@ -27,6 +27,15 @@ gripper:
                                    # need a symbolically-placed TCP frame, just a real link that physically
                                    # moves with the gripper (which wrist_3_link now effectively is, since
                                    # the whole gripper body is rigidly lumped onto it).
+  approach_offset: 0.0507         # Empirically calibrated (see motus.md) — offset from an object's own
+                                   # centroid, along the gripper's approach axis, to the tcp target that
+                                   # produces a firm, centered grasp. Found via z=0.0657 against a cube
+                                   # resting at z=0.015 (offset = 0.0657 - 0.015). This absorbs tcp's own
+                                   # calibration imprecision (the dominant, unresolved component — the
+                                   # fingertip pad links use mesh collision geometry, not a primitive
+                                   # shape, so it couldn't be derived from URDF numbers directly) as one
+                                   # single measured constant. Revisit if the gripper hardware/URDF
+                                   # changes, or if the mesh geometry ever gets measured directly.
 
 object_types:
   cube_small:

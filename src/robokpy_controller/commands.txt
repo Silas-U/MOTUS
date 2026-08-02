@@ -22,3 +22,17 @@ ros2 param set /pose_target_interface teach_session_override ""
 
 pkill -9 -f "ros2|gz sim|robokpy_controller"
 ros2 daemon stop && ros2 daemon start
+
+
+#And the full 12-step recipe ran end-to-end without a single hang. The fix was exactly what we suspected: rclpy.spin_until_future_complete(self, future, executor=self.executor_ref, ...) was deadlocking because it tried to spin an already-spinning MultiThreadedExecutor from within a callback running on that same executor.
+Replacing it with a simple polling loop let the existing executor threads process the service response on one thread while the callback blocked on another.
+Summary of the fix:
+
+# BEFORE (deadlocks):
+rclpy.spin_until_future_complete(
+    self, future, executor=self.executor_ref, timeout_sec=5.0)
+
+# AFTER (works):
+start = time.monotonic()
+while not future.done() and time.monotonic() - start < 5.0:
+    time.sleep(0.01)

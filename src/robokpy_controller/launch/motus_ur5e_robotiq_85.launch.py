@@ -421,21 +421,13 @@ def generate_launch_description():
             output     = 'screen',
         ),
 
-        # Node(
-        #     package    = 'robokpy_controller',
-        #     executable = 'orchestrator',
-        #     name       = 'orchestrator',
-        #     output     = 'screen',
-        #     parameters = [robokpy_config_yaml_path]
-        # ),
-
                 # REAL HARDWARE: start orchestrator immediately
         Node(
             package    = 'robokpy_controller',
             executable = 'orchestrator',
             name       = 'orchestrator',
             output     = 'screen',
-            parameters = [robokpy_config_yaml_path],
+            parameters = [robokpy_config_yaml_path, {'objects_config_path': objects_config_path}],
             condition  = UnlessCondition(use_sim)
         ),
 
@@ -451,7 +443,7 @@ def generate_launch_description():
                 executable = 'orchestrator',
                 name       = 'orchestrator',
                 output     = 'screen',
-                parameters = [robokpy_config_yaml_path]
+                parameters = [robokpy_config_yaml_path, {'objects_config_path': objects_config_path}]
             )],
             condition=IfCondition(use_sim)
         ),

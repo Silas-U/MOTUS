@@ -46,6 +46,7 @@ class ObjectCatalog:
         gripper = doc.get('gripper', {})
         self.parent_model = gripper.get('parent_model', '')
         self.parent_link = gripper.get('parent_link', '')
+        self.approach_offset = float(gripper.get('approach_offset', 0.0))
 
         self.types: dict[str, ObjectType] = {}
         for type_id, spec in (doc.get('object_types') or {}).items():
@@ -234,3 +235,95 @@ class ObjectCatalog:
             f'  </model>\n'
             f'</sdf>'
         )
+
+    def grasp_insertion_depth(self, inst: ObjectInstance,
+                               approach_axis: str = 'z',
+                               engagement_fraction: float = 0.5) -> float:
+        """How far along the gripper's approach axis, from this
+        instance's own centroid, the grasp target should be offset so
+        that `engagement_fraction` of the object's extent along that
+        axis ends up within the gripper's contact zone — rather than
+        just targeting the object's raw centroid and hoping the pads
+        happen to land somewhere reasonable on it.
+
+        Deliberately narrow scope: this is a pure OBJECT-geometry
+        computation. It knows nothing about the gripper's own reach or
+        contact-point precision (that's a URDF/tcp-frame concern — see
+        motus.md's TCP-offset discussion) and nothing about which
+        physical direction "approach" means in world coordinates
+        (that's a recipe/grasp-planning concern — the caller composes
+        this scalar into an actual target pose). Keeping those three
+        concerns (gripper offset, object depth, pose composition)
+        separate is what makes each of them reusable across any
+        robot/gripper/object combination instead of getting re-derived
+        by hand per recipe, which is what caused the last two bugs.
+
+        engagement_fraction=0.5 (default, "half the object within the
+        pads") always returns 0.0 — that's not a bug: a centroid is by
+        definition already half-engaged, for any object size, if the
+        gripper's own contact reference (tcp) is accurate. Non-default
+        fractions are for deliberately shallower or deeper grasps
+        (e.g. a very small/light object that needs extra engagement
+        depth for a secure grip, or a fragile/oversized object where
+        full centroid depth isn't wanted).
+
+        Sign convention: positive return value means "move the target
+        deeper into the gripper's approach direction from the
+        centroid" (i.e. engagement_fraction > 0.5); negative means
+        shallower, back toward the pad tip (engagement_fraction < 0.5).
+        Concretely: add this value to the object's centroid coordinate
+        along whichever axis direction the caller considers "further
+        into the gripper, away from the pad tip" — not necessarily the
+        same sign as a raw world-frame axis, since that depends on
+        which way the arm happens to be approaching from. This method
+        has no opinion on that; it only answers "how much," not "which
+        way."
+
+        Only box geometry supported so far (matches
+        instance_model_sdf()) — extend alongside that method if a
+        non-box type is ever added.
+        """
+        otype = self.types[inst.type_id]
+        geom = otype.geometry
+        shape = geom.get('shape', 'box')
+        if shape != 'box':
+            raise NotImplementedError(
+                f'grasp_insertion_depth only supports box geometry so '
+                f'far, got shape="{shape}" for type "{inst.type_id}" — '
+                f'add other shape branches here before using non-box '
+                f'types.')
+
+        axis_index = {'x': 0, 'y': 1, 'z': 2}.get(approach_axis)
+        if axis_index is None:
+            raise ValueError(
+                f'approach_axis must be one of "x", "y", "z" — got '
+                f'"{approach_axis}"')
+        if not (0.0 < engagement_fraction <= 1.0):
+            raise ValueError(
+                f'engagement_fraction must be in (0.0, 1.0] — got '
+                f'{engagement_fraction}')
+
+        size_along_axis = geom['size'][axis_index]
+        return size_along_axis * (engagement_fraction - 0.5)
+
+    def grasp_approach_offset(self, inst: ObjectInstance,
+                               approach_axis: str = 'z',
+                               engagement_fraction: float = 0.5) -> float:
+        """Total offset to add to an object instance's own centroid
+        coordinate (along approach_axis) to get the correct grasp
+        target — combines the two separately-scoped pieces:
+
+          - approach_offset (objects.yaml, gripper section): the
+            gripper's own calibrated reach constant. Robot/gripper
+            hardware property, independent of any object.
+          - grasp_insertion_depth(): how much further to adjust for
+            this specific object's size and the requested
+            engagement_fraction. Object-geometry property, independent
+            of any gripper.
+
+        See each one's own docstring for why they're kept separate
+        rather than folded into one number by hand per recipe — this
+        method exists purely so callers (orchestrator.py) don't have
+        to re-add them correctly themselves every time."""
+        return (self.approach_offset +
+                self.grasp_insertion_depth(inst, approach_axis, engagement_fraction))

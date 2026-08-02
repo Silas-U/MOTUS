@@ -43,6 +43,39 @@ class MoveStep(Step):
     traj_type: str = 'blend'
     blend_radius: float = 0.0
     speed_scale: float = 1.0
+    # If set, target_pose's POSITION is IGNORED (its ORIENTATION is
+    # still used — see below) and instead composed at dispatch time
+    # from the named SpawnStep's own x/y/z plus the gripper's
+    # calibrated approach_offset (objects.yaml) plus
+    # ObjectCatalog.grasp_insertion_depth() — see orchestrator.py's
+    # _resolve_move_target_pose(). This is the spawn->grasp-pose
+    # threading link, analogous to ToolStep.from_vision_step, EXCEPT:
+    # unlike from_vision_step, a SpawnStep's pose is a compile-time
+    # literal, not a runtime result — so this does NOT need to be
+    # listed as a completion dependency for data-correctness reasons
+    # the way from_vision_step/despawn's from_spawn_step do (nothing
+    # here can be "missing" at dispatch time). Still worth depending
+    # on it anyway for physical sanity (don't approach a spawn
+    # location before the object actually exists there) —
+    # recipe_compiler validates the reference exists and is a
+    # spawn-operation SpawnStep, but does not require the
+    # completion-dependency rule.
+    #
+    # target_pose is still REQUIRED alongside from_spawn_step — only
+    # for its orientation (qx/qy/qz/qw). Orientation is a grasp-
+    # approach decision this recipe makes, not something inherited
+    # from however the object happened to be spawned (a spawned
+    # object's own orientation, e.g. identity for a symmetric cube,
+    # has no necessary relationship to the orientation the gripper
+    # should approach from).
+    from_spawn_step: str = ''
+    # Only meaningful with from_spawn_step set — forwarded to
+    # ObjectCatalog.grasp_insertion_depth(). See that method's
+    # docstring: 0.5 (default) means "target the object's raw
+    # centroid," matching the gripper's own calibrated approach_offset
+    # with no additional per-object depth adjustment.
+    engagement_fraction: float = 0.5
+    approach_axis: str = 'z'
 
 
 @dataclass
