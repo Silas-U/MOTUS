@@ -116,8 +116,16 @@ steps:
   command: "attach:cube_small_1"
   recovery: abort
   max_retries: 2
-  depends_on:
-    - {progress: descend_pick_a, threshold: 0.90}
+  # Was {progress: descend_pick_a, threshold: 0.90}: grasping at 90%
+  # attaches the cube's mass while the arm is still decelerating into
+  # the final leg, injecting a disturbance right where tracking error
+  # is already highest — confirmed contributor to the joint 0/5
+  # tolerance failures this session. descend_pick_a is the terminal
+  # leg of its merged run (traj_method-change boundary forces zero
+  # velocity there anyway), so waiting for full completion instead of
+  # 90% progress costs only the last ~10% of that leg's time and grabs
+  # onto an arm that has actually come to rest.
+  depends_on: [descend_pick_a]
 
 - id: retract_a
   type: move
@@ -164,8 +172,13 @@ steps:
   command: release
   recovery: retry
   max_retries: 2
-  depends_on:
-    - {progress: descend_place_b, threshold: 0.90}
+  # Was {progress: descend_place_b, threshold: 0.90} — same reasoning
+  # as grip_close_a: descend_place_b is also the terminal leg of its
+  # merged run, so releasing after full completion instead of at 90%
+  # progress avoids un-welding the cube while the arm is still
+  # decelerating, for the same accuracy cost as above (last ~10% of
+  # that leg's time).
+  depends_on: [descend_place_b]
 
 - id: retract_b
   type: move

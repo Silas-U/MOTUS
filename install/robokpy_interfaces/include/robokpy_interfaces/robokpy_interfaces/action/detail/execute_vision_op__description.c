@@ -203,11 +203,11 @@ robokpy_interfaces__action__ExecuteVisionOp_FeedbackMessage__get_type_hash(
 #include <string.h>
 
 // Include directives for referenced types
-#include "geometry_msgs/msg/detail/point__functions.h"
-#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
-#include "geometry_msgs/msg/detail/pose__functions.h"
 #include "service_msgs/msg/detail/service_event_info__functions.h"
 #include "builtin_interfaces/msg/detail/time__functions.h"
+#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
+#include "geometry_msgs/msg/detail/pose__functions.h"
+#include "geometry_msgs/msg/detail/point__functions.h"
 #include "geometry_msgs/msg/detail/quaternion__functions.h"
 
 // Hashes for external referenced types

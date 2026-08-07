@@ -20,6 +20,8 @@
 // Include directives for member types
 // Member 'leg_target_poses'
 #include "geometry_msgs/msg/detail/pose__traits.hpp"
+// Member 'seed_state'
+#include "sensor_msgs/msg/detail/joint_state__traits.hpp"
 
 namespace robokpy_interfaces
 {
@@ -126,6 +128,20 @@ inline void to_flow_style_yaml(
   {
     out << "speed_scale: ";
     rosidl_generator_traits::value_to_yaml(msg.speed_scale, out);
+    out << ", ";
+  }
+
+  // member: plan_only
+  {
+    out << "plan_only: ";
+    rosidl_generator_traits::value_to_yaml(msg.plan_only, out);
+    out << ", ";
+  }
+
+  // member: seed_state
+  {
+    out << "seed_state: ";
+    to_flow_style_yaml(msg.seed_state, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -242,6 +258,25 @@ inline void to_block_style_yaml(
     rosidl_generator_traits::value_to_yaml(msg.speed_scale, out);
     out << "\n";
   }
+
+  // member: plan_only
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "plan_only: ";
+    rosidl_generator_traits::value_to_yaml(msg.plan_only, out);
+    out << "\n";
+  }
+
+  // member: seed_state
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "seed_state:\n";
+    to_block_style_yaml(msg.seed_state, out, indentation + 2);
+  }
 }  // NOLINT(readability/fn_size)
 
 inline std::string to_yaml(const ExecuteMotion_Goal & msg, bool use_flow_style = false)
@@ -304,7 +339,8 @@ struct is_message<robokpy_interfaces::action::ExecuteMotion_Goal>
 
 // Include directives for member types
 // Member 'final_state'
-#include "sensor_msgs/msg/detail/joint_state__traits.hpp"
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__traits.hpp"
 // Member 'actual_duration'
 #include "builtin_interfaces/msg/detail/duration__traits.hpp"
 
@@ -468,6 +504,7 @@ struct is_message<robokpy_interfaces::action::ExecuteMotion_Result>
 
 // Include directives for member types
 // Member 'current_state'
+// Member 'predicted_final_state'
 // already included above
 // #include "sensor_msgs/msg/detail/joint_state__traits.hpp"
 
@@ -500,6 +537,13 @@ inline void to_flow_style_yaml(
   {
     out << "current_state: ";
     to_flow_style_yaml(msg.current_state, out);
+    out << ", ";
+  }
+
+  // member: predicted_final_state
+  {
+    out << "predicted_final_state: ";
+    to_flow_style_yaml(msg.predicted_final_state, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -535,6 +579,15 @@ inline void to_block_style_yaml(
     }
     out << "current_state:\n";
     to_block_style_yaml(msg.current_state, out, indentation + 2);
+  }
+
+  // member: predicted_final_state
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "predicted_final_state:\n";
+    to_block_style_yaml(msg.predicted_final_state, out, indentation + 2);
   }
 }  // NOLINT(readability/fn_size)
 

@@ -28,6 +28,10 @@ ROSIDL_GENERATOR_C_IMPORT
 bool geometry_msgs__msg__pose__convert_from_py(PyObject * _pymsg, void * _ros_message);
 ROSIDL_GENERATOR_C_IMPORT
 PyObject * geometry_msgs__msg__pose__convert_to_py(void * raw_ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+bool sensor_msgs__msg__joint_state__convert_from_py(PyObject * _pymsg, void * _ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+PyObject * sensor_msgs__msg__joint_state__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool robokpy_interfaces__action__execute_motion__goal__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -301,6 +305,26 @@ bool robokpy_interfaces__action__execute_motion__goal__convert_from_py(PyObject 
     ros_message->speed_scale = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // plan_only
+    PyObject * field = PyObject_GetAttrString(_pymsg, "plan_only");
+    if (!field) {
+      return false;
+    }
+    assert(PyBool_Check(field));
+    ros_message->plan_only = (Py_True == field);
+    Py_DECREF(field);
+  }
+  {  // seed_state
+    PyObject * field = PyObject_GetAttrString(_pymsg, "seed_state");
+    if (!field) {
+      return false;
+    }
+    if (!sensor_msgs__msg__joint_state__convert_from_py(field, &ros_message->seed_state)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -491,6 +515,31 @@ PyObject * robokpy_interfaces__action__execute_motion__goal__convert_to_py(void 
     field = PyFloat_FromDouble(ros_message->speed_scale);
     {
       int rc = PyObject_SetAttrString(_pymessage, "speed_scale", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // plan_only
+    PyObject * field = NULL;
+    field = PyBool_FromLong(ros_message->plan_only ? 1 : 0);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "plan_only", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // seed_state
+    PyObject * field = NULL;
+    field = sensor_msgs__msg__joint_state__convert_to_py(&ros_message->seed_state);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "seed_state", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
@@ -735,6 +784,10 @@ ROSIDL_GENERATOR_C_IMPORT
 bool sensor_msgs__msg__joint_state__convert_from_py(PyObject * _pymsg, void * _ros_message);
 ROSIDL_GENERATOR_C_IMPORT
 PyObject * sensor_msgs__msg__joint_state__convert_to_py(void * raw_ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+bool sensor_msgs__msg__joint_state__convert_from_py(PyObject * _pymsg, void * _ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+PyObject * sensor_msgs__msg__joint_state__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool robokpy_interfaces__action__execute_motion__feedback__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -804,6 +857,17 @@ bool robokpy_interfaces__action__execute_motion__feedback__convert_from_py(PyObj
     }
     Py_DECREF(field);
   }
+  {  // predicted_final_state
+    PyObject * field = PyObject_GetAttrString(_pymsg, "predicted_final_state");
+    if (!field) {
+      return false;
+    }
+    if (!sensor_msgs__msg__joint_state__convert_from_py(field, &ros_message->predicted_final_state)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -862,6 +926,20 @@ PyObject * robokpy_interfaces__action__execute_motion__feedback__convert_to_py(v
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "current_state", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // predicted_final_state
+    PyObject * field = NULL;
+    field = sensor_msgs__msg__joint_state__convert_to_py(&ros_message->predicted_final_state);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "predicted_final_state", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

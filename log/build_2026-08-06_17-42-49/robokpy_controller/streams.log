@@ -1,0 +1,54 @@
+[3.484s] Invoking command in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy_controller build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log --single-version-externally-managed install_data
+[4.857s] running egg_info
+[4.963s] writing ../../build/robokpy_controller/robokpy_controller.egg-info/PKG-INFO
+[4.963s] writing dependency_links to ../../build/robokpy_controller/robokpy_controller.egg-info/dependency_links.txt
+[4.964s] writing entry points to ../../build/robokpy_controller/robokpy_controller.egg-info/entry_points.txt
+[4.965s] writing requirements to ../../build/robokpy_controller/robokpy_controller.egg-info/requires.txt
+[4.966s] writing top-level names to ../../build/robokpy_controller/robokpy_controller.egg-info/top_level.txt
+[5.198s] reading manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'
+[5.205s] writing manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'
+[5.205s] running build
+[5.206s] running build_py
+[5.208s] running install
+[5.225s] running install_lib
+[5.330s] running install_data
+[5.334s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi
+[5.335s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.335s] copying meshes/mecharm_270_pi/visual/link2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.344s] copying meshes/mecharm_270_pi/visual/link4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.349s] copying meshes/mecharm_270_pi/visual/link3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.356s] copying meshes/mecharm_270_pi/visual/link6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.358s] copying meshes/mecharm_270_pi/visual/link5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.361s] copying meshes/mecharm_270_pi/visual/base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.372s] copying meshes/mecharm_270_pi/visual/link1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+[5.380s] creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.381s] copying meshes/mecharm_270_pi/collision/link2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.396s] copying meshes/mecharm_270_pi/collision/link4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.403s] copying meshes/mecharm_270_pi/collision/link3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.409s] copying meshes/mecharm_270_pi/collision/link6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.412s] copying meshes/mecharm_270_pi/collision/link5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.420s] copying meshes/mecharm_270_pi/collision/base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.429s] copying meshes/mecharm_270_pi/collision/link1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+[5.438s] running install_egg_info
+[5.597s] removing '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[5.608s] Copying ../../build/robokpy_controller/robokpy_controller.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info
+[5.608s] running install_scripts
+[6.191s] Installing grasp_attach_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.192s] Installing joint_jog_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.192s] Installing kinematic_solver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.197s] Installing kinematics_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.197s] Installing motion_planner script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.197s] Installing object_pose_resolver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.198s] Installing object_spawner script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.202s] Installing orchestrator script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.203s] Installing pose_target_interface script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.203s] Installing robot_command_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.203s] Installing robot_description_viewer script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.204s] Installing robot_state_interface_virtual script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.204s] Installing robot_state_manager script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.208s] Installing safety_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.208s] Installing tool_action_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.208s] Installing trajectory_plotter script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.209s] Installing virtual_jog_relay script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+[6.209s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log'
+[6.297s] Invoked command in '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robokpy_controller build --build-base /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build install --record /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log --single-version-externally-managed install_data

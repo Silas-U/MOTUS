@@ -41,6 +41,7 @@ extern "C"
 #include "rosidl_runtime_c/primitives_sequence_functions.h"  // leg_blend_radii
 #include "rosidl_runtime_c/string.h"  // leg_step_ids, leg_traj_methods, leg_traj_types
 #include "rosidl_runtime_c/string_functions.h"  // leg_step_ids, leg_traj_methods, leg_traj_types
+#include "sensor_msgs/msg/detail/joint_state__functions.h"  // seed_state
 
 // forward declare type support functions
 
@@ -84,6 +85,47 @@ size_t max_serialized_size_key_geometry_msgs__msg__Pose(
 ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
 const rosidl_message_type_support_t *
   ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, geometry_msgs, msg, Pose)();
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+bool cdr_serialize_sensor_msgs__msg__JointState(
+  const sensor_msgs__msg__JointState * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+bool cdr_deserialize_sensor_msgs__msg__JointState(
+  eprosima::fastcdr::Cdr & cdr,
+  sensor_msgs__msg__JointState * ros_message);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+size_t get_serialized_size_sensor_msgs__msg__JointState(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+size_t max_serialized_size_sensor_msgs__msg__JointState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+bool cdr_serialize_key_sensor_msgs__msg__JointState(
+  const sensor_msgs__msg__JointState * ros_message,
+  eprosima::fastcdr::Cdr & cdr);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+size_t get_serialized_size_key_sensor_msgs__msg__JointState(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+size_t max_serialized_size_key_sensor_msgs__msg__JointState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_robokpy_interfaces
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, sensor_msgs, msg, JointState)();
 
 
 using _ExecuteMotion_Goal__ros_msg_type = robokpy_interfaces__action__ExecuteMotion_Goal;
@@ -173,6 +215,17 @@ bool cdr_serialize_robokpy_interfaces__action__ExecuteMotion_Goal(
   // Field name: speed_scale
   {
     cdr << ros_message->speed_scale;
+  }
+
+  // Field name: plan_only
+  {
+    cdr << (ros_message->plan_only ? true : false);
+  }
+
+  // Field name: seed_state
+  {
+    cdr_serialize_sensor_msgs__msg__JointState(
+      &ros_message->seed_state, cdr);
   }
 
   return true;
@@ -312,6 +365,18 @@ bool cdr_deserialize_robokpy_interfaces__action__ExecuteMotion_Goal(
     cdr >> ros_message->speed_scale;
   }
 
+  // Field name: plan_only
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message->plan_only = tmp ? true : false;
+  }
+
+  // Field name: seed_state
+  {
+    cdr_deserialize_sensor_msgs__msg__JointState(cdr, &ros_message->seed_state);
+  }
+
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -399,6 +464,17 @@ size_t get_serialized_size_robokpy_interfaces__action__ExecuteMotion_Goal(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Field name: plan_only
+  {
+    size_t item_size = sizeof(ros_message->plan_only);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: seed_state
+  current_alignment += get_serialized_size_sensor_msgs__msg__JointState(
+    &(ros_message->seed_state), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -512,6 +588,31 @@ size_t max_serialized_size_robokpy_interfaces__action__ExecuteMotion_Goal(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
+  // Field name: plan_only
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Field name: seed_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_sensor_msgs__msg__JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -521,7 +622,7 @@ size_t max_serialized_size_robokpy_interfaces__action__ExecuteMotion_Goal(
     using DataType = robokpy_interfaces__action__ExecuteMotion_Goal;
     is_plain =
       (
-      offsetof(DataType, speed_scale) +
+      offsetof(DataType, seed_state) +
       last_member_size
       ) == ret_val;
   }
@@ -614,6 +715,17 @@ bool cdr_serialize_key_robokpy_interfaces__action__ExecuteMotion_Goal(
     cdr << ros_message->speed_scale;
   }
 
+  // Field name: plan_only
+  {
+    cdr << (ros_message->plan_only ? true : false);
+  }
+
+  // Field name: seed_state
+  {
+    cdr_serialize_key_sensor_msgs__msg__JointState(
+      &ros_message->seed_state, cdr);
+  }
+
   return true;
 }
 
@@ -701,6 +813,17 @@ size_t get_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Goal(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Field name: plan_only
+  {
+    size_t item_size = sizeof(ros_message->plan_only);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Field name: seed_state
+  current_alignment += get_serialized_size_key_sensor_msgs__msg__JointState(
+    &(ros_message->seed_state), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -812,6 +935,31 @@ size_t max_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Goal(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
+  // Field name: plan_only
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Field name: seed_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_key_sensor_msgs__msg__JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -820,7 +968,7 @@ size_t max_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Goal(
     using DataType = robokpy_interfaces__action__ExecuteMotion_Goal;
     is_plain =
       (
-      offsetof(DataType, speed_scale) +
+      offsetof(DataType, seed_state) +
       last_member_size
       ) == ret_val;
   }
@@ -954,7 +1102,8 @@ extern "C"
 // #include "rosidl_runtime_c/string.h"  // failed_leg_step_id
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"  // failed_leg_step_id
-#include "sensor_msgs/msg/detail/joint_state__functions.h"  // final_state
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__functions.h"  // final_state
 
 // forward declare type support functions
 
@@ -1588,7 +1737,7 @@ extern "C"
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"  // current_leg_step_id
 // already included above
-// #include "sensor_msgs/msg/detail/joint_state__functions.h"  // current_state
+// #include "sensor_msgs/msg/detail/joint_state__functions.h"  // current_state, predicted_final_state
 
 // forward declare type support functions
 
@@ -1667,6 +1816,12 @@ bool cdr_serialize_robokpy_interfaces__action__ExecuteMotion_Feedback(
       &ros_message->current_state, cdr);
   }
 
+  // Field name: predicted_final_state
+  {
+    cdr_serialize_sensor_msgs__msg__JointState(
+      &ros_message->predicted_final_state, cdr);
+  }
+
   return true;
 }
 
@@ -1699,6 +1854,11 @@ bool cdr_deserialize_robokpy_interfaces__action__ExecuteMotion_Feedback(
   // Field name: current_state
   {
     cdr_deserialize_sensor_msgs__msg__JointState(cdr, &ros_message->current_state);
+  }
+
+  // Field name: predicted_final_state
+  {
+    cdr_deserialize_sensor_msgs__msg__JointState(cdr, &ros_message->predicted_final_state);
   }
 
   return true;
@@ -1734,6 +1894,10 @@ size_t get_serialized_size_robokpy_interfaces__action__ExecuteMotion_Feedback(
   // Field name: current_state
   current_alignment += get_serialized_size_sensor_msgs__msg__JointState(
     &(ros_message->current_state), current_alignment);
+
+  // Field name: predicted_final_state
+  current_alignment += get_serialized_size_sensor_msgs__msg__JointState(
+    &(ros_message->predicted_final_state), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -1795,6 +1959,24 @@ size_t max_serialized_size_robokpy_interfaces__action__ExecuteMotion_Feedback(
     }
   }
 
+  // Field name: predicted_final_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_sensor_msgs__msg__JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -1804,7 +1986,7 @@ size_t max_serialized_size_robokpy_interfaces__action__ExecuteMotion_Feedback(
     using DataType = robokpy_interfaces__action__ExecuteMotion_Feedback;
     is_plain =
       (
-      offsetof(DataType, current_state) +
+      offsetof(DataType, predicted_final_state) +
       last_member_size
       ) == ret_val;
   }
@@ -1841,6 +2023,12 @@ bool cdr_serialize_key_robokpy_interfaces__action__ExecuteMotion_Feedback(
       &ros_message->current_state, cdr);
   }
 
+  // Field name: predicted_final_state
+  {
+    cdr_serialize_key_sensor_msgs__msg__JointState(
+      &ros_message->predicted_final_state, cdr);
+  }
+
   return true;
 }
 
@@ -1874,6 +2062,10 @@ size_t get_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Feedbac
   // Field name: current_state
   current_alignment += get_serialized_size_key_sensor_msgs__msg__JointState(
     &(ros_message->current_state), current_alignment);
+
+  // Field name: predicted_final_state
+  current_alignment += get_serialized_size_key_sensor_msgs__msg__JointState(
+    &(ros_message->predicted_final_state), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -1933,6 +2125,24 @@ size_t max_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Feedbac
     }
   }
 
+  // Field name: predicted_final_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_key_sensor_msgs__msg__JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -1941,7 +2151,7 @@ size_t max_serialized_size_key_robokpy_interfaces__action__ExecuteMotion_Feedbac
     using DataType = robokpy_interfaces__action__ExecuteMotion_Feedback;
     is_plain =
       (
-      offsetof(DataType, current_state) +
+      offsetof(DataType, predicted_final_state) +
       last_member_size
       ) == ret_val;
   }

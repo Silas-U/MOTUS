@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "robokpy_interfaces/srv/detail/system_mode__functions.h"
-#include "robokpy_interfaces/srv/detail/system_mode__type_support.h"
 #include "robokpy_interfaces/srv/detail/system_mode__struct.h"
+#include "robokpy_interfaces/srv/detail/system_mode__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/srv/detail/system_mode__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

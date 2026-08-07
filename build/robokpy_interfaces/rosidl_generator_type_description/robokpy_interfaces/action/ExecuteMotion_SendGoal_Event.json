@@ -228,6 +228,26 @@
               "nested_type_name": ""
             },
             "default_value": ""
+          },
+          {
+            "name": "plan_only",
+            "type": {
+              "type_id": 15,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "seed_state",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "sensor_msgs/msg/JointState"
+            },
+            "default_value": ""
           }
         ]
       },
@@ -282,6 +302,61 @@
         ]
       },
       {
+        "type_name": "sensor_msgs/msg/JointState",
+        "fields": [
+          {
+            "name": "header",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "std_msgs/msg/Header"
+            },
+            "default_value": ""
+          },
+          {
+            "name": "name",
+            "type": {
+              "type_id": 161,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "position",
+            "type": {
+              "type_id": 155,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "velocity",
+            "type": {
+              "type_id": 155,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "effort",
+            "type": {
+              "type_id": 155,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          }
+        ]
+      },
+      {
         "type_name": "service_msgs/msg/ServiceEventInfo",
         "fields": [
           {
@@ -327,6 +402,31 @@
         ]
       },
       {
+        "type_name": "std_msgs/msg/Header",
+        "fields": [
+          {
+            "name": "stamp",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "builtin_interfaces/msg/Time"
+            },
+            "default_value": ""
+          },
+          {
+            "name": "frame_id",
+            "type": {
+              "type_id": 17,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          }
+        ]
+      },
+      {
         "type_name": "unique_identifier_msgs/msg/UUID",
         "fields": [
           {
@@ -346,7 +446,7 @@
   "type_hashes": [
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Event",
-      "hash_string": "RIHS01_7b17649655e1dcb24d0a02184ff4ba2d23b006e3809c67589c72a6e6874f4b89"
+      "hash_string": "RIHS01_be14e965e844bed37c768d64f46a115318ba4e1e5df5a2912c6da600a0e365f5"
     },
     {
       "type_name": "builtin_interfaces/msg/Time",
@@ -366,19 +466,27 @@
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_Goal",
-      "hash_string": "RIHS01_390fed2228f2a84f64cbd55fc9ea1ce873978a304bdc6009ffb431c36a2644e4"
+      "hash_string": "RIHS01_c076e152606b5a046fe36d45fe0524d726251711337f0a76631a092c09e4fe36"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Request",
-      "hash_string": "RIHS01_e984a7a9aad549ae56419db79c140b28343ba252c8e235d7a7da7d1780ff2d20"
+      "hash_string": "RIHS01_2b3d3eed1e1665c45a7cafcfde1c11018005880d50726179d4f6407d7a1edc1a"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Response",
       "hash_string": "RIHS01_9df6858a95de68359e690e20bc37d7c06b0c4e43fcb2bfeeb36cca6c0eb777b7"
     },
     {
+      "type_name": "sensor_msgs/msg/JointState",
+      "hash_string": "RIHS01_a13ee3a330e346c9d87b5aa18d24e11690752bd33a0350f11c5882bc9179260e"
+    },
+    {
       "type_name": "service_msgs/msg/ServiceEventInfo",
       "hash_string": "RIHS01_41bcbbe07a75c9b52bc96bfd5c24d7f0fc0a08c0cb7921b3373c5732345a6f45"
+    },
+    {
+      "type_name": "std_msgs/msg/Header",
+      "hash_string": "RIHS01_f49fb3ae2cf070f793645ff749683ac6b06203e41c891e17701b1cb597ce6a01"
     },
     {
       "type_name": "unique_identifier_msgs/msg/UUID",

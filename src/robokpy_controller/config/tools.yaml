@@ -60,3 +60,27 @@ grasp_attach_1:
   # parent_model / parent_link intentionally omitted — injected at
   # launch time from objects.yaml (single source of truth, see
   # motus_ur5e_robotiq_85_launch.py and object_catalog.py)
+
+  # Object catalog — lets ParallelJawActuator scale grip-close distance
+  # to the target object's size instead of always fully closing.
+  # Ignored entirely if gripper_mechanism is 'suction'.
+  objects_catalog_path: config/objects.yaml
+
+  # Which GraspActuator drives the physical gripper — swap this one
+  # line (+ the matching keys below) to change gripper hardware
+  # without touching tool_action_server.py. Options: parallel_jaw, suction.
+  gripper_mechanism: parallel_jaw
+
+  # --- parallel_jaw keys (used when gripper_mechanism: parallel_jaw) ---
+  gripper_action_name: /gripper_action_controller/gripper_cmd
+  gripper_joint_name: robotiq_85_left_knuckle_joint
+  gripper_open_position: 0.001
+  gripper_closed_position: 0.554
+  gripper_max_effort: 50.0
+  gripper_action_timeout: 5.0
+  gripper_min_close_ratio: 0.7   # smallest catalog object still closes to 70% of full travel
+
+  # --- suction keys (used when gripper_mechanism: suction) ---
+  # vacuum_topic: /vacuum_controller/cmd
+  # vacuum_on_value: on
+  # vacuum_off_value: off

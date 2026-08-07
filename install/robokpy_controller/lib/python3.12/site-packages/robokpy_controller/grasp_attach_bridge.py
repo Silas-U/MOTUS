@@ -96,6 +96,20 @@ class GraspAttachBridge(Node):
             self.get_logger().error(response.message)
             return response
 
+        # Idempotency guard: a retry after a lost response (not a lost
+        # attach — see orchestrator.py's epoch/watchdog docstring) would
+        # otherwise re-publish attach and leak a second, never-detached
+        # joint_id for the same child_model.
+        for existing_id, (existing_model, _existing_link) in self._active_joints.items():
+            if existing_model == child_model:
+                response.success = True
+                response.message = (
+                    f'"{child_model}" already attached (joint_id={existing_id}) '
+                    f'— treating as idempotent, not re-publishing attach')
+                response.joint_id = existing_id
+                self.get_logger().info(response.message)
+                return response
+
         try:
             inst = self._catalog.lookup_by_model(child_model)
         except KeyError as e:

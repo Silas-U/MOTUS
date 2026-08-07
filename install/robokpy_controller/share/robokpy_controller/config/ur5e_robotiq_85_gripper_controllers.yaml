@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 125  # Hz — 1:1 with 0.008s physics step (motus_world.sdf)
+    update_rate: 150  # Hz — 1:1 with 0.008s physics step (motus_world.sdf)
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -36,15 +36,14 @@ arm_controller:
     state_publish_rate: 50.0
     constraints:
       stopped_velocity_tolerance: 0.05
-      goal_time: 1.0
+      goal_time: 0.5
       shoulder_pan_joint:  { trajectory: 0.05, goal: 0.03 }
       shoulder_lift_joint: { trajectory: 0.05, goal: 0.03 }
       elbow_joint:         { trajectory: 0.05, goal: 0.03 }
       wrist_1_joint:       { trajectory: 0.05, goal: 0.03 }
       wrist_2_joint:       { trajectory: 0.05, goal: 0.03 }
       wrist_3_joint:       { trajectory: 0.05, goal: 0.03 }
-    cmd_timeout: 2.0
-
+    
 # =========================================================
 # Robotiq 2F-85 — native mimic architecture.
 # Only the primary joint (robotiq_85_left_knuckle_joint) is

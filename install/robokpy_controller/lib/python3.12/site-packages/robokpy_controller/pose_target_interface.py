@@ -61,6 +61,9 @@ class PoseTargetInterface(Node):
         self.fk.compute_chain(self.home_q, self.base_link, self.tip_link)
         self.home_pose = self.fk.get_pose_quart()
 
+        self.declare_parameter('marker_scale', 0.2)
+        self.marker_scale = float(self.get_parameter('marker_scale').value)
+
         self.get_logger().info(f"home_pose={self.home_pose}")   # print AFTER compute_chain instead
 
         self.marker_visible = True
@@ -72,18 +75,24 @@ class PoseTargetInterface(Node):
         # -----------------------------
         # Subscriptions
         # -----------------------------
+        # TRANSIENT_LOCAL to match robot_state_manager's publisher —
+        # without this, a late-starting interface misses the single initial
+        # publish and stays deaf forever.
+        mode_qos = QoSProfile(depth=1)
+        mode_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+
         self.create_subscription(
             String,
-            'execution_state',
+            '/execution_state',
             self.exec_state_cb,
-            10
+            mode_qos
         )
 
         self.create_subscription(
-            String, 
-            '/system_mode', 
+            String,
+            '/system_mode',
             self.sys_mode_cb,
-            10
+            mode_qos
         )
 
         self.create_subscription(
@@ -209,20 +218,23 @@ class PoseTargetInterface(Node):
         self._update_context()
 
     def sys_mode_cb(self, msg):
-
+        if self.sys_mode != msg.data:
+            self.get_logger().info(f'pose_target_interface: system_mode -> {msg.data}')
         self.sys_mode = msg.data
 
         if self.sys_mode == "PLANNER":
             self.show_marker_at_current_pose()
-
         elif self.sys_mode == "ACTIVE":
             self.hide_marker()
 
     
     def exec_state_cb(self, msg):
         exec_state = msg.data
+        if not hasattr(self, '_last_exec_state') or self._last_exec_state != exec_state:
+            self._last_exec_state = exec_state
+            self.get_logger().info(f'pose_target_interface: execution_state -> {exec_state}')
 
-        if  exec_state == "EXECUTING":
+        if exec_state == "EXECUTING":
             self.hide_marker()
         elif exec_state == "SERVO" and self.sys_mode == "PLANNER":
             self.show_marker_at_current_pose()
@@ -256,7 +268,7 @@ class PoseTargetInterface(Node):
         int_marker.header.frame_id = self.world_frame
         int_marker.name = "ik_target"
         int_marker.description = "[Motus]"
-        int_marker.scale = 0.2
+        int_marker.scale = self.marker_scale
 
         x_0, y_0, z_0, roll_0, pitch_0, yaw_0, w_0 =  marker_pose
 

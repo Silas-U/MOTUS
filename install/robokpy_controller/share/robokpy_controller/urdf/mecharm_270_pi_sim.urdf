@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<robot name="cobot">
+
+<link name="world"/>
+
+  <link name="base">
+    <visual>
+      <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/base.dae"/>
+      </geometry>
+      <origin xyz = " 0 0 0 " rpy = " 0 0 -3.1415926"/>
+    </visual>
+    <collision>
+      <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+        <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/base.dae"/>
+      </geometry>
+      <origin xyz = " 0 0 0 " rpy = " 0 0 -3.1415926"/>
+    </collision>
+
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link1.dae"/>
+      </geometry>
+      <origin xyz = "0 0 -0.132 " rpy = " 0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link1.dae"/>
+      </geometry>
+      <origin xyz = "0 0 -0.132 " rpy = " 0 0 0"/>
+    </collision>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <geometry>    
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link2.dae"/>
+      </geometry>
+      <origin xyz = "-0.005 0.21 0.002  " rpy = " 1.5708 -3.1415926 0"/>
+
+    </visual>
+    <collision>
+      <geometry>    
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link2.dae"/>
+      </geometry>
+      <origin xyz = "-0.005  -0.21 0.002  " rpy = " 1.5708 -3.1415926 0"/>
+      
+    </collision>     
+  </link>
+
+  <link name="link3">
+    <visual>
+      <geometry> 
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link3.dae"/>
+      </geometry>
+      <origin xyz = "-0.09 0.306 0.005 " rpy = "1.5708 3.1415926  0"/>
+      <!-- <origin xyz = "-0.0 0.0 0.000 " rpy = "0 0  0"/> -->
+    </visual>
+    <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link3.dae"/>
+      </geometry>
+      <origin xyz = "-0.09 0.306 0.005" rpy = "1.5708 3.1415926 0"/>
+    </collision>
+  </link>
+
+  <link name="link4">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link4.dae"/>
+      </geometry>
+      <origin xyz = "0.009 -0.311 -0.228" rpy = " 0 1.5708 1.5708"/>
+    </visual>
+    <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link4.dae"/>
+      </geometry>
+    <origin xyz = "0.009 -0.311  -0.228" rpy = " 0 1.5708  1.5708"/>
+    </collision>
+  </link>
+
+  <link name="link5">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link5.dae"/>
+      </geometry>
+      <origin xyz = "-0.292 -0.318 -0.007" rpy = " 1.5708 0 3.1415926"/>
+    </visual>
+    <collision>
+      <geometry>
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link5.dae"/>
+      </geometry>
+      <origin xyz = "-0.292 -0.318 -0.007 " rpy = " 1.5708 0 3.1415926"/>
+    </collision>
+  </link>
+
+  <link name="link6">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/visual/link6.dae"/>
+      </geometry>
+      <origin xyz = "-0.1645 0.0536 -0.211 " rpy = " 0 1.5708 0"/>
+    </visual>
+    <collision>
+      <geometry>
+       <mesh filename="package://robokpy_controller/meshes/mecharm_270_pi/collision/link6.dae"/>
+      </geometry>
+      <origin xyz = "-0.1645 0.0536 -0.211 " rpy = " 0 1.5708 0"/>
+    </collision>
+  </link>
+
+
+  <!-- ROS-Industrial tool0 frame at the flange -->
+  <link name="tool0"/>
+ 
+   <!-- =========================================================
+       TOOL0-TO-TCP: your planning tip link. This is where the
+       IK solver targets and where the interactive marker appears.
+       It is an offset FROM the flange TO the actual working point.
+       ========================================================= -->
+  <link name="tcp"/>
+
+
+
+  <!-- =========================================================
+       WORLD-TO-BASE: anchors the robot to the global frame
+       ========================================================= -->
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+    <!-- Adjust this origin to move the entire robot in the scene.
+         (0 0 0.1) puts the base link 10cm above the world origin. -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <joint name="joint1_to_base" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-2.792527" upper = "2.792527" velocity = "0"/>
+    <parent link="base"/>
+    <child link="link1"/>
+    <origin xyz= "0 0 0.1" rpy = "0 0 0"/>  
+  </joint>
+
+
+  <joint name="joint2_to_joint1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-1.3089" upper = "2.0943" velocity = "0"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz= "0 0 0.038" rpy = " -1.5708 0 0 "/>  
+  </joint>
+
+
+  <joint name="joint3_to_joint2" type="revolute">
+    <axis xyz=" 0 0 1"/>
+    <limit effort = "1000.0" lower = "-3.0543" upper = "1.1344" velocity = "0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz= "0.0 -0.1 0   " rpy = "0 0 0 "/>  
+  </joint>
+
+  <joint name="joint4_to_joint3" type="revolute">
+    <axis xyz=" 0 0 1"/>
+    <limit effort = "1000.0" lower = "-2.7052" upper = "2.7052" velocity = "0"/>
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz= "0.108 -0.005  -0.001" rpy = "0 1.5708 0 "/>  
+  </joint>
+
+  <joint name="joint5_to_joint4" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-2.0071" upper = "2.0071" velocity = "0"/>
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz= " -0.001 0 0.0" rpy = "  0 -1.5708 0"/>  
+  </joint>
+
+  <joint name="joint6_to_joint5" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-3.14" upper = "3.14" velocity = "0"/>
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz= " 0.06 0.00 -0.0" rpy = "  0 1.5708 0 "/>  
+  </joint>
+
+  <!-- =========================================================
+       FLANGE-TO-TOOL0: ROS-Industrial convention for the bare
+       flange frame (no tool attached). This is the end of the
+       physical arm, before any gripper/tool offset.
+       ========================================================= -->
+  <joint name="link6_to_tool0" type="fixed">
+    <parent link="link6"/>
+    <child link="tool0"/>
+    <!-- tool0 is conventionally at the flange face, so this is
+         usually identity or a small z-offset depending on your
+         CAD export. For mecharm, check your mechanical drawing. -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="tool0_to_tcp" type="fixed">
+    <parent link="tool0"/>
+    <child link="tcp"/>
+    <!-- This is the CRITICAL offset. It defines where "the end
+         of the robot" is for planning. For a gripper, this is
+         usually at the fingertip center or the grasp point.
+         For now, set it to a rough estimate and tune by jogging
+         the marker in RViz until it matches reality. -->
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+  
+</robot>

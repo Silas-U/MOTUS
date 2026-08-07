@@ -20,6 +20,8 @@
 #include "geometry_msgs/msg/detail/pose__functions.h"
 // Member `leg_blend_radii`
 #include "rosidl_runtime_c/primitives_sequence_functions.h"
+// Member `seed_state`
+#include "sensor_msgs/msg/detail/joint_state__functions.h"
 
 bool
 robokpy_interfaces__action__ExecuteMotion_Goal__init(robokpy_interfaces__action__ExecuteMotion_Goal * msg)
@@ -53,6 +55,12 @@ robokpy_interfaces__action__ExecuteMotion_Goal__init(robokpy_interfaces__action_
     return false;
   }
   // speed_scale
+  // plan_only
+  // seed_state
+  if (!sensor_msgs__msg__JointState__init(&msg->seed_state)) {
+    robokpy_interfaces__action__ExecuteMotion_Goal__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -73,6 +81,9 @@ robokpy_interfaces__action__ExecuteMotion_Goal__fini(robokpy_interfaces__action_
   // leg_blend_radii
   rosidl_runtime_c__double__Sequence__fini(&msg->leg_blend_radii);
   // speed_scale
+  // plan_only
+  // seed_state
+  sensor_msgs__msg__JointState__fini(&msg->seed_state);
 }
 
 bool
@@ -113,6 +124,16 @@ robokpy_interfaces__action__ExecuteMotion_Goal__are_equal(const robokpy_interfac
   }
   // speed_scale
   if (lhs->speed_scale != rhs->speed_scale) {
+    return false;
+  }
+  // plan_only
+  if (lhs->plan_only != rhs->plan_only) {
+    return false;
+  }
+  // seed_state
+  if (!sensor_msgs__msg__JointState__are_equal(
+      &(lhs->seed_state), &(rhs->seed_state)))
+  {
     return false;
   }
   return true;
@@ -158,6 +179,14 @@ robokpy_interfaces__action__ExecuteMotion_Goal__copy(
   }
   // speed_scale
   output->speed_scale = input->speed_scale;
+  // plan_only
+  output->plan_only = input->plan_only;
+  // seed_state
+  if (!sensor_msgs__msg__JointState__copy(
+      &(input->seed_state), &(output->seed_state)))
+  {
+    return false;
+  }
   return true;
 }
 
@@ -343,7 +372,8 @@ robokpy_interfaces__action__ExecuteMotion_Goal__Sequence__copy(
 
 // Include directives for member types
 // Member `final_state`
-#include "sensor_msgs/msg/detail/joint_state__functions.h"
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__functions.h"
 // Member `actual_duration`
 #include "builtin_interfaces/msg/detail/duration__functions.h"
 // Member `failed_leg_step_id`
@@ -645,6 +675,7 @@ robokpy_interfaces__action__ExecuteMotion_Result__Sequence__copy(
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 // Member `current_state`
+// Member `predicted_final_state`
 // already included above
 // #include "sensor_msgs/msg/detail/joint_state__functions.h"
 
@@ -665,6 +696,11 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__init(robokpy_interfaces__act
     robokpy_interfaces__action__ExecuteMotion_Feedback__fini(msg);
     return false;
   }
+  // predicted_final_state
+  if (!sensor_msgs__msg__JointState__init(&msg->predicted_final_state)) {
+    robokpy_interfaces__action__ExecuteMotion_Feedback__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -679,6 +715,8 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__fini(robokpy_interfaces__act
   // leg_percent_complete
   // current_state
   sensor_msgs__msg__JointState__fini(&msg->current_state);
+  // predicted_final_state
+  sensor_msgs__msg__JointState__fini(&msg->predicted_final_state);
 }
 
 bool
@@ -700,6 +738,12 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__are_equal(const robokpy_inte
   // current_state
   if (!sensor_msgs__msg__JointState__are_equal(
       &(lhs->current_state), &(rhs->current_state)))
+  {
+    return false;
+  }
+  // predicted_final_state
+  if (!sensor_msgs__msg__JointState__are_equal(
+      &(lhs->predicted_final_state), &(rhs->predicted_final_state)))
   {
     return false;
   }
@@ -725,6 +769,12 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__copy(
   // current_state
   if (!sensor_msgs__msg__JointState__copy(
       &(input->current_state), &(output->current_state)))
+  {
+    return false;
+  }
+  // predicted_final_state
+  if (!sensor_msgs__msg__JointState__copy(
+      &(input->predicted_final_state), &(output->predicted_final_state)))
   {
     return false;
   }

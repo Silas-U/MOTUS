@@ -89,15 +89,16 @@ class ObjectSpawner(Node):
         # Not persisted — resets on node restart, matching sim's own
         # reset-on-relaunch semantics (same as grasp_attach_bridge).
         self._in_use: dict = {}
-
-        # Set by main() right after construction, to the same
-        # MultiThreadedExecutor this node is spun with. Required so
-        # spin_until_future_complete() below reuses the existing wait
-        # set instead of spinning up a second internal executor on
-        # this same node concurrently with the outer one (rcl_wait()
-        # is not safe to call on the same wait set from two threads
-        # at once — see main()).
-        self.executor_ref = None
+        # Guards every read/write of _in_use. Both service handlers
+        # below span a multi-second blocking round-trip (SpawnEntity/
+        # DeleteEntity + attach-confirm waits) between checking _in_use
+        # and finalizing it, and ReentrantCallbackGroup +
+        # MultiThreadedExecutor(num_threads=8) means two spawn/despawn
+        # requests can genuinely run that gap concurrently. The lock is
+        # only ever held for the bookkeeping itself (reserve, roll back,
+        # restore) — never across the blocking network calls, same rule
+        # as orchestrator.py's DAG lock.
+        self._lock = threading.Lock()
 
         # DetachableJoint plugins are pre-wired onto the robot for every
         # catalog instance (see ObjectCatalog.to_gazebo_plugin_sdf()) and
@@ -173,6 +174,31 @@ class ObjectSpawner(Node):
                 ev.clear()
         return _cb
 
+    @staticmethod
+    def _wait_for_future(future, timeout_sec: float) -> bool:
+        """Correct replacement for
+        rclpy.spin_until_future_complete(self, future, executor=...) —
+        that call deadlocks when invoked from inside a callback that's
+        already running on the executor passed to it (or even on the
+        node's own default executor with none passed): re-entering an
+        executor's own wait-set processing from a thread it's already
+        using to run this callback is unsafe, REGARDLESS of whether
+        it's the same executor instance or a freshly-created one.
+        Confirmed by hitting this as a real, consistent deadlock on
+        despawn (never on spawn, purely by scheduling luck — same bug,
+        both call sites had it).
+
+        This just polls future.done() instead. No spinning happens
+        here at all — the OTHER executor threads (we run with
+        num_threads=8, see main()) independently process the
+        service response and resolve the future in the background;
+        this thread only checks and sleeps, never touching the
+        executor's wait-set itself."""
+        start = time.monotonic()
+        while not future.done() and time.monotonic() - start < timeout_sec:
+            time.sleep(0.01)
+        return future.done()
+
     def _free_instance(self, type_id: str):
         """First not-currently-spawned instance name of type_id, or
         None if every slot in the bounded pool is in use."""
@@ -185,161 +211,6 @@ class ObjectSpawner(Node):
                 return name
         return None
 
-    # def _handle_spawn(self, request, response):
-    #     if request.type_id not in self._catalog.types:
-    #         response.success = False
-    #         response.message = f'Unknown object type "{request.type_id}"'
-    #         response.child_model = ''
-    #         return response
-
-    #     child_model = self._free_instance(request.type_id)
-    #     if child_model is None:
-    #         max_n = self._catalog.types[request.type_id].max_instances
-    #         response.success = False
-    #         response.message = (
-    #             f'No free instance slot for type "{request.type_id}" — '
-    #             f'all {max_n} catalog instances are currently in use')
-    #         response.child_model = ''
-    #         self.get_logger().warn(response.message)
-    #         return response
-
-    #     inst = self._catalog.lookup_by_model(child_model)
-    #     sdf = self._catalog.instance_model_sdf(inst)
-
-    #     if not self._create_client.wait_for_service(timeout_sec=20.0):
-    #         response.success = False
-    #         response.message = f'/world/.../create service unavailable'
-    #         response.child_model = ''
-    #         self.get_logger().error(response.message)
-    #         return response
-
-    #     req = SpawnEntity.Request()
-    #     req.entity_factory.name = child_model
-    #     req.entity_factory.sdf = sdf
-    #     req.entity_factory.allow_renaming = False  # fail clearly on name collision, don't silently rename
-    #     req.entity_factory.pose = Pose()
-    #     req.entity_factory.pose.position.x = request.x
-    #     req.entity_factory.pose.position.y = request.y
-    #     req.entity_factory.pose.position.z = request.z
-    #     req.entity_factory.pose.orientation.x = request.qx
-    #     req.entity_factory.pose.orientation.y = request.qy
-    #     req.entity_factory.pose.orientation.z = request.qz
-    #     req.entity_factory.pose.orientation.w = request.qw
-
-    #     future = self._create_client.call_async(req)
-    #     rclpy.spin_until_future_complete(
-    #         self, future, executor=self.executor_ref, timeout_sec=5.0)
-
-    #     if future.result() is None or not future.result().success:
-    #         response.success = False
-    #         response.message = f'SpawnEntity call failed for "{child_model}"'
-    #         response.child_model = ''
-    #         self.get_logger().error(response.message)
-    #         return response
-
-    #     self._in_use[child_model] = request.type_id
-
-    #     # Undo the auto-weld — see __init__ comment for why a blind
-    #     # "detach then sleep" isn't safe: detach before the plugin's
-    #     # own auto-attach has landed is silently dropped, not queued.
-    #     # Wait for the plugin's own confirmation instead.
-    #     attach_event = self._attach_confirmed[child_model]
-    #     if not attach_event.wait(timeout=5.0):
-    #         self.get_logger().warn(
-    #             f'"{child_model}": no attach confirmation from '
-    #             f'DetachableJoint within 5.0s — detaching anyway as a '
-    #             f'best effort, but this instance may end up welded to '
-    #             f'the gripper if the auto-attach lands after this point')
-    #     self._detach_pubs[child_model].publish(Empty())
-
-    #     # Confirm the detach itself actually landed too (Event.clear()
-    #     # happens in _make_state_cb on a real "detached" message) —
-    #     # best-effort: log if it doesn't confirm, don't fail the spawn
-    #     # over it, since a stuck weld will surface immediately and
-    #     # obviously in the very next motion leg rather than silently.
-    #     if not self._wait_for_clear(attach_event, timeout=1.0):
-    #         self.get_logger().warn(
-    #             f'"{child_model}": no detach confirmation within 1.0s '
-    #             f'after publishing — proceeding anyway')
-
-    #     response.success = True
-    #     response.message = f'Spawned "{child_model}" at ' \
-    #                         f'({request.x}, {request.y}, {request.z})'
-    #     response.child_model = child_model
-    #     self.get_logger().info(response.message)
-    #     return response
-
-    # def _handle_despawn(self, request, response):
-    #     # TEMPORARY DIAGNOSTIC INSTRUMENTATION — every one of
-    #     # spawn/rebuild/service-version/executor-thread-count/Entity.MODEL
-    #     # has been individually ruled out already, and this callback
-    #     # produces zero log output at all when it hangs, meaning we
-    #     # don't actually know whether it's ever entered. Wrapping the
-    #     # whole body so any exception is forced to surface rather than
-    #     # potentially being swallowed somewhere in the reentrant/
-    #     # executor machinery, plus a log line before every blocking
-    #     # call so we can see exactly which one it's stuck in. Remove
-    #     # once the actual cause is found.
-    #     self.get_logger().info(
-    #         f'[DESPAWN DIAG] _handle_despawn ENTERED for '
-    #         f'child_model="{request.child_model}"')
-    #     try:
-    #         child_model = request.child_model
-    #         self.get_logger().info(
-    #             f'[DESPAWN DIAG] checking _in_use — currently tracked: '
-    #             f'{list(self._in_use.keys())}')
-    #         if child_model not in self._in_use:
-    #             response.success = False
-    #             response.message = f'"{child_model}" is not currently tracked as spawned'
-    #             self.get_logger().warn(response.message)
-    #             return response
-
-    #         self.get_logger().info(
-    #             '[DESPAWN DIAG] calling wait_for_service on /world/.../remove ...')
-    #         if not self._remove_client.wait_for_service(timeout_sec=20.0):
-    #             response.success = False
-    #             response.message = '/world/.../remove service unavailable'
-    #             self.get_logger().error(response.message)
-    #             return response
-    #         self.get_logger().info(
-    #             '[DESPAWN DIAG] wait_for_service returned True — building request')
-
-    #         req = DeleteEntity.Request()
-    #         req.entity = GzEntity()
-    #         req.entity.name = child_model
-    #         req.entity.type = GzEntity.MODEL  # confirmed valid (=2) against ros_gz_interfaces jazzy branch
-    #         self.get_logger().info(
-    #             f'[DESPAWN DIAG] request built (name={req.entity.name}, '
-    #             f'type={req.entity.type}) — calling call_async')
-
-    #         future = self._remove_client.call_async(req)
-    #         self.get_logger().info(
-    #             '[DESPAWN DIAG] call_async returned — entering spin_until_future_complete')
-    #         rclpy.spin_until_future_complete(
-    #             self, future, executor=self.executor_ref, timeout_sec=5.0)
-    #         self.get_logger().info(
-    #             f'[DESPAWN DIAG] spin_until_future_complete returned — '
-    #             f'future.done()={future.done()}, result={future.result()!r}')
-
-    #         if future.result() is None or not future.result().success:
-    #             response.success = False
-    #             response.message = f'DeleteEntity call failed for "{child_model}"'
-    #             self.get_logger().error(response.message)
-    #             return response
-
-    #         del self._in_use[child_model]
-    #         response.success = True
-    #         response.message = f'Despawned "{child_model}"'
-    #         self.get_logger().info(response.message)
-    #         return response
-    #     except Exception:
-    #         import traceback
-    #         self.get_logger().error(
-    #             f'[DESPAWN DIAG] EXCEPTION in _handle_despawn:\n'
-    #             f'{traceback.format_exc()}')
-    #         response.success = False
-    #         response.message = 'internal exception — see [DESPAWN DIAG] traceback above'
-    #         return response
     def _handle_spawn(self, request, response):
         if request.type_id not in self._catalog.types:
             response.success = False
@@ -347,7 +218,17 @@ class ObjectSpawner(Node):
             response.child_model = ''
             return response
 
-        child_model = self._free_instance(request.type_id)
+        # Find a free slot AND reserve it in the same locked step. Doing
+        # this in two steps (as the original code did, reserving only on
+        # success at the bottom) leaves the entire multi-second spawn
+        # round-trip below as an unguarded window — a second concurrent
+        # request for the same type_id would see the same slot as
+        # "free" and spawn the identical child_model into Gazebo.
+        with self._lock:
+            child_model = self._free_instance(request.type_id)
+            if child_model is not None:
+                self._in_use[child_model] = request.type_id
+
         if child_model is None:
             max_n = self._catalog.types[request.type_id].max_instances
             response.success = False
@@ -362,6 +243,8 @@ class ObjectSpawner(Node):
         sdf = self._catalog.instance_model_sdf(inst)
 
         if not self._create_client.wait_for_service(timeout_sec=20.0):
+            with self._lock:
+                del self._in_use[child_model]  # release the reservation — spawn never happened
             response.success = False
             response.message = f'/world/.../create service unavailable'
             response.child_model = ''
@@ -371,7 +254,7 @@ class ObjectSpawner(Node):
         req = SpawnEntity.Request()
         req.entity_factory.name = child_model
         req.entity_factory.sdf = sdf
-        req.entity_factory.allow_renaming = False
+        req.entity_factory.allow_renaming = False  # fail clearly on name collision, don't silently rename
         req.entity_factory.pose = Pose()
         req.entity_factory.pose.position.x = request.x
         req.entity_factory.pose.position.y = request.y
@@ -382,31 +265,42 @@ class ObjectSpawner(Node):
         req.entity_factory.pose.orientation.w = request.qw
 
         future = self._create_client.call_async(req)
+        self._wait_for_future(future, timeout_sec=5.0)
 
-        # FIXED: removed executor=self.executor_ref
-        start = time.monotonic()
-        while not future.done() and time.monotonic() - start < 5.0:
-            time.sleep(0.01)
-
-        if not future.done() or future.result() is None or not future.result().success:
+        if future.result() is None or not future.result().success:
+            with self._lock:
+                del self._in_use[child_model]  # release the reservation — spawn failed
             response.success = False
             response.message = f'SpawnEntity call failed for "{child_model}"'
             response.child_model = ''
             self.get_logger().error(response.message)
             return response
 
-        self._in_use[child_model] = request.type_id
+        # Reservation already made above, before the spawn call — no
+        # further self._in_use bookkeeping needed on this success path.
 
+        # Undo the auto-weld — see __init__ comment for why a blind
+        # "detach then sleep" isn't safe: detach before the plugin's
+        # own auto-attach has landed is silently dropped, not queued.
+        # Wait for the plugin's own confirmation instead.
         attach_event = self._attach_confirmed[child_model]
         if not attach_event.wait(timeout=5.0):
             self.get_logger().warn(
                 f'"{child_model}": no attach confirmation from '
-                f'DetachableJoint within 5.0s — detaching anyway')
+                f'DetachableJoint within 5.0s — detaching anyway as a '
+                f'best effort, but this instance may end up welded to '
+                f'the gripper if the auto-attach lands after this point')
         self._detach_pubs[child_model].publish(Empty())
 
+        # Confirm the detach itself actually landed too (Event.clear()
+        # happens in _make_state_cb on a real "detached" message) —
+        # best-effort: log if it doesn't confirm, don't fail the spawn
+        # over it, since a stuck weld will surface immediately and
+        # obviously in the very next motion leg rather than silently.
         if not self._wait_for_clear(attach_event, timeout=1.0):
             self.get_logger().warn(
-                f'"{child_model}": no detach confirmation within 1.0s')
+                f'"{child_model}": no detach confirmation within 1.0s '
+                f'after publishing — proceeding anyway')
 
         response.success = True
         response.message = f'Spawned "{child_model}" at ' \
@@ -415,59 +309,59 @@ class ObjectSpawner(Node):
         self.get_logger().info(response.message)
         return response
 
-
     def _handle_despawn(self, request, response):
-        self.get_logger().info(
-            f'[DESPAWN] entered for child_model="{request.child_model}"')
-        try:
-            child_model = request.child_model
+        child_model = request.child_model
+        # Pop (not just check) under the lock, right away — this makes
+        # the check-and-claim atomic. A second concurrent despawn for
+        # the same child_model then correctly falls into the "not
+        # currently tracked" branch above instead of both threads
+        # reaching `del self._in_use[child_model]` independently later,
+        # where the second one hits a bare KeyError and crashes the
+        # callback with no response ever sent to that client.
+        with self._lock:
             if child_model not in self._in_use:
                 response.success = False
-                response.message = f'"{child_model}" is not currently tracked'
+                response.message = f'"{child_model}" is not currently tracked as spawned'
+                self.get_logger().warn(response.message)
                 return response
+            type_id = self._in_use.pop(child_model)
 
-            if not self._remove_client.wait_for_service(timeout_sec=20.0):
-                response.success = False
-                response.message = '/world/.../remove service unavailable'
-                return response
-
-            req = DeleteEntity.Request()
-            req.entity = GzEntity()
-            req.entity.name = child_model
-            req.entity.type = GzEntity.MODEL
-
-            future = self._remove_client.call_async(req)
-
-            # FIXED: don't pass executor=self.executor_ref
-            start = time.monotonic()
-            while not future.done() and time.monotonic() - start < 5.0:
-                time.sleep(0.01)
-
-            if not future.done():
-                response.success = False
-                response.message = f'Timeout waiting for DeleteEntity on "{child_model}"'
-                self.get_logger().error(response.message)
-                return response
-
-            result = future.result()
-            if result is None or not result.success:
-                response.success = False
-                response.message = f'DeleteEntity call failed for "{child_model}"'
-                self.get_logger().error(response.message)
-                return response
-
-            del self._in_use[child_model]
-            response.success = True
-            response.message = f'Despawned "{child_model}"'
-            self.get_logger().info(response.message)
-            return response
-        except Exception:
-            import traceback
-            self.get_logger().error(
-                f'[DESPAWN] EXCEPTION:\n{traceback.format_exc()}')
+        if not self._remove_client.wait_for_service(timeout_sec=20.0):
+            with self._lock:
+                self._in_use[child_model] = type_id  # restore — despawn never happened
             response.success = False
-            response.message = 'internal exception — see log'
+            response.message = '/world/.../remove service unavailable'
+            self.get_logger().error(response.message)
             return response
+
+        req = DeleteEntity.Request()
+        req.entity = GzEntity()
+        req.entity.name = child_model
+        req.entity.type = GzEntity.MODEL  # confirmed valid (=2) against ros_gz_interfaces jazzy branch
+
+        future = self._remove_client.call_async(req)
+        if not self._wait_for_future(future, timeout_sec=5.0):
+            with self._lock:
+                self._in_use[child_model] = type_id  # restore — outcome unknown, treat as still spawned
+            response.success = False
+            response.message = f'DeleteEntity call for "{child_model}" timed out'
+            self.get_logger().error(response.message)
+            return response
+
+        if future.result() is None or not future.result().success:
+            with self._lock:
+                self._in_use[child_model] = type_id  # restore — despawn failed
+            response.success = False
+            response.message = f'DeleteEntity call failed for "{child_model}"'
+            self.get_logger().error(response.message)
+            return response
+
+        # Already popped from self._in_use above — genuinely gone now.
+        response.success = True
+        response.message = f'Despawned "{child_model}"'
+        self.get_logger().info(response.message)
+        return response
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -477,9 +371,10 @@ def main(args=None):
     # machine happens to run it, which is exactly what caused a real
     # hang on a 2-core i3: _handle_spawn/_handle_despawn can each block
     # one thread for up to ~11s [5s attach-confirm wait + 5s
-    # spin_until_future_complete + 1s detach-confirm poll], and while
-    # blocked they depend on at least one OTHER thread being free to
-    # run the state-topic callback that resolves what they're waiting
+    # DeleteEntity/SpawnEntity response poll + 1s detach-confirm poll],
+    # and while blocked they depend on at least one OTHER thread being
+    # free to run the state-topic callback that resolves what they're
+    # waiting
     # on, plus another for the underlying SpawnEntity/DeleteEntity
     # response itself. On a small core count, those can't all get a
     # thread at once and the request just queues forever — no error,
@@ -488,7 +383,6 @@ def main(args=None):
     # (2 services + one state-topic subscription per catalog instance)
     # regardless of host hardware.
     executor = MultiThreadedExecutor(num_threads=8)
-    node.executor_ref = executor  # so spin_until_future_complete() reuses this executor
     executor.add_node(node)
     try:
         executor.spin()

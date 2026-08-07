@@ -13,12 +13,30 @@ string[] leg_traj_methods
 string[] leg_traj_types
 float64[] leg_blend_radii   # blend INTO the next leg; last entry always forced to 0.0 by the orchestrator
 float64 speed_scale
+# Lookahead-planning support (see motus.md's "motion pipelining" note).
+# plan_only=true asks motion_planner to compute + cache this run's
+# trajectory WITHOUT touching JTC/the physical robot — used to plan the
+# next run while the current one is still physically executing, so
+# there's zero planning latency once it's actually that run's turn.
+# seed_state, if given (non-empty position), overrides the usual
+# live-robot-state seed — required for plan_only, since the run being
+# pre-planned hasn't started (and may never physically execute at
+# all): its seed is the PREDICTED final state of whatever run precedes
+# it, not the live robot state, which still reflects a different,
+# currently-executing run.
+bool plan_only
+sensor_msgs/JointState seed_state
 ---
 # Result
 bool success
 uint32 error_code
+# For a normal (plan_only=false) run, this is the ACTUAL post-execution
+# state (JTC's reported result), same as always. For a plan_only run,
+# nothing physical happened, so this is the PREDICTED end state instead
+# — same meaning either way ("where the arm ended up / will end up"),
+# just note the two are computed differently.
 sensor_msgs/JointState final_state
-builtin_interfaces/Duration actual_duration
+builtin_interfaces/Duration actual_duration   # plan_only: the PLANNED duration, not a measured one
 string failed_leg_step_id   # which leg was in progress when a failure occurred; empty on success
 ---
 # Feedback — reports which leg is CURRENTLY executing and progress
@@ -29,3 +47,10 @@ string failed_leg_step_id   # which leg was in progress when a failure occurred;
 string current_leg_step_id
 float32 leg_percent_complete
 sensor_msgs/JointState current_state
+# Published exactly once per goal, immediately after this run's
+# trajectory becomes available (freshly planned OR reused from a
+# prefetched cache hit) — BEFORE any physical JTC execution starts, and
+# regardless of plan_only. Lets a caller start lookahead-planning the
+# NEXT run right away instead of waiting for this run's terminal
+# result. Empty (default JointState) on every other feedback message.
+sensor_msgs/JointState predicted_final_state

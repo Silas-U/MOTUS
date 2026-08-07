@@ -44,7 +44,22 @@ glob('meshes/robotiq_85_gripper_meshes/visual/*')),
 
     (os.path.join('share', package_name, 'meshes', 'robotiq_85_gripper_meshes', 'collision'),
 glob('meshes/robotiq_85_gripper_meshes/collision/*')),
-    ],
+    
+(os.path.join('share', package_name, 'meshes', 'mycobot_280_m5', 'visual'),
+glob('meshes/mycobot_280_m5/visual/*')),
+
+    (os.path.join('share', package_name, 'meshes', 'mycobot_280_m5', 'collision'),
+glob('meshes/mycobot_280_m5/collision/*')),
+
+(os.path.join('share', package_name, 'meshes', 'mecharm_270_pi', 'visual'),
+glob('meshes/mecharm_270_pi/visual/*')),
+
+    (os.path.join('share', package_name, 'meshes', 'mecharm_270_pi', 'collision'),
+glob('meshes/mecharm_270_pi/collision/*')),
+
+
+],
+
 
 install_requires=['setuptools'],
 zip_safe=True,

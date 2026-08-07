@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "robokpy_interfaces/srv/detail/grasp_attach__type_support.h"
-#include "robokpy_interfaces/srv/detail/grasp_attach__struct.h"
 #include "robokpy_interfaces/srv/detail/grasp_attach__functions.h"
+#include "robokpy_interfaces/srv/detail/grasp_attach__type_support.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/srv/detail/grasp_attach__struct.h"
 
 #ifdef __cplusplus
 extern "C"

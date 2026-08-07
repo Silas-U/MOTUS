@@ -4,10 +4,10 @@
 
 #include <string.h>
 
+#include "robokpy_interfaces/srv/detail/ik__functions.h"
+#include "robokpy_interfaces/srv/detail/ik__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/ik__struct.h"
-#include "robokpy_interfaces/srv/detail/ik__type_support.h"
-#include "robokpy_interfaces/srv/detail/ik__functions.h"
 
 #ifdef __cplusplus
 extern "C"

@@ -23,6 +23,10 @@
 #include "geometry_msgs/msg/detail/pose__rosidl_typesupport_introspection_c.h"
 // Member `leg_blend_radii`
 #include "rosidl_runtime_c/primitives_sequence_functions.h"
+// Member `seed_state`
+#include "sensor_msgs/msg/joint_state.h"
+// Member `seed_state`
+#include "sensor_msgs/msg/detail/joint_state__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -318,7 +322,7 @@ bool robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspe
   return rosidl_runtime_c__double__Sequence__init(member, size);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_member_array[6] = {
+static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_member_array[8] = {
   {
     "leg_step_ids",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -426,13 +430,49 @@ static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__act
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "plan_only",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces__action__ExecuteMotion_Goal, plan_only),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "seed_state",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces__action__ExecuteMotion_Goal, seed_state),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_members = {
   "robokpy_interfaces__action",  // message namespace
   "ExecuteMotion_Goal",  // message name
-  6,  // number of fields
+  8,  // number of fields
   sizeof(robokpy_interfaces__action__ExecuteMotion_Goal),
   false,  // has_any_key_member_
   robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_member_array,  // message members
@@ -456,6 +496,8 @@ const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, robokpy_interfaces, action, ExecuteMotion_Goal)() {
   robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_member_array[1].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, geometry_msgs, msg, Pose)();
+  robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_member_array[7].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, sensor_msgs, msg, JointState)();
   if (!robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_type_support_handle.typesupport_identifier) {
     robokpy_interfaces__action__ExecuteMotion_Goal__rosidl_typesupport_introspection_c__ExecuteMotion_Goal_message_type_support_handle.typesupport_identifier =
       rosidl_typesupport_introspection_c__identifier;
@@ -486,9 +528,11 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 
 // Include directives for member types
 // Member `final_state`
-#include "sensor_msgs/msg/joint_state.h"
+// already included above
+// #include "sensor_msgs/msg/joint_state.h"
 // Member `final_state`
-#include "sensor_msgs/msg/detail/joint_state__rosidl_typesupport_introspection_c.h"
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__rosidl_typesupport_introspection_c.h"
 // Member `actual_duration`
 #include "builtin_interfaces/msg/duration.h"
 // Member `actual_duration`
@@ -671,9 +715,11 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 // Member `current_state`
+// Member `predicted_final_state`
 // already included above
 // #include "sensor_msgs/msg/joint_state.h"
 // Member `current_state`
+// Member `predicted_final_state`
 // already included above
 // #include "sensor_msgs/msg/detail/joint_state__rosidl_typesupport_introspection_c.h"
 
@@ -696,7 +742,7 @@ void robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_intr
   robokpy_interfaces__action__ExecuteMotion_Feedback__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_member_array[3] = {
+static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_member_array[4] = {
   {
     "current_leg_step_id",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -750,13 +796,31 @@ static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__act
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "predicted_final_state",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces__action__ExecuteMotion_Feedback, predicted_final_state),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_members = {
   "robokpy_interfaces__action",  // message namespace
   "ExecuteMotion_Feedback",  // message name
-  3,  // number of fields
+  4,  // number of fields
   sizeof(robokpy_interfaces__action__ExecuteMotion_Feedback),
   false,  // has_any_key_member_
   robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_member_array,  // message members
@@ -779,6 +843,8 @@ ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_robokpy_interfaces
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, robokpy_interfaces, action, ExecuteMotion_Feedback)() {
   robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_member_array[2].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, sensor_msgs, msg, JointState)();
+  robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_member_array[3].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, sensor_msgs, msg, JointState)();
   if (!robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_type_support_handle.typesupport_identifier) {
     robokpy_interfaces__action__ExecuteMotion_Feedback__rosidl_typesupport_introspection_c__ExecuteMotion_Feedback_message_type_support_handle.typesupport_identifier =

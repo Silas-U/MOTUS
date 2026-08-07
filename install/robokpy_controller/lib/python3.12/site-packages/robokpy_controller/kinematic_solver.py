@@ -77,18 +77,25 @@ class KinematicSolver(Node):
             10
         )
 
+        # TRANSIENT_LOCAL to match robot_state_manager's publisher —
+        # without this, a late-starting solver misses the single initial
+        # publish and stays deaf forever (robot_state_manager only
+        # republishes on service call, not periodically).
+        mode_qos = QoSProfile(depth=1)
+        mode_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+
         self.create_subscription(
-            String, 
-            '/system_mode', 
-            self.sys_mode_cb, 
-            10
+            String,
+            '/system_mode',
+            self.sys_mode_cb,
+            mode_qos
         )
 
         self.create_subscription(
-            String, 
-            '/execution_state', 
+            String,
+            '/execution_state',
             self.exe_state_cb,
-            10
+            mode_qos
         )
 
         qos = QoSProfile(depth=1)
@@ -178,6 +185,15 @@ class KinematicSolver(Node):
         # solver's seed away from the real hardware joint state reported
         # via /current_joint_state whenever in ACTIVE.
         if self.sys_mode != "PLANNER" or self.exe_state != "SERVO":
+            # Throttled log so we can see when the solver is being gated
+            # (helps debug missing mode/state messages at startup).
+            if not hasattr(self, '_guard_skip_count'):
+                self._guard_skip_count = 0
+            self._guard_skip_count += 1
+            # if self._guard_skip_count % 250 == 1:  # ~5s at 50Hz
+            #     self.get_logger().warn(
+            #         f'IK solver gated: sys_mode={self.sys_mode} '
+            #         f'exe_state={self.exe_state} (waiting for PLANNER+SERVO)')
             return
 
         if self.q_current is None:
@@ -195,7 +211,13 @@ class KinematicSolver(Node):
         )
 
         if not self.ik.success:
+            if not hasattr(self, '_ik_fail_logged'):
+                self.get_logger().warn(
+                    f'IK solver: solve failed from seed {q_seed.round(3)} '
+                    f'to target {self.target_pose_raw.round(3)}')
+                self._ik_fail_logged = True
             return
+        self._ik_fail_logged = False
         
         self.q_current = q_target.copy()
         

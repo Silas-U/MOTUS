@@ -263,7 +263,7 @@ void resize_function__ExecuteMotion_Goal__leg_blend_radii(void * untyped_member,
   member->resize(size);
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion_Goal_message_member_array[6] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion_Goal_message_member_array[8] = {
   {
     "leg_step_ids",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
@@ -371,13 +371,49 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "plan_only",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces::action::ExecuteMotion_Goal, plan_only),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "seed_state",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<sensor_msgs::msg::JointState>(),  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces::action::ExecuteMotion_Goal, seed_state),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers ExecuteMotion_Goal_message_members = {
   "robokpy_interfaces::action",  // message namespace
   "ExecuteMotion_Goal",  // message name
-  6,  // number of fields
+  8,  // number of fields
   sizeof(robokpy_interfaces::action::ExecuteMotion_Goal),
   false,  // has_any_key_member_
   ExecuteMotion_Goal_message_member_array,  // message members
@@ -677,7 +713,7 @@ void ExecuteMotion_Feedback_fini_function(void * message_memory)
   typed_message->~ExecuteMotion_Feedback();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion_Feedback_message_member_array[3] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion_Feedback_message_member_array[4] = {
   {
     "current_leg_step_id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
@@ -731,13 +767,31 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ExecuteMotion
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "predicted_final_state",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<sensor_msgs::msg::JointState>(),  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces::action::ExecuteMotion_Feedback, predicted_final_state),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers ExecuteMotion_Feedback_message_members = {
   "robokpy_interfaces::action",  // message namespace
   "ExecuteMotion_Feedback",  // message name
-  3,  // number of fields
+  4,  // number of fields
   sizeof(robokpy_interfaces::action::ExecuteMotion_Feedback),
   false,  // has_any_key_member_
   ExecuteMotion_Feedback_message_member_array,  // message members

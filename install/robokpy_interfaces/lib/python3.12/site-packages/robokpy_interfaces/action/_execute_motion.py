@@ -58,6 +58,10 @@ class Metaclass_ExecuteMotion_Goal(type):
             if Pose.__class__._TYPE_SUPPORT is None:
                 Pose.__class__.__import_type_support__()
 
+            from sensor_msgs.msg import JointState
+            if JointState.__class__._TYPE_SUPPORT is None:
+                JointState.__class__.__import_type_support__()
+
     @classmethod
     def __prepare__(cls, name, bases, **kwargs):
         # list constant names here so that they appear in the help text of
@@ -77,6 +81,8 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
         '_leg_traj_types',
         '_leg_blend_radii',
         '_speed_scale',
+        '_plan_only',
+        '_seed_state',
         '_check_fields',
     ]
 
@@ -87,6 +93,8 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
         'leg_traj_types': 'sequence<string>',
         'leg_blend_radii': 'sequence<double>',
         'speed_scale': 'double',
+        'plan_only': 'boolean',
+        'seed_state': 'sensor_msgs/JointState',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
@@ -98,6 +106,8 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
         rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.UnboundedString()),  # noqa: E501
         rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.BasicType('double')),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['sensor_msgs', 'msg'], 'JointState'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -115,6 +125,9 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
         self.leg_traj_types = kwargs.get('leg_traj_types', [])
         self.leg_blend_radii = array.array('d', kwargs.get('leg_blend_radii', []))
         self.speed_scale = kwargs.get('speed_scale', float())
+        self.plan_only = kwargs.get('plan_only', bool())
+        from sensor_msgs.msg import JointState
+        self.seed_state = kwargs.get('seed_state', JointState())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -157,6 +170,10 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
         if self.leg_blend_radii != other.leg_blend_radii:
             return False
         if self.speed_scale != other.speed_scale:
+            return False
+        if self.plan_only != other.plan_only:
+            return False
+        if self.seed_state != other.seed_state:
             return False
         return True
 
@@ -300,6 +317,33 @@ class ExecuteMotion_Goal(metaclass=Metaclass_ExecuteMotion_Goal):
             assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
                 "The 'speed_scale' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
         self._speed_scale = value
+
+    @builtins.property
+    def plan_only(self):
+        """Message field 'plan_only'."""
+        return self._plan_only
+
+    @plan_only.setter
+    def plan_only(self, value):
+        if self._check_fields:
+            assert \
+                isinstance(value, bool), \
+                "The 'plan_only' field must be of type 'bool'"
+        self._plan_only = value
+
+    @builtins.property
+    def seed_state(self):
+        """Message field 'seed_state'."""
+        return self._seed_state
+
+    @seed_state.setter
+    def seed_state(self, value):
+        if self._check_fields:
+            from sensor_msgs.msg import JointState
+            assert \
+                isinstance(value, JointState), \
+                "The 'seed_state' field must be a sub message of type 'JointState'"
+        self._seed_state = value
 
 
 # Import statements for member types
@@ -588,6 +632,7 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
         '_current_leg_step_id',
         '_leg_percent_complete',
         '_current_state',
+        '_predicted_final_state',
         '_check_fields',
     ]
 
@@ -595,6 +640,7 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
         'current_leg_step_id': 'string',
         'leg_percent_complete': 'float',
         'current_state': 'sensor_msgs/JointState',
+        'predicted_final_state': 'sensor_msgs/JointState',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
@@ -602,6 +648,7 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
     SLOT_TYPES = (
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['sensor_msgs', 'msg'], 'JointState'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['sensor_msgs', 'msg'], 'JointState'),  # noqa: E501
     )
 
@@ -618,6 +665,8 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
         self.leg_percent_complete = kwargs.get('leg_percent_complete', float())
         from sensor_msgs.msg import JointState
         self.current_state = kwargs.get('current_state', JointState())
+        from sensor_msgs.msg import JointState
+        self.predicted_final_state = kwargs.get('predicted_final_state', JointState())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -654,6 +703,8 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
         if self.leg_percent_complete != other.leg_percent_complete:
             return False
         if self.current_state != other.current_state:
+            return False
+        if self.predicted_final_state != other.predicted_final_state:
             return False
         return True
 
@@ -703,6 +754,20 @@ class ExecuteMotion_Feedback(metaclass=Metaclass_ExecuteMotion_Feedback):
                 isinstance(value, JointState), \
                 "The 'current_state' field must be a sub message of type 'JointState'"
         self._current_state = value
+
+    @builtins.property
+    def predicted_final_state(self):
+        """Message field 'predicted_final_state'."""
+        return self._predicted_final_state
+
+    @predicted_final_state.setter
+    def predicted_final_state(self, value):
+        if self._check_fields:
+            from sensor_msgs.msg import JointState
+            assert \
+                isinstance(value, JointState), \
+                "The 'predicted_final_state' field must be a sub message of type 'JointState'"
+        self._predicted_final_state = value
 
 
 # Import statements for member types

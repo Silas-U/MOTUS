@@ -32,6 +32,22 @@ module robokpy_interfaces {
       sequence<double> leg_blend_radii;
 
       double speed_scale;
+
+      @verbatim (language="comment", text=
+        "Lookahead-planning support (see motus.md's \"motion pipelining\" note)." "\n"
+        "plan_only=true asks motion_planner to compute + cache this run's" "\n"
+        "trajectory WITHOUT touching JTC/the physical robot — used to plan the" "\n"
+        "next run while the current one is still physically executing, so" "\n"
+        "there's zero planning latency once it's actually that run's turn." "\n"
+        "seed_state, if given (non-empty position), overrides the usual" "\n"
+        "live-robot-state seed — required for plan_only, since the run being" "\n"
+        "pre-planned hasn't started (and may never physically execute at" "\n"
+        "all): its seed is the PREDICTED final state of whatever run precedes" "\n"
+        "it, not the live robot state, which still reflects a different," "\n"
+        "currently-executing run.")
+      boolean plan_only;
+
+      sensor_msgs::msg::JointState seed_state;
     };
     @verbatim (language="comment", text=
       "Result")
@@ -40,8 +56,16 @@ module robokpy_interfaces {
 
       uint32 error_code;
 
+      @verbatim (language="comment", text=
+        "For a normal (plan_only=false) run, this is the ACTUAL post-execution" "\n"
+        "state (JTC's reported result), same as always. For a plan_only run," "\n"
+        "nothing physical happened, so this is the PREDICTED end state instead" "\n"
+        "— same meaning either way (\"where the arm ended up / will end up\")," "\n"
+        "just note the two are computed differently.")
       sensor_msgs::msg::JointState final_state;
 
+      @verbatim (language="comment", text=
+        "plan_only: the PLANNED duration, not a measured one")
       builtin_interfaces::msg::Duration actual_duration;
 
       @verbatim (language="comment", text=
@@ -60,6 +84,15 @@ module robokpy_interfaces {
       float leg_percent_complete;
 
       sensor_msgs::msg::JointState current_state;
+
+      @verbatim (language="comment", text=
+        "Published exactly once per goal, immediately after this run's" "\n"
+        "trajectory becomes available (freshly planned OR reused from a" "\n"
+        "prefetched cache hit) — BEFORE any physical JTC execution starts, and" "\n"
+        "regardless of plan_only. Lets a caller start lookahead-planning the" "\n"
+        "NEXT run right away instead of waiting for this run's terminal" "\n"
+        "result. Empty (default JointState) on every other feedback message.")
+      sensor_msgs::msg::JointState predicted_final_state;
     };
   };
 };

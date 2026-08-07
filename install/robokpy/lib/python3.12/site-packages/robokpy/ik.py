@@ -274,7 +274,16 @@ class InverseKinematics:
                 self.success = False
                 break
 
-            # Jacobian with task-space weighting
+            # Jacobian with task-space weighting.
+            # NOTE: this calls the full-robot compute(), not
+            # compute_chain() — it works here because fk.compute_chain()
+            # (above) overwrites the same joint_axes/joint_origins/
+            # active_joints attributes that compute() reads. That's an
+            # implicit coupling, not a documented contract — if
+            # fk.compute_chain() is ever changed to stop clobbering that
+            # shared state, this breaks silently. Use
+            # jacobian.compute_chain(base_link, tip_link) instead if that
+            # ever changes.
             J     = self.jacobian.compute()
             W     = np.diag(np.concatenate([mask_p, mask_r]))
             J_w   = W @ J
@@ -291,11 +300,21 @@ class InverseKinematics:
             N = np.eye(n) - J_pinv @ J_w
             z = np.zeros(n)
 
-            # Posture bias — angle wrap only for revolute joints
+            # Posture bias — angle wrap only for revolute/continuous joints.
+            # Wrapping unconditionally (as before) is a no-op for small
+            # prismatic offsets but silently wrong for larger ones (a
+            # prismatic joint's delta is in meters, not radians) — only
+            # bites on chains with a longer linear axis (gantry rail,
+            # linear 7th axis, etc.), which UR-series arms don't have.
             if self.q_pref is not None:
-                dq_posture            = self.q_pref - th
-                # Wrap all — same as original (safe for UR which has no prismatic)
-                dq_posture = (dq_posture + np.pi) % (2 * np.pi) - np.pi
+                dq_posture = self.q_pref - th
+                revolute_mask = np.array([
+                    j["type"] in ("revolute", "continuous")
+                    for j in self.fk.active_joints
+                ])
+                dq_posture[revolute_mask] = (
+                    (dq_posture[revolute_mask] + np.pi) % (2 * np.pi) - np.pi
+                )
                 z += self.w_posture * dq_posture
 
             # Joint limit avoidance (soft, null-space bias — kept as before)

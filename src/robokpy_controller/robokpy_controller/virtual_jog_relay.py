@@ -5,15 +5,6 @@ Relays kinematic_solver's continuous /joint_target_raw output to
 robot_state_interface_virtual's /virtual_joint_target_echo, so dragging
 the interactive marker (pose_target_interface) actually moves the
 virtual robot in RViz.
-
-This is the ONE piece of the old motion_controller's job that survives
-as its own node — the live jogging echo loop, which has nothing to do
-with planned trajectory execution (that's ExecuteMotion's job now, in
-motion_planner). Gated the same way kinematic_solver gates its own
-solve loop: only relays while system_mode == PLANNER and
-execution_state == SERVO. Outside that window (ACTIVE mode, or
-EXECUTING/STOPPED), jogging isn't meaningful and the relay stays silent
-so it can't fight an in-progress ExecuteMotion goal or a real robot.
 """
 
 import rclpy
@@ -29,9 +20,9 @@ class VirtualJogRelay(Node):
         self.system_mode = None
         self.execution_state = None
 
-        # Same TRANSIENT_LOCAL QoS robot_state_manager publishes these on,
-        # so a late-starting relay still gets the current mode/state
-        # immediately instead of waiting for the next transition.
+        # TRANSIENT_LOCAL to match robot_state_manager's publisher —
+        # without this, a late-starting relay misses the single initial
+        # publish and stays deaf forever.
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
 

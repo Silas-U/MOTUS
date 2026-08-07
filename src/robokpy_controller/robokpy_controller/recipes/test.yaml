@@ -1,28 +1,58 @@
-recipe_id: pick_place_multi_station_v2
+recipe_id: grasp_attach_pipeline_stack_4_v1_industrial_fast
 
-# Layout (tool-down orientation)
-# Quaternion: qx=0.0, qy=1.0, qz=0.0, qw=0.0
+# INDUSTRIAL MOTION PROFILE — MAXIMUM MERGE
+#   js = PTP (joint-space)   — fast transit
+#   ts = LIN (task-space)    — straight-line precision
 #
-# Home:
-#   x=0.45, y= 0.00, z=0.45
-#
-# Station A (Pick):
-#   x=0.40, y= 0.10
-#
-# Station B (Place):
-#   x=0.40, y=-0.30
-#
-# Station C (Pick):
-#   x=0.55, y= 0.10
-#
-# Station D (Place):
-#   x=0.55, y=-0.30
-#
-# Heights:
-#   Safe Height : z=0.30
-#   Pick/Place  : z=0.15
+# DAG optimized so every retract→traverse→descend sequence merges
+# into a single ExecuteMotion goal. The arm never stops between
+# pick and place — only pauses for the gripper tool steps.
 
 steps:
+
+# ============================================================================
+# SPAWN (background — no dependents, completes before arm arrives)
+# ============================================================================
+
+- id: spawn_target_1
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.10
+  z: 0.015
+  qw: 1.0
+  depends_on: []
+
+- id: spawn_target_2
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.22
+  z: 0.015
+  qw: 1.0
+  depends_on: []
+
+- id: spawn_target_3
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.34
+  z: 0.015
+  qw: 1.0
+  depends_on: []
+
+- id: spawn_target_4
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.46
+  z: 0.015
+  qw: 1.0
+  depends_on: []
 
 # ============================================================================
 # INITIALIZATION
@@ -33,237 +63,315 @@ steps:
   traj_method: js
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.0
-  speed_scale: 1.0
-  depends_on: []
+  depends_on: [spawn_target_1]
 
 # ============================================================================
-# CYCLE 1 : STATION A -> STATION B
+# CUBE 1
 # ============================================================================
 
-- id: traverse_to_a
+- id: traverse_to_a_1
   type: move
   traj_method: js
   target_pose:
-    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.03
-  speed_scale: 1.0
+    {x: 0.35, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
   depends_on: [move_home]
 
-- id: descend_pick_a
+- id: descend_pick_a_1
   type: move
   traj_method: ts
+  from_spawn_step: spawn_target_1
   target_pose:
-    {x: 0.40, y: 0.10, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    {qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
-  speed_scale: 0.50
-  depends_on: [traverse_to_a]
+  depends_on: [traverse_to_a_1]
 
-- id: verify_part_present_a
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on:
-    - {progress: descend_pick_a, threshold: 0.80}
-
-- id: grip_close_a
+- id: grip_close_a_1
   type: tool
-  tool_id: gripper_1
-  command: close
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_1"
   recovery: retry
   max_retries: 2
-  depends_on:
-    - verify_part_present_a
-    - {progress: descend_pick_a, threshold: 0.90}
+  depends_on: [descend_pick_a_1]
 
-- id: verify_grip_a
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on: [grip_close_a]
-
-- id: retract_a
+- id: retract_a_1
   type: move
   traj_method: ts
   target_pose:
-    {x: 0.40, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.02
-  speed_scale: 0.60
-  depends_on: [verify_grip_a]
+    {x: 0.35, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [grip_close_a_1]
 
-- id: traverse_to_b
+- id: traverse_to_b_1
   type: move
   traj_method: js
   target_pose:
     {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.03
-  speed_scale: 1.0
-  depends_on: [retract_a]
+  blend_radius: 0.10
+  depends_on: [retract_a_1]
 
-- id: blowoff_b
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on:
-    - {progress: traverse_to_b, threshold: 0.90}
-
-- id: blowoff_delay
-  type: wait
-  duration_sec: 0.15
-  depends_on: [blowoff_b]
-
-- id: blowoff_b_off
-  type: io
-  io_id: mock
-  command: "off"
-  depends_on: [blowoff_delay]
-
-- id: descend_place_b
+- id: descend_place_b_1
   type: move
   traj_method: ts
   target_pose:
-    {x: 0.40, y: -0.30, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    {x: 0.40, y: -0.30, z: 0.0657, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
-  speed_scale: 0.50
-  depends_on:
-    - traverse_to_b
-    - blowoff_b_off
+  depends_on: [traverse_to_b_1]
 
-- id: grip_open_b
+- id: release_b_1
   type: tool
-  tool_id: gripper_1
-  command: open
+  tool_id: grasp_attach_1
+  command: release
   recovery: retry
   max_retries: 2
-  depends_on:
-    - {progress: descend_place_b, threshold: 0.90}
+  depends_on: [descend_place_b_1]
 
-- id: verify_release_b
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on: [grip_open_b]
-
-- id: retract_b
+- id: retract_b_1
   type: move
   traj_method: ts
   target_pose:
     {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.02
-  speed_scale: 0.60
-  recovery: hold_for_operator
-  depends_on: [verify_release_b]
+  blend_radius: 0.10
+  depends_on: [release_b_1]
 
 # ============================================================================
-# CYCLE 2 : STATION C -> STATION D
+# CUBE 2
 # ============================================================================
 
-- id: traverse_to_c
+- id: traverse_to_a_2
   type: move
   traj_method: js
   target_pose:
-    {x: 0.55, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.03
-  speed_scale: 1.0
-  depends_on: [retract_b]
+    {x: 0.35, y: 0.22, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_b_1]
 
-- id: descend_pick_c
+- id: descend_pick_a_2
   type: move
   traj_method: ts
+  from_spawn_step: spawn_target_2
   target_pose:
-    {x: 0.55, y: 0.10, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    {qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
-  speed_scale: 0.50
-  depends_on: [traverse_to_c]
+  depends_on: [traverse_to_a_2]
 
-- id: verify_part_present_c
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on:
-    - {progress: descend_pick_c, threshold: 0.80}
-
-- id: grip_close_c
+- id: grip_close_a_2
   type: tool
-  tool_id: gripper_1
-  command: close
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_2"
   recovery: retry
   max_retries: 2
-  depends_on:
-    - verify_part_present_c
-    - {progress: descend_pick_c, threshold: 0.90}
+  depends_on: [descend_pick_a_2]
 
-- id: verify_grip_c
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on: [grip_close_c]
-
-- id: retract_c
+- id: retract_a_2
   type: move
   traj_method: ts
   target_pose:
-    {x: 0.55, y: 0.10, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.02
-  speed_scale: 0.60
-  depends_on: [verify_grip_c]
+    {x: 0.35, y: 0.22, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [grip_close_a_2]
 
-- id: traverse_to_d
+- id: traverse_to_b_2
   type: move
   traj_method: js
   target_pose:
-    {x: 0.55, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.03
-  speed_scale: 1.0
-  depends_on: [retract_c]
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_a_2]
 
-- id: descend_place_d
+- id: descend_place_b_2
   type: move
   traj_method: ts
   target_pose:
-    {x: 0.55, y: -0.30, z: 0.15, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    {x: 0.40, y: -0.30, z: 0.0957, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
-  speed_scale: 0.50
-  depends_on: [traverse_to_d]
+  depends_on: [traverse_to_b_2]
 
-- id: grip_open_d
+- id: release_b_2
   type: tool
-  tool_id: gripper_1
-  command: open
+  tool_id: grasp_attach_1
+  command: release
   recovery: retry
   max_retries: 2
-  depends_on:
-    - {progress: descend_place_d, threshold: 0.90}
+  depends_on: [descend_place_b_2]
 
-- id: verify_release_d
-  type: io
-  io_id: mock
-  command: "on"
-  depends_on: [grip_open_d]
-
-- id: retract_d
+- id: retract_b_2
   type: move
   traj_method: ts
   target_pose:
-    {x: 0.55, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.02
-  speed_scale: 0.60
-  depends_on: [verify_release_d]
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [release_b_2]
 
 # ============================================================================
-# END OF CYCLE
+# CUBE 3
 # ============================================================================
 
-- id: cycle_settle
-  type: wait
-  duration_sec: 0.50
-  depends_on: [retract_d]
+- id: traverse_to_a_3
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.35, y: 0.34, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_b_2]
+
+- id: descend_pick_a_3
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_3
+  target_pose:
+    {qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_3]
+
+- id: grip_close_a_3
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_3"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_3]
+
+- id: retract_a_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.35, y: 0.34, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [grip_close_a_3]
+
+- id: traverse_to_b_3
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_a_3]
+
+- id: descend_place_b_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.1257, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_3]
+
+- id: release_b_3
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_3]
+
+- id: retract_b_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [release_b_3]
+
+# ============================================================================
+# CUBE 4
+# ============================================================================
+
+- id: traverse_to_a_4
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.35, y: 0.46, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_b_3]
+
+- id: descend_pick_a_4
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_4
+  target_pose:
+    {qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_4]
+
+- id: grip_close_a_4
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_4"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_4]
+
+- id: retract_a_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.35, y: 0.46, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [grip_close_a_4]
+
+- id: traverse_to_b_4
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [retract_a_4]
+
+- id: descend_place_b_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.1557, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_4]
+
+- id: release_b_4
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_4]
+
+- id: retract_b_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.30, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.10
+  depends_on: [release_b_4]
+
+# ============================================================================
+# CLEANUP
+# ============================================================================
 
 - id: return_home
   type: move
   traj_method: js
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.0
-  speed_scale: 1.0
-  depends_on: [cycle_settle]
+  depends_on: [retract_b_4]
+
+- id: despawn_target_1
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_1
+  depends_on: [return_home, spawn_target_1]
+
+- id: despawn_target_2
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_2
+  depends_on: [return_home, spawn_target_2]
+
+- id: despawn_target_3
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_3
+  depends_on: [return_home, spawn_target_3]
+
+- id: despawn_target_4
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_4
+  depends_on: [return_home, spawn_target_4]

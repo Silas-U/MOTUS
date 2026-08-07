@@ -83,6 +83,16 @@
               "nested_type_name": "sensor_msgs/msg/JointState"
             },
             "default_value": ""
+          },
+          {
+            "name": "predicted_final_state",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "sensor_msgs/msg/JointState"
+            },
+            "default_value": ""
           }
         ]
       },
@@ -186,7 +196,7 @@
   "type_hashes": [
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_FeedbackMessage",
-      "hash_string": "RIHS01_0680a9426880ee9a1701d5e6b973bf74d446673ac524e0fe692226572fe8b40e"
+      "hash_string": "RIHS01_b4843a5bb80811c05debabfdde6f0f9be506c80659565ea55c93a9de8d45fd2a"
     },
     {
       "type_name": "builtin_interfaces/msg/Time",
@@ -194,7 +204,7 @@
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_Feedback",
-      "hash_string": "RIHS01_92b93a82faddd5cd4c26509f85eb95303883bc373082a6bb963d983671c71920"
+      "hash_string": "RIHS01_73871622d096d5f5e18081f3b5143072eae1c383ec7c5c35e7284588797d20a7"
     },
     {
       "type_name": "sensor_msgs/msg/JointState",

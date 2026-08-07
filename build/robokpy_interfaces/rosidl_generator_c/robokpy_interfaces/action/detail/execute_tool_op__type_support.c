@@ -4,9 +4,9 @@
 
 #include <string.h>
 
+#include "robokpy_interfaces/action/detail/execute_tool_op__struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/action/detail/execute_tool_op__functions.h"
-#include "robokpy_interfaces/action/detail/execute_tool_op__struct.h"
 #include "robokpy_interfaces/action/detail/execute_tool_op__type_support.h"
 
 #ifdef __cplusplus

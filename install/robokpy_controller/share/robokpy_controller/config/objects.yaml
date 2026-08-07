@@ -36,7 +36,7 @@ gripper:
                                    # shape, so it couldn't be derived from URDF numbers directly) as one
                                    # single measured constant. Revisit if the gripper hardware/URDF
                                    # changes, or if the mesh geometry ever gets measured directly.
-
+                                  
 object_types:
   cube_small:
     child_link: link              # link name inside each spawned instance's SDF

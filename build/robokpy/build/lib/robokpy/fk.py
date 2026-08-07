@@ -86,13 +86,14 @@ class ForwardKinematics:
         if joint["type"] == "continuous":
             q_value = np.mod(q_value + np.pi, 2.0 * np.pi) - np.pi
 
-        # Static origin transform
-        x, y, z = map(float, joint["xyz"].split())
-        r, p, yaw = map(float, joint["rpy"].split())
+        # Static origin transform — xyz_arr/rpy_arr precomputed once in
+        # model.py's get_joints(), not re-parsed from strings here.
+        x, y, z = joint["xyz_arr"]
+        r, p, yaw = joint["rpy_arr"]
         T_origin = self._translation(x, y, z) @ self._rpy_matrix(r, p, yaw)
 
         jtype = joint["type"]
-        axis  = np.array(list(map(float, joint["axis"].split())), dtype=float)
+        axis  = joint["axis_arr"]
         axis_norm = np.linalg.norm(axis)
 
         if jtype in ("revolute", "continuous"):
@@ -165,7 +166,7 @@ class ForwardKinematics:
             if joint["type"] in ("revolute", "prismatic", "continuous"):
                 o_i   = T[:3, 3]
                 R_i   = T[:3, :3]
-                axis  = np.array(list(map(float, joint["axis"].split())), dtype=float)
+                axis  = joint["axis_arr"]
                 z_i   = R_i @ (axis / (np.linalg.norm(axis) + 1e-12))
 
                 joint_origins.append(o_i.copy())
@@ -225,7 +226,7 @@ class ForwardKinematics:
             if joint["type"] in ("revolute", "prismatic", "continuous"):
                 o_i  = T[:3, 3]
                 R_i  = T[:3, :3]
-                axis = np.array(list(map(float, joint["axis"].split())), dtype=float)
+                axis = joint["axis_arr"]
                 z_i  = R_i @ (axis / (np.linalg.norm(axis) + 1e-12))
 
                 joint_origins.append(o_i.copy())

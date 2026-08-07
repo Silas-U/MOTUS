@@ -1,3 +1,4 @@
+﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from robokpy_interfaces:action/ExecuteMotion.idl
 // generated code does not contain a copyright notice
@@ -29,6 +30,8 @@ extern "C"
 #include "geometry_msgs/msg/detail/pose__struct.h"
 // Member 'leg_blend_radii'
 #include "rosidl_runtime_c/primitives_sequence.h"
+// Member 'seed_state'
+#include "sensor_msgs/msg/detail/joint_state__struct.h"
 
 /// Struct defined in action/ExecuteMotion in the package robokpy_interfaces.
 typedef struct robokpy_interfaces__action__ExecuteMotion_Goal
@@ -40,6 +43,19 @@ typedef struct robokpy_interfaces__action__ExecuteMotion_Goal
   /// blend INTO the next leg; last entry always forced to 0.0 by the orchestrator
   rosidl_runtime_c__double__Sequence leg_blend_radii;
   double speed_scale;
+  /// Lookahead-planning support (see motus.md's "motion pipelining" note).
+  /// plan_only=true asks motion_planner to compute + cache this run's
+  /// trajectory WITHOUT touching JTC/the physical robot — used to plan the
+  /// next run while the current one is still physically executing, so
+  /// there's zero planning latency once it's actually that run's turn.
+  /// seed_state, if given (non-empty position), overrides the usual
+  /// live-robot-state seed — required for plan_only, since the run being
+  /// pre-planned hasn't started (and may never physically execute at
+  /// all): its seed is the PREDICTED final state of whatever run precedes
+  /// it, not the live robot state, which still reflects a different,
+  /// currently-executing run.
+  bool plan_only;
+  sensor_msgs__msg__JointState seed_state;
 } robokpy_interfaces__action__ExecuteMotion_Goal;
 
 // Struct for a sequence of robokpy_interfaces__action__ExecuteMotion_Goal.
@@ -56,7 +72,8 @@ typedef struct robokpy_interfaces__action__ExecuteMotion_Goal__Sequence
 
 // Include directives for member types
 // Member 'final_state'
-#include "sensor_msgs/msg/detail/joint_state__struct.h"
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__struct.h"
 // Member 'actual_duration'
 #include "builtin_interfaces/msg/detail/duration__struct.h"
 // Member 'failed_leg_step_id'
@@ -68,7 +85,13 @@ typedef struct robokpy_interfaces__action__ExecuteMotion_Result
 {
   bool success;
   uint32_t error_code;
+  /// For a normal (plan_only=false) run, this is the ACTUAL post-execution
+  /// state (JTC's reported result), same as always. For a plan_only run,
+  /// nothing physical happened, so this is the PREDICTED end state instead
+  /// — same meaning either way ("where the arm ended up / will end up"),
+  /// just note the two are computed differently.
   sensor_msgs__msg__JointState final_state;
+  /// plan_only: the PLANNED duration, not a measured one
   builtin_interfaces__msg__Duration actual_duration;
   /// which leg was in progress when a failure occurred; empty on success
   rosidl_runtime_c__String failed_leg_step_id;
@@ -91,6 +114,7 @@ typedef struct robokpy_interfaces__action__ExecuteMotion_Result__Sequence
 // already included above
 // #include "rosidl_runtime_c/string.h"
 // Member 'current_state'
+// Member 'predicted_final_state'
 // already included above
 // #include "sensor_msgs/msg/detail/joint_state__struct.h"
 
@@ -100,6 +124,13 @@ typedef struct robokpy_interfaces__action__ExecuteMotion_Feedback
   rosidl_runtime_c__String current_leg_step_id;
   float leg_percent_complete;
   sensor_msgs__msg__JointState current_state;
+  /// Published exactly once per goal, immediately after this run's
+  /// trajectory becomes available (freshly planned OR reused from a
+  /// prefetched cache hit) — BEFORE any physical JTC execution starts, and
+  /// regardless of plan_only. Lets a caller start lookahead-planning the
+  /// NEXT run right away instead of waiting for this run's terminal
+  /// result. Empty (default JointState) on every other feedback message.
+  sensor_msgs__msg__JointState predicted_final_state;
 } robokpy_interfaces__action__ExecuteMotion_Feedback;
 
 // Struct for a sequence of robokpy_interfaces__action__ExecuteMotion_Feedback.

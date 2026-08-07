@@ -4,9 +4,9 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "robokpy_interfaces/action/detail/execute_motion__functions.h"
 #include "robokpy_interfaces/action/detail/execute_motion__struct.h"
+#include "robokpy_interfaces/action/detail/execute_motion__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/action/detail/execute_motion__type_support.h"
 
 #ifdef __cplusplus

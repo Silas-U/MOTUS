@@ -21,9 +21,11 @@ from launch.actions import SetEnvironmentVariable
 from ament_index_python.packages import get_package_prefix
 from robokpy_controller.object_catalog import ObjectCatalog
 
-
+from launch.actions import SetEnvironmentVariable
 
 def generate_launch_description():
+
+    SetEnvironmentVariable('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp')
 
     # =========================================================
     # Launch Arguments
@@ -327,6 +329,7 @@ def generate_launch_description():
             parameters = [{
                 'robot_description': robot_description_real,
                 'frame_prefix':      'virtual/',
+                'use_sim_time':      use_sim,
             }],
             remappings = [
                 ('/joint_states',      '/virtual_joint_states'),
@@ -350,6 +353,7 @@ def generate_launch_description():
             parameters = [
                 robokpy_config_yaml_path,
                 {'robot_description': robot_description_real},
+                {'use_sim_time': use_sim},
             ]
         ),
 
@@ -362,7 +366,7 @@ def generate_launch_description():
             executable = 'robot_command_server',
             name       = 'robot_command_server',
             output     = 'screen',
-            parameters  =  [robokpy_config_yaml_path]  
+            parameters  =  [robokpy_config_yaml_path, {'use_sim_time': use_sim}]  
         ),
 
         Node(
@@ -373,6 +377,7 @@ def generate_launch_description():
             parameters = [
                 robokpy_config_yaml_path,
                 {'robot_description': robot_description_real},
+                {'use_sim_time': use_sim},
             ]
         ),
 
@@ -384,6 +389,7 @@ def generate_launch_description():
             parameters = [
                 robokpy_config_yaml_path,
                 {'robot_description': robot_description_real},
+                {'use_sim_time': use_sim},
             ]
         ),
 
@@ -395,6 +401,7 @@ def generate_launch_description():
             parameters = [
                 robokpy_config_yaml_path,
                 {'robot_description': robot_description_real},
+                {'use_sim_time': use_sim},
             ]
         ),
 
@@ -419,6 +426,7 @@ def generate_launch_description():
             executable = 'virtual_jog_relay',
             name       = 'virtual_jog_relay',
             output     = 'screen',
+            parameters = [{'use_sim_time': use_sim}],
         ),
 
                 # REAL HARDWARE: start orchestrator immediately
@@ -453,6 +461,7 @@ def generate_launch_description():
             executable = 'safety_bridge',
             name       = 'safety_bridge',
             output     = 'screen',
+            parameters = [{'use_sim_time': use_sim}],
         ),
 
         Node(
@@ -460,6 +469,7 @@ def generate_launch_description():
             executable = 'joint_jog_server',
             name       = 'joint_jog_server',
             output     = 'screen',
+            parameters = [{'use_sim_time': use_sim}],
         ),
 
         Node(

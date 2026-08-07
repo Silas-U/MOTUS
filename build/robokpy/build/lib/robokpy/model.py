@@ -10,6 +10,7 @@
 
 import xml.etree.ElementTree as ET
 import os
+import numpy as np
 
 
 class URDFModel:
@@ -112,6 +113,16 @@ class URDFModel:
                 "xyz":           xyz,
                 "rpy":           rpy,
                 "axis":          axis,
+                # Pre-parsed once here rather than re-split/re-parsed from
+                # the strings above on every fk.joint_transform() call —
+                # that call happens once per joint per FK evaluation, and
+                # FK is called every IK iteration (up to max_iter times per
+                # solve()), so this scales with DOF x iterations x solves.
+                # Kept alongside the string fields for backward
+                # compatibility with anything still reading them directly.
+                "xyz_arr":       np.array(list(map(float, xyz.split())), dtype=float),
+                "rpy_arr":       np.array(list(map(float, rpy.split())), dtype=float),
+                "axis_arr":      np.array(list(map(float, axis.split())), dtype=float),
                 "limit":         (lower, upper),
                 "effort":        effort,
                 "velocity":      velocity,

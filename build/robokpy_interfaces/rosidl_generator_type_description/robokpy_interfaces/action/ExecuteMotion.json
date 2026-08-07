@@ -253,6 +253,16 @@
               "nested_type_name": "sensor_msgs/msg/JointState"
             },
             "default_value": ""
+          },
+          {
+            "name": "predicted_final_state",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "sensor_msgs/msg/JointState"
+            },
+            "default_value": ""
           }
         ]
       },
@@ -451,6 +461,26 @@
               "capacity": 0,
               "string_capacity": 0,
               "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "plan_only",
+            "type": {
+              "type_id": 15,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "seed_state",
+            "type": {
+              "type_id": 1,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": "sensor_msgs/msg/JointState"
             },
             "default_value": ""
           }
@@ -776,7 +806,7 @@
   "type_hashes": [
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion",
-      "hash_string": "RIHS01_7ac8c91493751c39433093b72ce52ac6e00816d4fe2ede9d4929c1449ce07673"
+      "hash_string": "RIHS01_ea264ef49732d16855b5c8b22222401fff5ea19fcb31f6860b6c248b8195e62c"
     },
     {
       "type_name": "builtin_interfaces/msg/Duration",
@@ -800,11 +830,11 @@
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_Feedback",
-      "hash_string": "RIHS01_92b93a82faddd5cd4c26509f85eb95303883bc373082a6bb963d983671c71920"
+      "hash_string": "RIHS01_73871622d096d5f5e18081f3b5143072eae1c383ec7c5c35e7284588797d20a7"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_FeedbackMessage",
-      "hash_string": "RIHS01_0680a9426880ee9a1701d5e6b973bf74d446673ac524e0fe692226572fe8b40e"
+      "hash_string": "RIHS01_b4843a5bb80811c05debabfdde6f0f9be506c80659565ea55c93a9de8d45fd2a"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_GetResult",
@@ -824,7 +854,7 @@
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_Goal",
-      "hash_string": "RIHS01_390fed2228f2a84f64cbd55fc9ea1ce873978a304bdc6009ffb431c36a2644e4"
+      "hash_string": "RIHS01_c076e152606b5a046fe36d45fe0524d726251711337f0a76631a092c09e4fe36"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_Result",
@@ -832,15 +862,15 @@
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal",
-      "hash_string": "RIHS01_cc2595c45a9a88aa5f9df30d0c48c4418771a4675e463616bbaa99f3b0d43ae9"
+      "hash_string": "RIHS01_7f4d7fbe95727976cedd06b9c4173f6d075b2ba9081f87f206fefe6cff70e649"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Event",
-      "hash_string": "RIHS01_7b17649655e1dcb24d0a02184ff4ba2d23b006e3809c67589c72a6e6874f4b89"
+      "hash_string": "RIHS01_be14e965e844bed37c768d64f46a115318ba4e1e5df5a2912c6da600a0e365f5"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Request",
-      "hash_string": "RIHS01_e984a7a9aad549ae56419db79c140b28343ba252c8e235d7a7da7d1780ff2d20"
+      "hash_string": "RIHS01_2b3d3eed1e1665c45a7cafcfde1c11018005880d50726179d4f6407d7a1edc1a"
     },
     {
       "type_name": "robokpy_interfaces/action/ExecuteMotion_SendGoal_Response",

@@ -99,7 +99,7 @@ class Jacobian:
             R_i = T[:3, :3]
             o_i = T[:3, 3]
 
-            axis  = np.array(list(map(float, joint["axis"].split())), dtype=float)
+            axis  = joint["axis_arr"]
             norm  = np.linalg.norm(axis)
             z_i   = R_i @ (axis / (norm + 1e-12))
 

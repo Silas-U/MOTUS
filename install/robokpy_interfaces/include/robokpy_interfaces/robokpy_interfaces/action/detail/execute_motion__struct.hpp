@@ -21,6 +21,8 @@
 // Include directives for member types
 // Member 'leg_target_poses'
 #include "geometry_msgs/msg/detail/pose__struct.hpp"
+// Member 'seed_state'
+#include "sensor_msgs/msg/detail/joint_state__struct.hpp"
 
 #ifndef _WIN32
 # define DEPRECATED__robokpy_interfaces__action__ExecuteMotion_Goal __attribute__((deprecated))
@@ -41,21 +43,24 @@ struct ExecuteMotion_Goal_
   using Type = ExecuteMotion_Goal_<ContainerAllocator>;
 
   explicit ExecuteMotion_Goal_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : seed_state(_init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->speed_scale = 0.0;
+      this->plan_only = false;
     }
   }
 
   explicit ExecuteMotion_Goal_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : seed_state(_alloc, _init)
   {
-    (void)_alloc;
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->speed_scale = 0.0;
+      this->plan_only = false;
     }
   }
 
@@ -78,6 +83,12 @@ struct ExecuteMotion_Goal_
   using _speed_scale_type =
     double;
   _speed_scale_type speed_scale;
+  using _plan_only_type =
+    bool;
+  _plan_only_type plan_only;
+  using _seed_state_type =
+    sensor_msgs::msg::JointState_<ContainerAllocator>;
+  _seed_state_type seed_state;
 
   // setters for named parameter idiom
   Type & set__leg_step_ids(
@@ -114,6 +125,18 @@ struct ExecuteMotion_Goal_
     const double & _arg)
   {
     this->speed_scale = _arg;
+    return *this;
+  }
+  Type & set__plan_only(
+    const bool & _arg)
+  {
+    this->plan_only = _arg;
+    return *this;
+  }
+  Type & set__seed_state(
+    const sensor_msgs::msg::JointState_<ContainerAllocator> & _arg)
+  {
+    this->seed_state = _arg;
     return *this;
   }
 
@@ -177,6 +200,12 @@ struct ExecuteMotion_Goal_
     if (this->speed_scale != other.speed_scale) {
       return false;
     }
+    if (this->plan_only != other.plan_only) {
+      return false;
+    }
+    if (this->seed_state != other.seed_state) {
+      return false;
+    }
     return true;
   }
   bool operator!=(const ExecuteMotion_Goal_ & other) const
@@ -198,7 +227,8 @@ using ExecuteMotion_Goal =
 
 // Include directives for member types
 // Member 'final_state'
-#include "sensor_msgs/msg/detail/joint_state__struct.hpp"
+// already included above
+// #include "sensor_msgs/msg/detail/joint_state__struct.hpp"
 // Member 'actual_duration'
 #include "builtin_interfaces/msg/detail/duration__struct.hpp"
 
@@ -374,6 +404,7 @@ using ExecuteMotion_Result =
 
 // Include directives for member types
 // Member 'current_state'
+// Member 'predicted_final_state'
 // already included above
 // #include "sensor_msgs/msg/detail/joint_state__struct.hpp"
 
@@ -396,7 +427,8 @@ struct ExecuteMotion_Feedback_
   using Type = ExecuteMotion_Feedback_<ContainerAllocator>;
 
   explicit ExecuteMotion_Feedback_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : current_state(_init)
+  : current_state(_init),
+    predicted_final_state(_init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -408,7 +440,8 @@ struct ExecuteMotion_Feedback_
 
   explicit ExecuteMotion_Feedback_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : current_leg_step_id(_alloc),
-    current_state(_alloc, _init)
+    current_state(_alloc, _init),
+    predicted_final_state(_alloc, _init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -428,6 +461,9 @@ struct ExecuteMotion_Feedback_
   using _current_state_type =
     sensor_msgs::msg::JointState_<ContainerAllocator>;
   _current_state_type current_state;
+  using _predicted_final_state_type =
+    sensor_msgs::msg::JointState_<ContainerAllocator>;
+  _predicted_final_state_type predicted_final_state;
 
   // setters for named parameter idiom
   Type & set__current_leg_step_id(
@@ -446,6 +482,12 @@ struct ExecuteMotion_Feedback_
     const sensor_msgs::msg::JointState_<ContainerAllocator> & _arg)
   {
     this->current_state = _arg;
+    return *this;
+  }
+  Type & set__predicted_final_state(
+    const sensor_msgs::msg::JointState_<ContainerAllocator> & _arg)
+  {
+    this->predicted_final_state = _arg;
     return *this;
   }
 
@@ -498,6 +540,9 @@ struct ExecuteMotion_Feedback_
       return false;
     }
     if (this->current_state != other.current_state) {
+      return false;
+    }
+    if (this->predicted_final_state != other.predicted_final_state) {
       return false;
     }
     return true;

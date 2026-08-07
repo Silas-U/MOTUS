@@ -261,6 +261,8 @@ class RobotStateManager(Node):
             return
         self.q_current = np.array(ordered)
         self.last_update_time = self.get_clock().now()
+        if self.initialized:
+            self._last_joint_states_time = self.get_clock().now()
 
 
     def collision_joint_callback(self, msg):
@@ -275,6 +277,8 @@ class RobotStateManager(Node):
             return
         self.q_collision = np.array(ordered)
         self.last_update_time = self.get_clock().now()
+        if self.initialized:
+            self._last_virtual_joint_states_time = self.get_clock().now()
 
     def target_callback(self, msg):
         # Prevent override during initialization

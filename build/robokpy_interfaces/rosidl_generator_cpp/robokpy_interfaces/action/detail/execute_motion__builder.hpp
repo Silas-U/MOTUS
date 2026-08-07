@@ -24,16 +24,48 @@ namespace action
 namespace builder
 {
 
+class Init_ExecuteMotion_Goal_seed_state
+{
+public:
+  explicit Init_ExecuteMotion_Goal_seed_state(::robokpy_interfaces::action::ExecuteMotion_Goal & msg)
+  : msg_(msg)
+  {}
+  ::robokpy_interfaces::action::ExecuteMotion_Goal seed_state(::robokpy_interfaces::action::ExecuteMotion_Goal::_seed_state_type arg)
+  {
+    msg_.seed_state = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::robokpy_interfaces::action::ExecuteMotion_Goal msg_;
+};
+
+class Init_ExecuteMotion_Goal_plan_only
+{
+public:
+  explicit Init_ExecuteMotion_Goal_plan_only(::robokpy_interfaces::action::ExecuteMotion_Goal & msg)
+  : msg_(msg)
+  {}
+  Init_ExecuteMotion_Goal_seed_state plan_only(::robokpy_interfaces::action::ExecuteMotion_Goal::_plan_only_type arg)
+  {
+    msg_.plan_only = std::move(arg);
+    return Init_ExecuteMotion_Goal_seed_state(msg_);
+  }
+
+private:
+  ::robokpy_interfaces::action::ExecuteMotion_Goal msg_;
+};
+
 class Init_ExecuteMotion_Goal_speed_scale
 {
 public:
   explicit Init_ExecuteMotion_Goal_speed_scale(::robokpy_interfaces::action::ExecuteMotion_Goal & msg)
   : msg_(msg)
   {}
-  ::robokpy_interfaces::action::ExecuteMotion_Goal speed_scale(::robokpy_interfaces::action::ExecuteMotion_Goal::_speed_scale_type arg)
+  Init_ExecuteMotion_Goal_plan_only speed_scale(::robokpy_interfaces::action::ExecuteMotion_Goal::_speed_scale_type arg)
   {
     msg_.speed_scale = std::move(arg);
-    return std::move(msg_);
+    return Init_ExecuteMotion_Goal_plan_only(msg_);
   }
 
 private:
@@ -252,16 +284,32 @@ namespace action
 namespace builder
 {
 
+class Init_ExecuteMotion_Feedback_predicted_final_state
+{
+public:
+  explicit Init_ExecuteMotion_Feedback_predicted_final_state(::robokpy_interfaces::action::ExecuteMotion_Feedback & msg)
+  : msg_(msg)
+  {}
+  ::robokpy_interfaces::action::ExecuteMotion_Feedback predicted_final_state(::robokpy_interfaces::action::ExecuteMotion_Feedback::_predicted_final_state_type arg)
+  {
+    msg_.predicted_final_state = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::robokpy_interfaces::action::ExecuteMotion_Feedback msg_;
+};
+
 class Init_ExecuteMotion_Feedback_current_state
 {
 public:
   explicit Init_ExecuteMotion_Feedback_current_state(::robokpy_interfaces::action::ExecuteMotion_Feedback & msg)
   : msg_(msg)
   {}
-  ::robokpy_interfaces::action::ExecuteMotion_Feedback current_state(::robokpy_interfaces::action::ExecuteMotion_Feedback::_current_state_type arg)
+  Init_ExecuteMotion_Feedback_predicted_final_state current_state(::robokpy_interfaces::action::ExecuteMotion_Feedback::_current_state_type arg)
   {
     msg_.current_state = std::move(arg);
-    return std::move(msg_);
+    return Init_ExecuteMotion_Feedback_predicted_final_state(msg_);
   }
 
 private:

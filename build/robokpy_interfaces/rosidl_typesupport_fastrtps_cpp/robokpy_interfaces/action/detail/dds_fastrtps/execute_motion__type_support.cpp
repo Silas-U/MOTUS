@@ -54,6 +54,41 @@ max_serialized_size_key_Pose(
 }  // namespace msg
 }  // namespace geometry_msgs
 
+namespace sensor_msgs
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const sensor_msgs::msg::JointState &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  sensor_msgs::msg::JointState &);
+size_t get_serialized_size(
+  const sensor_msgs::msg::JointState &,
+  size_t current_alignment);
+size_t
+max_serialized_size_JointState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+bool cdr_serialize_key(
+  const sensor_msgs::msg::JointState &,
+  eprosima::fastcdr::Cdr &);
+size_t get_serialized_size_key(
+  const sensor_msgs::msg::JointState &,
+  size_t current_alignment);
+size_t
+max_serialized_size_key_JointState(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace sensor_msgs
+
 
 namespace robokpy_interfaces
 {
@@ -105,6 +140,14 @@ cdr_serialize(
   // Member: speed_scale
   cdr << ros_message.speed_scale;
 
+  // Member: plan_only
+  cdr << (ros_message.plan_only ? true : false);
+
+  // Member: seed_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.seed_state,
+    cdr);
+
   return true;
 }
 
@@ -148,6 +191,17 @@ cdr_deserialize(
 
   // Member: speed_scale
   cdr >> ros_message.speed_scale;
+
+  // Member: plan_only
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.plan_only = tmp ? true : false;
+  }
+
+  // Member: seed_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.seed_state);
 
   return true;
 }
@@ -230,6 +284,18 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Member: plan_only
+  {
+    size_t item_size = sizeof(ros_message.plan_only);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: seed_state
+  current_alignment +=
+    sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.seed_state, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -337,6 +403,28 @@ max_serialized_size_ExecuteMotion_Goal(
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
+  // Member: plan_only
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+  // Member: seed_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size =
+        sensor_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -346,7 +434,7 @@ max_serialized_size_ExecuteMotion_Goal(
     using DataType = robokpy_interfaces::action::ExecuteMotion_Goal;
     is_plain =
       (
-      offsetof(DataType, speed_scale) +
+      offsetof(DataType, seed_state) +
       last_member_size
       ) == ret_val;
   }
@@ -393,6 +481,14 @@ cdr_serialize_key(
 
   // Member: speed_scale
   cdr << ros_message.speed_scale;
+
+  // Member: plan_only
+  cdr << (ros_message.plan_only ? true : false);
+
+  // Member: seed_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize_key(
+    ros_message.seed_state,
+    cdr);
 
   return true;
 }
@@ -474,6 +570,18 @@ get_serialized_size_key(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Member: plan_only
+  {
+    size_t item_size = sizeof(ros_message.plan_only);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+
+  // Member: seed_state
+  current_alignment +=
+    sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size_key(
+    ros_message.seed_state, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -586,6 +694,30 @@ max_serialized_size_key_ExecuteMotion_Goal(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
+  // Member: plan_only
+  {
+    size_t array_size = 1;
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: seed_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size =
+        sensor_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_key_JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -594,7 +726,7 @@ max_serialized_size_key_ExecuteMotion_Goal(
     using DataType = robokpy_interfaces::action::ExecuteMotion_Goal;
     is_plain =
       (
-      offsetof(DataType, speed_scale) +
+      offsetof(DataType, seed_state) +
       last_member_size
       ) == ret_val;
   }
@@ -722,40 +854,7 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_cp
 
 
 // forward declaration of message dependencies and their conversion functions
-namespace sensor_msgs
-{
-namespace msg
-{
-namespace typesupport_fastrtps_cpp
-{
-bool cdr_serialize(
-  const sensor_msgs::msg::JointState &,
-  eprosima::fastcdr::Cdr &);
-bool cdr_deserialize(
-  eprosima::fastcdr::Cdr &,
-  sensor_msgs::msg::JointState &);
-size_t get_serialized_size(
-  const sensor_msgs::msg::JointState &,
-  size_t current_alignment);
-size_t
-max_serialized_size_JointState(
-  bool & full_bounded,
-  bool & is_plain,
-  size_t current_alignment);
-bool cdr_serialize_key(
-  const sensor_msgs::msg::JointState &,
-  eprosima::fastcdr::Cdr &);
-size_t get_serialized_size_key(
-  const sensor_msgs::msg::JointState &,
-  size_t current_alignment);
-size_t
-max_serialized_size_key_JointState(
-  bool & full_bounded,
-  bool & is_plain,
-  size_t current_alignment);
-}  // namespace typesupport_fastrtps_cpp
-}  // namespace msg
-}  // namespace sensor_msgs
+// functions for sensor_msgs::msg::JointState already declared above
 
 namespace builtin_interfaces
 {
@@ -1291,6 +1390,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_cp
 // forward declaration of message dependencies and their conversion functions
 // functions for sensor_msgs::msg::JointState already declared above
 
+// functions for sensor_msgs::msg::JointState already declared above
+
 
 namespace robokpy_interfaces
 {
@@ -1319,6 +1420,11 @@ cdr_serialize(
     ros_message.current_state,
     cdr);
 
+  // Member: predicted_final_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.predicted_final_state,
+    cdr);
+
   return true;
 }
 
@@ -1337,6 +1443,10 @@ cdr_deserialize(
   // Member: current_state
   sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.current_state);
+
+  // Member: predicted_final_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.predicted_final_state);
 
   return true;
 }
@@ -1371,6 +1481,11 @@ get_serialized_size(
   current_alignment +=
     sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
     ros_message.current_state, current_alignment);
+
+  // Member: predicted_final_state
+  current_alignment +=
+    sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.predicted_final_state, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -1429,6 +1544,22 @@ max_serialized_size_ExecuteMotion_Feedback(
       is_plain &= inner_is_plain;
     }
   }
+  // Member: predicted_final_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size =
+        sensor_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -1438,7 +1569,7 @@ max_serialized_size_ExecuteMotion_Feedback(
     using DataType = robokpy_interfaces::action::ExecuteMotion_Feedback;
     is_plain =
       (
-      offsetof(DataType, current_state) +
+      offsetof(DataType, predicted_final_state) +
       last_member_size
       ) == ret_val;
   }
@@ -1461,6 +1592,11 @@ cdr_serialize_key(
   // Member: current_state
   sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize_key(
     ros_message.current_state,
+    cdr);
+
+  // Member: predicted_final_state
+  sensor_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize_key(
+    ros_message.predicted_final_state,
     cdr);
 
   return true;
@@ -1495,6 +1631,11 @@ get_serialized_size_key(
   current_alignment +=
     sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size_key(
     ros_message.current_state, current_alignment);
+
+  // Member: predicted_final_state
+  current_alignment +=
+    sensor_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size_key(
+    ros_message.predicted_final_state, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -1555,6 +1696,23 @@ max_serialized_size_key_ExecuteMotion_Feedback(
     }
   }
 
+  // Member: predicted_final_state
+  {
+    size_t array_size = 1;
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size =
+        sensor_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_key_JointState(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -1563,7 +1721,7 @@ max_serialized_size_key_ExecuteMotion_Feedback(
     using DataType = robokpy_interfaces::action::ExecuteMotion_Feedback;
     is_plain =
       (
-      offsetof(DataType, current_state) +
+      offsetof(DataType, predicted_final_state) +
       last_member_size
       ) == ret_val;
   }

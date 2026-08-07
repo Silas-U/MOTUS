@@ -11,10 +11,10 @@ robokpy_interfaces__action__ExecuteMotion__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x7a, 0xc8, 0xc9, 0x14, 0x93, 0x75, 0x1c, 0x39,
-      0x43, 0x30, 0x93, 0xb7, 0x2c, 0xe5, 0x2a, 0xc6,
-      0xe0, 0x08, 0x16, 0xd4, 0xfe, 0x2e, 0xde, 0x9d,
-      0x49, 0x29, 0xc1, 0x44, 0x9c, 0xe0, 0x76, 0x73,
+      0xea, 0x26, 0x4e, 0xf4, 0x97, 0x32, 0xd1, 0x68,
+      0x55, 0xb5, 0xc8, 0xb2, 0x22, 0x22, 0x40, 0x1f,
+      0xff, 0x5e, 0xa1, 0x9f, 0xcb, 0x31, 0xf6, 0x86,
+      0x0b, 0x6c, 0x24, 0x8b, 0x81, 0x95, 0xe6, 0x2c,
     }};
   return &hash;
 }
@@ -26,10 +26,10 @@ robokpy_interfaces__action__ExecuteMotion_Goal__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x39, 0x0f, 0xed, 0x22, 0x28, 0xf2, 0xa8, 0x4f,
-      0x64, 0xcb, 0xd5, 0x5f, 0xc9, 0xea, 0x1c, 0xe8,
-      0x73, 0x97, 0x8a, 0x30, 0x4b, 0xdc, 0x60, 0x09,
-      0xff, 0xb4, 0x31, 0xc3, 0x6a, 0x26, 0x44, 0xe4,
+      0xc0, 0x76, 0xe1, 0x52, 0x60, 0x6b, 0x5a, 0x04,
+      0x6f, 0xe3, 0x6d, 0x45, 0xfe, 0x05, 0x24, 0xd7,
+      0x26, 0x25, 0x17, 0x11, 0x33, 0x7f, 0x0a, 0x76,
+      0x63, 0x1a, 0x09, 0x2c, 0x09, 0xe4, 0xfe, 0x36,
     }};
   return &hash;
 }
@@ -56,10 +56,10 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x92, 0xb9, 0x3a, 0x82, 0xfa, 0xdd, 0xd5, 0xcd,
-      0x4c, 0x26, 0x50, 0x9f, 0x85, 0xeb, 0x95, 0x30,
-      0x38, 0x83, 0xbc, 0x37, 0x30, 0x82, 0xa6, 0xbb,
-      0x96, 0x3d, 0x98, 0x36, 0x71, 0xc7, 0x19, 0x20,
+      0x73, 0x87, 0x16, 0x22, 0xd0, 0x96, 0xd5, 0xf5,
+      0xe1, 0x80, 0x81, 0xf3, 0xb5, 0x14, 0x30, 0x72,
+      0xea, 0xe1, 0xc3, 0x83, 0xec, 0x7c, 0x5c, 0x35,
+      0xe7, 0x28, 0x45, 0x88, 0x79, 0x7d, 0x20, 0xa7,
     }};
   return &hash;
 }
@@ -71,10 +71,10 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0xcc, 0x25, 0x95, 0xc4, 0x5a, 0x9a, 0x88, 0xaa,
-      0x5f, 0x9d, 0xf3, 0x0d, 0x0c, 0x48, 0xc4, 0x41,
-      0x87, 0x71, 0xa4, 0x67, 0x5e, 0x46, 0x36, 0x16,
-      0xbb, 0xaa, 0x99, 0xf3, 0xb0, 0xd4, 0x3a, 0xe9,
+      0x7f, 0x4d, 0x7f, 0xbe, 0x95, 0x72, 0x79, 0x76,
+      0xce, 0xdd, 0x06, 0xb9, 0xc4, 0x17, 0x3f, 0x6d,
+      0x07, 0x5b, 0x2b, 0xa9, 0x08, 0x1f, 0x87, 0xf2,
+      0x06, 0xfe, 0xfe, 0x6c, 0xff, 0x70, 0xe6, 0x49,
     }};
   return &hash;
 }
@@ -86,10 +86,10 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0xe9, 0x84, 0xa7, 0xa9, 0xaa, 0xd5, 0x49, 0xae,
-      0x56, 0x41, 0x9d, 0xb7, 0x9c, 0x14, 0x0b, 0x28,
-      0x34, 0x3b, 0xa2, 0x52, 0xc8, 0xe2, 0x35, 0xd7,
-      0xa7, 0xda, 0x7d, 0x17, 0x80, 0xff, 0x2d, 0x20,
+      0x2b, 0x3d, 0x3e, 0xed, 0x1e, 0x16, 0x65, 0xc4,
+      0x5a, 0x7c, 0xaf, 0xcf, 0xde, 0x1c, 0x11, 0x01,
+      0x80, 0x05, 0x88, 0x0d, 0x50, 0x72, 0x61, 0x79,
+      0xd4, 0xf6, 0x40, 0x7d, 0x7a, 0x1e, 0xdc, 0x1a,
     }};
   return &hash;
 }
@@ -116,10 +116,10 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x7b, 0x17, 0x64, 0x96, 0x55, 0xe1, 0xdc, 0xb2,
-      0x4d, 0x0a, 0x02, 0x18, 0x4f, 0xf4, 0xba, 0x2d,
-      0x23, 0xb0, 0x06, 0xe3, 0x80, 0x9c, 0x67, 0x58,
-      0x9c, 0x72, 0xa6, 0xe6, 0x87, 0x4f, 0x4b, 0x89,
+      0xbe, 0x14, 0xe9, 0x65, 0xe8, 0x44, 0xbe, 0xd3,
+      0x7c, 0x76, 0x8d, 0x64, 0xf4, 0x6a, 0x11, 0x53,
+      0x18, 0xba, 0x4e, 0x1e, 0x5d, 0xf5, 0xa2, 0x91,
+      0x2c, 0x6d, 0xa6, 0x00, 0xa0, 0xe3, 0x65, 0xf5,
     }};
   return &hash;
 }
@@ -191,10 +191,10 @@ robokpy_interfaces__action__ExecuteMotion_FeedbackMessage__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x06, 0x80, 0xa9, 0x42, 0x68, 0x80, 0xee, 0x9a,
-      0x17, 0x01, 0xd5, 0xe6, 0xb9, 0x73, 0xbf, 0x74,
-      0xd4, 0x46, 0x67, 0x3a, 0xc5, 0x24, 0xe0, 0xfe,
-      0x69, 0x22, 0x26, 0x57, 0x2f, 0xe8, 0xb4, 0x0e,
+      0xb4, 0x84, 0x3a, 0x5b, 0xb8, 0x08, 0x11, 0xc0,
+      0x5d, 0xeb, 0xab, 0xfd, 0xde, 0x6f, 0x0f, 0x9b,
+      0xe5, 0x06, 0xc8, 0x06, 0x59, 0x56, 0x5e, 0xa5,
+      0x5c, 0x93, 0xa9, 0xde, 0x8d, 0x45, 0xfd, 0x2a,
     }};
   return &hash;
 }
@@ -203,14 +203,14 @@ robokpy_interfaces__action__ExecuteMotion_FeedbackMessage__get_type_hash(
 #include <string.h>
 
 // Include directives for referenced types
-#include "geometry_msgs/msg/detail/point__functions.h"
-#include "builtin_interfaces/msg/detail/duration__functions.h"
-#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
-#include "geometry_msgs/msg/detail/pose__functions.h"
-#include "sensor_msgs/msg/detail/joint_state__functions.h"
+#include "std_msgs/msg/detail/header__functions.h"
 #include "service_msgs/msg/detail/service_event_info__functions.h"
 #include "builtin_interfaces/msg/detail/time__functions.h"
-#include "std_msgs/msg/detail/header__functions.h"
+#include "builtin_interfaces/msg/detail/duration__functions.h"
+#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
+#include "sensor_msgs/msg/detail/joint_state__functions.h"
+#include "geometry_msgs/msg/detail/pose__functions.h"
+#include "geometry_msgs/msg/detail/point__functions.h"
 #include "geometry_msgs/msg/detail/quaternion__functions.h"
 
 // Hashes for external referenced types
@@ -507,6 +507,8 @@ static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__leg_traj
 static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__leg_traj_types[] = "leg_traj_types";
 static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__leg_blend_radii[] = "leg_blend_radii";
 static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__speed_scale[] = "speed_scale";
+static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__plan_only[] = "plan_only";
+static char robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__seed_state[] = "seed_state";
 
 static rosidl_runtime_c__type_description__Field robokpy_interfaces__action__ExecuteMotion_Goal__FIELDS[] = {
   {
@@ -569,9 +571,33 @@ static rosidl_runtime_c__type_description__Field robokpy_interfaces__action__Exe
     },
     {NULL, 0, 0},
   },
+  {
+    {robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__plan_only, 9, 9},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_BOOLEAN,
+      0,
+      0,
+      {NULL, 0, 0},
+    },
+    {NULL, 0, 0},
+  },
+  {
+    {robokpy_interfaces__action__ExecuteMotion_Goal__FIELD_NAME__seed_state, 10, 10},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_NESTED_TYPE,
+      0,
+      0,
+      {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    },
+    {NULL, 0, 0},
+  },
 };
 
 static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_interfaces__action__ExecuteMotion_Goal__REFERENCED_TYPE_DESCRIPTIONS[] = {
+  {
+    {builtin_interfaces__msg__Time__TYPE_NAME, 27, 27},
+    {NULL, 0, 0},
+  },
   {
     {geometry_msgs__msg__Point__TYPE_NAME, 23, 23},
     {NULL, 0, 0},
@@ -582,6 +608,14 @@ static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_int
   },
   {
     {geometry_msgs__msg__Quaternion__TYPE_NAME, 28, 28},
+    {NULL, 0, 0},
+  },
+  {
+    {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    {NULL, 0, 0},
+  },
+  {
+    {std_msgs__msg__Header__TYPE_NAME, 19, 19},
     {NULL, 0, 0},
   },
 };
@@ -595,17 +629,23 @@ robokpy_interfaces__action__ExecuteMotion_Goal__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {robokpy_interfaces__action__ExecuteMotion_Goal__TYPE_NAME, 44, 44},
-      {robokpy_interfaces__action__ExecuteMotion_Goal__FIELDS, 6, 6},
+      {robokpy_interfaces__action__ExecuteMotion_Goal__FIELDS, 8, 8},
     },
-    {robokpy_interfaces__action__ExecuteMotion_Goal__REFERENCED_TYPE_DESCRIPTIONS, 3, 3},
+    {robokpy_interfaces__action__ExecuteMotion_Goal__REFERENCED_TYPE_DESCRIPTIONS, 6, 6},
   };
   if (!constructed) {
+    assert(0 == memcmp(&builtin_interfaces__msg__Time__EXPECTED_HASH, builtin_interfaces__msg__Time__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[0].fields = builtin_interfaces__msg__Time__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Point__EXPECTED_HASH, geometry_msgs__msg__Point__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[0].fields = geometry_msgs__msg__Point__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[1].fields = geometry_msgs__msg__Point__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Pose__EXPECTED_HASH, geometry_msgs__msg__Pose__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[1].fields = geometry_msgs__msg__Pose__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[2].fields = geometry_msgs__msg__Pose__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Quaternion__EXPECTED_HASH, geometry_msgs__msg__Quaternion__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[2].fields = geometry_msgs__msg__Quaternion__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[3].fields = geometry_msgs__msg__Quaternion__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&sensor_msgs__msg__JointState__EXPECTED_HASH, sensor_msgs__msg__JointState__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[4].fields = sensor_msgs__msg__JointState__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&std_msgs__msg__Header__EXPECTED_HASH, std_msgs__msg__Header__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[5].fields = std_msgs__msg__Header__get_type_description(NULL)->type_description.fields;
     constructed = true;
   }
   return &description;
@@ -719,6 +759,7 @@ robokpy_interfaces__action__ExecuteMotion_Result__get_type_description(
 static char robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__current_leg_step_id[] = "current_leg_step_id";
 static char robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__leg_percent_complete[] = "leg_percent_complete";
 static char robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__current_state[] = "current_state";
+static char robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__predicted_final_state[] = "predicted_final_state";
 
 static rosidl_runtime_c__type_description__Field robokpy_interfaces__action__ExecuteMotion_Feedback__FIELDS[] = {
   {
@@ -743,6 +784,16 @@ static rosidl_runtime_c__type_description__Field robokpy_interfaces__action__Exe
   },
   {
     {robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__current_state, 13, 13},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_NESTED_TYPE,
+      0,
+      0,
+      {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    },
+    {NULL, 0, 0},
+  },
+  {
+    {robokpy_interfaces__action__ExecuteMotion_Feedback__FIELD_NAME__predicted_final_state, 21, 21},
     {
       rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_NESTED_TYPE,
       0,
@@ -777,7 +828,7 @@ robokpy_interfaces__action__ExecuteMotion_Feedback__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {robokpy_interfaces__action__ExecuteMotion_Feedback__TYPE_NAME, 48, 48},
-      {robokpy_interfaces__action__ExecuteMotion_Feedback__FIELDS, 3, 3},
+      {robokpy_interfaces__action__ExecuteMotion_Feedback__FIELDS, 4, 4},
     },
     {robokpy_interfaces__action__ExecuteMotion_Feedback__REFERENCED_TYPE_DESCRIPTIONS, 3, 3},
   };
@@ -864,7 +915,15 @@ static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_int
     {NULL, 0, 0},
   },
   {
+    {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    {NULL, 0, 0},
+  },
+  {
     {service_msgs__msg__ServiceEventInfo__TYPE_NAME, 33, 33},
+    {NULL, 0, 0},
+  },
+  {
+    {std_msgs__msg__Header__TYPE_NAME, 19, 19},
     {NULL, 0, 0},
   },
   {
@@ -884,7 +943,7 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal__get_type_description(
       {robokpy_interfaces__action__ExecuteMotion_SendGoal__TYPE_NAME, 48, 48},
       {robokpy_interfaces__action__ExecuteMotion_SendGoal__FIELDS, 3, 3},
     },
-    {robokpy_interfaces__action__ExecuteMotion_SendGoal__REFERENCED_TYPE_DESCRIPTIONS, 10, 10},
+    {robokpy_interfaces__action__ExecuteMotion_SendGoal__REFERENCED_TYPE_DESCRIPTIONS, 12, 12},
   };
   if (!constructed) {
     assert(0 == memcmp(&builtin_interfaces__msg__Time__EXPECTED_HASH, builtin_interfaces__msg__Time__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
@@ -899,10 +958,14 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal__get_type_description(
     description.referenced_type_descriptions.data[5].fields = robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_description(NULL)->type_description.fields;
     description.referenced_type_descriptions.data[6].fields = robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_type_description(NULL)->type_description.fields;
     description.referenced_type_descriptions.data[7].fields = robokpy_interfaces__action__ExecuteMotion_SendGoal_Response__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&sensor_msgs__msg__JointState__EXPECTED_HASH, sensor_msgs__msg__JointState__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[8].fields = sensor_msgs__msg__JointState__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&service_msgs__msg__ServiceEventInfo__EXPECTED_HASH, service_msgs__msg__ServiceEventInfo__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[8].fields = service_msgs__msg__ServiceEventInfo__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[9].fields = service_msgs__msg__ServiceEventInfo__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&std_msgs__msg__Header__EXPECTED_HASH, std_msgs__msg__Header__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[10].fields = std_msgs__msg__Header__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&unique_identifier_msgs__msg__UUID__EXPECTED_HASH, unique_identifier_msgs__msg__UUID__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[9].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[11].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
     constructed = true;
   }
   return &description;
@@ -936,6 +999,10 @@ static rosidl_runtime_c__type_description__Field robokpy_interfaces__action__Exe
 
 static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__REFERENCED_TYPE_DESCRIPTIONS[] = {
   {
+    {builtin_interfaces__msg__Time__TYPE_NAME, 27, 27},
+    {NULL, 0, 0},
+  },
+  {
     {geometry_msgs__msg__Point__TYPE_NAME, 23, 23},
     {NULL, 0, 0},
   },
@@ -949,6 +1016,14 @@ static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_int
   },
   {
     {robokpy_interfaces__action__ExecuteMotion_Goal__TYPE_NAME, 44, 44},
+    {NULL, 0, 0},
+  },
+  {
+    {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    {NULL, 0, 0},
+  },
+  {
+    {std_msgs__msg__Header__TYPE_NAME, 19, 19},
     {NULL, 0, 0},
   },
   {
@@ -968,18 +1043,24 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_type_description
       {robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__TYPE_NAME, 56, 56},
       {robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__FIELDS, 2, 2},
     },
-    {robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__REFERENCED_TYPE_DESCRIPTIONS, 5, 5},
+    {robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__REFERENCED_TYPE_DESCRIPTIONS, 8, 8},
   };
   if (!constructed) {
+    assert(0 == memcmp(&builtin_interfaces__msg__Time__EXPECTED_HASH, builtin_interfaces__msg__Time__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[0].fields = builtin_interfaces__msg__Time__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Point__EXPECTED_HASH, geometry_msgs__msg__Point__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[0].fields = geometry_msgs__msg__Point__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[1].fields = geometry_msgs__msg__Point__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Pose__EXPECTED_HASH, geometry_msgs__msg__Pose__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[1].fields = geometry_msgs__msg__Pose__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[2].fields = geometry_msgs__msg__Pose__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&geometry_msgs__msg__Quaternion__EXPECTED_HASH, geometry_msgs__msg__Quaternion__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[2].fields = geometry_msgs__msg__Quaternion__get_type_description(NULL)->type_description.fields;
-    description.referenced_type_descriptions.data[3].fields = robokpy_interfaces__action__ExecuteMotion_Goal__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[3].fields = geometry_msgs__msg__Quaternion__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[4].fields = robokpy_interfaces__action__ExecuteMotion_Goal__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&sensor_msgs__msg__JointState__EXPECTED_HASH, sensor_msgs__msg__JointState__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[5].fields = sensor_msgs__msg__JointState__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&std_msgs__msg__Header__EXPECTED_HASH, std_msgs__msg__Header__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[6].fields = std_msgs__msg__Header__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&unique_identifier_msgs__msg__UUID__EXPECTED_HASH, unique_identifier_msgs__msg__UUID__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[4].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[7].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
     constructed = true;
   }
   return &description;
@@ -1106,7 +1187,15 @@ static rosidl_runtime_c__type_description__IndividualTypeDescription robokpy_int
     {NULL, 0, 0},
   },
   {
+    {sensor_msgs__msg__JointState__TYPE_NAME, 26, 26},
+    {NULL, 0, 0},
+  },
+  {
     {service_msgs__msg__ServiceEventInfo__TYPE_NAME, 33, 33},
+    {NULL, 0, 0},
+  },
+  {
+    {std_msgs__msg__Header__TYPE_NAME, 19, 19},
     {NULL, 0, 0},
   },
   {
@@ -1126,7 +1215,7 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_description(
       {robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__TYPE_NAME, 54, 54},
       {robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__FIELDS, 3, 3},
     },
-    {robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__REFERENCED_TYPE_DESCRIPTIONS, 9, 9},
+    {robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__REFERENCED_TYPE_DESCRIPTIONS, 11, 11},
   };
   if (!constructed) {
     assert(0 == memcmp(&builtin_interfaces__msg__Time__EXPECTED_HASH, builtin_interfaces__msg__Time__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
@@ -1140,10 +1229,14 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_description(
     description.referenced_type_descriptions.data[4].fields = robokpy_interfaces__action__ExecuteMotion_Goal__get_type_description(NULL)->type_description.fields;
     description.referenced_type_descriptions.data[5].fields = robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_type_description(NULL)->type_description.fields;
     description.referenced_type_descriptions.data[6].fields = robokpy_interfaces__action__ExecuteMotion_SendGoal_Response__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&sensor_msgs__msg__JointState__EXPECTED_HASH, sensor_msgs__msg__JointState__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[7].fields = sensor_msgs__msg__JointState__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&service_msgs__msg__ServiceEventInfo__EXPECTED_HASH, service_msgs__msg__ServiceEventInfo__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[7].fields = service_msgs__msg__ServiceEventInfo__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[8].fields = service_msgs__msg__ServiceEventInfo__get_type_description(NULL)->type_description.fields;
+    assert(0 == memcmp(&std_msgs__msg__Header__EXPECTED_HASH, std_msgs__msg__Header__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
+    description.referenced_type_descriptions.data[9].fields = std_msgs__msg__Header__get_type_description(NULL)->type_description.fields;
     assert(0 == memcmp(&unique_identifier_msgs__msg__UUID__EXPECTED_HASH, unique_identifier_msgs__msg__UUID__get_type_hash(NULL), sizeof(rosidl_type_hash_t)));
-    description.referenced_type_descriptions.data[8].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
+    description.referenced_type_descriptions.data[10].fields = unique_identifier_msgs__msg__UUID__get_type_description(NULL)->type_description.fields;
     constructed = true;
   }
   return &description;
@@ -1587,12 +1680,30 @@ static char toplevel_type_raw_source[] =
   "string[] leg_traj_types\n"
   "float64[] leg_blend_radii   # blend INTO the next leg; last entry always forced to 0.0 by the orchestrator\n"
   "float64 speed_scale\n"
+  "# Lookahead-planning support (see motus.md\\'s \"motion pipelining\" note).\n"
+  "# plan_only=true asks motion_planner to compute + cache this run's\n"
+  "# trajectory WITHOUT touching JTC/the physical robot \\xe2\\x80\\x94 used to plan the\n"
+  "# next run while the current one is still physically executing, so\n"
+  "# there's zero planning latency once it's actually that run's turn.\n"
+  "# seed_state, if given (non-empty position), overrides the usual\n"
+  "# live-robot-state seed \\xe2\\x80\\x94 required for plan_only, since the run being\n"
+  "# pre-planned hasn't started (and may never physically execute at\n"
+  "# all): its seed is the PREDICTED final state of whatever run precedes\n"
+  "# it, not the live robot state, which still reflects a different,\n"
+  "# currently-executing run.\n"
+  "bool plan_only\n"
+  "sensor_msgs/JointState seed_state\n"
   "---\n"
   "# Result\n"
   "bool success\n"
   "uint32 error_code\n"
+  "# For a normal (plan_only=false) run, this is the ACTUAL post-execution\n"
+  "# state (JTC's reported result), same as always. For a plan_only run,\n"
+  "# nothing physical happened, so this is the PREDICTED end state instead\n"
+  "# \\xe2\\x80\\x94 same meaning either way (\"where the arm ended up / will end up\"),\n"
+  "# just note the two are computed differently.\n"
   "sensor_msgs/JointState final_state\n"
-  "builtin_interfaces/Duration actual_duration\n"
+  "builtin_interfaces/Duration actual_duration   # plan_only: the PLANNED duration, not a measured one\n"
   "string failed_leg_step_id   # which leg was in progress when a failure occurred; empty on success\n"
   "---\n"
   "# Feedback \\xe2\\x80\\x94 reports which leg is CURRENTLY executing and progress\n"
@@ -1602,7 +1713,14 @@ static char toplevel_type_raw_source[] =
   "# many steps got merged around it.\n"
   "string current_leg_step_id\n"
   "float32 leg_percent_complete\n"
-  "sensor_msgs/JointState current_state";
+  "sensor_msgs/JointState current_state\n"
+  "# Published exactly once per goal, immediately after this run's\n"
+  "# trajectory becomes available (freshly planned OR reused from a\n"
+  "# prefetched cache hit) \\xe2\\x80\\x94 BEFORE any physical JTC execution starts, and\n"
+  "# regardless of plan_only. Lets a caller start lookahead-planning the\n"
+  "# NEXT run right away instead of waiting for this run's terminal\n"
+  "# result. Empty (default JointState) on every other feedback message.\n"
+  "sensor_msgs/JointState predicted_final_state";
 
 static char action_encoding[] = "action";
 static char implicit_encoding[] = "implicit";
@@ -1617,7 +1735,7 @@ robokpy_interfaces__action__ExecuteMotion__get_individual_type_description_sourc
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {robokpy_interfaces__action__ExecuteMotion__TYPE_NAME, 39, 39},
     {action_encoding, 6, 6},
-    {toplevel_type_raw_source, 1472, 1472},
+    {toplevel_type_raw_source, 3069, 3069},
   };
   return &source;
 }
@@ -1819,14 +1937,17 @@ robokpy_interfaces__action__ExecuteMotion_Goal__get_type_description_sources(
   const rosidl_message_type_support_t * type_support)
 {
   (void)type_support;
-  static rosidl_runtime_c__type_description__TypeSource sources[4];
-  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 4, 4};
+  static rosidl_runtime_c__type_description__TypeSource sources[7];
+  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 7, 7};
   static bool constructed = false;
   if (!constructed) {
     sources[0] = *robokpy_interfaces__action__ExecuteMotion_Goal__get_individual_type_description_source(NULL),
-    sources[1] = *geometry_msgs__msg__Point__get_individual_type_description_source(NULL);
-    sources[2] = *geometry_msgs__msg__Pose__get_individual_type_description_source(NULL);
-    sources[3] = *geometry_msgs__msg__Quaternion__get_individual_type_description_source(NULL);
+    sources[1] = *builtin_interfaces__msg__Time__get_individual_type_description_source(NULL);
+    sources[2] = *geometry_msgs__msg__Point__get_individual_type_description_source(NULL);
+    sources[3] = *geometry_msgs__msg__Pose__get_individual_type_description_source(NULL);
+    sources[4] = *geometry_msgs__msg__Quaternion__get_individual_type_description_source(NULL);
+    sources[5] = *sensor_msgs__msg__JointState__get_individual_type_description_source(NULL);
+    sources[6] = *std_msgs__msg__Header__get_individual_type_description_source(NULL);
     constructed = true;
   }
   return &source_sequence;
@@ -1874,8 +1995,8 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal__get_type_description_sources
   const rosidl_service_type_support_t * type_support)
 {
   (void)type_support;
-  static rosidl_runtime_c__type_description__TypeSource sources[11];
-  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 11, 11};
+  static rosidl_runtime_c__type_description__TypeSource sources[13];
+  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 13, 13};
   static bool constructed = false;
   if (!constructed) {
     sources[0] = *robokpy_interfaces__action__ExecuteMotion_SendGoal__get_individual_type_description_source(NULL),
@@ -1887,8 +2008,10 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal__get_type_description_sources
     sources[6] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_individual_type_description_source(NULL);
     sources[7] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_individual_type_description_source(NULL);
     sources[8] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Response__get_individual_type_description_source(NULL);
-    sources[9] = *service_msgs__msg__ServiceEventInfo__get_individual_type_description_source(NULL);
-    sources[10] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
+    sources[9] = *sensor_msgs__msg__JointState__get_individual_type_description_source(NULL);
+    sources[10] = *service_msgs__msg__ServiceEventInfo__get_individual_type_description_source(NULL);
+    sources[11] = *std_msgs__msg__Header__get_individual_type_description_source(NULL);
+    sources[12] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
     constructed = true;
   }
   return &source_sequence;
@@ -1899,16 +2022,19 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_type_description
   const rosidl_message_type_support_t * type_support)
 {
   (void)type_support;
-  static rosidl_runtime_c__type_description__TypeSource sources[6];
-  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 6, 6};
+  static rosidl_runtime_c__type_description__TypeSource sources[9];
+  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 9, 9};
   static bool constructed = false;
   if (!constructed) {
     sources[0] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_individual_type_description_source(NULL),
-    sources[1] = *geometry_msgs__msg__Point__get_individual_type_description_source(NULL);
-    sources[2] = *geometry_msgs__msg__Pose__get_individual_type_description_source(NULL);
-    sources[3] = *geometry_msgs__msg__Quaternion__get_individual_type_description_source(NULL);
-    sources[4] = *robokpy_interfaces__action__ExecuteMotion_Goal__get_individual_type_description_source(NULL);
-    sources[5] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
+    sources[1] = *builtin_interfaces__msg__Time__get_individual_type_description_source(NULL);
+    sources[2] = *geometry_msgs__msg__Point__get_individual_type_description_source(NULL);
+    sources[3] = *geometry_msgs__msg__Pose__get_individual_type_description_source(NULL);
+    sources[4] = *geometry_msgs__msg__Quaternion__get_individual_type_description_source(NULL);
+    sources[5] = *robokpy_interfaces__action__ExecuteMotion_Goal__get_individual_type_description_source(NULL);
+    sources[6] = *sensor_msgs__msg__JointState__get_individual_type_description_source(NULL);
+    sources[7] = *std_msgs__msg__Header__get_individual_type_description_source(NULL);
+    sources[8] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
     constructed = true;
   }
   return &source_sequence;
@@ -1935,8 +2061,8 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_description_s
   const rosidl_message_type_support_t * type_support)
 {
   (void)type_support;
-  static rosidl_runtime_c__type_description__TypeSource sources[10];
-  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 10, 10};
+  static rosidl_runtime_c__type_description__TypeSource sources[12];
+  static const rosidl_runtime_c__type_description__TypeSource__Sequence source_sequence = {sources, 12, 12};
   static bool constructed = false;
   if (!constructed) {
     sources[0] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_individual_type_description_source(NULL),
@@ -1947,8 +2073,10 @@ robokpy_interfaces__action__ExecuteMotion_SendGoal_Event__get_type_description_s
     sources[5] = *robokpy_interfaces__action__ExecuteMotion_Goal__get_individual_type_description_source(NULL);
     sources[6] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Request__get_individual_type_description_source(NULL);
     sources[7] = *robokpy_interfaces__action__ExecuteMotion_SendGoal_Response__get_individual_type_description_source(NULL);
-    sources[8] = *service_msgs__msg__ServiceEventInfo__get_individual_type_description_source(NULL);
-    sources[9] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
+    sources[8] = *sensor_msgs__msg__JointState__get_individual_type_description_source(NULL);
+    sources[9] = *service_msgs__msg__ServiceEventInfo__get_individual_type_description_source(NULL);
+    sources[10] = *std_msgs__msg__Header__get_individual_type_description_source(NULL);
+    sources[11] = *unique_identifier_msgs__msg__UUID__get_individual_type_description_source(NULL);
     constructed = true;
   }
   return &source_sequence;
