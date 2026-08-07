@@ -131,6 +131,21 @@ bool robokpy_interfaces__srv__spawn_object__request__convert_from_py(PyObject * 
     ros_message->qw = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // color
+    PyObject * field = PyObject_GetAttrString(_pymsg, "color");
+    if (!field) {
+      return false;
+    }
+    assert(PyUnicode_Check(field));
+    PyObject * encoded_field = PyUnicode_AsUTF8String(field);
+    if (!encoded_field) {
+      Py_DECREF(field);
+      return false;
+    }
+    rosidl_runtime_c__String__assign(&ros_message->color, PyBytes_AS_STRING(encoded_field));
+    Py_DECREF(encoded_field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -241,6 +256,23 @@ PyObject * robokpy_interfaces__srv__spawn_object__request__convert_to_py(void * 
     field = PyFloat_FromDouble(ros_message->qw);
     {
       int rc = PyObject_SetAttrString(_pymessage, "qw", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // color
+    PyObject * field = NULL;
+    field = PyUnicode_DecodeUTF8(
+      ros_message->color.data,
+      strlen(ros_message->color.data),
+      "replace");
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "color", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

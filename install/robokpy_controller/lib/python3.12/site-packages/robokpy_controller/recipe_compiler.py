@@ -170,6 +170,7 @@ def _build_spawn(step_id, d, common):
             x=float(d.get('x', 0.0)), y=float(d.get('y', 0.0)), z=float(d.get('z', 0.0)),
             qx=float(d.get('qx', 0.0)), qy=float(d.get('qy', 0.0)),
             qz=float(d.get('qz', 0.0)), qw=float(d.get('qw', 1.0)),
+            color=str(d.get('color', '')),
         )
 
     # despawn

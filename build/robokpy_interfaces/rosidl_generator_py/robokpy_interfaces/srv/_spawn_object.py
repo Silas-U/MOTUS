@@ -72,6 +72,7 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
         '_qy',
         '_qz',
         '_qw',
+        '_color',
         '_check_fields',
     ]
 
@@ -84,6 +85,7 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
         'qy': 'double',
         'qz': 'double',
         'qw': 'double',
+        'color': 'string',
     }
 
     # This attribute is used to store an rosidl_parser.definition variable
@@ -97,6 +99,7 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.UnboundedString(),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -116,6 +119,7 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
         self.qy = kwargs.get('qy', float())
         self.qz = kwargs.get('qz', float())
         self.qw = kwargs.get('qw', float())
+        self.color = kwargs.get('color', str())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -162,6 +166,8 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
         if self.qz != other.qz:
             return False
         if self.qw != other.qw:
+            return False
+        if self.color != other.color:
             return False
         return True
 
@@ -287,6 +293,19 @@ class SpawnObject_Request(metaclass=Metaclass_SpawnObject_Request):
             assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
                 "The 'qw' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
         self._qw = value
+
+    @builtins.property
+    def color(self):
+        """Message field 'color'."""
+        return self._color
+
+    @color.setter
+    def color(self, value):
+        if self._check_fields:
+            assert \
+                isinstance(value, str), \
+                "The 'color' field must be of type 'str'"
+        self._color = value
 
 
 # Import statements for member types

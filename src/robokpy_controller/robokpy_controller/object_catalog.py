@@ -10,9 +10,6 @@ Single source of truth for:
   - the gripper's parent_model/parent_link (one source, so
     tool_action_server's grasp_attach config in tools.yaml and the
     spawn script's generated DetachableJoint plugins can't drift apart)
-
-NOT YET WIRED: nothing calls this module yet. It's the shared
-foundation the spawn script and bridge node (next pieces) both import.
 """
 
 import yaml
@@ -32,6 +29,81 @@ class ObjectInstance:
     child_model: str   # e.g. "cube_small_3"
     child_link: str    # e.g. "link"
     type_id: str       # e.g. "cube_small"
+
+
+# ---------------------------------------------------------------------------
+# Color parsing — supports named colors, hex, and space-separated RGB
+# ---------------------------------------------------------------------------
+
+_NAMED_COLORS = {
+    'red': (1.0, 0.0, 0.0),
+    'green': (0.0, 1.0, 0.0),
+    'blue': (0.0, 0.0, 1.0),
+    'yellow': (1.0, 1.0, 0.0),
+    'orange': (1.0, 0.65, 0.0),
+    'purple': (0.5, 0.0, 0.5),
+    'white': (1.0, 1.0, 1.0),
+    'black': (0.0, 0.0, 0.0),
+    'grey': (0.5, 0.5, 0.5),
+    'gray': (0.5, 0.5, 0.5),
+    'cyan': (0.0, 1.0, 1.0),
+    'magenta': (1.0, 0.0, 1.0),
+    'lime': (0.0, 1.0, 0.0),
+    'pink': (1.0, 0.75, 0.8),
+    'teal': (0.0, 0.5, 0.5),
+    'navy': (0.0, 0.0, 0.5),
+    'maroon': (0.5, 0.0, 0.0),
+    'olive': (0.5, 0.5, 0.0),
+    'silver': (0.75, 0.75, 0.75),
+    'brown': (0.65, 0.16, 0.16),
+}
+
+
+def _parse_color(color_str: str) -> tuple[float, float, float]:
+    """Parse a color string into RGB floats in [0, 1].
+
+    Supports:
+      - Named colors (see _NAMED_COLORS)
+      - Hex: #RRGGBB or #RGB
+      - Space-separated RGB: "r g b" (floats 0-1 or ints 0-255)
+
+    Returns (0.8, 0.8, 0.8) — light grey — for empty or unparseable input.
+    """
+    if not color_str:
+        return (0.8, 0.8, 0.8)
+
+    s = color_str.strip().lower()
+    if s in _NAMED_COLORS:
+        return _NAMED_COLORS[s]
+
+    if s.startswith('#'):
+        h = s[1:]
+        if len(h) == 3:
+            h = ''.join(c * 2 for c in h)
+        if len(h) == 6:
+            try:
+                return (
+                    int(h[0:2], 16) / 255.0,
+                    int(h[2:4], 16) / 255.0,
+                    int(h[4:6], 16) / 255.0,
+                )
+            except ValueError:
+                pass
+
+    parts = s.split()
+    if len(parts) >= 3:
+        vals = []
+        for p in parts[:3]:
+            try:
+                v = float(p)
+                if v > 1.0:
+                    v = v / 255.0
+                vals.append(max(0.0, min(1.0, v)))
+            except ValueError:
+                vals.append(0.0)
+        return tuple(vals)
+
+    return (0.8, 0.8, 0.8)
 
 
 class ObjectCatalog:
@@ -186,7 +258,7 @@ class ObjectCatalog:
                 f'{self.state_topic(inst.child_model)}@std_msgs/msg/String[gz.msgs.StringMsg')
         return args
 
-    def instance_model_sdf(self, inst: ObjectInstance) -> str:
+    def instance_model_sdf(self, inst: ObjectInstance, color_str: str = '') -> str:
         """Generate a standalone SDF <model> string for one catalog
         instance, for use as the `sdf` field of
         ros_gz_interfaces/srv/SpawnEntity's request.
@@ -197,6 +269,9 @@ class ObjectCatalog:
         center of mass; this is model authoring, not physics tuning,
         so it's fine as an assumption baked into the catalog rather
         than something to ask about.
+
+        The optional `color_str` sets the visual material. Supports
+        named colors, hex (#RRGGBB), and space-separated RGB floats.
         """
         otype = self.types[inst.type_id]
         geom = otype.geometry
@@ -212,6 +287,16 @@ class ObjectCatalog:
         ixx = mass / 12.0 * (sy ** 2 + sz ** 2)
         iyy = mass / 12.0 * (sx ** 2 + sz ** 2)
         izz = mass / 12.0 * (sx ** 2 + sy ** 2)
+
+        r, g, b = _parse_color(color_str)
+        material_block = (
+            f'      <material>\n'
+            f'        <ambient>{r} {g} {b} 1</ambient>\n'
+            f'        <diffuse>{r} {g} {b} 1</diffuse>\n'
+            f'        <specular>0.1 0.1 0.1 1</specular>\n'
+            f'        <emissive>0 0 0 1</emissive>\n'
+            f'      </material>\n'
+        )
 
         return (
             '<?xml version="1.0"?>\n'
@@ -230,6 +315,7 @@ class ObjectCatalog:
             f'      </collision>\n'
             f'      <visual name="visual">\n'
             f'        <geometry><box><size>{sx} {sy} {sz}</size></box></geometry>\n'
+            f'{material_block}'
             f'      </visual>\n'
             f'    </link>\n'
             f'  </model>\n'

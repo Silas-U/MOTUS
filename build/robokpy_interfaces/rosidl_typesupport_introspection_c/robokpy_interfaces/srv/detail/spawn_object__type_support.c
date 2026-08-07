@@ -14,6 +14,7 @@
 
 // Include directives for member types
 // Member `type_id`
+// Member `color`
 #include "rosidl_runtime_c/string_functions.h"
 
 #ifdef __cplusplus
@@ -35,7 +36,7 @@ void robokpy_interfaces__srv__SpawnObject_Request__rosidl_typesupport_introspect
   robokpy_interfaces__srv__SpawnObject_Request__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__srv__SpawnObject_Request__rosidl_typesupport_introspection_c__SpawnObject_Request_message_member_array[8] = {
+static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__srv__SpawnObject_Request__rosidl_typesupport_introspection_c__SpawnObject_Request_message_member_array[9] = {
   {
     "type_id",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -179,13 +180,31 @@ static rosidl_typesupport_introspection_c__MessageMember robokpy_interfaces__srv
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "color",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is key
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(robokpy_interfaces__srv__SpawnObject_Request, color),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers robokpy_interfaces__srv__SpawnObject_Request__rosidl_typesupport_introspection_c__SpawnObject_Request_message_members = {
   "robokpy_interfaces__srv",  // message namespace
   "SpawnObject_Request",  // message name
-  8,  // number of fields
+  9,  // number of fields
   sizeof(robokpy_interfaces__srv__SpawnObject_Request),
   false,  // has_any_key_member_
   robokpy_interfaces__srv__SpawnObject_Request__rosidl_typesupport_introspection_c__SpawnObject_Request_message_member_array,  // message members

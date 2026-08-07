@@ -12,6 +12,7 @@
 
 // Include directives for member types
 // Member `type_id`
+// Member `color`
 #include "rosidl_runtime_c/string_functions.h"
 
 bool
@@ -32,6 +33,11 @@ robokpy_interfaces__srv__SpawnObject_Request__init(robokpy_interfaces__srv__Spaw
   // qy
   // qz
   // qw
+  // color
+  if (!rosidl_runtime_c__String__init(&msg->color)) {
+    robokpy_interfaces__srv__SpawnObject_Request__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -50,6 +56,8 @@ robokpy_interfaces__srv__SpawnObject_Request__fini(robokpy_interfaces__srv__Spaw
   // qy
   // qz
   // qw
+  // color
+  rosidl_runtime_c__String__fini(&msg->color);
 }
 
 bool
@@ -92,6 +100,12 @@ robokpy_interfaces__srv__SpawnObject_Request__are_equal(const robokpy_interfaces
   if (lhs->qw != rhs->qw) {
     return false;
   }
+  // color
+  if (!rosidl_runtime_c__String__are_equal(
+      &(lhs->color), &(rhs->color)))
+  {
+    return false;
+  }
   return true;
 }
 
@@ -123,6 +137,12 @@ robokpy_interfaces__srv__SpawnObject_Request__copy(
   output->qz = input->qz;
   // qw
   output->qw = input->qw;
+  // color
+  if (!rosidl_runtime_c__String__copy(
+      &(input->color), &(output->color)))
+  {
+    return false;
+  }
   return true;
 }
 

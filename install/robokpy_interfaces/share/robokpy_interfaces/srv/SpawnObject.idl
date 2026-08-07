@@ -30,6 +30,12 @@ module robokpy_interfaces {
       double qz;
 
       double qw;
+
+      @verbatim (language="comment", text=
+        "optional visual material color — named color," "\n"
+        "hex #RRGGBB, or space-separated RGB floats." "\n"
+        "Empty string yields the catalog default.")
+      string color;
     };
     @verbatim (language="comment", text=
       "Response")

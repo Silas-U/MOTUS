@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/action/detail/set_joint_target__functions.h"
-#include "robokpy_interfaces/action/detail/set_joint_target__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/action/detail/set_joint_target__functions.h"
 #include "robokpy_interfaces/action/detail/set_joint_target__struct.h"
+#include "robokpy_interfaces/action/detail/set_joint_target__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

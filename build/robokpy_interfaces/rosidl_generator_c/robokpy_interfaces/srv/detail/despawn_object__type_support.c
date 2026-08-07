@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/srv/detail/despawn_object__struct.h"
-#include "robokpy_interfaces/srv/detail/despawn_object__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/despawn_object__type_support.h"
+#include "robokpy_interfaces/srv/detail/despawn_object__struct.h"
+#include "robokpy_interfaces/srv/detail/despawn_object__functions.h"
 
 #ifdef __cplusplus
 extern "C"

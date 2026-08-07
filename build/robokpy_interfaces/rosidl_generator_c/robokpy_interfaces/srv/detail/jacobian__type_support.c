@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/srv/detail/jacobian__struct.h"
-#include "robokpy_interfaces/srv/detail/jacobian__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/jacobian__functions.h"
+#include "robokpy_interfaces/srv/detail/jacobian__type_support.h"
+#include "robokpy_interfaces/srv/detail/jacobian__struct.h"
 
 #ifdef __cplusplus
 extern "C"

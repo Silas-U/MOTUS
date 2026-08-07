@@ -24,16 +24,32 @@ namespace srv
 namespace builder
 {
 
+class Init_SpawnObject_Request_color
+{
+public:
+  explicit Init_SpawnObject_Request_color(::robokpy_interfaces::srv::SpawnObject_Request & msg)
+  : msg_(msg)
+  {}
+  ::robokpy_interfaces::srv::SpawnObject_Request color(::robokpy_interfaces::srv::SpawnObject_Request::_color_type arg)
+  {
+    msg_.color = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::robokpy_interfaces::srv::SpawnObject_Request msg_;
+};
+
 class Init_SpawnObject_Request_qw
 {
 public:
   explicit Init_SpawnObject_Request_qw(::robokpy_interfaces::srv::SpawnObject_Request & msg)
   : msg_(msg)
   {}
-  ::robokpy_interfaces::srv::SpawnObject_Request qw(::robokpy_interfaces::srv::SpawnObject_Request::_qw_type arg)
+  Init_SpawnObject_Request_color qw(::robokpy_interfaces::srv::SpawnObject_Request::_qw_type arg)
   {
     msg_.qw = std::move(arg);
-    return std::move(msg_);
+    return Init_SpawnObject_Request_color(msg_);
   }
 
 private:

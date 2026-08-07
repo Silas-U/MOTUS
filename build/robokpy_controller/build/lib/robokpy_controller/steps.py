@@ -126,7 +126,10 @@ class SpawnStep(Step):
                              the spawn pose. Assigns a free instance
                              from the bounded catalog pool for that
                              type; the assigned child_model comes back
-                             in this step's stored result.
+                             in this step's stored result. Optional
+                             `color` sets the spawned object's visual
+                             material (named color, hex #RRGGBB, or
+                             space-separated RGB floats).
 
       operation='despawn' — needs exactly one of child_model (hand-typed
                              instance name) or from_spawn_step (pull the
@@ -147,5 +150,6 @@ class SpawnStep(Step):
     qy: float = 0.0
     qz: float = 0.0
     qw: float = 1.0
+    color: str = ''            # spawn only — visual material color
     child_model: str = ''      # despawn only — hand-typed target instance
     from_spawn_step: str = ''  # despawn only — pull child_model from this SpawnStep's result

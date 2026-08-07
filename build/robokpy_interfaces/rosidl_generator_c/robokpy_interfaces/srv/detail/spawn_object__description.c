@@ -11,10 +11,10 @@ robokpy_interfaces__srv__SpawnObject__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0xcc, 0x6f, 0x81, 0x09, 0xa1, 0x0f, 0x78, 0x11,
-      0xdf, 0xb3, 0xe7, 0x0c, 0xd3, 0x54, 0xe1, 0xe9,
-      0x8e, 0x30, 0x94, 0x07, 0xa4, 0xa6, 0x9e, 0xa4,
-      0xf4, 0xc0, 0x05, 0x80, 0xd5, 0x41, 0xc7, 0xa1,
+      0xa7, 0x34, 0x30, 0x34, 0x61, 0x69, 0xd3, 0x03,
+      0xdb, 0x09, 0xed, 0x89, 0x87, 0xbd, 0x67, 0xf7,
+      0xbc, 0xba, 0x44, 0x71, 0x05, 0x7d, 0x33, 0x80,
+      0x40, 0xf4, 0xa8, 0x4d, 0x94, 0x06, 0x5c, 0x7d,
     }};
   return &hash;
 }
@@ -26,10 +26,10 @@ robokpy_interfaces__srv__SpawnObject_Request__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0x95, 0xb1, 0x6e, 0x7b, 0xdf, 0xaf, 0xf3, 0x50,
-      0x70, 0xba, 0x74, 0xad, 0xfc, 0x34, 0x0a, 0x46,
-      0xd7, 0xb7, 0xe4, 0x9b, 0xfd, 0x33, 0xd7, 0xe4,
-      0x79, 0xcc, 0x51, 0xc7, 0xcb, 0xf5, 0x00, 0x48,
+      0x25, 0x66, 0x50, 0x47, 0x42, 0x72, 0x2c, 0x18,
+      0xb7, 0xc6, 0x18, 0x3c, 0x5c, 0xb6, 0x6c, 0x45,
+      0x5f, 0x2a, 0x0d, 0xd3, 0x99, 0xc5, 0xaa, 0xd6,
+      0x3c, 0x77, 0x2b, 0x44, 0x8a, 0x86, 0xca, 0x78,
     }};
   return &hash;
 }
@@ -56,10 +56,10 @@ robokpy_interfaces__srv__SpawnObject_Event__get_type_hash(
 {
   (void)type_support;
   static rosidl_type_hash_t hash = {1, {
-      0xb3, 0x78, 0xa9, 0xff, 0x1f, 0xa1, 0xbd, 0x5f,
-      0x72, 0xa7, 0xd5, 0x62, 0x2c, 0xfc, 0xa7, 0x6a,
-      0x82, 0x42, 0xeb, 0x3c, 0x7b, 0x21, 0x7d, 0x4f,
-      0x80, 0x78, 0xac, 0x3b, 0x6d, 0xad, 0xfc, 0xed,
+      0x92, 0x8e, 0xc4, 0xd5, 0x4b, 0xdb, 0xf5, 0xc6,
+      0xfa, 0xca, 0x31, 0xc2, 0x68, 0x48, 0x95, 0x48,
+      0xc0, 0x26, 0xe5, 0x6a, 0x41, 0xa6, 0xfd, 0xae,
+      0x46, 0x8f, 0xe7, 0xb9, 0x53, 0x13, 0x11, 0x0b,
     }};
   return &hash;
 }
@@ -189,6 +189,7 @@ static char robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__qx[] = "qx
 static char robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__qy[] = "qy";
 static char robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__qz[] = "qz";
 static char robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__qw[] = "qw";
+static char robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__color[] = "color";
 
 static rosidl_runtime_c__type_description__Field robokpy_interfaces__srv__SpawnObject_Request__FIELDS[] = {
   {
@@ -271,6 +272,16 @@ static rosidl_runtime_c__type_description__Field robokpy_interfaces__srv__SpawnO
     },
     {NULL, 0, 0},
   },
+  {
+    {robokpy_interfaces__srv__SpawnObject_Request__FIELD_NAME__color, 5, 5},
+    {
+      rosidl_runtime_c__type_description__FieldType__FIELD_TYPE_STRING,
+      0,
+      0,
+      {NULL, 0, 0},
+    },
+    {NULL, 0, 0},
+  },
 };
 
 const rosidl_runtime_c__type_description__TypeDescription *
@@ -282,7 +293,7 @@ robokpy_interfaces__srv__SpawnObject_Request__get_type_description(
   static const rosidl_runtime_c__type_description__TypeDescription description = {
     {
       {robokpy_interfaces__srv__SpawnObject_Request__TYPE_NAME, 42, 42},
-      {robokpy_interfaces__srv__SpawnObject_Request__FIELDS, 8, 8},
+      {robokpy_interfaces__srv__SpawnObject_Request__FIELDS, 9, 9},
     },
     {NULL, 0, 0},
   };
@@ -446,6 +457,9 @@ static char toplevel_type_raw_source[] =
   "float64  qy\n"
   "float64  qz\n"
   "float64  qw\n"
+  "string   color         # optional visual material color \\xe2\\x80\\x94 named color,\n"
+  "                        # hex #RRGGBB, or space-separated RGB floats.\n"
+  "                        # Empty string yields the catalog default.\n"
   "\n"
   "---\n"
   "# Response\n"
@@ -469,7 +483,7 @@ robokpy_interfaces__srv__SpawnObject__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {robokpy_interfaces__srv__SpawnObject__TYPE_NAME, 34, 34},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 896, 896},
+    {toplevel_type_raw_source, 1104, 1104},
   };
   return &source;
 }

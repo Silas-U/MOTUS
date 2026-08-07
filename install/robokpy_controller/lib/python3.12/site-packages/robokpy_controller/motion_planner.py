@@ -140,7 +140,11 @@ class MotionPlanner(Node):
         # ---- JTC action-client cooldown + tracking ----
         self._last_jtc_send_time = 0.0
         self._jtc_send_cooldown_sec = 0.0
-        self._jtc_goal_response_timeout = 30.0
+        # Aggressively short: if the JTC server doesn't respond within
+        # this window, the DDS response is lost. Don't wait 30s
+        # hoping it shows up — it won't. Fall back to joint-state
+        # polling immediately instead.
+        self._jtc_goal_response_timeout = 2.0
 
         # =====================================================
         # Waypoints + Segments
@@ -713,7 +717,8 @@ class MotionPlanner(Node):
     # =========================================================
     async def _send_jtc_goal(self, jtc_goal: FollowJointTrajectory.Goal,
                               feedback_callback,
-                              step_id_for_log: str):
+                              step_id_for_log: str,
+                              trajectory_duration_sec: float = 0.0):
         """Send a goal to the JTC with cooldown and lost-response recovery.
 
         Returns (jtc_goal_handle, timed_out) where timed_out is True if
@@ -1032,20 +1037,29 @@ class MotionPlanner(Node):
                         goal_handle.publish_feedback(fb)
                         break
 
+            total_sec = leg_time_ranges[-1][2]
             jtc_goal_handle, timed_out = await self._send_jtc_goal(
                 jtc_goal, jtc_feedback_cb,
-                step_id_for_log=f'legs={list(goal.leg_step_ids)}')
+                step_id_for_log=f'legs={list(goal.leg_step_ids)}',
+                trajectory_duration_sec=total_sec)
 
             if timed_out:
-                wait_sec = leg_time_ranges[-1][2] + 2.0
-                self.get_logger().warn(
-                    f'legs={list(goal.leg_step_ids)}: waiting {wait_sec:.1f}s '
-                    f'to see if arm reaches target despite lost response...')
-                await self._sleep_async(wait_sec)
+                # Goal response lost in DDS — but the arm_controller may
+                # still have received and be executing the trajectory.
+                # Poll joint states aggressively instead of blind-waiting.
+                final_positions = np.array(jtc_msg.points[-1].positions)
+                poll_deadline = time.monotonic() + total_sec + 5.0
+                poll_interval = 0.2
+                reached = False
+                while time.monotonic() < poll_deadline:
+                    if self.q_current is not None:
+                        err = float(np.max(np.abs(self.q_current - final_positions)))
+                        if err < 0.05:
+                            reached = True
+                            break
+                    await self._sleep_async(poll_interval)
 
-                final_positions = jtc_msg.points[-1].positions
-                if await self._verify_reached_target_async(
-                        final_positions, tolerance=0.05, timeout_sec=5.0):
+                if reached:
                     self.get_logger().warn(
                         f'legs={list(goal.leg_step_ids)}: arm reached target '
                         f'despite lost goal response — treating as success')
@@ -1079,29 +1093,105 @@ class MotionPlanner(Node):
                 return result
 
             result_timeout = leg_time_ranges[-1][2] + 10.0
-            try:
-                result_future = jtc_goal_handle.get_result_async()
-                jtc_result = await _future_with_timeout(self, result_future, timeout_sec=result_timeout)
-            except TimeoutError:
+            result_wrapper = Future()
+            result_timer = [None]
+
+            def _cleanup_result_timer():
+                t = result_timer[0]
+                if t is not None:
+                    result_timer[0] = None
+                    try:
+                        t.cancel()
+                    except Exception:
+                        pass
+                    try:
+                        t.destroy()
+                    except Exception:
+                        pass
+
+            def _on_result_done(f):
+                _cleanup_result_timer()
+                if result_wrapper.done():
+                    return
+                try:
+                    result_wrapper.set_result(('ok', f.result()))
+                except Exception as e:
+                    result_wrapper.set_result(('error', e))
+
+            def _on_result_timeout():
+                _cleanup_result_timer()
+                if not result_wrapper.done():
+                    result_wrapper.set_result(('timeout', None))
+
+            result_future = jtc_goal_handle.get_result_async()
+            result_future.add_done_callback(_on_result_done)
+            result_timer[0] = self.create_timer(result_timeout, _on_result_timeout)
+
+            res_status, res_value = await result_wrapper
+
+            if res_status == 'timeout':
                 self.get_logger().error(
                     f'legs={list(goal.leg_step_ids)}: no result from JTC within '
                     f'{result_timeout:.1f}s — attempting to cancel, trajectory '
                     f'may still be running')
                 try:
                     cancel_future = jtc_goal_handle.cancel_goal_async()
-                    await _future_with_timeout(self, cancel_future, timeout_sec=5.0)
+                    cancel_wrapper = Future()
+                    cancel_timer = [None]
+
+                    def _cleanup_cancel_timer():
+                        t = cancel_timer[0]
+                        if t is not None:
+                            cancel_timer[0] = None
+                            try:
+                                t.cancel()
+                            except Exception:
+                                pass
+                            try:
+                                t.destroy()
+                            except Exception:
+                                pass
+
+                    def _on_cancel_done(f):
+                        _cleanup_cancel_timer()
+                        if cancel_wrapper.done():
+                            return
+                        try:
+                            cancel_wrapper.set_result(f.result())
+                        except Exception as e:
+                            cancel_wrapper.set_result(e)
+
+                    def _on_cancel_timeout():
+                        _cleanup_cancel_timer()
+                        if not cancel_wrapper.done():
+                            cancel_wrapper.set_result(None)
+
+                    cancel_future.add_done_callback(_on_cancel_done)
+                    cancel_timer[0] = self.create_timer(5.0, _on_cancel_timeout)
+                    await cancel_wrapper
                     self.get_logger().info(
                         f'legs={list(goal.leg_step_ids)}: cancel request sent')
-                except TimeoutError:
+                except Exception:
                     self.get_logger().error(
-                        f'legs={list(goal.leg_step_ids)}: cancel request itself '
-                        f'timed out — arm state unknown, operator must verify '
-                        f'manually')
+                        f'legs={list(goal.leg_step_ids)}: cancel request failed '
+                        f'— arm state unknown, operator must verify manually')
                 goal_handle.abort()
                 result.success = False
                 result.error_code = 11
                 result.failed_leg_step_id = last_known_leg['step_id']
                 return result
+
+            if res_status == 'error':
+                self.get_logger().error(
+                    f'legs={list(goal.leg_step_ids)}: get_result_async failed: '
+                    f'{res_value}')
+                goal_handle.abort()
+                result.success = False
+                result.error_code = 11
+                result.failed_leg_step_id = last_known_leg['step_id']
+                return result
+
+            jtc_result = res_value
 
             result.success, result.error_code = self._map_jtc_result(jtc_result, f'legs={list(goal.leg_step_ids)}')
             if not result.success:
@@ -1183,13 +1273,23 @@ class MotionPlanner(Node):
 
             jtc_goal_handle, timed_out = await self._send_jtc_goal(
                 jtc_goal, jtc_feedback_cb,
-                step_id_for_log='set_joint_target')
+                step_id_for_log='set_joint_target',
+                trajectory_duration_sec=total_sec)
 
             if timed_out:
-                await self._sleep_async(total_sec + 2.0)
-                final_positions = jtc_msg.points[-1].positions
-                if await self._verify_reached_target_async(
-                        final_positions, tolerance=0.05, timeout_sec=5.0):
+                final_positions = np.array(jtc_msg.points[-1].positions)
+                poll_deadline = time.monotonic() + total_sec + 5.0
+                poll_interval = 0.2
+                reached = False
+                while time.monotonic() < poll_deadline:
+                    if self.q_current is not None:
+                        err = float(np.max(np.abs(self.q_current - final_positions)))
+                        if err < 0.05:
+                            reached = True
+                            break
+                    await self._sleep_async(poll_interval)
+
+                if reached:
                     self.get_logger().warn(
                         'set_joint_target: arm reached target despite lost '
                         'goal response — treating as success')
@@ -1217,26 +1317,101 @@ class MotionPlanner(Node):
                 return result
 
             result_timeout = total_sec + 10.0
-            try:
-                result_future = jtc_goal_handle.get_result_async()
-                jtc_result = await _future_with_timeout(self, result_future, timeout_sec=result_timeout)
-            except TimeoutError:
+            result_wrapper = Future()
+            result_timer = [None]
+
+            def _cleanup_result_timer_sj():
+                t = result_timer[0]
+                if t is not None:
+                    result_timer[0] = None
+                    try:
+                        t.cancel()
+                    except Exception:
+                        pass
+                    try:
+                        t.destroy()
+                    except Exception:
+                        pass
+
+            def _on_result_done_sj(f):
+                _cleanup_result_timer_sj()
+                if result_wrapper.done():
+                    return
+                try:
+                    result_wrapper.set_result(('ok', f.result()))
+                except Exception as e:
+                    result_wrapper.set_result(('error', e))
+
+            def _on_result_timeout_sj():
+                _cleanup_result_timer_sj()
+                if not result_wrapper.done():
+                    result_wrapper.set_result(('timeout', None))
+
+            result_future = jtc_goal_handle.get_result_async()
+            result_future.add_done_callback(_on_result_done_sj)
+            result_timer[0] = self.create_timer(result_timeout, _on_result_timeout_sj)
+
+            res_status, res_value = await result_wrapper
+
+            if res_status == 'timeout':
                 self.get_logger().error(
                     f'set_joint_target: no result from JTC within '
                     f'{result_timeout:.1f}s — attempting to cancel, trajectory '
                     f'may still be running')
                 try:
                     cancel_future = jtc_goal_handle.cancel_goal_async()
-                    await _future_with_timeout(self, cancel_future, timeout_sec=5.0)
+                    cancel_wrapper = Future()
+                    cancel_timer = [None]
+
+                    def _cleanup_cancel_timer_sj():
+                        t = cancel_timer[0]
+                        if t is not None:
+                            cancel_timer[0] = None
+                            try:
+                                t.cancel()
+                            except Exception:
+                                pass
+                            try:
+                                t.destroy()
+                            except Exception:
+                                pass
+
+                    def _on_cancel_done_sj(f):
+                        _cleanup_cancel_timer_sj()
+                        if cancel_wrapper.done():
+                            return
+                        try:
+                            cancel_wrapper.set_result(f.result())
+                        except Exception as e:
+                            cancel_wrapper.set_result(e)
+
+                    def _on_cancel_timeout_sj():
+                        _cleanup_cancel_timer_sj()
+                        if not cancel_wrapper.done():
+                            cancel_wrapper.set_result(None)
+
+                    cancel_future.add_done_callback(_on_cancel_done_sj)
+                    cancel_timer[0] = self.create_timer(5.0, _on_cancel_timeout_sj)
+                    await cancel_wrapper
                     self.get_logger().info('set_joint_target: cancel request sent')
-                except TimeoutError:
+                except Exception:
                     self.get_logger().error(
-                        'set_joint_target: cancel request itself timed out — '
+                        'set_joint_target: cancel request failed — '
                         'arm state unknown, operator must verify manually')
                 goal_handle.abort()
                 result.success = False
                 result.error_code = 11
                 return result
+
+            if res_status == 'error':
+                self.get_logger().error(
+                    f'set_joint_target: get_result_async failed: {res_value}')
+                goal_handle.abort()
+                result.success = False
+                result.error_code = 11
+                return result
+
+            jtc_result = res_value
 
             result.success, result.error_code = self._map_jtc_result(jtc_result, 'set_joint_target')
             if hasattr(jtc_result.result, 'actual'):

@@ -14,6 +14,9 @@ float64  qx
 float64  qy
 float64  qz
 float64  qw
+string   color         # optional visual material color — named color,
+                        # hex #RRGGBB, or space-separated RGB floats.
+                        # Empty string yields the catalog default.
 
 ---
 # Response

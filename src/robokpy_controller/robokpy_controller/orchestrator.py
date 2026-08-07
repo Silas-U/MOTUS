@@ -772,6 +772,7 @@ class Orchestrator(Node):
             req.type_id = step.type_id
             req.x, req.y, req.z = step.x, step.y, step.z
             req.qx, req.qy, req.qz, req.qw = step.qx, step.qy, step.qz, step.qw
+            req.color = step.color
             future = self._spawn_client.call_async(req)
 
         else:  # despawn

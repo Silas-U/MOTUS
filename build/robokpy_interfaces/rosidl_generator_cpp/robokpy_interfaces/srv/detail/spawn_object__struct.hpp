@@ -49,11 +49,13 @@ struct SpawnObject_Request_
       this->qy = 0.0;
       this->qz = 0.0;
       this->qw = 0.0;
+      this->color = "";
     }
   }
 
   explicit SpawnObject_Request_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : type_id(_alloc)
+  : type_id(_alloc),
+    color(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -66,6 +68,7 @@ struct SpawnObject_Request_
       this->qy = 0.0;
       this->qz = 0.0;
       this->qw = 0.0;
+      this->color = "";
     }
   }
 
@@ -94,6 +97,9 @@ struct SpawnObject_Request_
   using _qw_type =
     double;
   _qw_type qw;
+  using _color_type =
+    std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
+  _color_type color;
 
   // setters for named parameter idiom
   Type & set__type_id(
@@ -142,6 +148,12 @@ struct SpawnObject_Request_
     const double & _arg)
   {
     this->qw = _arg;
+    return *this;
+  }
+  Type & set__color(
+    const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
+  {
+    this->color = _arg;
     return *this;
   }
 
@@ -209,6 +221,9 @@ struct SpawnObject_Request_
       return false;
     }
     if (this->qw != other.qw) {
+      return false;
+    }
+    if (this->color != other.color) {
       return false;
     }
     return true;

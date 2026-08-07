@@ -25,6 +25,7 @@ this node will compile/run:
     float64 qy
     float64 qz
     float64 qw
+    string color    # optional visual material (named, hex, or RGB)
     ---
     bool success
     string message
@@ -240,7 +241,7 @@ class ObjectSpawner(Node):
             return response
 
         inst = self._catalog.lookup_by_model(child_model)
-        sdf = self._catalog.instance_model_sdf(inst)
+        sdf = self._catalog.instance_model_sdf(inst, request.color)
 
         if not self._create_client.wait_for_service(timeout_sec=20.0):
             with self._lock:

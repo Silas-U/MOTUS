@@ -23,6 +23,7 @@ extern "C"
 
 // Include directives for member types
 // Member 'type_id'
+// Member 'color'
 #include "rosidl_runtime_c/string.h"
 
 /// Struct defined in srv/SpawnObject in the package robokpy_interfaces.
@@ -36,6 +37,10 @@ typedef struct robokpy_interfaces__srv__SpawnObject_Request
   double qy;
   double qz;
   double qw;
+  /// optional visual material color — named color,
+  /// hex #RRGGBB, or space-separated RGB floats.
+  /// Empty string yields the catalog default.
+  rosidl_runtime_c__String color;
 } robokpy_interfaces__srv__SpawnObject_Request;
 
 // Struct for a sequence of robokpy_interfaces__srv__SpawnObject_Request.

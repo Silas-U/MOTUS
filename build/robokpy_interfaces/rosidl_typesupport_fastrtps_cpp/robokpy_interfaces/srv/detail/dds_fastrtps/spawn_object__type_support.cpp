@@ -60,6 +60,9 @@ cdr_serialize(
   // Member: qw
   cdr << ros_message.qw;
 
+  // Member: color
+  cdr << ros_message.color;
+
   return true;
 }
 
@@ -92,6 +95,9 @@ cdr_deserialize(
 
   // Member: qw
   cdr >> ros_message.qw;
+
+  // Member: color
+  cdr >> ros_message.color;
 
   return true;
 }
@@ -163,6 +169,11 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Member: color
+  current_alignment += padding +
+    eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+    (ros_message.color.size() + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -247,6 +258,17 @@ max_serialized_size_SpawnObject_Request(
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
+  // Member: color
+  {
+    size_t array_size = 1;
+    full_bounded = false;
+    is_plain = false;
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment += padding +
+        eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+        1;
+    }
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -256,7 +278,7 @@ max_serialized_size_SpawnObject_Request(
     using DataType = robokpy_interfaces::srv::SpawnObject_Request;
     is_plain =
       (
-      offsetof(DataType, qw) +
+      offsetof(DataType, color) +
       last_member_size
       ) == ret_val;
   }
@@ -293,6 +315,9 @@ cdr_serialize_key(
 
   // Member: qw
   cdr << ros_message.qw;
+
+  // Member: color
+  cdr << ros_message.color;
 
   return true;
 }
@@ -363,6 +388,11 @@ get_serialized_size_key(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+
+  // Member: color
+  current_alignment += padding +
+    eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+    (ros_message.color.size() + 1);
 
   return current_alignment - initial_alignment;
 }
@@ -454,6 +484,18 @@ max_serialized_size_key_SpawnObject_Request(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
+  // Member: color
+  {
+    size_t array_size = 1;
+    full_bounded = false;
+    is_plain = false;
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment += padding +
+        eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+        1;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -462,7 +504,7 @@ max_serialized_size_key_SpawnObject_Request(
     using DataType = robokpy_interfaces::srv::SpawnObject_Request;
     is_plain =
       (
-      offsetof(DataType, qw) +
+      offsetof(DataType, color) +
       last_member_size
       ) == ret_val;
   }

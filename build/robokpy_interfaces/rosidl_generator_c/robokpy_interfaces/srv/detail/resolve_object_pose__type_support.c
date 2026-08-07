@@ -6,8 +6,8 @@
 
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/resolve_object_pose__functions.h"
-#include "robokpy_interfaces/srv/detail/resolve_object_pose__type_support.h"
 #include "robokpy_interfaces/srv/detail/resolve_object_pose__struct.h"
+#include "robokpy_interfaces/srv/detail/resolve_object_pose__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

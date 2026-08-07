@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/msg/detail/cell_state__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
-#include "robokpy_interfaces/msg/detail/cell_state__struct.h"
 #include "robokpy_interfaces/msg/detail/cell_state__type_support.h"
+#include "robokpy_interfaces/msg/detail/cell_state__struct.h"
+#include "robokpy_interfaces/msg/detail/cell_state__functions.h"
 
 #ifdef __cplusplus
 extern "C"
