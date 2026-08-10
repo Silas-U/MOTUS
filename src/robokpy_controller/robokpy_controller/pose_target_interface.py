@@ -15,7 +15,7 @@ from rcl_interfaces.msg import SetParametersResult
 import os
 import yaml
 import numpy as np
-from robokpy import Init_Model
+from robokpy_controller.ik_factory import build_model
 
 class PoseTargetInterface(Node):
 
@@ -50,7 +50,14 @@ class PoseTargetInterface(Node):
         self._last_effective_id = ''     # last id captures were cleared against
         self.add_on_set_parameters_callback(self._on_param_change)
 
-        self.model = Init_Model(robot_description, base_link=self.base_link, tip_link=self.tip_link)
+        self.declare_parameter('kinematic_solver_backend', 'robokpy')
+        backend = self.get_parameter('kinematic_solver_backend').value
+        self.model = build_model(
+            robot_description,
+            base_link=self.base_link,
+            tip_link=self.tip_link,
+            backend=backend,
+        )
         self.fk = self.model.fk
 
         num_joints = self.model.model.get_num_act_joints_in_chain(self.base_link, self.tip_link)

@@ -2,14 +2,15 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Float64MultiArray
-from robokpy import Init_Model
 from std_msgs.msg import String
 from rclpy.qos import QoSProfile, DurabilityPolicy
+from robokpy_controller.ik_factory import build_model
 
 
 class RobotStateInterfaceVirtual(Node):
     def __init__(self):
         super().__init__('robot_state_interface_virtual')
+
         self.declare_parameter("robot_description", "")
         self.robot_description = self.get_parameter('robot_description').value
 
@@ -18,7 +19,17 @@ class RobotStateInterfaceVirtual(Node):
         base_link = self.get_parameter('planning_base_link').value
         tip_link  = self.get_parameter('planning_tip_link').value
 
-        self.model = Init_Model(self.robot_description, base_link=base_link, tip_link=tip_link)
+        self.declare_parameter('kinematic_solver_backend', 'robokpy')
+        backend = self.get_parameter('kinematic_solver_backend').value
+
+        # Build model with injected backend
+        self.model = build_model(
+            self.robot_description,
+            base_link=base_link,
+            tip_link=tip_link,
+            backend=backend,
+        )
+
         self.joint_names = self.model.model.get_joint_names_in_chain(base_link, tip_link)
 
         self.declare_parameter("home_pose", [0.0] * len(self.joint_names))
@@ -44,6 +55,11 @@ class RobotStateInterfaceVirtual(Node):
 
         self.timer = self.create_timer(0.05, self.publish_joint_states)
 
+        self.get_logger().info(
+            f'Robot State Interface Virtual started (backend={backend}, '
+            f'base={base_link}, tip={tip_link})'
+        )
+
     def tip_link_cb(self, msg):
         self.model.ik.tip_link = msg.data
         self.joint_names = self.model.model.get_joint_names_in_chain(
@@ -68,8 +84,13 @@ class RobotStateInterfaceVirtual(Node):
         msg.effort = []
         self.publisher.publish(msg)
 
+
 def main():
     rclpy.init()
     node = RobotStateInterfaceVirtual()
     rclpy.spin(node)
     rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

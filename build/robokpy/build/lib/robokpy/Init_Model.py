@@ -15,9 +15,17 @@ from .jacobian import Jacobian
 from .trajectory import TrajectoryPlanner
 
 
-
 class Init_Model:
-    def __init__(self, urdf_str, base_link="world", tip_link="tcp"):
+    def __init__(self, urdf_str, base_link="world", tip_link="tcp", ik=None):
+        """
+        Args:
+            urdf_str: URDF XML string.
+            base_link: Root link of the planning chain.
+            tip_link:  End-effector link of the planning chain.
+            ik: Optional injected IK backend. If None, the default
+                RoboKpy InverseKinematics is used.  If provided,
+                it must satisfy the IKSolverBackend interface.
+        """
         self.model    = URDFModel(urdf_str, from_string=True)
         self.fk       = ForwardKinematics(self.model)
         self.jacobian = Jacobian(self.model, self.fk)
@@ -25,19 +33,26 @@ class Init_Model:
         self._validate_link(base_link)
         self._validate_link(tip_link)
 
-        self.ik = InverseKinematics(
-            self.model, self.fk, self.jacobian,
-            base_link=base_link, tip_link=tip_link
-        )
+        if ik is None:
+            self.ik = InverseKinematics(
+                self.model, self.fk, self.jacobian,
+                base_link=base_link, tip_link=tip_link
+            )
+        else:
+            self.ik = ik
+            self.ik.base_link = base_link
+            self.ik.tip_link  = tip_link
+
+        # TrajectoryPlanner receives the same ik reference — crucial
+        # so that motion_planner._generate_leg() uses the backend
+        # solver, not a stale RoboKpy instance.
         self.traj = TrajectoryPlanner(self.model, self.fk, self.ik, self.jacobian)
 
         self.chains = {"default": (base_link, tip_link)}
         self.base_link = base_link
         self.tip_link  = tip_link
 
-        # NEW — whole-model joint registry, unscoped, for any node
-        # that needs to render/report the FULL robot regardless of
-        # where the active planning chain's tip_link currently sits
+        # Whole-model joint registry for rendering / reporting
         self.all_joint_names = self.model.get_joint_names()
 
     def _validate_link(self, link_name: str):

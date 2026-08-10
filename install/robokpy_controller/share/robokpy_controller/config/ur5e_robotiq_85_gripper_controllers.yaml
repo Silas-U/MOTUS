@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 150  # Hz — 1:1 with 0.008s physics step (motus_world.sdf)
+    update_rate: 125  # Hz — 1:1 with 0.008s physics step (motus_world.sdf)
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster

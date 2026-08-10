@@ -2,22 +2,13 @@
 RecipeCompiler — the authoring layer between a human-written script and
 the orchestrator's DAG.
 
-A recipe is a YAML file: a flat, ordered list of typed steps with
-explicit dependencies. This is the thing an operator or integrator
-actually edits — MoveStep/ToolStep/etc are the orchestrator's runtime
-representation, not the authoring format.
-
 Validates before handing anything to the orchestrator:
   - every depends_on reference points to a step_id that exists
-  - no dependency cycles (a bad recipe should fail to load, not
-    deadlock mid-cell)
-  - recovery policy names are one of the real RecoveryPolicy values
-  - a ToolStep's from_vision_step (if set) references a real VisionStep
-    that's also a full completion dependency of that same step
+  - no dependency cycles
+  - recovery policy names are valid
+  - vision/spawn cross-references are correct
 
-Also computes a content hash of the raw recipe text — this is the
-recipe-versioning half of the persistence/traceability layer: every
-execution log entry can cite exactly which recipe version ran.
+Also computes a content hash of the raw recipe text for traceability.
 """
 
 import hashlib
@@ -58,11 +49,6 @@ def _parse_recovery(value: str) -> RecoveryPolicy:
 
 
 def _parse_depends_on(raw_deps: list) -> list:
-    """
-    Each entry is either:
-      - a plain string  -> step-completion dependency
-      - {progress: <step_id>, threshold: <float>} -> overlap dependency
-    """
     parsed = []
     for dep in raw_deps or []:
         if isinstance(dep, str):
@@ -84,30 +70,34 @@ def _register(step_type):
     return wrap
 
 
-# NOTE: there is no 'move_joint' step type. Recipe scripts only ever
-# target a Pose — raw joint-angle targets have no continuity guarantee
-# with a preceding or following pose move, which is exactly what caused
-# a real tolerance-violation bug in testing. Manual/direct joint control
-# is available separately via joint_jog_server, deliberately unreachable
-# from a recipe.
-
 @_register('move')
 def _build_move(step_id, d, common):
     from_spawn_step = str(d.get('from_spawn_step', ''))
+    use_spawn_orientation = bool(d.get('use_spawn_orientation', False))
     has_target_pose = 'target_pose' in d
-    if from_spawn_step and not has_target_pose:
+
+    if use_spawn_orientation and not from_spawn_step:
         raise RecipeValidationError(
-            f'Step "{step_id}": from_spawn_step still needs target_pose '
-            f'alongside it — position (x/y/z) is pulled from the spawn '
-            f'step and ignored here, but orientation (qx/qy/qz/qw) is a '
-            f'grasp-approach decision this recipe still has to make (the '
-            f'spawned object\'s own orientation isn\'t necessarily the '
-            f'approach orientation you want). Give target_pose with just '
-            f'qx/qy/qz/qw set.')
+            f"Step \"{step_id}\": use_spawn_orientation requires "
+            f"from_spawn_step to be set (there is no spawn step to "
+            f"inherit orientation from)")
+
+    if from_spawn_step and not has_target_pose and not use_spawn_orientation:
+        raise RecipeValidationError(
+            f"Step \"{step_id}\": from_spawn_step still needs target_pose "
+            f"alongside it — position (x/y/z) is pulled from the spawn "
+            f"step and ignored here, but orientation (qx/qy/qz/qw) is a "
+            f"grasp-approach decision this recipe still has to make (the "
+            f"spawned object's own orientation isn't necessarily the "
+            f"approach orientation you want). Give target_pose with just "
+            f"qx/qy/qz/qw set, or set use_spawn_orientation: true to "
+            f"inherit the spawn orientation automatically.")
+
     if not from_spawn_step and not has_target_pose:
         raise RecipeValidationError(
-            f'Step "{step_id}": move requires target_pose (optionally '
-            f'with from_spawn_step for position)')
+            f"Step \"{step_id}\": move requires target_pose (optionally "
+            f"with from_spawn_step for position)")
+
     return MoveStep(
         step_id=step_id, **common,
         target_pose=_pose_from_dict(d['target_pose']) if has_target_pose else None,
@@ -116,6 +106,7 @@ def _build_move(step_id, d, common):
         blend_radius=float(d.get('blend_radius', 0.0)),
         speed_scale=float(d.get('speed_scale', 1.0)),
         from_spawn_step=from_spawn_step,
+        use_spawn_orientation=use_spawn_orientation,
         engagement_fraction=float(d.get('engagement_fraction', 0.5)),
         approach_axis=str(d.get('approach_axis', 'z')),
     )
@@ -173,7 +164,6 @@ def _build_spawn(step_id, d, common):
             color=str(d.get('color', '')),
         )
 
-    # despawn
     child_model = str(d.get('child_model', ''))
     from_spawn_step = str(d.get('from_spawn_step', ''))
     if bool(child_model) == bool(from_spawn_step):
@@ -193,7 +183,6 @@ class RecipeCompiler:
 
     @staticmethod
     def compile(raw_text: str) -> tuple[list[Step], str, str]:
-        """Returns (steps, recipe_id, content_hash)."""
         doc = yaml.safe_load(raw_text)
         recipe_id = doc.get('recipe_id', 'unnamed_recipe')
         content_hash = hashlib.sha256(raw_text.encode('utf-8')).hexdigest()[:16]
@@ -233,8 +222,6 @@ class RecipeCompiler:
             raw_text = f.read()
         return RecipeCompiler.compile(raw_text)
 
-    # ---- validation -----------------------------------------------------
-
     @staticmethod
     def _validate_references(steps: list[Step], known_ids: set[str]):
         for step in steps:
@@ -246,64 +233,28 @@ class RecipeCompiler:
 
     @staticmethod
     def _validate_vision_refs(steps: list[Step], known_ids: set[str]):
-        """A ToolStep's from_vision_step (if set) must:
-          1. reference a step_id that actually exists
-          2. be a VisionStep, not some other type
-          3. appear in this same step's depends_on as a full completion
-             dependency (a plain string, not a ('progress', ...) tuple)
-        Rule 3 is what actually prevents the race condition this field
-        exists to avoid — without it, nothing guarantees the vision
-        result is stored (self._results in orchestrator.py) before the
-        tool step dispatches and tries to read it."""
         by_id = {s.step_id: s for s in steps}
         for step in steps:
             if not isinstance(step, ToolStep) or not step.from_vision_step:
                 continue
-
             target_id = step.from_vision_step
             if target_id not in known_ids:
                 raise RecipeValidationError(
                     f'Step "{step.step_id}" has from_vision_step="{target_id}" '
                     f'but no step with that id exists')
-
             target_step = by_id[target_id]
             if not isinstance(target_step, VisionStep):
                 raise RecipeValidationError(
                     f'Step "{step.step_id}" has from_vision_step="{target_id}" '
                     f'but that step is a {type(target_step).__name__}, not a VisionStep')
-
             plain_deps = [d for d in step.depends_on if isinstance(d, str)]
             if target_id not in plain_deps:
                 raise RecipeValidationError(
                     f'Step "{step.step_id}" has from_vision_step="{target_id}" '
-                    f'but does not list it as a full completion dependency in '
-                    f'depends_on (a progress-only dependency is not enough — '
-                    f'the vision result must be fully available before this '
-                    f'step dispatches)')
+                    f'but does not list it as a full completion dependency')
 
     @staticmethod
     def _validate_spawn_refs(steps: list[Step], known_ids: set[str]):
-        """Two different fields reference a SpawnStep by from_spawn_step,
-        with two different rules:
-
-        A despawn SpawnStep's from_spawn_step (if set) must:
-          1. reference a step_id that actually exists
-          2. be a SpawnStep with operation='spawn' (not another despawn,
-             and not some other step type)
-          3. appear in this same step's depends_on as a full completion
-             dependency (a plain string, not a ('progress', ...) tuple)
-        Same rationale as _validate_vision_refs: without rule 3, nothing
-        guarantees the spawn's result (the assigned child_model) is
-        stored in orchestrator.py's self._results before this despawn
-        step dispatches and tries to read it.
-
-        A MoveStep's from_spawn_step (if set) only needs rules 1 and 2.
-        Unlike despawn's child_model, a SpawnStep's x/y/z/qx/qy/qz/qw
-        are compile-time literals already sitting on the Step object —
-        orchestrator.py reads them directly at dispatch time, no
-        self._results lookup involved, so there's no data race to
-        protect against with a completion-dependency requirement. See
-        MoveStep.from_spawn_step's own docstring in steps.py."""
         by_id = {s.step_id: s for s in steps}
         for step in steps:
             is_despawn_ref = isinstance(step, SpawnStep) and step.operation == 'despawn'
@@ -311,40 +262,31 @@ class RecipeCompiler:
             if not (is_despawn_ref or is_move_ref):
                 continue
             if not step.from_spawn_step:
-                continue  # despawn: hand-typed child_model instead; move: target_pose instead
-
+                continue
             target_id = step.from_spawn_step
             if target_id not in known_ids:
                 raise RecipeValidationError(
                     f'Step "{step.step_id}" has from_spawn_step="{target_id}" '
                     f'but no step with that id exists')
-
             target_step = by_id[target_id]
             if not isinstance(target_step, SpawnStep) or target_step.operation != 'spawn':
                 raise RecipeValidationError(
                     f'Step "{step.step_id}" has from_spawn_step="{target_id}" '
                     f'but that step is not a spawn-operation SpawnStep')
-
             if is_despawn_ref:
                 plain_deps = [d for d in step.depends_on if isinstance(d, str)]
                 if target_id not in plain_deps:
                     raise RecipeValidationError(
                         f'Step "{step.step_id}" has from_spawn_step="{target_id}" '
-                        f'but does not list it as a full completion dependency in '
-                        f'depends_on (a progress-only dependency is not enough — '
-                        f'the assigned child_model must be fully available before '
-                        f'this step dispatches)')
+                        f'but does not list it as a full completion dependency')
 
     @staticmethod
     def _validate_acyclic(steps: list[Step]):
-        """Plain DFS cycle check — a recipe with a dependency cycle must
-        fail to load, not deadlock the cell mid-run."""
         graph = {s.step_id: [] for s in steps}
         for s in steps:
             for dep in s.depends_on:
                 dep_id = dep[1] if isinstance(dep, tuple) else dep
-                graph[dep_id].append(s.step_id)  # edge: dependency -> dependent
-
+                graph[dep_id].append(s.step_id)
         WHITE, GRAY, BLACK = 0, 1, 2
         color = {node: WHITE for node in graph}
 

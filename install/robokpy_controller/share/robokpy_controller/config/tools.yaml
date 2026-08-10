@@ -3,7 +3,7 @@ gripper_1:
   action_name: /gripper_action_controller/gripper_cmd
   joint_name: robotiq_85_left_knuckle_joint
   open_position: 0.001
-  closed_position: 0.554
+  closed_position: 0.154
   max_effort: 5.0
   action_timeout: 5.0
 
@@ -57,14 +57,13 @@ grasp_attach_1:
   backend: grasp_attach
   service_name: /grasp_attach
   service_timeout: 5.0
-  # parent_model / parent_link intentionally omitted — injected at
-  # launch time from objects.yaml (single source of truth, see
-  # motus_ur5e_robotiq_85_launch.py and object_catalog.py)
+  # parent_model / parent_link / objects_catalog_path intentionally
+  # omitted — injected at launch time from objects.yaml (single source
+  # of truth, see motus_ur5e_robotiq_85_launch.py and object_catalog.py)
 
   # Object catalog — lets ParallelJawActuator scale grip-close distance
   # to the target object's size instead of always fully closing.
   # Ignored entirely if gripper_mechanism is 'suction'.
-  objects_catalog_path: config/objects.yaml
 
   # Which GraspActuator drives the physical gripper — swap this one
   # line (+ the matching keys below) to change gripper hardware
@@ -75,10 +74,16 @@ grasp_attach_1:
   gripper_action_name: /gripper_action_controller/gripper_cmd
   gripper_joint_name: robotiq_85_left_knuckle_joint
   gripper_open_position: 0.001
-  gripper_closed_position: 0.554
+  # MATCHES gripper_1.closed_position (0.154) — the real joint limit.
+  # Previously 0.554 caused controller saturation, wiping out the
+  # size-dependent scaling.
+  gripper_closed_position: 0.154
   gripper_max_effort: 50.0
   gripper_action_timeout: 5.0
-  gripper_min_close_ratio: 0.7   # smallest catalog object still closes to 70% of full travel
+  # Lowered from 0.7 → 0.3 so the visible finger spread between
+  # cube_large (0.05 m) and cube_small (0.03 m) is ~0.04 rad
+  # (~2.5°) instead of ~0.02 rad.
+  gripper_min_close_ratio: 0.3
 
   # --- suction keys (used when gripper_mechanism: suction) ---
   # vacuum_topic: /vacuum_controller/cmd

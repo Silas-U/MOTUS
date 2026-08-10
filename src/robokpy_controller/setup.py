@@ -15,11 +15,20 @@ data_files=[
     ('share/' + package_name,
         ['package.xml']),
 
+    (os.path.join('share', package_name, 'urdf'),
+glob('urdf/*.xacro')),
+
+    (os.path.join('share', package_name, 'urdf', 'macros'),
+glob('urdf/macros/*.xacro')),
+
     (os.path.join('share', package_name, 'launch'),
 glob('launch/*.launch.py')),
 
     (os.path.join('share', package_name, 'config'),
 glob('config/*.rviz') + glob('config/*.yaml')),
+
+    (os.path.join('share', package_name, 'config/robots'),
+glob('config/robots/*.rviz') + glob('config/robots/*.yaml')),
 
     (os.path.join('share', package_name, 'data_files'),
 glob('data_files/*.rviz') + glob('data_files/*.yaml')),
@@ -56,7 +65,6 @@ glob('meshes/mecharm_270_pi/visual/*')),
 
     (os.path.join('share', package_name, 'meshes', 'mecharm_270_pi', 'collision'),
 glob('meshes/mecharm_270_pi/collision/*')),
-
 
 ],
 

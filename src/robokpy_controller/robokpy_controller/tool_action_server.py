@@ -897,9 +897,11 @@ class ParallelJawActuator(GraspActuator):
       gripper_open_position, gripper_closed_position, gripper_max_effort,
       gripper_action_timeout : same meaning as before
       gripper_min_close_ratio: fraction of full travel used even for
-                                the smallest catalog object (default
+                                the LARGEST catalog object (default
                                 0.7), so the grip always looks
                                 committed rather than barely closing
+                                on something that already fills most
+                                of the gap between the fingers.
     """
 
     def __init__(self, node: Node, config: dict, logger):
@@ -920,8 +922,16 @@ class ParallelJawActuator(GraspActuator):
         if not object_type_cfg or reference_size <= 0:
             return self._closed_pos
         size = (object_type_cfg.get('geometry', {}) or {}).get('size', [reference_size])
-        ratio = min(1.0, max(size) / reference_size)
-        scaled = self._min_close_ratio + (1.0 - self._min_close_ratio) * ratio
+        size_ratio = min(1.0, max(size) / reference_size)
+        # INVERTED vs a naive size/reference_size ratio: a bigger object
+        # already fills more of the gap between the fingers, so it
+        # needs LESS travel (stop closing sooner) — the largest catalog
+        # object (size_ratio=1.0) should get the LEAST closing, floored
+        # at _min_close_ratio so it still looks like a committed grip.
+        # A smaller object needs the fingers to travel further to even
+        # reach it, so close_need_ratio rises toward 1.0 as size shrinks.
+        close_need_ratio = 1.0 - size_ratio
+        scaled = self._min_close_ratio + (1.0 - self._min_close_ratio) * close_need_ratio
         return self._open_pos + (self._closed_pos - self._open_pos) * scaled
 
     async def engage(self, object_type_cfg: Optional[dict], reference_size: float = 0.0):

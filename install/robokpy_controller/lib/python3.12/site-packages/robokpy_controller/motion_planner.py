@@ -16,7 +16,7 @@ import copy
 from dataclasses import dataclass, field
 from typing import List, Optional
 
-from robokpy import Init_Model
+from robokpy_controller.ik_factory import build_model
 from robokpy import TrajectoryPoint, SegmentConfig
 
 from rclpy.action import ActionServer, ActionClient, CancelResponse, GoalResponse
@@ -232,7 +232,14 @@ class MotionPlanner(Node):
         # Robot Model
         # =====================================================
 
-        self.model = Init_Model(robot_description, base_link=self.base_link, tip_link=self.tip_link)
+        self.declare_parameter('kinematic_solver_backend', 'robokpy')
+        backend = self.get_parameter('kinematic_solver_backend').value
+        self.model = build_model(
+            robot_description,
+            base_link=self.base_link,
+            tip_link=self.tip_link,
+            backend=backend,
+        )
         self.traj_planner = self.model.traj
         self.fk           = self.model.fk
 
@@ -532,6 +539,9 @@ class MotionPlanner(Node):
         with self._model_lock:
             q_target = self.model.ik.solve(target_pose, q0=q_seed, mask=self.mask)
             ik_failed = not self.model.ik.success
+            if not ik_failed:
+                _, _, pos_limits = self._get_limits()
+                q_target = self._shortest_equivalent(q_target, q_seed, pos_limits)
 
         if ik_failed:
             self.get_logger().error(f'Scripted waypoint IK failed at {target_pose[:3]} — not added')
@@ -598,6 +608,53 @@ class MotionPlanner(Node):
                 q_norm[i] = (q[i] + np.pi) % (2 * np.pi) - np.pi
         return q_norm
 
+    def _shortest_equivalent(self, q_target: np.ndarray, q_seed: np.ndarray,
+                              pos_limits: Optional[np.ndarray] = None) -> np.ndarray:
+        """Re-express q_target using the joint-angle representative
+        nearest q_seed, so the trajectory planner moves the short way
+        around instead of interpolating straight through raw IK
+        output (which can land q_target up to 2*pi away from q_seed
+        for an equivalent orientation).
+
+        Generic across robot types and joint sets:
+          - prismatic / fixed joints have no periodicity — left
+            untouched entirely.
+          - revolute / continuous joints are wrapped to the seed-
+            nearest equivalent (delta wrapped into [-pi, pi]) ONLY if
+            that wrapped value still fits inside the joint's own
+            configured position limits. A joint with less than a full
+            2*pi of physical range (e.g. an elbow limited to +-pi)
+            is left exactly as IK returned it, since shifting it by
+            +-2*pi*n could place it past a real hard stop. A
+            'continuous' joint (no limits) always wraps freely.
+
+        pos_limits: (N, 2) array of [lo, hi] per active joint, same
+        ordering as get_active_joints_in_chain(). Pass None to skip
+        the limit check entirely (wrap unconditionally) — only safe
+        if the caller already knows every joint has >= 2*pi of range.
+        """
+        q_adj = q_target.copy()
+        active = self.model.model.get_active_joints_in_chain(self.base_link, self.tip_link)
+        for i, joint in enumerate(active):
+            if joint['type'] not in ('revolute', 'continuous'):
+                continue  # prismatic/fixed — no angular wrap-around exists
+
+            delta = q_target[i] - q_seed[i]
+            wrapped_delta = (delta + np.pi) % (2 * np.pi) - np.pi
+            candidate = q_seed[i] + wrapped_delta
+
+            if joint['type'] == 'continuous' or pos_limits is None:
+                q_adj[i] = candidate
+                continue
+
+            lo, hi = pos_limits[i]
+            if lo <= candidate <= hi:
+                q_adj[i] = candidate
+            # else: this joint's own range has no slack for the wrap
+            # (e.g. a +-pi-limited elbow) — keep IK's original solution
+            # rather than risk placing it outside a real limit.
+        return q_adj
+
     # =========================================================
     # SHARED TRAJECTORY GENERATION
     # =========================================================
@@ -611,6 +668,8 @@ class MotionPlanner(Node):
             else:
                 pose_start = None
 
+            vel_limits, acc_limits, pos_limits = self._get_limits()
+
             if target_joints_arr is not None:
                 q_target = np.array(target_joints_arr)
                 pose_target = None
@@ -618,13 +677,12 @@ class MotionPlanner(Node):
                 q_target = self.model.ik.solve(target_pose_arr, q0=q_seed, mask=self.mask)
                 if not self.model.ik.success:
                     return None, None, 2
+                q_target = self._shortest_equivalent(q_target, q_seed, pos_limits)
                 if self.model.ik.limit_bound:
                     self.get_logger().warn(f'IK solution for leg is joint-limit-bound (pose={target_pose_arr[:3]})')
                     if self.get_parameter('abort_on_limit_violation').value:
                         return None, None, 4
                 pose_target = target_pose_arr
-
-            vel_limits, acc_limits, pos_limits = self._get_limits()
             traj = self.traj_planner.create_trajectory(
                 waypoints=[
                     {'q': q_seed,   'pose': pose_start,  'mode': traj_method},

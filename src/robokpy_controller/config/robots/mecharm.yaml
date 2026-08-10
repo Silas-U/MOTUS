@@ -1,0 +1,18 @@
+/**:
+  ros__parameters:
+    home_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    marker_scale: 0.1
+    tool_type: none
+    planning_base_link: world
+    planning_tip_link: tool0
+
+motion_planner:
+  ros__parameters:
+    vel_limits: [3.14, 3.14, 3.14, 3.14, 3.14, 3.14]
+    acc_limits: [1.57, 1.57, 1.57, 1.57, 1.57, 1.57]
+    pos_limits_lo: [-6.28, -6.28, -3.14, -6.28, -6.28, -6.28]
+    pos_limits_hi: [ 6.28,  6.28,  3.14,  6.28,  6.28,  6.28]
+
+kinematic_solver:
+  ros__parameters:
+    kinematic_solver_backend: pinocchio

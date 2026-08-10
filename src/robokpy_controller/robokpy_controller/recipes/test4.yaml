@@ -1,0 +1,392 @@
+recipe_id: scattered_four_cube_stack_auto_orient_v3
+
+# 4 cubes scattered with unique colors + yaw: 2x cube_small, 2x cube_large.
+# Stacking order: LARGE cubes first (base of stack), SMALL cubes on
+# top — pick/place sequence is spawn_target_3 -> 4 -> 1 -> 2.
+# use_spawn_orientation: true composes spawn yaw with gripper-down.
+#
+# Place-height stack (see objects.yaml for the 0.03/0.05 cube sizes):
+#   1st: cube 3 (large) on ground -> z=0.0757
+#   2nd: cube 4 (large) on cube 3 -> z=0.1257
+#   3rd: cube 1 (small) on cube 4 -> z=0.1657
+#   4th: cube 2 (small) on cube 1 -> z=0.1957
+
+steps:
+
+# ============================================================================
+# SPAWN
+# ============================================================================
+
+- id: spawn_target_1
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.40
+  y: 0.12
+  z: 0.015
+  qx: 0.0000
+  qy: 0.0000
+  qz: 0.000000
+  qw: 1.000000
+  color: red
+  depends_on: []
+
+- id: spawn_target_2
+  type: spawn
+  operation: spawn
+  type_id: cube_small
+  x: 0.43
+  y: 0.26
+  z: 0.015
+  qx: 0.0000
+  qy: 0.0000
+  qz: 0.300706
+  qw: 0.953717
+  color: green
+  depends_on: []
+
+- id: spawn_target_3
+  type: spawn
+  operation: spawn
+  type_id: cube_large
+  x: 0.36
+  y: 0.40
+  z: 0.015
+  qx: 0.0000
+  qy: 0.0000
+  qz: 0.587785
+  qw: 0.809017
+  color: blue
+  depends_on: []
+
+- id: spawn_target_4
+  type: spawn
+  operation: spawn
+  type_id: cube_large
+  x: 0.48
+  y: 0.08
+  z: 0.015
+  qx: 0.0000
+  qy: 0.0000
+  qz: 0.809017
+  qw: 0.587785
+  color: yellow
+  depends_on: []
+
+# ============================================================================
+# INITIALIZATION
+# ============================================================================
+
+- id: move_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  depends_on: [spawn_target_3]
+
+# ============================================================================
+# CUBE 3 — blue, LARGE, yaw=72° — picked 1st, placed at base of stack
+# ============================================================================
+
+- id: traverse_to_a_3
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.36, y: 0.40, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [move_home]
+
+- id: descend_pick_a_3
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_3
+  use_spawn_orientation: true
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_3]
+
+- id: grip_close_a_3
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_large_1"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_3]
+
+- id: retract_a_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.36, y: 0.40, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [grip_close_a_3]
+
+- id: traverse_to_b_3
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [retract_a_3]
+
+- id: descend_place_b_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.0757, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_3]
+
+- id: release_b_3
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_3]
+
+- id: retract_b_3
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [release_b_3]
+
+# ============================================================================
+# CUBE 4 — yellow, LARGE, yaw=108° — picked 2nd, placed on cube 3
+# ============================================================================
+
+- id: traverse_to_a_4
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.48, y: 0.08, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [retract_b_3]
+
+- id: descend_pick_a_4
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_4
+  use_spawn_orientation: true
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_4]
+
+- id: grip_close_a_4
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_large_2"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_4]
+
+- id: retract_a_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.48, y: 0.08, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [grip_close_a_4]
+
+- id: traverse_to_b_4
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [retract_a_4]
+
+- id: descend_place_b_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.1257, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_4]
+
+- id: release_b_4
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_4]
+
+- id: retract_b_4
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [release_b_4]
+
+# ============================================================================
+# CUBE 1 — red, small, yaw=0° — picked 3rd, placed on cube 4
+# ============================================================================
+
+- id: traverse_to_a_1
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: 0.12, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [retract_b_4]
+
+- id: descend_pick_a_1
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_1
+  use_spawn_orientation: true
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_1]
+
+- id: grip_close_a_1
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_1"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_1]
+
+- id: retract_a_1
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: 0.12, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [grip_close_a_1]
+
+- id: traverse_to_b_1
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [retract_a_1]
+
+- id: descend_place_b_1
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.1657, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_1]
+
+- id: release_b_1
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_1]
+
+- id: retract_b_1
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [release_b_1]
+
+# ============================================================================
+# CUBE 2 — green, small, yaw=35° — picked 4th, placed on cube 1 (top)
+# ============================================================================
+
+- id: traverse_to_a_2
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.43, y: 0.26, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [retract_b_1]
+
+- id: descend_pick_a_2
+  type: move
+  traj_method: ts
+  from_spawn_step: spawn_target_2
+  use_spawn_orientation: true
+  blend_radius: 0.0
+  depends_on: [traverse_to_a_2]
+
+- id: grip_close_a_2
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_small_2"
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_pick_a_2]
+
+- id: retract_a_2
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.43, y: 0.26, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [grip_close_a_2]
+
+- id: traverse_to_b_2
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [retract_a_2]
+
+- id: descend_place_b_2
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.1957, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.0
+  depends_on: [traverse_to_b_2]
+
+- id: release_b_2
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  recovery: retry
+  max_retries: 2
+  depends_on: [descend_place_b_2]
+
+- id: retract_b_2
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  blend_radius: 0.08
+  depends_on: [release_b_2]
+
+# ============================================================================
+# CLEANUP
+# ============================================================================
+
+- id: return_home
+  type: move
+  traj_method: js
+  target_pose:
+    {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+  depends_on: [retract_b_2]
+
+- id: despawn_target_1
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_1
+  depends_on: [return_home, spawn_target_1]
+
+- id: despawn_target_2
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_2
+  depends_on: [return_home, spawn_target_2]
+
+- id: despawn_target_3
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_3
+  depends_on: [return_home, spawn_target_3]
+
+- id: despawn_target_4
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_target_4
+  depends_on: [return_home, spawn_target_4]

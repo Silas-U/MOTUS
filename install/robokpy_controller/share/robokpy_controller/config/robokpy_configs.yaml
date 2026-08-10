@@ -5,7 +5,7 @@
     marker_scale: 0.2
     world_frame: world
     planning_base_link: world
-    planning_tip_link: tcp
+    planning_tip_link: tool0
 
 motion_planner:
   ros__parameters:

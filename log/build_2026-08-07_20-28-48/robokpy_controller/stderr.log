@@ -1,0 +1,10 @@
+  File "/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/orchestrator.py", line 503
+    f'this should be unreachable given recipe_compiler's '
+                                                         ^
+SyntaxError: unterminated string literal (detected at line 503)
+
+  File "/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/recipe_compiler.py", line 108
+    f'Step "{step_id}": from_spawn_step still needs target_pose '
+    ^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+

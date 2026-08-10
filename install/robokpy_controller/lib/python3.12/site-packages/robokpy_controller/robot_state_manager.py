@@ -6,7 +6,7 @@ from sensor_msgs.msg import JointState
 from std_msgs.msg import Float64MultiArray, String
 from geometry_msgs.msg import Pose
 import numpy as np
-from robokpy import Init_Model
+from robokpy_controller.ik_factory import build_model
 from robokpy_interfaces.srv import ExecutionState, SystemMode
 from robokpy_interfaces.srv import SetPlanningTipLink
 
@@ -35,7 +35,14 @@ class RobotStateManager(Node):
         self.base_link = self.get_parameter('planning_base_link').value
         self.tip_link  = self.get_parameter('planning_tip_link').value
 
-        self.model = Init_Model(self.robot_description, base_link=self.base_link, tip_link=self.tip_link)
+        self.declare_parameter('kinematic_solver_backend', 'robokpy')
+        backend = self.get_parameter('kinematic_solver_backend').value
+        self.model = build_model(
+            self.robot_description,
+            base_link=self.base_link,
+            tip_link=self.tip_link,
+            backend=backend,
+        )
         self.fk = self.model.fk
 
         self.joint_names = self.model.model.get_joint_names_in_chain(self.base_link, self.tip_link)

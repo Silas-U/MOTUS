@@ -25,7 +25,6 @@ this node will compile/run:
     float64 qy
     float64 qz
     float64 qw
-    string color    # optional visual material (named, hex, or RGB)
     ---
     bool success
     string message

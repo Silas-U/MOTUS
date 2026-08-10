@@ -131,6 +131,9 @@ def generate_launch_description():
         if cfg.get('backend') == 'grasp_attach':
             cfg.setdefault('parent_model', catalog.parent_model)
             cfg.setdefault('parent_link', catalog.parent_link)
+            # INJECT absolute path so the node always finds the catalog
+            # regardless of its CWD at runtime.
+            cfg.setdefault('objects_catalog_path', objects_config_path)
 
     tools_config = json.dumps(tools_dict)
 
