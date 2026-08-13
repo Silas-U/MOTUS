@@ -17,7 +17,6 @@ config/ur5e_robotiq_85_gripper_controllers.yaml
 config/robots/mecharm.yaml
 config/robots/mycobot_280.yaml
 config/robots/ur5e.yaml
-launch/mecharm_270_pi.launch.py
 launch/motus.launch.py
 meshes/mecharm_270_pi/collision/base.dae
 meshes/mecharm_270_pi/collision/link1.dae
@@ -103,6 +102,13 @@ robokpy_controller/ik_factory.py
 robokpy_controller/joint_jog_server.py
 robokpy_controller/kinematic_solver.py
 robokpy_controller/motion_planner.py
+robokpy_controller/mp_cache.py
+robokpy_controller/mp_jtc.py
+robokpy_controller/mp_kinematics.py
+robokpy_controller/mp_trajectory.py
+robokpy_controller/mp_types.py
+robokpy_controller/mp_viz.py
+robokpy_controller/mp_waypoints.py
 robokpy_controller/object_catalog.py
 robokpy_controller/object_pose_resolver.py
 robokpy_controller/object_spawner.py

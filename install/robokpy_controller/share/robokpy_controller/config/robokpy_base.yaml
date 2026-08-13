@@ -2,19 +2,42 @@
   ros__parameters:
     world_frame: world
 
-motion_planner:
-  ros__parameters:
+    # Trajectory behaviour
+    # NOTE: true blend_radius only applies in Cartesian space (ts method).
+    # Joint-space (js) + blend_radius > 0 is not supported and will be
+    # logged as a warning / ignored.
     default_traj_type: lspb
     default_traj_method: js
     default_speed_factor: 1.0
-    default_duration_per_segment: 1.0
+    default_duration_per_segment: 3.0
     default_dt: 0.04
     default_blend_radius: 0.0
     default_n_samples: 50
-    default_n_blend: 0
+    # Cartesian (ts) trajectories are planned by RoboKpy's
+    # create_blended_cartesian_trajectory, whose timing is purely
+    # n_samples * dt / speed_factor — it has NO vel_limits/acc_limits
+    # parameters at all (confirmed against source), unlike js+lspb legs.
+    # mp_trajectory.py derives n_samples per ts group from this speed
+    # cap and each group's actual path distance instead of using a flat
+    # sample count. 0.25 m/s is a conservative starting value, not a
+    # measured UR5e TCP limit — tune once you have real tracking data,
+    # this is a placeholder like jerk_limits already was.
+    cartesian_vel_limit: 0.25
+    # n_blend MUST be > 0 for smooth LSPB acceleration ramps. With 0,
+    # the trajectory has instantaneous acceleration changes that Gazebo
+    # cannot track, causing tolerance violations.
+    default_n_blend: 20
+
+    # Safety / diagnostics
     enable_limit_check: True
-    enable_continuity_check: True
+    # LSPB naturally has C0 acceleration at blend points — these warnings
+    # are expected noise, not errors. Disable to reduce log spam.
+    enable_continuity_check: False
     abort_on_limit_violation: False
+
+    # NEW: Motus pipeline global flags (not robot-specific)
+    enable_trajectory_validation: True
+
     mask: [1, 1, 1, 1, 1, 1]
 
 kinematic_solver:

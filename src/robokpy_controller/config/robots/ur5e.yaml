@@ -8,11 +8,23 @@
 
 motion_planner:
   ros__parameters:
-    vel_limits: [3.0, 3.0, 4.0, 4.0, 5.0, 5.0]
-    acc_limits: [10.0, 10.0, 15.0, 15.0, 20.0, 20.0]
-    pos_limits_lo: [-6.28, -6.28, -3.14, -6.28, -6.28, -6.28]
-    pos_limits_hi: [ 6.28,  6.28,  3.14,  6.28,  6.28,  6.28]
+   # UR5e — Industrial Speed Profile
+
+    # All joints at 180°/s = π rad/s hardware max
+    vel_limits:   [3.14, 3.14, 3.14, 3.14, 3.14, 3.14]
+
+    # Aggressive but stable accelerations (rad/s²)
+    # Base/shoulder are heavier → slightly lower; wrist joints can snap faster
+    acc_limits:   [10.0, 10.0, 12.0, 12.0, 15.0, 15.0]
+
+    # Higher jerk for snappier starts/stops (rad/s³)
+    jerk_limits:  [100.0, 100.0, 150.0, 150.0, 200.0, 200.0]
+
+    # Full UR5e joint range — FIX: elbow was limited to ±π, should be ±2π
+    # Wrist 3 is mechanically unlimited; ±2π is the safe planner convention
+    pos_limits_lo: [-6.2832, -6.2832, -6.2832, -6.2832, -6.2832, -6.2832]
+    pos_limits_hi: [ 6.2832,  6.2832,  6.2832,  6.2832,  6.2832,  6.2832]
 
 kinematic_solver:
   ros__parameters:
-    kinematic_solver_backend: robokpy
+    kinematic_solver_backend: pinocchio # robokpy

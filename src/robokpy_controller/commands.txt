@@ -79,3 +79,60 @@ If you can share a link to the robot, a photo, or the correct name, I can point 
 
 #we need to fix this error
 [motion_planner-8] [WARN] [1786108663.765813339] [motion_planner.action_client]: Ignoring unexpected goal response. There may be more than one action server for the action '/arm_controller/follow_joint_trajectory'
+
+
+
+
+Specifically, I'd prioritize:
+
+Fix/verify TOPP mathematically
+Correct the continuity terminology
+Fix physical blend-radius semantics
+Unify the trajectory pipeline
+Add hard limit validation
+Add automated trajectory tests
+Then build jerk-aware TOPP
+
+
+WAYPOINTS
+   ↓
+Geometric Path Generator
+   │
+   ├── Joint line
+   ├── Cartesian line
+   ├── spline
+   ├── arc
+   └── helix
+   ↓
+GEOMETRIC BLENDING
+   ↓
+TIME PARAMETRIZATION
+   │
+   ├── Fixed-time
+   ├── LSPB
+   ├── Quintic
+   ├── S-curve
+   └── TOPP
+   ↓
+LIMIT VALIDATION
+   │
+   ├── position
+   ├── velocity
+   ├── acceleration
+   └── jerk
+   ↓
+TrajectoryPoint[]
+
+
+MotionPlannerNode  (thin ROS glue)
+├── KinematicsFacade      ← mp_kinematics.py   (model/IK/FK, one lock)
+├── WaypointManager       ← mp_waypoints.py    (pure data, testable)
+├── TrajectoryDispatcher  ← mp_trajectory.py   (the only planning brain)
+├── PlanCache             ← mp_cache.py        (collision-proof keys + prefetch)
+├── JtcExecutor           ← mp_jtc.py          (all async JTC I/O)
+└── VizPublisher          ← mp_viz.py          (markers, EE paths)
+
+
+#isssue
+
+_blend_radius_cartesian's two quintic halves still meet at the sharp corner point rather than actually rounding it.

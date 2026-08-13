@@ -10,6 +10,10 @@ motion_planner:
   ros__parameters:
     vel_limits: [3.14, 3.14, 3.14, 3.14, 3.14, 3.14]
     acc_limits: [1.57, 1.57, 1.57, 1.57, 1.57, 1.57]
+    # NEW: jerk limits for S-curve / pipeline validation
+    # Conservative placeholder (~13x acc_limits). Pull real numbers
+    # from Dynamixel / servo datasheets before production use.
+    jerk_limits: [20.0, 20.0, 20.0, 20.0, 20.0, 20.0]
     pos_limits_lo: [-6.28, -6.28, -3.14, -6.28, -6.28, -6.28]
     pos_limits_hi: [ 6.28,  6.28,  3.14,  6.28,  6.28,  6.28]
 

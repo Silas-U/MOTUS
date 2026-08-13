@@ -2,7 +2,7 @@
 # Author: Silas Udofia
 # Date: 2024-08-02
 # GitHub: https://github.com/Silas-U/RoboKpy/tree/main
-
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0
@@ -12,7 +12,7 @@ from .model import URDFModel
 from .fk import ForwardKinematics
 from .ik import InverseKinematics
 from .jacobian import Jacobian
-from .trajectory import TrajectoryPlanner
+from .industrial_trajectory import IndustrialTrajectoryPlanner
 
 
 class Init_Model:
@@ -46,7 +46,7 @@ class Init_Model:
         # TrajectoryPlanner receives the same ik reference — crucial
         # so that motion_planner._generate_leg() uses the backend
         # solver, not a stale RoboKpy instance.
-        self.traj = TrajectoryPlanner(self.model, self.fk, self.ik, self.jacobian)
+        self.traj = IndustrialTrajectoryPlanner(self.model, self.fk, self.ik, self.jacobian)
 
         self.chains = {"default": (base_link, tip_link)}
         self.base_link = base_link

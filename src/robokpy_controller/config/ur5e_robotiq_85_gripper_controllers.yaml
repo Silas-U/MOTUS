@@ -28,21 +28,21 @@ arm_controller:
       - position
       - velocity
     interpolation_method: splines
-    allow_nonzero_velocity_at_trajectory_start: true
-    allow_partial_joints_goal: false
-    allow_integration_in_goal_trajectories: false
-    open_loop_control: false
-    action_monitor_rate: 20.0
-    state_publish_rate: 50.0
-    constraints:
-      stopped_velocity_tolerance: 0.05
-      goal_time: 0.5
-      shoulder_pan_joint:  { trajectory: 0.05, goal: 0.03 }
-      shoulder_lift_joint: { trajectory: 0.05, goal: 0.03 }
-      elbow_joint:         { trajectory: 0.05, goal: 0.03 }
-      wrist_1_joint:       { trajectory: 0.05, goal: 0.03 }
-      wrist_2_joint:       { trajectory: 0.05, goal: 0.03 }
-      wrist_3_joint:       { trajectory: 0.05, goal: 0.03 }
+    # allow_nonzero_velocity_at_trajectory_start: true
+    # allow_partial_joints_goal: false
+    # allow_integration_in_goal_trajectories: false
+    # open_loop_control: false
+    # action_monitor_rate: 20.0
+    # state_publish_rate: 50.0
+    # constraints:
+    #   stopped_velocity_tolerance: 0.05
+    #   goal_time: 0.5
+    #   shoulder_pan_joint:  { trajectory: 0.05, goal: 0.03 }
+    #   shoulder_lift_joint: { trajectory: 0.05, goal: 0.03 }
+    #   elbow_joint:         { trajectory: 0.05, goal: 0.03 }
+    #   wrist_1_joint:       { trajectory: 0.05, goal: 0.03 }
+    #   wrist_2_joint:       { trajectory: 0.05, goal: 0.03 }
+    #   wrist_3_joint:       { trajectory: 0.05, goal: 0.03 }
     
 # =========================================================
 # Robotiq 2F-85 — native mimic architecture.

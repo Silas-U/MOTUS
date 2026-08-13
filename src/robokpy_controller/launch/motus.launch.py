@@ -154,7 +154,7 @@ def generate_launch_description():
                 'arm_type': arm_type_str,
                 'gripper_type': tool_type_str,
                 'sim': 'true',
-                'position_proportional_gain': '0.1',
+                'position_proportional_gain': '0.5',
                 'controllers_yaml_path': controllers_yaml_path,
             },
         ).toxml()

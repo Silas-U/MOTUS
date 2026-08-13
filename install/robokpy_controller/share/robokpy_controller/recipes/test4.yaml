@@ -80,6 +80,7 @@ steps:
 - id: move_home
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   depends_on: [spawn_target_3]
@@ -91,6 +92,7 @@ steps:
 - id: traverse_to_a_3
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.36, y: 0.40, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -123,6 +125,7 @@ steps:
 - id: traverse_to_b_3
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -159,6 +162,7 @@ steps:
 - id: traverse_to_a_4
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.48, y: 0.08, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -191,6 +195,7 @@ steps:
 - id: traverse_to_b_4
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -227,6 +232,7 @@ steps:
 - id: traverse_to_a_1
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.40, y: 0.12, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -259,6 +265,7 @@ steps:
 - id: traverse_to_b_1
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
@@ -295,6 +302,7 @@ steps:
 - id: traverse_to_a_2
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.43, y: 0.26, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.08
@@ -327,6 +335,7 @@ steps:
 - id: traverse_to_b_2
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   blend_radius: 0.0
@@ -363,6 +372,7 @@ steps:
 - id: return_home
   type: move
   traj_method: js
+  traj_type: scurve
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
   depends_on: [retract_b_2]

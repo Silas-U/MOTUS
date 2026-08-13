@@ -438,43 +438,7 @@ class TrajectoryPlanner:
         return result
 
     # =========================================================
-    # BLEND RADIUS — JOINT SPACE
-    # =========================================================
-
-    def _blend_radius_js(self,
-                         q_prev:   np.ndarray,
-                         q_corner: np.ndarray,
-                         q_next:   np.ndarray,
-                         radius:   float,
-                         n_blend:  int = 20) -> np.ndarray:
-        """
-        Joint-space corner blend arc (C2-continuous quintic).
-        Equivalent to CNT (FANUC) / Zone blending (ABB / KUKA).
-        Returns (n_blend, n_joints) blended joint positions.
-        """
-        v_in    = q_corner - q_prev
-        v_out   = q_next   - q_corner
-        len_in  = np.linalg.norm(v_in)  + 1e-12
-        len_out = np.linalg.norm(v_out) + 1e-12
-
-        r       = np.clip(radius, 0.0, 0.499)
-        q_entry = q_corner - r * v_in
-        q_exit  = q_corner + r * v_out
-
-        half     = n_blend // 2
-        n_joints = len(q_corner)
-        blend    = np.zeros((n_blend, n_joints))
-
-        s1 = self._quintic_s(np.linspace(0, 1, half))
-        s2 = self._quintic_s(np.linspace(0, 1, n_blend - half))
-
-        blend[:half]  = q_entry  + s1[:, None] * (q_corner - q_entry)
-        blend[half:]  = q_corner + s2[:, None] * (q_exit   - q_corner)
-
-        return blend
-
-    # =========================================================
-    # BLEND RADIUS — CARTESIAN SPACE
+    # BLEND RADIUS — CARTESIAN SPACE  (true blend radius)
     # =========================================================
 
     def _blend_radius_cartesian(self,
@@ -522,56 +486,7 @@ class TrajectoryPlanner:
         return self._ik_chain(np.hstack([pos_blend, oris]), q0)
 
     # =========================================================
-    # BLENDED JOINT TRAJECTORY
-    # =========================================================
-
-    def create_blended_joint_trajectory(self,
-                                         waypoints:    list,
-                                         blend_radius: float = 0.1,
-                                         n_samples:    int   = 100,
-                                         n_blend:      int   = 20,
-                                         speed_factor: float = 1.0,
-                                         dt:           float = 0.01
-                                         ) -> List[TrajectoryPoint]:
-        """
-        Joint-space quintic trajectory with corner blending AND full
-        kinematic state at every point.
-
-        No deceleration to zero at intermediate waypoints —
-        identical to CNT (FANUC) / Zone (ABB / KUKA).
-
-        Returns List[TrajectoryPoint].
-        """
-        q_points      = [np.array(wp["q"]) for wp in waypoints]
-        n             = len(q_points)
-        raw_positions = []
-
-        if n < 2:
-            return []
-
-        for i in range(n - 1):
-            q0  = q_points[i]
-            q1  = q_points[i + 1]
-            tau = np.linspace(0, 1, n_samples)
-            s   = self._quintic_s(tau)
-            straight = q0 + s[:, None] * (q1 - q0)   # vectorised (n_samples, n_j)
-
-            if i < n - 2:
-                r   = np.clip(blend_radius, 0.0, 0.499)
-                cut = int(r * n_samples)
-                raw_positions.extend(straight[:n_samples - cut].tolist())
-                blend = self._blend_radius_js(
-                    q_prev=q0, q_corner=q1, q_next=q_points[i + 2],
-                    radius=blend_radius, n_blend=n_blend
-                )
-                raw_positions.extend(blend.tolist())
-            else:
-                raw_positions.extend(straight.tolist())
-
-        return self.time_parametrize_raw(raw_positions, dt=dt / speed_factor)
-
-    # =========================================================
-    # BLENDED CARTESIAN TRAJECTORY
+    # BLENDED CARTESIAN TRAJECTORY  (true blend radius)
     # =========================================================
 
     def create_blended_cartesian_trajectory(self,
@@ -928,7 +843,6 @@ class TrajectoryPlanner:
         js      csj     Constant-speed joint-space
         js      lspb    LSPB timed            → TrajectoryPoint
         js      tqu     Timed quintic         → TrajectoryPoint
-        js      blend   Blended quintic timed → TrajectoryPoint
         ts      qu      Quintic Cartesian (IK)
         ts      cu      Cubic Cartesian (IK)
         ts      spl     Spline Cartesian (IK)
@@ -963,11 +877,6 @@ class TrajectoryPlanner:
                     waypoints, duration_per_segment, dt,
                     profile='quintic', speed_factor=speed_factor,
                     vel_limits=vel_limits, acc_limits=acc_limits
-                )
-            elif traj_type == 'blend':
-                return self.create_blended_joint_trajectory(
-                    waypoints, blend_radius, n_samples, n_blend,
-                    speed_factor=speed_factor, dt=dt
                 )
             else:
                 raise ValueError(f"Unsupported joint traj type: {traj_type}")
