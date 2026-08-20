@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_motion__type_support.cpp.o"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_motion__type_support.cpp.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp.o"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.cpp.o"
@@ -40,6 +42,7 @@ file(REMOVE_RECURSE
   "librobokpy_interfaces__rosidl_typesupport_c.pdb"
   "librobokpy_interfaces__rosidl_typesupport_c.so"
   "rosidl_typesupport_c/robokpy_interfaces/action/execute_motion__type_support.cpp"
+  "rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp"
   "rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp"
   "rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.cpp"
   "rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp"

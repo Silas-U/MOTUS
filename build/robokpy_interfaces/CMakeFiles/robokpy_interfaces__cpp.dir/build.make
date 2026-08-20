@@ -161,6 +161,11 @@ CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/acti
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__struct.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__traits.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__type_support.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/execute_move_step.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__builder.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__struct.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__traits.hpp
+CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__type_support.hpp
 CMakeFiles/robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: /opt/ros/jazzy/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -201,6 +206,7 @@ rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/ExecuteVisionOp.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/SetJointTarget.idl
+rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: rosidl_adapter/robokpy_interfaces/action/ExecuteMoveStep.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: /opt/ros/jazzy/share/action_msgs/msg/GoalInfo.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: /opt/ros/jazzy/share/action_msgs/msg/GoalStatus.idl
 rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp: /opt/ros/jazzy/share/action_msgs/msg/GoalStatusArray.idl
@@ -584,6 +590,21 @@ rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__traits.h
 rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__type_support.hpp
 
+rosidl_generator_cpp/robokpy_interfaces/action/execute_move_step.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/execute_move_step.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__builder.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__builder.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__struct.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__struct.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__traits.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__traits.hpp
+
+rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__type_support.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__type_support.hpp
+
 rosidl_generator_cpp/robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp: rosidl_generator_cpp/robokpy_interfaces/srv/execution_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robokpy_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
@@ -592,6 +613,10 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/e
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_motion__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_motion__traits.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_motion__type_support.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__builder.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__struct.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__traits.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_move_step__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_tool_op__builder.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_tool_op__struct.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/execute_tool_op__traits.hpp
@@ -605,6 +630,7 @@ robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/s
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__traits.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/detail/set_joint_target__type_support.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/execute_motion.hpp
+robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/execute_move_step.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/execute_tool_op.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/execute_vision_op.hpp
 robokpy_interfaces__cpp: rosidl_generator_cpp/robokpy_interfaces/action/set_joint_target.hpp

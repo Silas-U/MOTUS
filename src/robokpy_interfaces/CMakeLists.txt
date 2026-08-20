@@ -33,6 +33,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 "action/ExecuteToolOp.action"
 "action/ExecuteVisionOp.action"
 "action/SetJointTarget.action"
+"action/ExecuteMoveStep.action"
   DEPENDENCIES
     action_msgs
     geometry_msgs

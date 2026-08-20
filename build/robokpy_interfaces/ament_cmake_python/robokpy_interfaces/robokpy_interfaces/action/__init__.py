@@ -5,6 +5,13 @@ from robokpy_interfaces.action._execute_motion import ExecuteMotion_GetResult_Re
 from robokpy_interfaces.action._execute_motion import ExecuteMotion_SendGoal_Event  # noqa: F401
 from robokpy_interfaces.action._execute_motion import ExecuteMotion_SendGoal_Request  # noqa: F401
 from robokpy_interfaces.action._execute_motion import ExecuteMotion_SendGoal_Response  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_GetResult_Event  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_GetResult_Request  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_GetResult_Response  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_SendGoal_Event  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_SendGoal_Request  # noqa: F401
+from robokpy_interfaces.action._execute_move_step import ExecuteMoveStep_SendGoal_Response  # noqa: F401
 from robokpy_interfaces.action._execute_tool_op import ExecuteToolOp  # noqa: F401
 from robokpy_interfaces.action._execute_tool_op import ExecuteToolOp_GetResult_Event  # noqa: F401
 from robokpy_interfaces.action._execute_tool_op import ExecuteToolOp_GetResult_Request  # noqa: F401

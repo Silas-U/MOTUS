@@ -90,7 +90,7 @@ class RobotStateManager(Node):
         # SUBSCRIBERS
         # -----------------------------
     
-        self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
+        self.create_subscription(JointState, 'joint_states', self.joint_callback, 10)
         self.create_subscription(JointState, '/virtual_joint_states', self.collision_joint_callback, 10)
         self.create_subscription(Pose, '/target_pose', self.target_callback, 10)
         self.create_subscription(Pose, '/updated_target_pose', self.updated_target_callback, 10)
@@ -103,7 +103,7 @@ class RobotStateManager(Node):
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
 
-        self.q_pub = self.create_publisher(Float64MultiArray, '/current_joint_state', 10)
+        self.q_pub = self.create_publisher(Float64MultiArray, 'current_joint_state', 10)
         self.pose_pub = self.create_publisher(Pose, '/active_target_pose', 10)
         self.sys_mode_pub = self.create_publisher(String, '/system_mode', qos)
         self.exec_state_pub = self.create_publisher(String, '/execution_state', qos)

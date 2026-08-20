@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/__init__.py"
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_motion.py"
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c"
+  "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_move_step.py"
+  "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c"
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op.py"
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c"
   "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op.py"

@@ -21,7 +21,8 @@
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/ExecuteMotion.idl",
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/ExecuteToolOp.idl",
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/ExecuteVisionOp.idl",
-    "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/SetJointTarget.idl"
+    "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/SetJointTarget.idl",
+    "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces:action/ExecuteMoveStep.idl"
   ],
   "ros_interface_files": [
     "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/ExecutionState.srv",
@@ -42,7 +43,8 @@
     "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteMotion.action",
     "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteToolOp.action",
     "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteVisionOp.action",
-    "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/SetJointTarget.action"
+    "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/SetJointTarget.action",
+    "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteMoveStep.action"
   ],
   "ros_interface_dependencies": [
     "action_msgs:/opt/ros/jazzy/share/action_msgs/msg/GoalInfo.idl",
@@ -183,6 +185,7 @@
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl",
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/action/ExecuteVisionOp.idl",
     "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/action/SetJointTarget.idl",
+    "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/action/ExecuteMoveStep.idl",
     "/opt/ros/jazzy/share/action_msgs/msg/GoalInfo.idl",
     "/opt/ros/jazzy/share/action_msgs/msg/GoalStatus.idl",
     "/opt/ros/jazzy/share/action_msgs/msg/GoalStatusArray.idl",
@@ -301,6 +304,7 @@
     "action/ExecuteMotion.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/ExecuteMotion.json",
     "action/ExecuteToolOp.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/ExecuteToolOp.json",
     "action/ExecuteVisionOp.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/ExecuteVisionOp.json",
-    "action/SetJointTarget.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/SetJointTarget.json"
+    "action/SetJointTarget.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/SetJointTarget.json",
+    "action/ExecuteMoveStep.idl:/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/ExecuteMoveStep.json"
   ]
 }

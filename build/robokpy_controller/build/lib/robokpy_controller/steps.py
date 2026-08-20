@@ -28,6 +28,12 @@ class Step:
     recovery: RecoveryPolicy = RecoveryPolicy.ABORT
     retry_count: int = 0
     max_retries: int = 2
+    # Which namespaced arm executor owns this step. Only consulted for
+    # MoveStep (routes through ArmRegistry) — harmless default elsewhere.
+    arm_id: str = 'arm1'
+    # Named resources (shared tool, handoff zone, ...) this step must hold
+    # for its duration. Consulted by ResourceLock for any step type.
+    resources: list[str] = field(default_factory=list)
 
 
 @dataclass

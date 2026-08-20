@@ -123,6 +123,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/action" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_type_description/robokpy_interfaces/action/ExecuteMoveStep.json")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/robokpy_interfaces/robokpy_interfaces" TYPE DIRECTORY FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_generator_c/robokpy_interfaces/" REGEX "/[^/]*\\.h$")
 endif()
 
@@ -511,6 +515,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/action" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_adapter/robokpy_interfaces/action/ExecuteMoveStep.idl")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/srv" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/srv/ExecutionState.srv")
 endif()
 
@@ -584,6 +592,10 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/action" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/SetJointTarget.action")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robokpy_interfaces/action" TYPE FILE FILES "/home/meta/Documents/robotics_workspace_new/src/robokpy_interfaces/action/ExecuteMoveStep.action")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robokpy_interfaces__rosidl_generator_type_description"
   "rosidl_generator_type_description/robokpy_interfaces/action/ExecuteMotion.json"
+  "rosidl_generator_type_description/robokpy_interfaces/action/ExecuteMoveStep.json"
   "rosidl_generator_type_description/robokpy_interfaces/action/ExecuteToolOp.json"
   "rosidl_generator_type_description/robokpy_interfaces/action/ExecuteVisionOp.json"
   "rosidl_generator_type_description/robokpy_interfaces/action/SetJointTarget.json"

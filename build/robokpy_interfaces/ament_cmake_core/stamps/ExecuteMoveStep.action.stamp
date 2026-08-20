@@ -1,0 +1,22 @@
+# Goal — one or more contiguous same-arm motion legs, executed in order.
+# A single leg is a normal move. Multiple legs let the cell orchestrator
+# batch a contiguous same-arm run into one call so the arm executor's
+# internal look-ahead has something to prefetch.
+string[] leg_step_ids
+geometry_msgs/Pose[] leg_target_poses
+string[] leg_traj_methods      # 'js' or 'ts' per leg
+string[] leg_traj_types        # 'lspb' | 'scurve' | 'blend' | ... per leg
+float64[] leg_blend_radii
+float64 speed_scale            # 0.0 = use node default
+---
+# Result
+bool success
+uint8 error_code               # 0=ok 1=bad goal 2=ik_failure 3=planning_failure 4=execution_failure
+float64[] final_state
+float64 total_duration
+---
+# Feedback — fired once per completed leg, not sub-leg. Lets the cell
+# orchestrator resolve progress watchers on intermediate legs of a
+# batched run without the arm executor knowing anything about the DAG.
+string current_step_id
+float64 percent_complete

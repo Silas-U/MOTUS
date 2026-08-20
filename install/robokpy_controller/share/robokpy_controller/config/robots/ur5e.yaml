@@ -2,6 +2,7 @@
   ros__parameters:
     home_pose: [1.5697, -2.0535, 1.9318, -1.4490, -1.5708, 0.0]
     marker_scale: 0.2
+    publish_ee_path: False
     tool_type: robotiq_85
     planning_base_link: world
     planning_tip_link: tcp
@@ -27,4 +28,4 @@ motion_planner:
 
 kinematic_solver:
   ros__parameters:
-    kinematic_solver_backend: pinocchio # robokpy
+    kinematic_solver_backend: pinocchio

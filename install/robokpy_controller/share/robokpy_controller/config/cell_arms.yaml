@@ -1,0 +1,13 @@
+arms:
+  - namespace: arm1
+    arm_type: ur5e
+    controllers_yaml: ur5e_robotiq_85_gripper_controllers.yaml
+    spawn_x: 0.0
+    spawn_y: 0.0
+    spawn_z: 0.0
+  - namespace: arm2
+    arm_type: ur5e
+    controllers_yaml: ur5e_robotiq_85_gripper_controllers.yaml
+    spawn_x: 1.2
+    spawn_y: 0.0
+    spawn_z: 0.0 

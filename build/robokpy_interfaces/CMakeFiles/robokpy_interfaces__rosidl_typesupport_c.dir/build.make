@@ -94,6 +94,7 @@ rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: r
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: rosidl_adapter/robokpy_interfaces/action/ExecuteVisionOp.idl
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: rosidl_adapter/robokpy_interfaces/action/SetJointTarget.idl
+rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: rosidl_adapter/robokpy_interfaces/action/ExecuteMoveStep.idl
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: /opt/ros/jazzy/share/action_msgs/msg/GoalInfo.idl
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: /opt/ros/jazzy/share/action_msgs/msg/GoalStatus.idl
 rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp: /opt/ros/jazzy/share/action_msgs/msg/GoalStatusArray.idl
@@ -248,6 +249,9 @@ rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.c
 
 rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp: rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp
+
+rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp: rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp
 
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp.o: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/flags.make
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp.o: rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp
@@ -515,6 +519,20 @@ CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/rob
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp.s"
 	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp -o CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp.s
 
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/flags.make
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o: rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o -MF CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o.d -o CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o -c /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp
+
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.i"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp > CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.i
+
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.s"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp -o CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.s
+
 # Object files for target robokpy_interfaces__rosidl_typesupport_c
 robokpy_interfaces__rosidl_typesupport_c_OBJECTS = \
 "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/srv/execution_state__type_support.cpp.o" \
@@ -535,7 +553,8 @@ robokpy_interfaces__rosidl_typesupport_c_OBJECTS = \
 "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_motion__type_support.cpp.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp.o" \
 "CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.cpp.o" \
-"CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp.o"
+"CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp.o" \
+"CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o"
 
 # External object files for target robokpy_interfaces__rosidl_typesupport_c
 robokpy_interfaces__rosidl_typesupport_c_EXTERNAL_OBJECTS =
@@ -559,6 +578,7 @@ librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__r
 librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp.o
 librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.cpp.o
 librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp.o
+librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp.o
 librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/build.make
 librobokpy_interfaces__rosidl_typesupport_c.so: librobokpy_interfaces__rosidl_generator_c.so
 librobokpy_interfaces__rosidl_typesupport_c.so: /opt/ros/jazzy/lib/libaction_msgs__rosidl_typesupport_c.so
@@ -579,7 +599,7 @@ librobokpy_interfaces__rosidl_typesupport_c.so: /opt/ros/jazzy/lib/libbuiltin_in
 librobokpy_interfaces__rosidl_typesupport_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 librobokpy_interfaces__rosidl_typesupport_c.so: /opt/ros/jazzy/lib/librcutils.so
 librobokpy_interfaces__rosidl_typesupport_c.so: CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX shared library librobokpy_interfaces__rosidl_typesupport_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX shared library librobokpy_interfaces__rosidl_typesupport_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -591,6 +611,7 @@ CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/clean:
 .PHONY : CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/clean
 
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/robokpy_interfaces/action/execute_motion__type_support.cpp
+CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/robokpy_interfaces/action/execute_move_step__type_support.cpp
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/robokpy_interfaces/action/execute_tool_op__type_support.cpp
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/robokpy_interfaces/action/execute_vision_op__type_support.cpp
 CMakeFiles/robokpy_interfaces__rosidl_typesupport_c.dir/depend: rosidl_typesupport_c/robokpy_interfaces/action/set_joint_target__type_support.cpp

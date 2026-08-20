@@ -146,7 +146,6 @@ def generate_launch_description():
             return params
 
         # --- URDF Loading ---
-        # xacro expects 'gripper_type' internally; map tool_type to it
         robot_description_sim_rviz = xacro.process_file(
             robot_xacro_file,
             mappings={
@@ -401,10 +400,11 @@ def generate_launch_description():
             parameters = _robokpy_params({'robot_description': robot_description_real, 'use_sim_time': use_sim}),
         )
 
-        motion_planner = Node(
+        # --- REFACTORED: trajectory_generator replaces motion_planner ---
+        trajectory_generator = Node(
             package    = 'robokpy_controller',
-            executable = 'motion_planner',
-            name       = 'motion_planner',
+            executable = 'trajectory_generator',
+            name       = 'trajectory_generator',
             output     = 'screen',
             parameters = _robokpy_params({'robot_description': robot_description_real, 'use_sim_time': use_sim}),
         )
@@ -417,12 +417,13 @@ def generate_launch_description():
             parameters = [{'use_sim_time': use_sim}],
         )
 
+        # --- Orchestrator (now orchestrator_v2 behind the same entry point) ---
         orchestrator_real = Node(
             package    = 'robokpy_controller',
             executable = 'orchestrator',
             name       = 'orchestrator',
             output     = 'screen',
-            parameters = _robokpy_params({'objects_config_path': objects_config_path}),
+            parameters = [{'objects_config_path': objects_config_path}],
             condition  = UnlessCondition(use_sim)
         )
 
@@ -433,7 +434,7 @@ def generate_launch_description():
                 executable = 'orchestrator',
                 name       = 'orchestrator',
                 output     = 'screen',
-                parameters = _robokpy_params({'objects_config_path': objects_config_path}),
+                parameters = [{'objects_config_path': objects_config_path}],
             )],
             condition=IfCondition(use_sim)
         )
@@ -512,7 +513,7 @@ def generate_launch_description():
             robot_state_manager,
             pose_target_interface,
             kinematic_solver,
-            motion_planner,
+            trajectory_generator,   # <-- replaces motion_planner
             virtual_jog_relay,
             orchestrator_real,
             orchestrator_sim,

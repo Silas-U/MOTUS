@@ -302,7 +302,7 @@ class GripperActionBackend(ToolBackend):
         super().__init__(tool_id, config, logger)
         self._node = node
         action_name = config.get(
-            'action_name', '/gripper_action_controller/gripper_cmd')
+            'action_name', 'gripper_action_controller/gripper_cmd')
         self._client = ActionClient(node, ParallelGripperCommand, action_name)
 
         self._joint_name  = config.get(
@@ -446,7 +446,7 @@ class GripperPositionBackend(ToolBackend):
         super().__init__(tool_id, config, logger)
         self._node   = node
         self._topic  = config.get(
-            'topic', '/gripper_position_controller/commands')
+            'topic', 'gripper_position_controller/commands')
         self._pub    = node.create_publisher(
             Float64MultiArray, self._topic, 10)
 
@@ -908,7 +908,7 @@ class ParallelJawActuator(GraspActuator):
         self._node = node
         self.logger = logger
         action_name = config.get(
-            'gripper_action_name', '/gripper_action_controller/gripper_cmd')
+            'gripper_action_name', 'gripper_action_controller/gripper_cmd')
         self._client = ActionClient(node, ParallelGripperCommand, action_name)
         self._joint_name = config.get(
             'gripper_joint_name', 'robotiq_85_left_knuckle_joint')
@@ -1047,7 +1047,7 @@ class GraspAttachBackend(ToolBackend):
       "detach" / "release" / "open"  — detach the currently-held joint
 
     Config keys:
-      service_name         : GraspAttach service name (default '/grasp_attach')
+      service_name         : GraspAttach service name (default 'grasp_attach')
       parent_model          : model owning parent_link (default '')
       parent_link           : gripper link objects are welded to (default '<tool_id>_tcp')
       service_timeout       : seconds to wait for service up / response (default 5.0)
@@ -1078,7 +1078,7 @@ class GraspAttachBackend(ToolBackend):
     def __init__(self, tool_id: str, config: dict, logger, node: Node):
         super().__init__(tool_id, config, logger)
         self._node = node
-        service_name = config.get('service_name', '/grasp_attach')
+        service_name = config.get('service_name', 'grasp_attach')
         self._client = node.create_client(GraspAttach, service_name)
         self._parent_model = config.get('parent_model', '')
         self._parent_link = config.get('parent_link', f'{tool_id}_tcp')

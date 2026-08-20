@@ -1,0 +1,56 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from robokpy_interfaces/action/ExecuteMoveStep.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module robokpy_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal — one or more contiguous same-arm motion legs, executed in order." "\n"
+      "A single leg is a normal move. Multiple legs let the cell orchestrator" "\n"
+      "batch a contiguous same-arm run into one call so the arm executor's" "\n"
+      "internal look-ahead has something to prefetch.")
+    struct ExecuteMoveStep_Goal {
+      sequence<string> leg_step_ids;
+
+      sequence<geometry_msgs::msg::Pose> leg_target_poses;
+
+      @verbatim (language="comment", text=
+        "'js' or 'ts' per leg")
+      sequence<string> leg_traj_methods;
+
+      @verbatim (language="comment", text=
+        "'lspb' | 'scurve' | 'blend' | ... per leg")
+      sequence<string> leg_traj_types;
+
+      sequence<double> leg_blend_radii;
+
+      @verbatim (language="comment", text=
+        "0.0 = use node default")
+      double speed_scale;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct ExecuteMoveStep_Result {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "0=ok 1=bad goal 2=ik_failure 3=planning_failure 4=execution_failure")
+      uint8 error_code;
+
+      sequence<double> final_state;
+
+      double total_duration;
+    };
+    @verbatim (language="comment", text=
+      "Feedback — fired once per completed leg, not sub-leg. Lets the cell" "\n"
+      "orchestrator resolve progress watchers on intermediate legs of a" "\n"
+      "batched run without the arm executor knowing anything about the DAG.")
+    struct ExecuteMoveStep_Feedback {
+      string current_step_id;
+
+      double percent_complete;
+    };
+  };
+};

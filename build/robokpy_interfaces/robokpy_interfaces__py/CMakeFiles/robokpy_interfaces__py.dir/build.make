@@ -88,6 +88,7 @@ include /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rob
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_set_joint_target.py
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_move_step.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/srv/__init__.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/msg/__init__.py
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/__init__.py
@@ -110,6 +111,7 @@ include /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/rob
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c
 /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c
+/home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c
 
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/__init__.py
@@ -143,6 +145,7 @@ rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesuppo
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/ExecuteToolOp.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/ExecuteVisionOp.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/SetJointTarget.idl
+rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robokpy_interfaces/action/ExecuteMoveStep.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/action_msgs/msg/GoalInfo.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/action_msgs/msg/GoalStatus.idl
 rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/action_msgs/msg/GoalStatusArray.idl
@@ -307,6 +310,9 @@ rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op.py: rosidl_gene
 rosidl_generator_py/robokpy_interfaces/action/_set_joint_target.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/action/_set_joint_target.py
 
+rosidl_generator_py/robokpy_interfaces/action/_execute_move_step.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/action/_execute_move_step.py
+
 rosidl_generator_py/robokpy_interfaces/srv/__init__.py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/srv/__init__.py
 
@@ -373,6 +379,9 @@ rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c: rosidl_gen
 rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/action/_set_joint_target_s.c
 
+rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c
+
 robokpy_interfaces__py: /home/meta/Documents/robotics_workspace_new/build/robokpy_interfaces/robokpy_interfaces__py/CMakeFiles/robokpy_interfaces__py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_c.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
@@ -380,6 +389,8 @@ robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/_robokpy_interfac
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/__init__.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_motion.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_move_step.py
+robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op.py
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c
 robokpy_interfaces__py: rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op.py

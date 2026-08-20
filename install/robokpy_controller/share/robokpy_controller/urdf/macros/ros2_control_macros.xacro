@@ -138,6 +138,9 @@
       <plugin filename="gz_ros2_control-system"
               name="gz_ros2_control::GazeboSimROS2ControlPlugin">
         <parameters>$(arg controllers_yaml_path)</parameters>
+        <ros>
+          <namespace>$(arg namespace)</namespace>
+        </ros>
       </plugin>
     </gazebo>
 

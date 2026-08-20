@@ -1,6 +1,6 @@
 gripper_1:
   backend: gripper_action
-  action_name: /gripper_action_controller/gripper_cmd
+  action_name: arm1/gripper_action_controller/gripper_cmd
   joint_name: robotiq_85_left_knuckle_joint
   open_position: 0.001
   closed_position: 0.154
@@ -10,7 +10,7 @@ gripper_1:
 
 gripper_2:
   backend: gripper_action
-  action_name: /gripper_action_controller/gripper_cmd
+  action_name: arm2/gripper_action_controller/gripper_cmd
   joint_name: right_finger_joint
   open_position: 0.0015
   closed_position: 0.035
@@ -45,7 +45,7 @@ pneumatic_1:
 
 vacuum_2:
   backend: ros_topic
-  topic: /vacuum_controller/cmd
+  topic: vacuum_controller/cmd
   on_value: on
   off_value: off
 
@@ -71,7 +71,7 @@ grasp_attach_1:
   gripper_mechanism: parallel_jaw
 
   # --- parallel_jaw keys (used when gripper_mechanism: parallel_jaw) ---
-  gripper_action_name: /gripper_action_controller/gripper_cmd
+  gripper_action_name: arm1/gripper_action_controller/gripper_cmd
   gripper_joint_name: robotiq_85_left_knuckle_joint
   gripper_open_position: 0.001
   # MATCHES gripper_1.closed_position (0.154) — the real joint limit.

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_motion__type_support_c.cpp.o"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_motion__type_support_c.cpp.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_move_step__type_support_c.cpp.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_move_step__type_support_c.cpp.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_tool_op__type_support_c.cpp.o"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_tool_op__type_support_c.cpp.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_vision_op__type_support_c.cpp.o"
@@ -41,6 +43,8 @@ file(REMOVE_RECURSE
   "librobokpy_interfaces__rosidl_typesupport_fastrtps_c.so"
   "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_motion__rosidl_typesupport_fastrtps_c.h"
   "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_motion__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_move_step__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_move_step__type_support_c.cpp"
   "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_tool_op__rosidl_typesupport_fastrtps_c.h"
   "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_tool_op__type_support_c.cpp"
   "rosidl_typesupport_fastrtps_c/robokpy_interfaces/action/detail/execute_vision_op__rosidl_typesupport_fastrtps_c.h"

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o"
   "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_motion_s.c.o.d"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c.o"
+  "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_move_step_s.c.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o"
   "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_tool_op_s.c.o.d"
   "CMakeFiles/robokpy_interfaces__rosidl_generator_py.dir/rosidl_generator_py/robokpy_interfaces/action/_execute_vision_op_s.c.o"

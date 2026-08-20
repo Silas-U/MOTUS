@@ -136,3 +136,18 @@ MotionPlannerNode  (thin ROS glue)
 #isssue
 
 _blend_radius_cartesian's two quintic halves still meet at the sharp corner point rather than actually rounding it.
+
+
+
+
+PLAN A ───────┐
+PLAN B ───────┤
+PLAN C ───────┤  → execution queue
+PLAN D ───────┘
+
+              EXECUTE A → EXECUTE B → EXECUTE C → EXECUTE D
+
+
+main problem
+
+Your trajectory planner is not the problem. The problem is that the executor currently treats every planned leg as a separate JTC action goal.

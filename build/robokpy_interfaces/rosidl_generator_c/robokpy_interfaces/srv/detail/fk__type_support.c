@@ -4,8 +4,8 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/fk__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/fk__struct.h"
 #include "robokpy_interfaces/srv/detail/fk__type_support.h"
 

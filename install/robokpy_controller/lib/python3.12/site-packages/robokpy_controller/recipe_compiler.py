@@ -48,6 +48,14 @@ def _parse_recovery(value: str) -> RecoveryPolicy:
             f'Unknown recovery policy "{value}". Valid: {valid}')
 
 
+def _parse_resources(raw_resources) -> list:
+    if not raw_resources:
+        return []
+    if not isinstance(raw_resources, list) or not all(isinstance(r, str) for r in raw_resources):
+        raise RecipeValidationError(f'resources must be a list of strings, got {raw_resources!r}')
+    return list(raw_resources)
+
+
 def _parse_depends_on(raw_deps: list) -> list:
     parsed = []
     for dep in raw_deps or []:
@@ -182,7 +190,7 @@ def _build_spawn(step_id, d, common):
 class RecipeCompiler:
 
     @staticmethod
-    def compile(raw_text: str) -> tuple[list[Step], str, str]:
+    def compile(raw_text: str, known_arms: set = None) -> tuple[list[Step], str, str]:
         doc = yaml.safe_load(raw_text)
         recipe_id = doc.get('recipe_id', 'unnamed_recipe')
         content_hash = hashlib.sha256(raw_text.encode('utf-8')).hexdigest()[:16]
@@ -206,6 +214,8 @@ class RecipeCompiler:
                 depends_on=_parse_depends_on(entry.get('depends_on', [])),
                 recovery=_parse_recovery(entry.get('recovery', 'abort')),
                 max_retries=int(entry.get('max_retries', 2)),
+                arm_id=str(entry.get('arm_id', 'arm1')),
+                resources=_parse_resources(entry.get('resources', [])),
             )
             steps.append(_STEP_BUILDERS[step_type](step_id, entry, common))
 
@@ -213,14 +223,24 @@ class RecipeCompiler:
         RecipeCompiler._validate_acyclic(steps)
         RecipeCompiler._validate_vision_refs(steps, seen_ids)
         RecipeCompiler._validate_spawn_refs(steps, seen_ids)
+        if known_arms is not None:
+            RecipeCompiler._validate_arm_ids(steps, known_arms)
 
         return steps, recipe_id, content_hash
 
     @staticmethod
-    def compile_file(path: str) -> tuple[list[Step], str, str]:
+    def compile_file(path: str, known_arms: set = None) -> tuple[list[Step], str, str]:
         with open(path, 'r') as f:
             raw_text = f.read()
-        return RecipeCompiler.compile(raw_text)
+        return RecipeCompiler.compile(raw_text, known_arms=known_arms)
+
+    @staticmethod
+    def _validate_arm_ids(steps: list[Step], known_arms: set):
+        for step in steps:
+            if isinstance(step, MoveStep) and step.arm_id not in known_arms:
+                raise RecipeValidationError(
+                    f'Step "{step.step_id}" targets arm_id="{step.arm_id}", '
+                    f'but this cell only has arms: {sorted(known_arms)}')
 
     @staticmethod
     def _validate_references(steps: list[Step], known_ids: set[str]):

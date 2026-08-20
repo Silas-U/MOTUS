@@ -83,7 +83,7 @@ steps:
   traj_type: scurve
   target_pose:
     {x: 0.45, y: 0.00, z: 0.45, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  depends_on: [spawn_target_3]
+  depends_on: [spawn_target_1, spawn_target_2, spawn_target_3, spawn_target_4]
 
 # ============================================================================
 # CUBE 3 — blue, LARGE, yaw=72° — picked 1st, placed at base of stack
@@ -268,7 +268,7 @@ steps:
   traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.0
+  blend_radius: 0.08
   depends_on: [retract_a_1]
 
 - id: descend_place_b_1
@@ -338,7 +338,7 @@ steps:
   traj_type: scurve
   target_pose:
     {x: 0.40, y: -0.35, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  blend_radius: 0.0
+  blend_radius: 0.08
   depends_on: [retract_a_2]
 
 - id: descend_place_b_2
