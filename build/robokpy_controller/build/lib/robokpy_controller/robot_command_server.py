@@ -22,9 +22,9 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.command_pub = self.create_publisher(
-            String, '/motion_command', 10)
+            String, 'motion_command', 10)
         
-        self.tool_cmd_pub = self.create_publisher(String, '/tool_command', 10)
+        self.tool_cmd_pub = self.create_publisher(String, 'tool_command', 10)
 
         # =====================================================
         # Sequence Planning
@@ -70,7 +70,7 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_subscription(
-            String, '/command_sequence',
+            String, 'command_sequence',
             self.sequence_cb, 10)
 
         # =====================================================
@@ -78,19 +78,19 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/record_target',
+            Trigger, 'record_target',
             self.record_waypoint_callback)
 
         self.create_service(
-            Trigger, '/exec_traj',
+            Trigger, 'exec_traj',
             self.execute_callback)
 
         self.create_service(
-            Trigger, '/clear_target',
+            Trigger, 'clear_target',
             self.clear_callback)
 
         self.create_service(
-            Trigger, '/list_waypoints',
+            Trigger, 'list_waypoints',
             self.list_waypoints_callback)
 
         # =====================================================
@@ -98,15 +98,15 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/set_as_approach',
+            Trigger, 'set_as_approach',
             self.set_as_approach_callback)
 
         self.create_service(
-            Trigger, '/goto_approach',
+            Trigger, 'goto_approach',
             self.goto_approach_callback)
 
         self.create_service(
-            Trigger, '/clear_approach',
+            Trigger, 'clear_approach',
             self.clear_approach_callback)
 
         # =====================================================
@@ -114,11 +114,11 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/go_home',
+            Trigger, 'go_home',
             self.go_home_callback)
 
         self.create_service(
-            Trigger, '/stop',
+            Trigger, 'stop',
             self.stop_callback)
 
         # =====================================================
@@ -126,11 +126,11 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/planner_mode',
+            Trigger, 'planner_mode',
             self.planner_mode_callback)
 
         self.create_service(
-            Trigger, '/active_mode',
+            Trigger, 'active_mode',
             self.active_mode_callback)
 
         # =====================================================
@@ -138,11 +138,11 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/movel',
+            Trigger, 'movel',
             self.movel_callback)
 
         self.create_service(
-            Trigger, '/movej',
+            Trigger, 'movej',
             self.movej_callback)
 
         # =====================================================
@@ -151,19 +151,19 @@ class RobotCommandServer(Node):
         # =====================================================
 
         self.create_service(
-            Trigger, '/traj_type_lspb',
+            Trigger, 'traj_type_lspb',
             self.traj_type_lspb_callback)
 
         self.create_service(
-            Trigger, '/traj_type_blend_js',
+            Trigger, 'traj_type_blend_js',
             self.traj_type_blend_js_callback)
 
         self.create_service(
-            Trigger, '/traj_type_blend_ts',
+            Trigger, 'traj_type_blend_ts',
             self.traj_type_blend_ts_callback)
 
         self.create_service(
-            Trigger, '/traj_type_quintic',
+            Trigger, 'traj_type_quintic',
             self.traj_type_quintic_callback)
 
         
@@ -177,7 +177,7 @@ class RobotCommandServer(Node):
         # -----------------------------
         self.sys_mode_client = self.create_client(
             SystemMode,
-            '/set_system_mode'
+            'set_system_mode'
         )
 
         while not self.sys_mode_client.wait_for_service(timeout_sec=1.0):
@@ -322,42 +322,42 @@ class RobotCommandServer(Node):
         """
         # Preset speed services
         self.create_service(
-            Trigger, '/speed_full',
+            Trigger, 'speed_full',
             lambda req, res: self._cmd_response(req, res, 'set_speed:1.0',
                                                 'Speed set to 100%'))
         self.create_service(
-            Trigger, '/speed_half',
+            Trigger, 'speed_half',
             lambda req, res: self._cmd_response(req, res, 'set_speed:0.5',
                                                 'Speed set to 50%'))
         self.create_service(
-            Trigger, '/speed_quarter',
+            Trigger, 'speed_quarter',
             lambda req, res: self._cmd_response(req, res, 'set_speed:0.25',
                                                 'Speed set to 25%'))
 
         # Preset blend radius services
         self.create_service(
-            Trigger, '/blend_off',
+            Trigger, 'blend_off',
             lambda req, res: self._cmd_response(req, res, 'set_blend:0.0',
                                                 'Blend radius off'))
         self.create_service(
-            Trigger, '/blend_small',
+            Trigger, 'blend_small',
             lambda req, res: self._cmd_response(req, res, 'set_blend:0.1',
                                                 'Blend radius 10%'))
         self.create_service(
-            Trigger, '/blend_medium',
+            Trigger, 'blend_medium',
             lambda req, res: self._cmd_response(req, res, 'set_blend:0.2',
                                                 'Blend radius 20%'))
         self.create_service(
-            Trigger, '/blend_large',
+            Trigger, 'blend_large',
             lambda req, res: self._cmd_response(req, res, 'set_blend:0.3',
                                                 'Blend radius 30%'))
 
         
         self.create_service(
-            Trigger, '/open_gripper',
+            Trigger, 'open_gripper',
             lambda req, res: self._gripper_response(req, res, None, 'open'))
         self.create_service(
-            Trigger, '/close_gripper',
+            Trigger, 'close_gripper',
             lambda req, res: self._gripper_response(req, res, None, 'close'))
 
 

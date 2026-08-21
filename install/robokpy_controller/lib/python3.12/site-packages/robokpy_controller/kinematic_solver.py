@@ -72,14 +72,14 @@ class KinematicSolver(Node):
         # -----------------------------
         self.create_subscription(
             Float64MultiArray,
-            '/current_joint_state',
+            'current_joint_state',
             self.joint_callback,
             10
         )
 
         self.create_subscription(
             Pose,
-            '/active_target_pose',
+            'active_target_pose',
             self.pose_callback,
             10
         )
@@ -89,28 +89,28 @@ class KinematicSolver(Node):
 
         self.create_subscription(
             String,
-            '/system_mode',
+            'system_mode',
             self.sys_mode_cb,
             mode_qos
         )
 
         self.create_subscription(
             String,
-            '/execution_state',
+            'execution_state',
             self.exe_state_cb,
             mode_qos
         )
 
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
-        self.create_subscription(String, '/planning_tip_link', self.tip_link_cb, qos)
+        self.create_subscription(String, 'planning_tip_link', self.tip_link_cb, qos)
 
         # -----------------------------
         # Publisher (TO CONTROL PIPELINE)
         # -----------------------------
         self.joint_pub = self.create_publisher(
             Float64MultiArray,
-            '/joint_target_raw',
+            'joint_target_raw',
             10
         )
 

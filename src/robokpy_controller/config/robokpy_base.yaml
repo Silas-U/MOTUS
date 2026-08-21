@@ -115,16 +115,16 @@ kinematic_solver:
     mask: [1, 1, 1, 1, 1, 1]
 
     # 50 Hz -> 25 Hz
-    control_rate_hz: 25.0
+    control_rate_hz: 50.0
 
     # 50 Hz -> 25 Hz
-    pose_rate_limit_hz: 25.0
+    pose_rate_limit_hz: 50.0
 
 
 robot_state_manager:
   ros__parameters:
     # 50 Hz -> 25 Hz
-    publish_rate_hz: 25.0
+    publish_rate_hz: 50.0
 
     state_timeout_s: 1.0
 
@@ -132,7 +132,7 @@ robot_state_manager:
 robot_state_interface_virtual:
   ros__parameters:
     # 50 Hz -> 25 Hz
-    publish_rate_hz: 25.0
+    publish_rate_hz: 50.0
 
 
 robot_command_server:

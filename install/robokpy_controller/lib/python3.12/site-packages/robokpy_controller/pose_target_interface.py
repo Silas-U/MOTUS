@@ -88,54 +88,21 @@ class PoseTargetInterface(Node):
         mode_qos = QoSProfile(depth=1)
         mode_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
 
-        self.create_subscription(
-            String,
-            '/execution_state',
-            self.exec_state_cb,
-            mode_qos
-        )
-
-        self.create_subscription(
-            String,
-            '/system_mode',
-            self.sys_mode_cb,
-            mode_qos
-        )
-
-        self.create_subscription(
-            CellStateMsg,
-            '/cell_state',
-            self.cell_state_cb,
-            10
-        )
-
-        # self.create_subscription(Pose, '/target_pose', self.target_callback, 10)
-
-        self.create_subscription(
-            Pose,
-            '/active_target_pose',
-            self.active_pose_callback,
-            10
-        )
+        self.create_subscription(String, 'execution_state', self.exec_state_cb, mode_qos)
+        self.create_subscription(String, 'system_mode', self.sys_mode_cb, mode_qos)
+        self.create_subscription(CellStateMsg, 'cell_state', self.cell_state_cb, 10)
+        self.create_subscription(Pose, 'active_target_pose', self.active_pose_callback, 10)
 
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL  # late joiners get last value, like sys_mode
-        self.create_subscription(String, '/planning_tip_link', self.tip_link_cb, qos)  # same TRANSIENT_LOCAL qos
+        self.create_subscription(String, 'planning_tip_link', self.tip_link_cb, qos)
 
-        self.create_subscription(
-            Float64MultiArray,
-            '/current_joint_state',
-            self.joint_state_cb,
-            10
-        )
+        self.create_subscription(Float64MultiArray, 'current_joint_state', self.joint_state_cb, 10)
+        
         # -----------------------------
         # Publisher
         # -----------------------------
-        self.pose_pub = self.create_publisher(
-            Pose,
-            '/target_pose',
-            10
-        )
+        self.pose_pub = self.create_publisher(Pose, 'target_pose', 10)
 
         # -----------------------------
         # Marker Server

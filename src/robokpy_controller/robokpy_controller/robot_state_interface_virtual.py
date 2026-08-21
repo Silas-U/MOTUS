@@ -42,19 +42,19 @@ class RobotStateInterfaceVirtual(Node):
         self.joint_registry = {name: 0.0 for name in self.model.all_joint_names}
         self.joint_registry.update(zip(self.joint_names, home_q))
 
-        self.publisher = self.create_publisher(JointState, '/virtual_joint_states', 10)
+        self.publisher = self.create_publisher(JointState, 'virtual_joint_states', 10)
 
         self.subscription = self.create_subscription(
-            Float64MultiArray, '/virtual_joint_target_echo',
+            Float64MultiArray, 'virtual_joint_target_echo',
             self.update_joint_target, 10
         )
 
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
-        self.create_subscription(String, '/planning_tip_link', self.tip_link_cb, qos)
+        self.create_subscription(String, 'planning_tip_link', self.tip_link_cb, qos)
 
         self.timer = self.create_timer(0.05, self.publish_joint_states)
-
+        
         self.get_logger().info(
             f'Robot State Interface Virtual started (backend={backend}, '
             f'base={base_link}, tip={tip_link})'

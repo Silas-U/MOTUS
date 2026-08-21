@@ -91,9 +91,9 @@ class RobotStateManager(Node):
         # -----------------------------
     
         self.create_subscription(JointState, 'joint_states', self.joint_callback, 10)
-        self.create_subscription(JointState, '/virtual_joint_states', self.collision_joint_callback, 10)
-        self.create_subscription(Pose, '/target_pose', self.target_callback, 10)
-        self.create_subscription(Pose, '/updated_target_pose', self.updated_target_callback, 10)
+        self.create_subscription(JointState, 'virtual_joint_states', self.collision_joint_callback, 10)
+        self.create_subscription(Pose, 'target_pose', self.target_callback, 10)
+        self.create_subscription(Pose, 'updated_target_pose', self.updated_target_callback, 10)
         
         
         # -----------------------------
@@ -104,21 +104,21 @@ class RobotStateManager(Node):
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
 
         self.q_pub = self.create_publisher(Float64MultiArray, 'current_joint_state', 10)
-        self.pose_pub = self.create_publisher(Pose, '/active_target_pose', 10)
-        self.sys_mode_pub = self.create_publisher(String, '/system_mode', qos)
-        self.exec_state_pub = self.create_publisher(String, '/execution_state', qos)
+        self.pose_pub = self.create_publisher(Pose, 'active_target_pose', 10)
+        self.sys_mode_pub = self.create_publisher(String, 'system_mode', qos)
+        self.exec_state_pub = self.create_publisher(String, 'execution_state', qos)
 
 
         # -----------------------------
         # SYSTEM MODE SERVICE
         # -----------------------------
         self.system_mode_service = self.create_service(
-            SystemMode, '/set_system_mode',
+            SystemMode, 'set_system_mode',
             self.handle_system_mode
         )
 
         self.execution_state_service = self.create_service(
-            ExecutionState, '/set_execution_state',
+            ExecutionState, 'set_execution_state',
             self.handle_execution_state
         )
 
@@ -126,10 +126,10 @@ class RobotStateManager(Node):
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL  # late joiners get last value, like sys_mode
 
-        self.tip_link_pub = self.create_publisher(String, '/planning_tip_link', qos)
+        self.tip_link_pub = self.create_publisher(String, 'planning_tip_link', qos)
 
         self.tip_link_service = self.create_service(
-            SetPlanningTipLink, '/set_planning_tip_link', self.handle_set_tip_link
+            SetPlanningTipLink, 'set_planning_tip_link', self.handle_set_tip_link
         )
 
 
