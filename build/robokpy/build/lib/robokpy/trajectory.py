@@ -188,6 +188,9 @@ class TrajectoryPlanner:
         """
         traj   = []
         q_prev = q0.copy()
+        # DIAGNOSTIC — per-solve iteration counts for this call, read by
+        # profile_planner's instrument(). Doesn't affect solve behavior.
+        iters  = []
         for i, pose in enumerate(poses):
             q_sol = self.ik.solve(pose, q0=q_prev, max_iter=max_iter)
             if not self.ik.success:
@@ -195,6 +198,8 @@ class TrajectoryPlanner:
                 return None
             traj.append(q_sol)
             q_prev = q_sol
+            iters.append(getattr(self.ik, "last_iterations", -1))
+        self.last_chain_iterations = iters
         return traj
 
     # =========================================================

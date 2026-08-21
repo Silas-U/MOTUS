@@ -23,6 +23,12 @@ from robokpy_controller.mp_kinematics import KinematicsFacade
 
 
 _stats = defaultdict(lambda: {"calls": 0, "total_s": 0.0})
+_iter_stats = {"calls": 0, "total_iters": 0, "max_iters": 0}
+_topp_diag_stats = {
+    "calls": 0, "setup_s": 0.0, "loop_s": 0.0, "finalize_s": 0.0, "total_m": 0,
+    "assembly_s": 0.0, "resample_s": 0.0, "points_construction_s": 0.0,
+    "savgol_s": 0.0, "mvc_s": 0.0, "accel_precompute_s": 0.0,
+}
 
 
 def _timed(label):
@@ -51,17 +57,79 @@ def instrument(kin: KinematicsFacade):
     for name in (
         "create_trajectory",
         "create_general_scurve_joint_trajectory",
-        "create_topp_blended_cartesian_trajectory",
-        "_ik_chain",
     ):
         if hasattr(tp, name):
             setattr(tp, name, _timed(f"traj_planner.{name}")(getattr(tp, name)))
 
+    # create_topp_blended_cartesian_trajectory gets its own wrapper (not
+    # the generic _timed one) so we can also pull last_topp_diag off tp
+    # after each call — isolates the accel_bounds forward/backward sweep
+    # from savgol_filter+precompute ("setup") and the finalize step, so
+    # the accel_bounds optimization can be measured in isolation instead
+    # of lumped into the whole TOPP-call timing.
+    if hasattr(tp, "create_topp_blended_cartesian_trajectory"):
+        _orig_topp = tp.create_topp_blended_cartesian_trajectory
+
+        @functools.wraps(_orig_topp)
+        def _wrapped_topp(*args, **kwargs):
+            t0 = time.perf_counter()
+            try:
+                return _orig_topp(*args, **kwargs)
+            finally:
+                dt = time.perf_counter() - t0
+                _stats["traj_planner.create_topp_blended_cartesian_trajectory"]["calls"] += 1
+                _stats["traj_planner.create_topp_blended_cartesian_trajectory"]["total_s"] += dt
+                diag = getattr(tp, "last_topp_diag", None)
+                if diag:
+                    _topp_diag_stats["calls"] += 1
+                    _topp_diag_stats["setup_s"] += diag["setup_s"]
+                    _topp_diag_stats["loop_s"] += diag["loop_s"]
+                    _topp_diag_stats["finalize_s"] += diag["finalize_s"]
+                    _topp_diag_stats["total_m"] += diag["m"]
+                    _topp_diag_stats["assembly_s"] += diag.get("assembly_s", 0.0)
+                    _topp_diag_stats["resample_s"] += diag.get("resample_s", 0.0)
+                    _topp_diag_stats["points_construction_s"] += diag.get("points_construction_s", 0.0)
+                    _topp_diag_stats["savgol_s"] += diag.get("savgol_s", 0.0)
+                    _topp_diag_stats["mvc_s"] += diag.get("mvc_s", 0.0)
+                    _topp_diag_stats["accel_precompute_s"] += diag.get("accel_precompute_s", 0.0)
+
+        tp.create_topp_blended_cartesian_trajectory = _wrapped_topp
+
+    # _ik_chain gets its own wrapper (not the generic _timed one) so we
+    # can also pull last_chain_iterations off tp after each call — tells
+    # us whether warm-starting is actually cutting iteration count, or
+    # whether each solve is costing close to a cold solve regardless.
+    if hasattr(tp, "_ik_chain"):
+        _orig_ik_chain = tp._ik_chain
+
+        @functools.wraps(_orig_ik_chain)
+        def _wrapped_ik_chain(*args, **kwargs):
+            t0 = time.perf_counter()
+            try:
+                return _orig_ik_chain(*args, **kwargs)
+            finally:
+                dt = time.perf_counter() - t0
+                _stats["traj_planner._ik_chain"]["calls"] += 1
+                _stats["traj_planner._ik_chain"]["total_s"] += dt
+                iters = getattr(tp, "last_chain_iterations", None)
+                if iters:
+                    _iter_stats["calls"] += len(iters)
+                    _iter_stats["total_iters"] += sum(iters)
+                    _iter_stats["max_iters"] = max(_iter_stats["max_iters"], max(iters))
+
+        tp._ik_chain = _wrapped_ik_chain
+
 
 def reset_stats():
-    """Clear accumulated timing stats. Call before each plan_trajectory
-    call you want an isolated (not cumulative) breakdown for."""
+    """Clear accumulated timing, iteration, and TOPP-diag stats. Call
+    before each plan_trajectory call you want an isolated (not
+    cumulative) breakdown for."""
     _stats.clear()
+    _iter_stats["calls"] = 0
+    _iter_stats["total_iters"] = 0
+    _iter_stats["max_iters"] = 0
+    for k in _topp_diag_stats:
+        _topp_diag_stats[k] = 0 if k in ("calls", "total_m") else 0.0
 
 
 def report(total_s: float, logger=None):
@@ -82,6 +150,28 @@ def report(total_s: float, logger=None):
     emit(f"[plan-profile] TOTAL (measured buckets):    {accounted*1000:.2f} ms")
     emit(f"[plan-profile] TOTAL (wall clock):           {total_s*1000:.2f} ms")
     emit(f"[plan-profile] Unaccounted (bookkeeping/py): {unaccounted*1000:.2f} ms")
+
+    if _iter_stats["calls"]:
+        avg_iters = _iter_stats["total_iters"] / _iter_stats["calls"]
+        emit(
+            f"[plan-profile] ik solve iterations: {_iter_stats['calls']} solves, "
+            f"avg {avg_iters:.2f} iters/solve, max {_iter_stats['max_iters']}"
+        )
+
+    if _topp_diag_stats["calls"]:
+        d = _topp_diag_stats
+        emit(
+            f"[plan-profile] topp internal split ({d['calls']} calls, "
+            f"{d['total_m']} total path pts): "
+            f"assembly(ik_chain+slerp+bezier)={d['assembly_s']*1000:.2f}ms  "
+            f"resample={d['resample_s']*1000:.2f}ms  "
+            f"topp.savgol_filter={d['savgol_s']*1000:.2f}ms  "
+            f"topp.mvc_combine={d['mvc_s']*1000:.2f}ms  "
+            f"topp.accel_precompute={d['accel_precompute_s']*1000:.2f}ms  "
+            f"topp.loop(accel_bounds sweep)={d['loop_s']*1000:.2f}ms  "
+            f"topp.finalize={d['finalize_s']*1000:.2f}ms  "
+            f"points_construction={d['points_construction_s']*1000:.2f}ms"
+        )
 
 
 def profile_single_leg(kin, config, q_seed, target_pose,

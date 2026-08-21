@@ -26,6 +26,11 @@ class InverseKinematics:
         self.success = False
         self.last_err = float('inf')
 
+        # DIAGNOSTIC — iteration count from the most recent solve() call.
+        # Purely informational, never read by solve() itself; safe to
+        # ignore/remove. Set at every break point below.
+        self.last_iterations = 0
+
         # Set when a solution is only reached by clamping to joint limits
         # (see _precompute_limits / clamping in solve()) — distinguishes
         # "converged but limit-bound" from "converged cleanly".
@@ -268,10 +273,12 @@ class InverseKinematics:
 
             if pos_err_norm < tol_pos and rot_err_norm < tol_rot:
                 self.success = True
+                self.last_iterations = i
                 break
 
             if i >= max_iter:
                 self.success = False
+                self.last_iterations = i
                 break
 
             # Jacobian with task-space weighting.
@@ -334,6 +341,7 @@ class InverseKinematics:
             # Step size convergence
             if np.linalg.norm(d_theta) < 1e-8:
                 self.success = (pos_err_norm < tol_pos * 10) and (rot_err_norm < tol_rot * 10)
+                self.last_iterations = i
                 break
 
             i += 1
