@@ -8,10 +8,9 @@ recipe_id: p2p_single_move_ts
 
 steps:
 
-- id: move_a_to_b
+- id: move_c_to_d
   type: move
   traj_method: ts
-  traj_type: blend
   target_pose:
-    {x: 0.40, y: 0.20, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
+    {x: -0.1330, y: 0.2952, z: 0.5174, qx: 0.7172, qy: -0.0004, qz: 0.0004, qw: -0.6969}
   depends_on: []

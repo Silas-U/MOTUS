@@ -1,16 +1,227 @@
-recipe_id: p2p_single_move_js
+recipe_id: orientation_verification_ur5e
 
-# Minimal single point-to-point move: one leg, joint-space (js).
-# Point A is implicit — wherever the arm currently is when this runs.
-# Point B is the one target_pose below. No blending, no grouping, no
-# tool/spawn steps — a clean baseline: one plan, one JTC goal.
+# ============================================================================
+# orientation_verification_ur5e  (v2 — FK-verified poses)
+#
+# v1 used hand-derived quaternions that were never round-tripped through IK
+# and failed on a real IK solve ("IK failure along blended path"). Every
+# target_pose below instead comes from compute_verified_poses.py — forward
+# kinematics of a REAL, field-tested UR5e+Robotiq joint configuration,
+# computed against THIS robot's own robot_description/FK model. Reachable
+# by construction, not by guessing.
+#
+# Source joint configs (radians) — from a published working UR5e+Robotiq
+# control project, https://github.com/IAC-Robotics-and-Sensors/UR5e_with_robotiq_gripper_control:
+#   config_a (their "home"):       q = [-1.571, -1.396, -2.531,  0.785,  1.571, 4.712]
+#   config_b (their "waypoint_1"): q = [-1.396, -2.217, -0.785, -1.658,  1.571, 3.316]
+#   config_c (their "waypoint_3"): q = [-3.153, -2.628, -1.340,  0.801,  1.686, 4.633]
+# Renamed a/b/c here since these are just arbitrary verified configurations
+# from another project, NOT this robot's own home_pose param — don't assume
+# config_a is where this arm actually boots.
+#
+# config_b sits at ~0.846 m from the base — right at the edge of the UR5e's
+# 850 mm envelope, which makes it a genuinely useful near-full-extension /
+# near-boundary orientation test, not just a filler pose.
+#
+# EXCLUDED: their "waypoint_2" FK's to z=-0.2505 (below the world-frame
+# origin) — kinematically reachable given the gripper's TCP offset, but if
+# `world` sits at table height in this cell that pose drives the gripper
+# through the table/mount. NOT included in any section below. If you want
+# to test it, confirm your cell's actual mounting geometry first.
+#
+# HOW TO VERIFY:
+#   Watch arm1/trajectory_marker and arm1/ee_trajectory_marker in rviz
+#   (VizPublisher, wired into arm_executor_node.py) — the planned path is
+#   published before execution. Cross-check the settled TCP orientation
+#   against each step's target_pose.
+#
+# STRUCTURE (simple -> complex):
+#   Section 1 — isolated js legs between config_a/b/c, wait-separated so
+#               nothing batches. "Does IK land on this exact pose at all?"
+#   Section 2 — same, through the ts/TOPP path instead (different RoboKpy
+#               trajectory generator).
+#   Section 3 — blended js+scurve run chaining a->b->c directly (one
+#               planner_core group, real boundary-velocity continuity).
+#   Section 4 — blended ts run chaining c->b->a->c — revisits config_c at
+#               both ends (non-consecutive, so it's fine — see
+#               recipe_compiler's degenerate-pose check) and passes back
+#               through the near-boundary config_b mid-run.
+#
+# NOTE: Section 1/2's leg 0 still has one unavoidable blind spot — if the
+# arm's ACTUAL current pose happens to already match that leg's target,
+# arm_executor's runtime DEGENERATE_POS_EPS_M guard will abort the goal
+# with a clear log message (rather than silently corrupting a later leg).
+# If that happens, just re-run from wherever the arm ended up instead.
+# ============================================================================
 
 steps:
 
-- id: move_a_to_b
-  type: move
-  traj_method: js
-  traj_type: scurve
-  target_pose:
-    {x: 0.40, y: 0.20, z: 0.30, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0}
-  depends_on: []
+  # ==========================================================================
+  # SECTION 1 — isolated single-leg moves, joint-space (js)
+  # ==========================================================================
+
+  - id: s1_config_a
+    type: move
+    traj_method: js
+    traj_type: scurve
+    target_pose:
+      {x: 0.1333, y: 0.4070, z: 0.4033, qx: 0.5000, qy: 0.5002, qz: 0.5000, qw: -0.4998}
+    depends_on: []
+
+  - id: s1_wait_a
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s1_config_a]
+
+  - id: s1_config_b
+    type: move
+    traj_method: js
+    traj_type: scurve
+    # Near-full-extension (~0.846 m from base) — near the 850mm envelope edge.
+    target_pose:
+      {x: 0.0000, y: 0.7662, z: 0.3583, qx: -0.0002, qy: 0.9997, qz: 0.0258, qw: -0.0047}
+    depends_on: [s1_wait_a]
+
+  - id: s1_wait_b
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s1_config_b]
+
+  - id: s1_config_c
+    type: move
+    traj_method: js
+    traj_type: scurve
+    target_pose:
+      {x: 0.8393, y: -0.1195, z: 0.1774, qx: 0.7131, qy: 0.0645, qz: 0.6981, qw: -0.0096}
+    depends_on: [s1_wait_b]
+
+  # ==========================================================================
+  # SECTION 2 — isolated single-leg moves, Cartesian (ts)
+  # ==========================================================================
+
+  - id: s2_wait_start
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s1_config_c]
+
+  - id: s2_config_a
+    type: move
+    traj_method: ts
+    traj_type: blend
+    target_pose:
+      {x: 0.1333, y: 0.4070, z: 0.4033, qx: 0.5000, qy: 0.5002, qz: 0.5000, qw: -0.4998}
+    depends_on: [s2_wait_start]
+
+  - id: s2_wait_a
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s2_config_a]
+
+  - id: s2_config_c
+    type: move
+    traj_method: ts
+    traj_type: blend
+    target_pose:
+      {x: 0.8393, y: -0.1195, z: 0.1774, qx: 0.7131, qy: 0.0645, qz: 0.6981, qw: -0.0096}
+    depends_on: [s2_wait_a]
+
+  - id: s2_wait_b
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s2_config_c]
+
+  - id: s2_config_b
+    type: move
+    traj_method: ts
+    traj_type: blend
+    target_pose:
+      {x: 0.0000, y: 0.7662, z: 0.3583, qx: -0.0002, qy: 0.9997, qz: 0.0258, qw: -0.0047}
+    depends_on: [s2_wait_b]
+
+  # ==========================================================================
+  # SECTION 3 — blended joint-space (js + scurve) run: a -> b -> c
+  #
+  # No wait steps between these three — they chain directly, so
+  # cell_orchestrator batches them into one run and planner_core plans them
+  # as one continuous scurve joint trajectory with real boundary-velocity
+  # continuity between legs.
+  # ==========================================================================
+
+  - id: s3_wait_start
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s2_config_b]
+
+  - id: s3_a
+    type: move
+    traj_method: js
+    traj_type: scurve
+    target_pose:
+      {x: 0.1333, y: 0.4070, z: 0.4033, qx: 0.5000, qy: 0.5002, qz: 0.5000, qw: -0.4998}
+    depends_on: [s3_wait_start]
+
+  - id: s3_b
+    type: move
+    traj_method: js
+    traj_type: scurve
+    target_pose:
+      {x: 0.0000, y: 0.7662, z: 0.3583, qx: -0.0002, qy: 0.9997, qz: 0.0258, qw: -0.0047}
+    depends_on: [s3_a]
+
+  - id: s3_c
+    type: move
+    traj_method: js
+    traj_type: scurve
+    target_pose:
+      {x: 0.8393, y: -0.1195, z: 0.1774, qx: 0.7131, qy: 0.0645, qz: 0.6981, qw: -0.0096}
+    depends_on: [s3_b]
+
+  # ==========================================================================
+  # SECTION 4 — blended Cartesian (ts) run: c -> b -> a -> c
+  #
+  # Revisits config_c at both ends — allowed, since they're not consecutive
+  # legs (recipe_compiler's degenerate-pose check only rejects adjacent
+  # near-identical poses within a group). Passes back through the
+  # near-boundary config_b mid-run, under blending this time rather than
+  # isolated.
+  # ==========================================================================
+
+  - id: s4_wait_start
+    type: wait
+    duration_sec: 0.3
+    depends_on: [s3_c]
+
+  - id: s4_c
+    type: move
+    traj_method: ts
+    traj_type: blend
+    blend_radius: 0.02
+    target_pose:
+      {x: 0.8393, y: -0.1195, z: 0.1774, qx: 0.7131, qy: 0.0645, qz: 0.6981, qw: -0.0096}
+    depends_on: [s4_wait_start]
+
+  - id: s4_b
+    type: move
+    traj_method: ts
+    traj_type: blend
+    blend_radius: 0.02
+    target_pose:
+      {x: 0.0000, y: 0.7662, z: 0.3583, qx: -0.0002, qy: 0.9997, qz: 0.0258, qw: -0.0047}
+    depends_on: [s4_c]
+
+  - id: s4_a
+    type: move
+    traj_method: ts
+    traj_type: blend
+    blend_radius: 0.02
+    target_pose:
+      {x: 0.1333, y: 0.4070, z: 0.4033, qx: 0.5000, qy: 0.5002, qz: 0.5000, qw: -0.4998}
+    depends_on: [s4_b]
+
+  - id: s4_c_return
+    type: move
+    traj_method: ts
+    traj_type: blend
+    target_pose:
+      {x: 0.8393, y: -0.1195, z: 0.1774, qx: 0.7131, qy: 0.0645, qz: 0.6981, qw: -0.0096}
+    depends_on: [s4_a]

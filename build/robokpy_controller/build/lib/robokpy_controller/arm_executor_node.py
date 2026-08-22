@@ -59,6 +59,7 @@ Current trajectory contract:
 import time
 import traceback
 from concurrent.futures import ThreadPoolExecutor, Future
+from types import SimpleNamespace
 from typing import List, Optional
 
 import numpy as np
@@ -86,6 +87,7 @@ from .planner_core import (
 from .mp_kinematics import KinematicsFacade
 from .mp_types import TrajectoryConfig
 from .execution_monitor import ExecutionMonitor
+from .mp_viz import VizPublisher
 
 # TEMP PROFILING — remove instrument()/report()/reset_stats() calls
 # below once done.
@@ -111,6 +113,17 @@ class ArmExecutorNode(Node):
     TARGET_TOLERANCE = 0.05
     STABLE_WINDOW_SEC = 0.5
     DIVERGENCE_TOLERANCE = 0.15
+
+    # A leg whose target is within these of the pose immediately
+    # before it (live current pose for leg 0, the previous leg's own
+    # target otherwise) collapses to a ~zero-length segment inside
+    # planner_core._resolve_group_waypoints. Observed in practice to
+    # corrupt orientation on legs well past the collapsed one, not
+    # just at the repeat itself. recipe_compiler catches the same
+    # issue when it's spelled out in the recipe text; this catches it
+    # against the arm's ACTUAL live pose, which isn't known until now.
+    DEGENERATE_POS_EPS_M = 1e-4        # 0.1 mm
+    DEGENERATE_ANGLE_EPS_RAD = 1e-3    # ~0.057 deg
 
     # is_at_target() is a pure position check with no notion of
     # elapsed path — it can't tell "arrived early" from "never left,
@@ -214,6 +227,31 @@ class ArmExecutorNode(Node):
             'arm_controller/follow_joint_trajectory',
         )
 
+        # Flat list of floats, reshaped into rows of num_joints below —
+        # ROS2 params don't support list-of-lists directly. Optional:
+        # extra known-good IK seeds beyond home_pose, e.g. a
+        # curated set of well-conditioned configurations for this arm
+        # type (elbow-up/down, wrist-flip variants). Leave empty to
+        # rely on home_pose alone.
+        self.declare_parameter(
+            'ik_fallback_seeds',
+            [],
+        )
+
+        # Master switch for trajectory_marker/ee_trajectory_marker
+        # publishing (and the compute_fk_path=True plan cost that
+        # feeds them — see [plan-profile] kin.get_fk_xyz). Already
+        # present in ur5e.yaml's /** block; re-readable at runtime via
+        # `ros2 param set .../arm_executor publish_ee_path false`, no
+        # relaunch needed. The live subscriber-count check underneath
+        # this flag (want_viz, below) still applies on top of it — this
+        # is the deliberate on/off switch, that's the free "nobody's
+        # watching anyway" optimization.
+        self.declare_parameter(
+            'publish_ee_path',
+            True,
+        )
+
         # ==============================================================
         # Robot description
         # ==============================================================
@@ -251,11 +289,84 @@ class ArmExecutorNode(Node):
             logger=self.get_logger(),
         )
 
+        # ==============================================================
+        # IK fallback seeding
+        #
+        # The primary seed for any plan is wherever the arm actually
+        # is (q_current). That's usually right, but a previous
+        # recipe/jog can leave it near a joint limit or singularity —
+        # a seed IK genuinely can't converge from even though the
+        # target itself is reachable. Rather than requiring a relaunch
+        # (which only ever helped by resetting the seed to home),
+        # KinematicsFacade.solve_ik now retries from these seeds
+        # automatically whenever the primary one fails.
+        # ==============================================================
+
+        num_joints = self._kin.num_joints
+
+        self.declare_parameter('home_pose', [0.0] * num_joints)
+        home_q = list(self.get_parameter('home_pose').value)
+
+        fallback_seeds = [home_q]
+
+        raw_extra = list(self.get_parameter('ik_fallback_seeds').value)
+        if raw_extra:
+            if len(raw_extra) % num_joints != 0:
+                self.get_logger().warning(
+                    f"[arm_executor] ik_fallback_seeds has "
+                    f"{len(raw_extra)} values, not a multiple of "
+                    f"num_joints={num_joints} — ignoring it"
+                )
+            else:
+                for i in range(0, len(raw_extra), num_joints):
+                    fallback_seeds.append(raw_extra[i:i + num_joints])
+
+        self._kin.set_fallback_seeds(fallback_seeds)
+
+        self.get_logger().info(
+            f"[arm_executor] IK fallback seeding: home_pose + "
+            f"{len(fallback_seeds) - 1} configured extra seed(s)"
+        )
+
+        # ==============================================================
+        # Preferred posture + joint limits.
+        #
+        # kinematic_solver.py (live jogging) has always called these on
+        # its own IK backend. arm_executor builds a SEPARATE
+        # KinematicsFacade/backend instance for recipe planning and was
+        # never calling either — so recipe-planned IK had no posture
+        # bias to keep it in the elbow-up basin (branch is then purely
+        # seed-dependent, hence the elbow-flip between recipes) and,
+        # more seriously, no joint-limit clamping at all. Wiring both
+        # up here brings recipe planning in line with live jogging.
+        # ==============================================================
+
+        planning_base_link = self.get_parameter('planning_base_link').value
+        planning_tip_link = self.get_parameter('planning_tip_link').value
+
+        q_min, q_max = self._kin.model.model.get_joint_limits_in_chain(
+            planning_base_link, planning_tip_link
+        )
+        self._kin.model.ik.set_joint_limits(q_min, q_max)
+        self._kin.model.ik.set_preferred_posture(np.array(home_q))
+
         # TEMP PROFILING — instruments self._kin's IK/FK/traj_planner
         # calls with timers; report() below prints the breakdown after
         # each plan. Remove both this call and the report() call (and
         # the import above) once you're done profiling.
         instrument(self._kin)
+
+        # ==============================================================
+        # Trajectory visualization (rviz markers)
+        #
+        # Reuses planning_base_link as the marker frame_id — same root
+        # the whole planning chain is already expressed in.
+        # ==============================================================
+
+        self._viz = VizPublisher(
+            self,
+            world_frame=self.get_parameter('planning_base_link').value,
+        )
 
         # ==============================================================
         # Trajectory configuration
@@ -1029,6 +1140,41 @@ class ArmExecutorNode(Node):
         self._next_plan_step_id = None
 
     # ==================================================================
+    # Degenerate-segment guard
+    # ==================================================================
+
+    @staticmethod
+    def _pose_array_dist(a: np.ndarray, b: np.ndarray):
+        """(position_distance_m, orientation_angle_rad) between two
+        [x,y,z,qx,qy,qz,qw] arrays. Orientation angle accounts for
+        quaternion double-cover (q and -q are the same rotation)."""
+        pos_dist = float(np.linalg.norm(a[:3] - b[:3]))
+        dot = float(np.clip(abs(np.dot(a[3:], b[3:])), -1.0, 1.0))
+        angle = 2.0 * float(np.arccos(dot))
+        return pos_dist, angle
+
+    def _find_degenerate_leg_pair(self, seed_pose: np.ndarray, legs):
+        """Scans seed_pose + every leg's target_pose, in order, for a
+        consecutive pair closer than DEGENERATE_POS_EPS_M /
+        DEGENERATE_ANGLE_EPS_RAD. This mirrors exactly how
+        planner_core._resolve_group_waypoints chains poses (each
+        group's own seed is wherever the previous group actually
+        ended), so it catches the collapse regardless of which legs
+        happen to share a (traj_method, traj_type) group.
+
+        Returns (prev_label, leg_step_id, pos_dist, angle) or None.
+        """
+        prev_pose = seed_pose
+        prev_label = '<current arm pose>'
+        for leg in legs:
+            pos_dist, angle = self._pose_array_dist(prev_pose, leg.target_pose)
+            if pos_dist < self.DEGENERATE_POS_EPS_M and angle < self.DEGENERATE_ANGLE_EPS_RAD:
+                return prev_label, leg.step_id, pos_dist, angle
+            prev_pose = leg.target_pose
+            prev_label = leg.step_id
+        return None
+
+    # ==================================================================
     # Action handler
     # ==================================================================
 
@@ -1139,6 +1285,35 @@ class ArmExecutorNode(Node):
             )
 
             # ==========================================================
+            # Guard against a leg (or the run's very first leg vs. the
+            # arm's actual live pose) collapsing to a near-zero-length
+            # segment — see DEGENERATE_POS_EPS_M / _find_degenerate_leg_pair.
+            # ==========================================================
+
+            seed_pose = self._kin.compute_fk(q_seed)
+            dup = self._find_degenerate_leg_pair(seed_pose, legs)
+
+            if dup is not None:
+
+                prev_label, cur_id, pos_dist, angle = dup
+
+                self.get_logger().error(
+                    f"[arm_executor] '{prev_label}' -> '{cur_id}': "
+                    f"near-identical pose (\u0394pos={pos_dist * 1000:.3f}mm, "
+                    f"\u0394orient={np.degrees(angle):.3f}\u00b0) would collapse "
+                    f"that leg to a zero-length segment and can corrupt "
+                    f"blending on later legs \u2014 aborting. Remove the "
+                    f"duplicate or use a genuinely distinct pose."
+                )
+
+                goal_handle.abort()
+
+                result.success = False
+                result.error_code = 1
+
+                return result
+
+            # ==========================================================
             # Ensure stale prefetch state cannot leak between action
             # goals (the fields themselves are unused by this
             # callback's own logic now, but destroy_node/other paths
@@ -1158,6 +1333,21 @@ class ArmExecutorNode(Node):
             # one. Remove once done.
             reset_stats()
 
+            # kin.get_fk_xyz dominates plan time when fk_path is
+            # requested (~80%+ of wall clock on a multi-leg TOPP plan —
+            # it FKs every resampled path point, not just the leg
+            # waypoints). publish_ee_path (ur5e.yaml) is the deliberate
+            # on/off switch; the subscriber-count check on top of it is
+            # a free no-op when the flag's on but nothing's actually
+            # watching (e.g. rviz closed).
+            want_viz = (
+                self.get_parameter('publish_ee_path').value
+                and (
+                    self._viz.marker_pub.get_subscription_count() > 0
+                    or self._viz.ee_path_pub.get_subscription_count() > 0
+                )
+            )
+
             try:
 
                 future = self._plan_pool.submit(
@@ -1166,6 +1356,7 @@ class ArmExecutorNode(Node):
                     q_seed.copy(),
                     config,
                     self._kin,
+                    compute_fk_path=want_viz,
                 )
 
                 planned = self._consume_prefetched_plan(
@@ -1227,6 +1418,23 @@ class ArmExecutorNode(Node):
                 result.error_code = 3
 
                 return result
+
+            # ==========================================================
+            # Publish the planned path for visualization. Best-effort —
+            # a viz failure should never abort an otherwise-valid plan.
+            # ==========================================================
+
+            try:
+                if want_viz:
+                    self._viz.clear_ee_path()
+                    self._viz.publish_ee_path(planned.fk_path)
+                    self._viz.publish_waypoints(
+                        [SimpleNamespace(pose=leg.target_pose) for leg in legs]
+                    )
+            except Exception as exc:
+                self.get_logger().warn(
+                    f'[arm_executor] trajectory viz publish failed: {exc}'
+                )
 
             # ==========================================================
             # Check cancellation before dispatch

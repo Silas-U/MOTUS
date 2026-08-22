@@ -14,8 +14,8 @@ class VizPublisher:
     def __init__(self, node, world_frame: str):
         self._node = node
         self._world = world_frame
-        self.marker_pub = node.create_publisher(Marker, '/trajectory_marker', 10)
-        self.ee_path_pub = node.create_publisher(Marker, '/ee_trajectory_marker', 10)
+        self.marker_pub = node.create_publisher(Marker, 'trajectory_marker', 10)
+        self.ee_path_pub = node.create_publisher(Marker, 'ee_trajectory_marker', 10)
 
     def publish_waypoints(self, waypoints):
         marker = Marker()

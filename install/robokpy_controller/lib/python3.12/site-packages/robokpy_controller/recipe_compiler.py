@@ -12,6 +12,7 @@ Also computes a content hash of the raw recipe text for traceability.
 """
 
 import hashlib
+import math
 import yaml
 from typing import Any
 
@@ -37,6 +38,47 @@ def _pose_from_dict(d: dict) -> Pose:
     pose.orientation.z = float(d.get('qz', 0.0))
     pose.orientation.w = float(d.get('qw', 1.0))
     return pose
+
+
+# Two consecutive legs of the same batched motion run (same arm_id,
+# singly-chained depends_on, same (traj_method, traj_type) group per
+# planner_core._group_by_method) must not target near-identical poses.
+# planner_core plans each such group as one continuous trajectory using
+# the direction BETWEEN consecutive waypoints — a repeated pose collapses
+# that segment to ~zero length, giving the underlying trajectory
+# generator an undefined direction there. Observed in practice to
+# corrupt orientation on legs well past the repeated point, not just at
+# the repeat itself.
+_POSE_DUP_POS_EPS_M = 1e-4       # 0.1 mm
+_POSE_DUP_ANGLE_EPS_RAD = 1e-3   # ~0.057 deg
+
+# Kept in sync by hand with planner_core._normalize_traj_type — not
+# imported directly so recipe_compiler (a lightweight authoring-time
+# validator) doesn't pull in planner_core's numpy/robokpy import chain.
+def _normalize_traj_type(method: str, traj_type: str) -> str:
+    if method != 'js':
+        return traj_type
+    if traj_type in ('blend', 'qu'):
+        return 'lspb'
+    if traj_type == 'topp_blend':
+        return 'lspb'
+    return traj_type
+
+
+def _pose_dist(a: Pose, b: Pose) -> tuple:
+    """(position_distance_m, orientation_angle_rad) between two Pose
+    messages. Orientation angle accounts for quaternion double-cover
+    (q and -q represent the same rotation)."""
+    dx = a.position.x - b.position.x
+    dy = a.position.y - b.position.y
+    dz = a.position.z - b.position.z
+    pos_dist = (dx * dx + dy * dy + dz * dz) ** 0.5
+
+    dot = (a.orientation.x * b.orientation.x + a.orientation.y * b.orientation.y +
+           a.orientation.z * b.orientation.z + a.orientation.w * b.orientation.w)
+    dot = max(-1.0, min(1.0, abs(dot)))
+    angle = 2.0 * math.acos(dot)
+    return pos_dist, angle
 
 
 def _parse_recovery(value: str) -> RecoveryPolicy:
@@ -190,6 +232,63 @@ def _build_spawn(step_id, d, common):
 class RecipeCompiler:
 
     @staticmethod
+    def _validate_no_degenerate_consecutive_poses(steps: list[Step]):
+        """Catches a repeated target_pose written explicitly across two
+        consecutive legs of the same batched run — see the module-level
+        comment above _POSE_DUP_POS_EPS_M for why this matters.
+
+        LIMITATION: this only sees what's in the recipe text. It cannot
+        catch a run's first leg coincidentally matching wherever the arm
+        physically is when the goal actually starts — that pose isn't
+        known until dispatch time. arm_executor_node guards against that
+        case at runtime instead (it has the live joint state).
+        """
+        by_id = {s.step_id: s for s in steps}
+
+        # Same single-parent/single-child/same-arm chaining rule
+        # cell_orchestrator._detect_runs uses to decide what gets
+        # batched into one ExecuteMoveStep goal / one plan_trajectory
+        # call.
+        dependents: dict[str, list[str]] = {s.step_id: [] for s in steps}
+        for s in steps:
+            for dep in s.depends_on:
+                if isinstance(dep, str):
+                    dependents.setdefault(dep, []).append(s.step_id)
+
+        for step in steps:
+            if not isinstance(step, MoveStep) or step.from_spawn_step:
+                continue
+            deps = dependents.get(step.step_id, [])
+            if len(deps) != 1:
+                continue
+            next_step = by_id.get(deps[0])
+            if not isinstance(next_step, MoveStep) or next_step.from_spawn_step:
+                continue
+            if next_step.depends_on != [step.step_id]:
+                continue
+            if next_step.arm_id != step.arm_id:
+                continue
+            if step.target_pose is None or next_step.target_pose is None:
+                continue
+
+            key_a = (step.traj_method, _normalize_traj_type(step.traj_method, step.traj_type))
+            key_b = (next_step.traj_method, _normalize_traj_type(next_step.traj_method, next_step.traj_type))
+            if key_a != key_b:
+                continue
+
+            pos_dist, angle = _pose_dist(step.target_pose, next_step.target_pose)
+            if pos_dist < _POSE_DUP_POS_EPS_M and angle < _POSE_DUP_ANGLE_EPS_RAD:
+                raise RecipeValidationError(
+                    f'Step "{step.step_id}" and "{next_step.step_id}" are '
+                    f'consecutive in the same blended motion run '
+                    f'({key_a[0]}/{key_a[1]}) with near-identical target_pose '
+                    f'(\u0394pos={pos_dist * 1000:.3f}mm, '
+                    f'\u0394orient={math.degrees(angle):.3f}\u00b0). A repeated '
+                    f'pose collapses that segment and can corrupt blending on '
+                    f'later legs in the run \u2014 remove the duplicate or give '
+                    f'it a genuinely distinct pose.')
+
+    @staticmethod
     def compile(raw_text: str, known_arms: set = None) -> tuple[list[Step], str, str]:
         doc = yaml.safe_load(raw_text)
         recipe_id = doc.get('recipe_id', 'unnamed_recipe')
@@ -223,6 +322,7 @@ class RecipeCompiler:
         RecipeCompiler._validate_acyclic(steps)
         RecipeCompiler._validate_vision_refs(steps, seen_ids)
         RecipeCompiler._validate_spawn_refs(steps, seen_ids)
+        RecipeCompiler._validate_no_degenerate_consecutive_poses(steps)
         if known_arms is not None:
             RecipeCompiler._validate_arm_ids(steps, known_arms)
 

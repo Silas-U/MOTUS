@@ -114,6 +114,10 @@ class PoseTargetInterface(Node):
             "Capture Waypoint", callback=self.process_feedback)
         self._menu_write_id = self.menu_handler.insert(
             "Write captured waypoints to file", callback=self.process_feedback)
+        self._menu_home_id = self.menu_handler.insert(
+            "Jog to Home", callback=self.process_feedback)
+        self._menu_revert_id = self.menu_handler.insert(
+            "Revert to Last Captured Waypoint", callback=self.process_feedback)
 
         self.marker = self.create_marker(self.home_pose)
 
@@ -132,6 +136,26 @@ class PoseTargetInterface(Node):
         self.q_current = np.array(msg.data)
         
 
+    def _move_marker_to(self, pose_arr):
+        """Snap the marker — and, via target_pose, the virtual robot —
+        to an explicit [x,y,z,qx,qy,qz,qw] pose. Shared by tip_link_cb
+        and the Jog to Home / Revert menu actions below; all three need
+        the identical erase/insert/re-apply-menu/publish sequence."""
+        self.server.erase(self.marker.name)
+        self.server.applyChanges()
+
+        self.marker = self.create_marker(pose_arr)
+        self.server.insert(self.marker)
+        self.server.setCallback(self.marker.name, self.process_feedback)
+        self.menu_handler.apply(self.server, self.marker.name)
+        self.server.applyChanges()
+
+        pose_msg = Pose()
+        pose_msg.position.x, pose_msg.position.y, pose_msg.position.z = pose_arr[:3]
+        (pose_msg.orientation.x, pose_msg.orientation.y,
+         pose_msg.orientation.z, pose_msg.orientation.w) = pose_arr[3:]
+        self.pose_pub.publish(pose_msg)
+
     def tip_link_cb(self, msg):
         self.tip_link = msg.data
         self.model.ik.tip_link = msg.data
@@ -140,22 +164,10 @@ class PoseTargetInterface(Node):
         self.fk.compute_chain(q_ref, self.base_link, self.tip_link)
         new_pose = self.fk.get_pose_quart()
 
-        self.server.erase(self.marker.name)
-        self.server.applyChanges()
-
-        self.marker = self.create_marker(new_pose)
-        self.server.insert(self.marker)
-        self.server.setCallback(self.marker.name, self.process_feedback)
-        self.menu_handler.apply(self.server, self.marker.name)
-        self.server.applyChanges()
-
         # Push the corrected pose into the actual target pipeline so
         # kinematic_solver stops solving against the OLD tip_link's
         # stale numeric target — this is what was pulling the arm down.
-        pose_msg = Pose()
-        pose_msg.position.x, pose_msg.position.y, pose_msg.position.z = new_pose[:3]
-        pose_msg.orientation.x, pose_msg.orientation.y, pose_msg.orientation.z, pose_msg.orientation.w = new_pose[3:]
-        self.pose_pub.publish(pose_msg)
+        self._move_marker_to(new_pose)
 
         self.get_logger().info(f'planning_tip_link updated -> {msg.data}')
 
@@ -357,6 +369,10 @@ class PoseTargetInterface(Node):
                 self._capture_waypoint(feedback.pose)
             elif feedback.menu_entry_id == self._menu_write_id:
                 self._write_captured_waypoints()
+            elif feedback.menu_entry_id == self._menu_home_id:
+                self._jog_to_home()
+            elif feedback.menu_entry_id == self._menu_revert_id:
+                self._jog_to_last_captured()
             return
 
         pose = Pose()
@@ -364,6 +380,38 @@ class PoseTargetInterface(Node):
         pose.orientation = feedback.pose.orientation
 
         self.pose_pub.publish(pose)
+
+    def _jog_to_home(self):
+        """Snap the marker + virtual robot to home_pose (the FK of the
+        home_pose param — same joint values used as the IK fallback
+        seed in arm_executor). Right-click 'Capture Waypoint'
+        afterward to get this exact, guaranteed-reachable pose into
+        the recipe as an explicit leg 0 — safer than relying on
+        wherever the arm happened to already be."""
+        self.get_logger().info('Jogging virtual robot to home_pose')
+        self._move_marker_to(self.home_pose)
+
+    def _jog_to_last_captured(self):
+        """Undo an accidental drag: snap back to the last waypoint
+        that was actually captured this session (not just wherever
+        the marker was last moved to)."""
+        if not self._captured_waypoints:
+            self.get_logger().warn(
+                'No captured waypoints yet this session — nothing to revert to')
+            return
+
+        wp = self._captured_waypoints[-1]
+        pose_arr = np.array([
+            wp['x'], wp['y'], wp['z'],
+            wp['qx'], wp['qy'], wp['qz'], wp['qw'],
+        ])
+
+        self.get_logger().info(
+            f'Reverting to last captured waypoint (#{len(self._captured_waypoints)}): '
+            f'{{x: {wp["x"]:.4f}, y: {wp["y"]:.4f}, z: {wp["z"]:.4f}, '
+            f'qx: {wp["qx"]:.4f}, qy: {wp["qy"]:.4f}, qz: {wp["qz"]:.4f}, qw: {wp["qw"]:.4f}}}'
+        )
+        self._move_marker_to(pose_arr)
 
     def _capture_waypoint(self, pose: Pose):
         entry = {

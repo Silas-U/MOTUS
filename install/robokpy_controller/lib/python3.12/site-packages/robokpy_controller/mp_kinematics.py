@@ -55,6 +55,7 @@ class KinematicsFacade:
         backend: str,
         mask: List[int],
         logger,
+        fallback_seeds: Optional[List] = None,
     ):
         self._lock = threading.RLock()
 
@@ -62,6 +63,27 @@ class KinematicsFacade:
         self._tip = tip_link
         self._mask = tuple(mask)
         self._logger = logger
+
+        # --------------------------------------------------------------
+        # Fallback IK seeds.
+        #
+        # solve_ik() always tries the caller-supplied seed first (the
+        # live/expected current pose — the common, cheap, usually-
+        # sufficient case). If that fails to converge, it retries from
+        # each of these in order before giving up. This is what lets a
+        # bad seed (arm left in an awkward configuration by a previous
+        # recipe, near a singularity/joint limit) recover WITHOUT
+        # relaunching the pipeline — relaunching only ever helped
+        # because it reset the seed source back to a known-good
+        # default; this does the same thing on demand.
+        #
+        # Empty by default — existing callers see identical behavior
+        # (single-seed solve) until they opt in via set_fallback_seeds()
+        # or the constructor kwarg.
+        # --------------------------------------------------------------
+        self._fallback_seeds: List[np.ndarray] = []
+        if fallback_seeds:
+            self.set_fallback_seeds(fallback_seeds)
 
         # --------------------------------------------------------------
         # Build RoboKpy model.
@@ -306,6 +328,48 @@ class KinematicsFacade:
             )
 
     # ==================================================================
+    # Fallback IK seeds
+    # ==================================================================
+
+    def set_fallback_seeds(self, seeds: List) -> None:
+        """
+        Replace the fallback seed list used by solve_ik() when the
+        primary (caller-supplied) seed fails to converge.
+
+        Seeds of the wrong dimension are dropped with a warning rather
+        than raising — num_joints may not be finalized yet if this is
+        called during construction, and a bad entry here shouldn't be
+        fatal to an otherwise-working solver.
+        """
+        with self._lock:
+            cleaned: List[np.ndarray] = []
+            for s in seeds:
+                arr = np.asarray(s, dtype=float)
+                if getattr(self, '_num_joints', None) is not None and \
+                        arr.size != self._num_joints:
+                    self._logger.warning(
+                        "[KinematicsFacade] dropping fallback seed of "
+                        f"size {arr.size}, expected {self._num_joints}"
+                    )
+                    continue
+                cleaned.append(arr)
+            self._fallback_seeds = cleaned
+
+    def add_fallback_seed(self, seed) -> None:
+        """Append one seed (e.g. 'wherever the arm ended up successfully
+        last time') to the fallback list without disturbing the rest."""
+        with self._lock:
+            arr = np.asarray(seed, dtype=float)
+            if getattr(self, '_num_joints', None) is not None and \
+                    arr.size != self._num_joints:
+                self._logger.warning(
+                    "[KinematicsFacade] refusing to add fallback seed of "
+                    f"size {arr.size}, expected {self._num_joints}"
+                )
+                return
+            self._fallback_seeds.append(arr)
+
+    # ==================================================================
     # IK
     # ==================================================================
 
@@ -381,48 +445,80 @@ class KinematicsFacade:
         )
 
         with self._lock:
-            try:
-                q = self._model.ik.solve(
-                    pose_work,
-                    q0=q_seed_work,
-                    mask=self._mask,
-                )
-            except Exception as exc:
-                self._logger.debug(
-                    "[KinematicsFacade] IK exception: %s",
-                    exc,
-                )
-                return None
+            solution = self._try_seed_locked(pose_work, q_seed_work)
+            if solution is not None:
+                return solution
 
-            if not getattr(
-                self._model.ik,
-                "success",
-                False,
-            ):
-                return None
+            for i, fallback in enumerate(self._fallback_seeds):
+                if fallback.size != self._num_joints:
+                    continue
+                # Skip a fallback that's ~identical to the seed we just
+                # tried — no point retrying the same starting point.
+                if np.allclose(fallback, q_seed_work, atol=1e-6):
+                    continue
 
-            if q is None:
-                return None
+                solution = self._try_seed_locked(pose_work, fallback)
+                if solution is not None:
+                    self._logger.info(
+                        "[KinematicsFacade] IK converged from fallback "
+                        f"seed #{i} after primary seed failed"
+                    )
+                    return solution
 
-            q_result = np.asarray(
-                q,
-                dtype=float,
+            self._logger.debug(
+                "[KinematicsFacade] IK failed from primary seed and all "
+                f"{len(self._fallback_seeds)} fallback seed(s)"
             )
+            return None
 
-            if q_result.ndim != 1:
-                return None
-
-            if q_result.size != self._num_joints:
-                return None
-
-            if not np.all(np.isfinite(q_result)):
-                return None
-
-            return np.array(
-                q_result,
-                dtype=float,
-                copy=True,
+    def _try_seed_locked(
+        self,
+        pose_work: np.ndarray,
+        q_seed_work: np.ndarray,
+    ) -> Optional[np.ndarray]:
+        """One IK attempt from one seed. Caller must hold self._lock."""
+        try:
+            q = self._model.ik.solve(
+                pose_work,
+                q0=q_seed_work,
+                mask=self._mask,
             )
+        except Exception as exc:
+            self._logger.debug(
+                "[KinematicsFacade] IK exception: %s",
+                exc,
+            )
+            return None
+
+        if not getattr(
+            self._model.ik,
+            "success",
+            False,
+        ):
+            return None
+
+        if q is None:
+            return None
+
+        q_result = np.asarray(
+            q,
+            dtype=float,
+        )
+
+        if q_result.ndim != 1:
+            return None
+
+        if q_result.size != self._num_joints:
+            return None
+
+        if not np.all(np.isfinite(q_result)):
+            return None
+
+        return np.array(
+            q_result,
+            dtype=float,
+            copy=True,
+        )
 
     # ==================================================================
     # FK

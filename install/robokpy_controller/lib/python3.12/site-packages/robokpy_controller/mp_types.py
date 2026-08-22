@@ -53,7 +53,7 @@ class MotionSegment:
     speed_factor: float = 1.0
     duration_per_segment: float = 3.0
     n_samples: int = 10
-    n_blend: int = 10
+    n_blend: int = 20
     dt: float = 0.04
     cached: bool = False
     trajectory: Optional[List] = None
@@ -72,7 +72,7 @@ class TrajectoryConfig:
     traj_method: str = 'js'
     traj_type: str = 'scurve'
     blend_radius: float = 0.0
-    n_blend: int = 10
+    n_blend: int = 20
     duration_per_segment: float = 3.0
     dt: float = 0.04
     speed_factor: float = 1.0
