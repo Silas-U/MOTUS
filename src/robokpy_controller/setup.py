@@ -82,6 +82,8 @@ setup(
             # --- layered multi-arm rebuild: replaces trajectory_generator + orchestrator_v2 ---
             'arm_executor = robokpy_controller.arm_executor_node:main',
             'cell_orchestrator = robokpy_controller.cell_orchestrator_node:main',
+            'preflight_recipe = robokpy_controller.preflight_recipe:main',
+            'run_recipe = robokpy_controller.run_recipe:main',
             # --- legacy nodes (unchanged) ---
             'robot_state_interface_virtual = robokpy_controller.robot_state_interface_virtual:main',
             'robot_state_manager = robokpy_controller.robot_state_manager:main',
