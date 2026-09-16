@@ -1,66 +1,58 @@
 # Motus
 
-*Motion planning, without the babysitting.*
-
-**ROS2 motion planning and control for UR-series robot arms — single-arm or multi-arm, simulation or real hardware.**
+**ROS2 framework for motion planning and control of serial robotic arms**
 
 [![ROS2](https://img.shields.io/badge/ROS2-Jazzy-blue)](https://docs.ros.org/en/jazzy/) [![Python](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/) [![Gazebo](https://img.shields.io/badge/Gazebo%20Sim-8.x-orange)](https://gazebosim.org/) [![Status](https://img.shields.io/badge/status-active--development-yellow)]()
 
-Motus is a ROS2 robotics framework I'm building around **RoboKpy**, my kinematics and motion-planning library.
+Motus is a ROS2 framework for planning, simulating, and executing motion for serial robotic arms.
 
-The idea is pretty simple: make it easier to go from designing a robot motion to actually running it, whether the robot is in Gazebo or connected to real hardware.
+It is built on top of **RoboKpy**, which provides the underlying kinematics and trajectory generation.
 
-The same recipe can be used in simulation and on the real robot, which makes testing and development a lot easier.
+The system is designed to work with different serial robot configurations rather than being tied to a particular robot manufacturer. Robot descriptions, joint configuration, controllers, and hardware interfaces are handled separately from the motion planning and orchestration layers.
+
+Motus can be used with Gazebo simulation or real hardware, using the same planning and recipe interfaces in both cases.
 
 ---
 
 ## Contents
 
-- [Overview](#overview)
+- [Synopsis](#synopsis)
+- [Getting going](#getting-going)
+- [Robot models](#robot-models)
+- [Motion planning](#motion-planning)
+- [ROS2 architecture](#ros2-architecture)
+- [Recipes](#recipes)
+- [Simulation](#simulation)
+- [Multi-arm cells](#multi-arm-cells)
 - [Requirements](#requirements)
-- [Getting Started](#getting-started)
-- [Quick Example](#quick-example)
-- [Architecture](#architecture)
-- [Running Recipes](#running-recipes)
-- [Known Issues](#known-issues)
+- [Known issues](#known-issues)
 - [Contributing](#contributing)
 
-## Overview
+## Synopsis
 
-Motus currently handles a few main things:
+Motus provides ROS2 components for:
 
-- **Multi-arm cell management** — a cell orchestrator handles task dispatch, arm registration, and resource locking. Each arm runs its own namespaced arm executor. Adding another arm should mostly be a configuration change rather than a rewrite of the system.
+- Serial robot arm configuration
+- Forward and inverse kinematics
+- Cartesian and joint-space motion planning
+- MoveJ and MoveL motion
+- Trajectory generation and waypoint blending
+- Robot state and execution management
+- Tool and I/O actions
+- Object spawning and attachment in simulation
+- Recipe-based task execution
+- Single-arm and multi-arm operation
+- Gazebo simulation and real hardware execution
 
-- **Pick-and-place workflows** — objects can be spawned, attached, and detached in Gazebo. Grasp poses are generated from a small object catalog, and tools can be controlled through different backends such as pneumatic tools, digital I/O, Modbus, ROS topics, or Gazebo grasp/attach.
+The motion planning layer is provided by RoboKpy. Motus handles the ROS2 side of the system: nodes, interfaces, execution, controllers, tools, simulation, and coordination between multiple components.
 
-- **Motion planning** — trajectories can be generated in Cartesian or joint space, including blended motion between waypoints. The goal is to keep the robot moving through a sequence instead of stopping at every point.
+The intention is to keep the robot model independent from the rest of the system. A serial arm can be introduced by providing the required robot description, joint configuration, controller interface, and planning parameters.
 
-- **YAML recipes** — robot tasks are described as YAML files using steps such as `MoveStep`, `ToolStep`, `IOStep`, `WaitStep`, `VisionStep`, and `SpawnStep`. The recipe is validated and then executed by the cell orchestrator.
+## Getting going
 
-- **Planning and execution views** — Motus keeps a virtual planning robot in RViz2 alongside the actual physics robot in Gazebo, or the real robot when running on hardware.
+Motus is developed and tested with ROS2 Jazzy.
 
-I'm trying to keep the code relatively straightforward. There is a lot going on in a robotics system already, so I'd rather have code that is easy to follow and debug than something that is overly clever.
-
-For the more practical details and current issues, see [`RUNBOOK.md`](RUNBOOK.md).
-
-## Requirements
-
-| Dependency | Version | Notes |
-|---|---|---|
-| ROS2 | Jazzy | Developed and tested against this distro |
-| Python | 3.12 | Matches the Jazzy environment |
-| Gazebo Sim | 8.x | Only required when `use_sim:=true` |
-| `xacro` | ROS2-provided | URDF processing |
-| `ros_gz_sim`, `ros_gz_bridge` | ROS2-provided | Simulation only |
-| `ros2_control`, `controller_manager` | ROS2-provided | Controller management |
-| `tf2_ros` | ROS2-provided | TF support |
-| RoboKpy | bundled | Kinematics and motion-planning backend |
-
-When running on real hardware with `use_sim:=false`, Gazebo and the `ros_gz_*` packages are not needed. The simulation-specific nodes are only started when simulation is enabled.
-
-## Getting Started
-
-Clone the repository and build it like a normal ROS2 workspace:
+Clone the repository and build it as a normal ROS2 workspace:
 
 ```bash
 git clone <this repo>
@@ -74,14 +66,12 @@ source install/setup.bash
 
 ### Using `just`
 
-I use [`just`](https://github.com/casey/just) for some of the common commands.
-
-After installing it, you can run:
+Common development and launch commands are provided through the `justfile`.
 
 ```bash
-just single-arm-sim     # one arm, Gazebo + RViz
-just cell-sim           # multi-arm cell
-just ps                 # check running nodes
+just single-arm-sim
+just cell-sim
+just ps
 ```
 
 Run:
@@ -90,105 +80,126 @@ Run:
 just --list
 ```
 
-to see all available commands.
+to see the available commands.
 
-## Quick Example
+## Robot models
 
-To launch a single arm in simulation:
+Motus is not limited to UR-series robots.
 
-```bash
-ros2 launch robokpy_controller cell.launch.py use_sim:=true
+The planning stack works with **serial robotic arms** described through the interfaces expected by RoboKpy and the ROS2 control stack.
+
+A robot configuration generally consists of:
+
+- Robot description / URDF
+- Joint names and ordering
+- Joint limits
+- Kinematic parameters
+- Controller configuration
+- Spawn configuration for simulation
+- Hardware interface for real operation
+
+The robot-specific configuration is kept separate from the cell orchestration and recipe layers.
+
+This makes it possible to use the same motion and execution infrastructure with different robot arms.
+
+## Motion planning
+
+RoboKpy provides the kinematic and trajectory-generation backend used by Motus.
+
+Current motion functionality includes:
+
+- Forward kinematics
+- Inverse kinematics
+- Jacobian calculation
+- Joint-space trajectory generation
+- Cartesian trajectory generation
+- MoveJ
+- MoveL
+- LSPB trajectories
+- Quintic trajectories
+- S-curve trajectories
+- TOPP-based Cartesian trajectories
+- Joint and Cartesian limits
+- Waypoint blending
+
+Motion segments can carry boundary velocity and acceleration information so that consecutive segments can be joined without unnecessarily stopping the robot at every waypoint.
+
+The ROS2 layer receives the resulting trajectory and handles execution through the configured robot controller.
+
+## ROS2 architecture
+
+Motus is split into cell-level and arm-level components.
+
+### Cell
+
+The cell layer contains components that are shared by the complete robot cell.
+
+The main entry point is:
+
+```text
+cell.launch.py
 ```
 
-This starts the Gazebo world, spawns the robot, starts the controllers and Motus nodes, and opens RViz.
+It is responsible for components such as:
 
-The default setup uses a UR5e with a Robotiq gripper.
-
-You can check that the system is running with:
-
-```bash
-ros2 node list
-
-ros2 run tf2_tools view_frames
-```
-
-Once everything is up, set the arm to `ACTIVE` and run a recipe.
-
-## Architecture
-
-Motus is split into a cell-level part and an arm-level part.
-
-### `cell.launch.py`
-
-This is the main launch file and is normally the one you run.
-
-It handles things shared by the whole cell, including:
-
-- Gazebo
-- Object spawning and management
-- `safety_bridge`
-- `tool_action_server`
+- Cell orchestrator
+- Object management
+- Tool action server
+- Safety bridge
 - RViz
-- `cell_orchestrator`
+- Gazebo integration when simulation is enabled
 
-### `arm.launch.py`
+### Arm
 
-This is used once for each arm.
+Each robot arm runs its own set of nodes under a ROS2 namespace.
 
-It handles that arm's:
+The arm is configured through:
 
-- URDF/xacro
-- Controllers
-- Kinematic solver
-- Robot state manager
-- Pose target interface
-- Arm executor
-- Other RoboKpy nodes
+```text
+arm.launch.py
+```
 
-Each arm runs inside its own namespace.
+The arm stack includes nodes such as:
 
-For example:
+```text
+kinematic_solver
+robot_state_manager
+pose_target_interface
+arm_executor
+```
+
+and the required controller interfaces.
+
+For a two-arm cell, the resulting ROS2 graph can be organized as:
 
 ```text
 /arm1/...
 /arm2/...
 ```
 
-The arms are defined in a YAML configuration file such as:
+This keeps state, motion commands, controllers, and execution state isolated between arms.
+
+### Launch configuration
+
+The arms in a cell are defined in YAML.
+
+The current example configuration is:
 
 ```text
 config/cell_arms.yaml
 ```
 
-Each entry specifies things like the arm namespace, robot type, and spawn position.
+An arm entry contains information such as its namespace, robot type, and spawn position.
 
-The goal is that going from one arm to multiple arms doesn't require changing the actual motion code.
+The cell launch file uses this configuration to create the required arm instances.
 
-## Running Recipes
+## Recipes
 
-A recipe is simply a YAML file describing what the robot should do.
+Motus provides a YAML-based recipe interface for describing robot tasks.
 
-Before running a recipe, the target arm needs to be in `ACTIVE` mode:
+A recipe can contain operations such as:
 
-```bash
-ros2 service call arm1/set_system_mode robokpy_interfaces/srv/SystemMode "{new_mode: 'ACTIVE'}"
-```
-
-Then run the recipe:
-
-```bash
-ros2 run robokpy_controller run_recipe test0.yaml
-```
-
-Or use the `just` command:
-
-```bash
-just run-recipe test0.yaml
-```
-
-A recipe can contain different types of steps, for example:
-
-```yaml
+```text
 MoveStep
 ToolStep
 IOStep
@@ -197,40 +208,196 @@ VisionStep
 SpawnStep
 ```
 
-Consecutive movement steps can also be blended together so the robot doesn't unnecessarily stop between every move.
+For example:
 
-## Known Issues
+```yaml
+steps:
+  - MoveStep
+  - ToolStep
+  - MoveStep
+  - SpawnStep
+  - MoveStep
+```
 
-I'm keeping most of the current operational issues in [`RUNBOOK.md`](RUNBOOK.md) rather than filling this README with troubleshooting notes.
+The recipe is parsed and validated before execution.
 
-That includes things like:
+Motion steps are passed to the motion planning layer, while tool, I/O, and object operations are handled by their respective interfaces.
 
-- Namespace issues
-- TF problems
-- DDS/retry behaviour
-- Simulation quirks
-- Things that are currently being worked on
+Consecutive motion steps can be blended into a continuous trajectory where the motion constraints allow it.
 
-The RUNBOOK is intended to be the more up-to-date reference for these.
+To execute a recipe, first set the target arm to `ACTIVE`:
+
+```bash
+ros2 service call \
+  arm1/set_system_mode \
+  robokpy_interfaces/srv/SystemMode \
+  "{new_mode: 'ACTIVE'}"
+```
+
+Then:
+
+```bash
+ros2 run robokpy_controller run_recipe test0.yaml
+```
+
+or:
+
+```bash
+just run-recipe test0.yaml
+```
+
+## Simulation
+
+Gazebo is used for physics simulation and hardware-independent development.
+
+Start the default single-arm simulation with:
+
+```bash
+ros2 launch robokpy_controller cell.launch.py use_sim:=true
+```
+
+The simulation launch starts the configured robot, controllers, Gazebo world, Motus nodes, and RViz.
+
+The same planning and recipe interfaces are used when running against real hardware. Simulation-specific nodes are enabled only when:
+
+```text
+use_sim:=true
+```
+
+is set.
+
+This keeps the motion planning and task-level code independent from the simulation backend.
+
+## Multi-arm cells
+
+Motus supports multiple serial arms in the same ROS2 cell.
+
+Each arm has its own namespace and execution stack, while the cell orchestrator handles tasks that involve shared resources.
+
+For example:
+
+```text
+Cell
+├── arm1
+│   ├── kinematic_solver
+│   ├── robot_state_manager
+│   ├── pose_target_interface
+│   └── arm_executor
+│
+├── arm2
+│   ├── kinematic_solver
+│   ├── robot_state_manager
+│   ├── pose_target_interface
+│   └── arm_executor
+│
+├── cell_orchestrator
+├── tool_action_server
+└── object_manager
+```
+
+The goal is to keep the arm implementation reusable while allowing the cell layer to coordinate multiple robots.
+
+## Requirements
+
+| Dependency | Version | Notes |
+|---|---|---|
+| ROS2 | Jazzy | Development and test platform |
+| Python | 3.12 | Required runtime |
+| Gazebo Sim | 8.x | Required for simulation |
+| `xacro` | ROS2-provided | Robot description processing |
+| `ros_gz_sim` | ROS2-provided | Gazebo integration |
+| `ros_gz_bridge` | ROS2-provided | ROS2/Gazebo communication |
+| `ros2_control` | ROS2-provided | Robot control interface |
+| `controller_manager` | ROS2-provided | Controller management |
+| `tf2_ros` | ROS2-provided | Transform handling |
+| RoboKpy | Bundled | Kinematics and trajectory generation |
+
+Gazebo and the `ros_gz_*` packages are not required when running against real hardware.
+
+## Example workflow
+
+A typical development workflow is:
+
+```text
+Robot description
+       │
+       ▼
+Robot configuration
+       │
+       ▼
+RoboKpy
+(Kinematics + Planning)
+       │
+       ▼
+Motus ROS2 interfaces
+       │
+       ▼
+Arm Executor
+       │
+       ▼
+ros2_control
+       │
+       ▼
+Robot
+```
+
+For a complete cell:
+
+```text
+                 ┌─── Arm 1 ───► Controller ───► Robot
+                 │
+Recipe ─► Cell ──┼─── Arm 2 ───► Controller ───► Robot
+                 │
+                 ├─── Tools
+                 └─── Objects
+```
+
+## Known issues
+
+Current implementation notes and operational issues are maintained in:
+
+```text
+RUNBOOK.md
+```
+
+This includes information about:
+
+- ROS2 namespaces
+- TF configuration
+- Controller behaviour
+- DDS communication
+- Gazebo issues
+- Hardware integration
+- Current development work
+
+The RUNBOOK is intended to be the operational reference for the project.
 
 ## Contributing
 
-Motus is still under active development, and some parts of the orchestration system are currently being rebuilt.
+Motus is under active development.
 
-If you're working on the project, I'd recommend:
-
-1. Read `RUNBOOK.md` first so you know what is stable and what is still changing.
-
-2. Run:
+If you are working on the project, start with:
 
 ```bash
 just single-arm-sim
 ```
 
-and make sure the basic pick-and-place example works before changing the orchestration layer.
+and verify the basic simulation before changing the planning or orchestration layers.
 
-3. For larger changes, open an issue or PR first. A few parts of the system have already gone through major rewrites, so I'm trying to keep future changes smaller and easier to review.
+For larger changes, open an issue or pull request so the proposed change can be discussed before restructuring an existing subsystem.
 
 ---
 
-*Motus is an independent project. RoboKpy is a proprietary kinematics library developed alongside it. This repository (`robokpy_controller`) is the ROS2 integration layer built around RoboKpy.*
+## Related projects
+
+**RoboKpy**
+
+RoboKpy is the kinematics and trajectory-generation library used by Motus.
+
+Motus provides the ROS2 integration and execution layer around it.
+
+## License
+
+Motus is an independent project.
+
+RoboKpy is a proprietary kinematics library developed alongside Motus. This repository contains the ROS2 integration layer and associated tools for robot configuration, motion execution, simulation, and cell orchestration.
