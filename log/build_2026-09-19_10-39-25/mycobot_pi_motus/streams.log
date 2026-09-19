@@ -1,0 +1,51 @@
+[3.439s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_pi/src/mycobot_pi_motus': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_pi_motus build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/install.log --single-version-externally-managed install_data
+[4.424s] running egg_info
+[4.425s] creating ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info
+[4.541s] writing ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/PKG-INFO
+[4.541s] writing dependency_links to ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/dependency_links.txt
+[4.542s] writing requirements to ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/requires.txt
+[4.542s] writing top-level names to ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/top_level.txt
+[4.543s] writing manifest file '../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/SOURCES.txt'
+[4.718s] reading manifest file '../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/SOURCES.txt'
+[4.719s] writing manifest file '../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/SOURCES.txt'
+[4.720s] running build
+[4.720s] running build_py
+[4.721s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build
+[4.721s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build/lib
+[4.721s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build/lib/mycobot_pi_motus
+[4.722s] copying mycobot_pi_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build/lib/mycobot_pi_motus
+[4.722s] running install
+[4.736s] running install_lib
+[4.823s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus
+[4.824s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build/lib/mycobot_pi_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus
+[4.825s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus/__init__.py to __init__.cpython-312.pyc
+[4.825s] running install_data
+[4.826s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/ament_index
+[4.826s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/ament_index/resource_index
+[4.826s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/ament_index/resource_index/packages
+[4.827s] copying resource/mycobot_pi_motus -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/ament_index/resource_index/packages
+[4.827s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus
+[4.827s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/resource
+[4.828s] copying ./resource/mycobot_pi_motus -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/resource
+[4.828s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/urdf
+[4.828s] copying ./urdf/mycobot_pi.urdf.xacro -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/urdf
+[4.829s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/config
+[4.829s] copying ./config/controllers.yaml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/config
+[4.829s] copying ./config/robot.yaml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/config
+[4.829s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/launch
+[4.830s] copying ./launch/mycobot_pi.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/launch
+[4.830s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[4.830s] copying ./meshes/camera_flange.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.047s] copying ./meshes/joint1_pi.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.202s] copying ./meshes/joint2.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.236s] copying ./meshes/joint3.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.286s] copying ./meshes/joint4.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.310s] copying ./meshes/joint5.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.386s] copying ./meshes/G_base.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.480s] copying ./meshes/joint7.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.508s] copying ./meshes/joint6.dae -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/share/mycobot_pi_motus/meshes
+[5.549s] running install_egg_info
+[5.740s] Copying ../../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus-0.0.0-py3.12.egg-info
+[5.743s] running install_scripts
+[6.632s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/install.log'
+[6.734s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_pi/src/mycobot_pi_motus' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_pi_motus build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_pi_motus/install.log --single-version-externally-managed install_data

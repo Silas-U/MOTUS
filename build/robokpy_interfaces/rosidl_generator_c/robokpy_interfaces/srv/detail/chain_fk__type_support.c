@@ -4,10 +4,10 @@
 
 #include <string.h>
 
+#include "robokpy_interfaces/srv/detail/chain_fk__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "robokpy_interfaces/srv/detail/chain_fk__struct.h"
 #include "robokpy_interfaces/srv/detail/chain_fk__functions.h"
-#include "robokpy_interfaces/srv/detail/chain_fk__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

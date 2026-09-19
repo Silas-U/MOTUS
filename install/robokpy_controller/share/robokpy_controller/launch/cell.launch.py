@@ -73,11 +73,34 @@ def generate_launch_description():
         description='Path to a YAML file listing arms for a multi-arm cell. '
                      'Empty = single arm built from arm_type/controllers_yaml.')
 
+    # --- NEW: external robot-description override passthrough (Motus
+    # Builder support, single-arm mode only -- see arm.launch.py for what
+    # these do). cell.launch.py is what actually starts the Gazebo world
+    # (motus_world.sdf) and RViz; a generated project's launch wrapper
+    # needs to go through THIS file, not arm.launch.py directly, or no
+    # simulation ever starts (ros_gz_sim's spawner then blocks forever
+    # waiting for a world that was never launched). These four are simply
+    # forwarded into the single-arm arm.launch.py include below -- they
+    # have no effect when arms_config is set (multi-arm mode keeps using
+    # each arm's own arm_type/controllers_yaml from that YAML file).
+    robot_description_path_arg = DeclareLaunchArgument(
+        'robot_description_path', default_value='')
+    robot_config_path_arg = DeclareLaunchArgument(
+        'robot_config_path', default_value='')
+    controllers_yaml_full_path_arg = DeclareLaunchArgument(
+        'controllers_yaml_full_path', default_value='')
+    mesh_package_name_arg = DeclareLaunchArgument(
+        'mesh_package_name', default_value='')
+
     use_sim = LaunchConfiguration('use_sim')
     launch_rviz = LaunchConfiguration('launch_rviz')
     arm_type = LaunchConfiguration('arm_type')
     controllers_yaml = LaunchConfiguration('controllers_yaml')
     arms_config = LaunchConfiguration('arms_config')
+    robot_description_path_launch = LaunchConfiguration('robot_description_path')
+    robot_config_path_launch = LaunchConfiguration('robot_config_path')
+    controllers_yaml_full_path_launch = LaunchConfiguration('controllers_yaml_full_path')
+    mesh_package_name_launch = LaunchConfiguration('mesh_package_name')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
     rviz_config = os.path.join(pkg, 'config', 'config.rviz')
@@ -111,28 +134,51 @@ def generate_launch_description():
 
         arm_namespaces = [a['namespace'] for a in arms]
 
+        # NEW: only meaningful in single-arm mode (arms_config unset) --
+        # a multi-arm cell_arms.yaml has no notion of an externally
+        # imported description per entry yet.
+        robot_description_path_str = robot_description_path_launch.perform(context)
+        robot_config_path_str = robot_config_path_launch.perform(context)
+        controllers_yaml_full_path_str = controllers_yaml_full_path_launch.perform(context)
+        mesh_package_name_str = mesh_package_name_launch.perform(context)
+        single_arm_mode = not arms_config_path
+
         import launch.logging
         logger = launch.logging.get_logger('cell.launch')
         logger.info(f'[Cell] arms={arm_namespaces}')
+        if single_arm_mode and robot_description_path_str:
+            logger.info(f'[Cell] single-arm mode using external robot description: {robot_description_path_str}')
 
         arm_includes = []
         for i, a in enumerate(arms):
+            arm_launch_arguments = {
+                'namespace': a['namespace'],
+                'arm_type': a.get('arm_type', 'ur5e'),
+                'controllers_yaml': a.get('controllers_yaml',
+                                           'ur5e_robotiq_85_gripper_controllers.yaml'),
+                'use_sim': use_sim,
+                'spawn_x': str(a.get('spawn_x', 0.0)),
+                'spawn_y': str(a.get('spawn_y', 0.0)),
+                'spawn_z': str(a.get('spawn_z', 0.0)),
+                'objects_config_path': objects_config_path,
+                # See module docstring — first arm only, unconfirmed assumption.
+                'embed_object_catalog_plugin': 'true' if i == 0 else 'false',
+            }
+            # NEW: forward the external-description override args through
+            # to arm.launch.py, single-arm mode only (i == 0 and only one
+            # arm exists in that mode anyway, but guard explicitly rather
+            # than rely on that coincidence).
+            if single_arm_mode:
+                arm_launch_arguments.update({
+                    'robot_description_path': robot_description_path_str,
+                    'robot_config_path': robot_config_path_str,
+                    'controllers_yaml_full_path': controllers_yaml_full_path_str,
+                    'mesh_package_name': mesh_package_name_str,
+                })
             arm_includes.append(IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
                     PathJoinSubstitution([pkg, 'launch', 'arm.launch.py'])),
-                launch_arguments={
-                    'namespace': a['namespace'],
-                    'arm_type': a.get('arm_type', 'ur5e'),
-                    'controllers_yaml': a.get('controllers_yaml',
-                                               'ur5e_robotiq_85_gripper_controllers.yaml'),
-                    'use_sim': use_sim,
-                    'spawn_x': str(a.get('spawn_x', 0.0)),
-                    'spawn_y': str(a.get('spawn_y', 0.0)),
-                    'spawn_z': str(a.get('spawn_z', 0.0)),
-                    'objects_config_path': objects_config_path,
-                    # See module docstring — first arm only, unconfirmed assumption.
-                    'embed_object_catalog_plugin': 'true' if i == 0 else 'false',
-                }.items(),
+                launch_arguments=arm_launch_arguments.items(),
             ))
 
         # --- Gazebo world (once, regardless of arm count) ---
@@ -252,5 +298,9 @@ def generate_launch_description():
         arm_type_arg,
         controllers_yaml_arg,
         arms_config_arg,
+        robot_description_path_arg,
+        robot_config_path_arg,
+        controllers_yaml_full_path_arg,
+        mesh_package_name_arg,
         OpaqueFunction(function=configure),
     ])

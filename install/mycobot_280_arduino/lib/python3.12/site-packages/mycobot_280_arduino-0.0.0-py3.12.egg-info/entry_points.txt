@@ -1,0 +1,13 @@
+[console_scripts]
+camera_display = mycobot_280_arduino.camera_display:main
+detect_marker = mycobot_280_arduino.detect_marker:main
+follow_display = mycobot_280_arduino.follow_display:main
+following_marker = mycobot_280_arduino.following_marker:main
+listen_real = mycobot_280_arduino.listen_real:main
+listen_real_of_topic = mycobot_280_arduino.listen_real_of_topic:main
+listen_real_service = mycobot_280_arduino.listen_real_service:main
+opencv_camera = mycobot_280_arduino.opencv_camera:main
+simple_gui = mycobot_280_arduino.simple_gui:main
+slider_control = mycobot_280_arduino.slider_control:main
+slider_control_adaptive_gripper = mycobot_280_arduino.slider_control_adaptive_gripper:main
+teleop_keyboard = mycobot_280_arduino.teleop_keyboard:main

@@ -1,0 +1,50 @@
+[9.939s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_communication': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mypalletizer_communication build --build-base /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build install --record /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/install.log --single-version-externally-managed install_data
+[12.632s] running egg_info
+[12.634s] creating ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info
+[13.011s] writing ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/PKG-INFO
+[13.012s] writing dependency_links to ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/dependency_links.txt
+[13.013s] writing entry points to ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/entry_points.txt
+[13.013s] writing requirements to ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/requires.txt
+[13.014s] writing top-level names to ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/top_level.txt
+[13.014s] writing manifest file '../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/SOURCES.txt'
+[13.617s] reading manifest file '../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/SOURCES.txt'
+[13.617s] writing manifest file '../../../build/mypalletizer_communication/mypalletizer_communication.egg-info/SOURCES.txt'
+[13.618s] running build
+[13.618s] running build_py
+[13.618s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build
+[13.619s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib
+[13.619s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication
+[13.620s] copying mypalletizer_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication
+[13.621s] copying mypalletizer_communication/mypalletizer_topics.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication
+[13.626s] copying mypalletizer_communication/mypalletizer_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication
+[13.627s] copying mypalletizer_communication/mypalletizer_services.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication
+[13.629s] running install
+[13.668s] running install_lib
+[14.039s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication
+[14.046s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication
+[14.046s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication/mypalletizer_topics.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication
+[14.046s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication/mypalletizer_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication
+[14.047s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build/lib/mypalletizer_communication/mypalletizer_services.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication
+[14.049s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication/__init__.py to __init__.cpython-312.pyc
+[14.054s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication/mypalletizer_topics.py to mypalletizer_topics.cpython-312.pyc
+[14.065s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication/mypalletizer_topics_seeed.py to mypalletizer_topics_seeed.cpython-312.pyc
+[14.081s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication/mypalletizer_services.py to mypalletizer_services.cpython-312.pyc
+[14.088s] running install_data
+[14.088s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/ament_index
+[14.088s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/ament_index/resource_index
+[14.089s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/ament_index/resource_index/packages
+[14.090s] copying resource/mypalletizer_communication -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/ament_index/resource_index/packages
+[14.090s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication
+[14.092s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication/launch
+[14.094s] copying launch/communication_seeed.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication/launch
+[14.095s] copying launch/communication_service.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication/launch
+[14.098s] copying launch/communication_topic_pi.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication/launch
+[14.099s] copying launch/communication_topic.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/share/mypalletizer_communication/launch
+[14.102s] running install_egg_info
+[14.439s] Copying ../../../build/mypalletizer_communication/mypalletizer_communication.egg-info to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages/mypalletizer_communication-0.0.0-py3.12.egg-info
+[14.440s] running install_scripts
+[15.501s] Installing mypalletizer_services script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/mypalletizer_communication
+[15.501s] Installing mypalletizer_topics script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/mypalletizer_communication
+[15.502s] Installing mypalletizer_topics_seeed script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/mypalletizer_communication
+[15.502s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/install.log'
+[15.623s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_communication' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mypalletizer_communication build --build-base /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/build install --record /home/meta/Documents/robotics_workspace_new/build/mypalletizer_communication/install.log --single-version-externally-managed install_data

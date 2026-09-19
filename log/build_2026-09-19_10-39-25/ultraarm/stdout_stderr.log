@@ -1,0 +1,40 @@
+running egg_info
+creating ../../../build/ultraarm/ultraarm.egg-info
+writing ../../../build/ultraarm/ultraarm.egg-info/PKG-INFO
+writing dependency_links to ../../../build/ultraarm/ultraarm.egg-info/dependency_links.txt
+writing entry points to ../../../build/ultraarm/ultraarm.egg-info/entry_points.txt
+writing requirements to ../../../build/ultraarm/ultraarm.egg-info/requires.txt
+writing top-level names to ../../../build/ultraarm/ultraarm.egg-info/top_level.txt
+writing manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+reading manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+writing manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build
+creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+copying ultraarm/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+copying ultraarm/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+copying /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+copying /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm/slider_control.py to slider_control.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index/packages
+copying resource/ultraarm -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/config
+copying config/ultraarm.rviz -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/config
+running install_egg_info
+Copying ../../../build/ultraarm/ultraarm.egg-info to /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm-0.0.0-py3.12.egg-info
+running install_scripts
+Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/ultraarm
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/ultraarm/install.log'

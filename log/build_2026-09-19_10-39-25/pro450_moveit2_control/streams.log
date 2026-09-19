@@ -1,0 +1,43 @@
+[7.573s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/pro450_moveit2_control': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/pro450_moveit2_control build --build-base /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build install --record /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/install.log --single-version-externally-managed install_data
+[9.963s] running egg_info
+[9.965s] creating ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info
+[10.154s] writing ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/PKG-INFO
+[10.157s] writing dependency_links to ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/dependency_links.txt
+[10.160s] writing entry points to ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/entry_points.txt
+[10.160s] writing requirements to ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/requires.txt
+[10.165s] writing top-level names to ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/top_level.txt
+[10.165s] writing manifest file '../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/SOURCES.txt'
+[10.622s] reading manifest file '../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/SOURCES.txt'
+[10.623s] adding license file 'LICENSE'
+[10.625s] writing manifest file '../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info/SOURCES.txt'
+[10.626s] running build
+[10.627s] running build_py
+[10.628s] creating /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build
+[10.628s] creating /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib
+[10.629s] creating /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control
+[10.630s] copying pro450_moveit2_control/test.py -> /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control
+[10.631s] copying pro450_moveit2_control/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control
+[10.632s] copying pro450_moveit2_control/sync_plan.py -> /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control
+[10.634s] running install
+[10.658s] running install_lib
+[10.838s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control
+[10.841s] copying /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control/test.py -> /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control
+[10.841s] copying /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control
+[10.841s] copying /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build/lib/pro450_moveit2_control/sync_plan.py -> /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control
+[10.846s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control/test.py to test.cpython-312.pyc
+[10.846s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control/__init__.py to __init__.cpython-312.pyc
+[10.847s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control/sync_plan.py to sync_plan.cpython-312.pyc
+[10.847s] running install_data
+[10.848s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/ament_index
+[10.849s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/ament_index/resource_index
+[10.850s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/ament_index/resource_index/packages
+[10.850s] copying resource/pro450_moveit2_control -> /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/ament_index/resource_index/packages
+[10.850s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/pro450_moveit2_control
+[10.851s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/pro450_moveit2_control/launch
+[10.851s] creating /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/share/pro450_moveit2_control/config
+[10.851s] running install_egg_info
+[11.027s] Copying ../../../build/pro450_moveit2_control/pro450_moveit2_control.egg-info to /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages/pro450_moveit2_control-0.0.0-py3.12.egg-info
+[11.031s] running install_scripts
+[13.106s] Installing sync_plan script to /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/pro450_moveit2_control
+[13.106s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/install.log'
+[13.370s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/pro450_moveit2_control' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/pro450_moveit2_control build --build-base /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/build install --record /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2_control/install.log --single-version-externally-managed install_data

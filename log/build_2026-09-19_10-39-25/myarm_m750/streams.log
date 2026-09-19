@@ -1,0 +1,71 @@
+[8.802s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_m750': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_m750/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_m750 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_m750/install.log --single-version-externally-managed install_data
+[11.630s] running egg_info
+[11.632s] creating ../../../build/myarm_m750/myarm_m750.egg-info
+[11.818s] writing ../../../build/myarm_m750/myarm_m750.egg-info/PKG-INFO
+[11.820s] writing dependency_links to ../../../build/myarm_m750/myarm_m750.egg-info/dependency_links.txt
+[11.828s] writing entry points to ../../../build/myarm_m750/myarm_m750.egg-info/entry_points.txt
+[11.828s] writing requirements to ../../../build/myarm_m750/myarm_m750.egg-info/requires.txt
+[11.829s] writing top-level names to ../../../build/myarm_m750/myarm_m750.egg-info/top_level.txt
+[11.829s] writing manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+[12.399s] reading manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+[12.399s] adding license file 'LICENSE'
+[12.402s] writing manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+[12.407s] running build
+[12.411s] running build_py
+[12.411s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build
+[12.411s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib
+[12.413s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.413s] copying myarm_m750/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.413s] copying myarm_m750/read_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.414s] copying myarm_m750/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.414s] copying myarm_m750/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.414s] copying myarm_m750/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.416s] copying myarm_m750/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.418s] copying myarm_m750/combined_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+[12.419s] running install
+[12.432s] running install_lib
+[12.592s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.592s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.594s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/read_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.596s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.597s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.597s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.597s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.598s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/combined_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+[12.598s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/simple_gui.py to simple_gui.cpython-312.pyc
+[12.612s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/read_control.py to read_control.cpython-312.pyc
+[12.615s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[12.621s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/slider_control.py to slider_control.cpython-312.pyc
+[12.626s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/follow_display.py to follow_display.cpython-312.pyc
+[12.627s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/__init__.py to __init__.cpython-312.pyc
+[12.628s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/combined_control.py to combined_control.cpython-312.pyc
+[12.631s] running install_data
+[12.632s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index
+[12.632s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index
+[12.632s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index/packages
+[12.633s] copying resource/myarm_m750 -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index/packages
+[12.636s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750
+[12.636s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.637s] copying launch/debug.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.637s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.637s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.637s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.638s] copying launch/combined_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.642s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.643s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+[12.643s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+[12.644s] copying config/myarm_m_with_myarm_c650.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+[12.644s] copying config/myarm_m750.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+[12.644s] copying config/mycobot_with_marker.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+[12.650s] copying config/myarm_m750_with_myarm_c650.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+[12.650s] running install_egg_info
+[12.988s] Copying ../../../build/myarm_m750/myarm_m750.egg-info to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750-0.0.0-py3.12.egg-info
+[12.996s] running install_scripts
+[15.178s] Installing combined_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.181s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.182s] Installing read_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.182s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.189s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.190s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+[15.190s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/myarm_m750/install.log'
+[15.529s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_m750' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_m750/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_m750 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_m750/install.log --single-version-externally-managed install_data

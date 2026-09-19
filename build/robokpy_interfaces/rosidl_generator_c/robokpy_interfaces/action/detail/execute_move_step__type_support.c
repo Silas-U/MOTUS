@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "robokpy_interfaces/action/detail/execute_move_step__functions.h"
-#include "rosidl_typesupport_interface/macros.h"
-#include "robokpy_interfaces/action/detail/execute_move_step__struct.h"
 #include "robokpy_interfaces/action/detail/execute_move_step__type_support.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "robokpy_interfaces/action/detail/execute_move_step__functions.h"
+#include "robokpy_interfaces/action/detail/execute_move_step__struct.h"
 
 #ifdef __cplusplus
 extern "C"

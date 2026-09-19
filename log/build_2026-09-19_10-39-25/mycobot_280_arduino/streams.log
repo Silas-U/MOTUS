@@ -1,0 +1,86 @@
+[6.925s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_arduino': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_280_arduino build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/install.log --single-version-externally-managed install_data
+[9.178s] running egg_info
+[9.184s] creating ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info
+[9.633s] writing ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/PKG-INFO
+[9.634s] writing dependency_links to ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/dependency_links.txt
+[9.635s] writing entry points to ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/entry_points.txt
+[9.635s] writing requirements to ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/requires.txt
+[9.635s] writing top-level names to ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/top_level.txt
+[9.644s] writing manifest file '../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/SOURCES.txt'
+[10.447s] reading manifest file '../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/SOURCES.txt'
+[10.449s] adding license file 'LICENSE'
+[10.452s] writing manifest file '../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info/SOURCES.txt'
+[10.453s] running build
+[10.454s] running build_py
+[10.455s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build
+[10.456s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib
+[10.456s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.458s] copying mycobot_280_arduino/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.458s] copying mycobot_280_arduino/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.460s] copying mycobot_280_arduino/opencv_camera.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.460s] copying mycobot_280_arduino/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.462s] copying mycobot_280_arduino/camera_display.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.463s] copying mycobot_280_arduino/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.464s] copying mycobot_280_arduino/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.466s] copying mycobot_280_arduino/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.466s] copying mycobot_280_arduino/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.468s] copying mycobot_280_arduino/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.468s] copying mycobot_280_arduino/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino
+[10.472s] running install
+[10.495s] running install_lib
+[10.656s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.658s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.659s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.660s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/opencv_camera.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.662s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.662s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/camera_display.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.664s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.664s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.665s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.667s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.668s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.670s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build/lib/mycobot_280_arduino/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino
+[10.672s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/slider_control_adaptive_gripper.py to slider_control_adaptive_gripper.cpython-312.pyc
+[10.677s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+[10.678s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/opencv_camera.py to opencv_camera.cpython-312.pyc
+[10.681s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/simple_gui.py to simple_gui.cpython-312.pyc
+[10.699s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/camera_display.py to camera_display.cpython-312.pyc
+[10.701s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[10.710s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/slider_control.py to slider_control.cpython-312.pyc
+[10.711s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/follow_display.py to follow_display.cpython-312.pyc
+[10.714s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/__init__.py to __init__.cpython-312.pyc
+[10.716s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/listen_real.py to listen_real.cpython-312.pyc
+[10.721s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino/listen_real_service.py to listen_real_service.cpython-312.pyc
+[10.735s] running install_data
+[10.735s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/ament_index
+[10.737s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/ament_index/resource_index
+[10.737s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/ament_index/resource_index/packages
+[10.737s] copying resource/mycobot_280_arduino -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/ament_index/resource_index/packages
+[10.738s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino
+[10.770s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.773s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.774s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.774s] copying launch/test_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.775s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.776s] copying launch/slider_control_adaptive_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.776s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.777s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/launch
+[10.778s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/config
+[10.778s] copying config/mycobot_ar.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/share/mycobot_280_arduino/config
+[10.778s] running install_egg_info
+[10.971s] Copying ../../../build/mycobot_280_arduino/mycobot_280_arduino.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages/mycobot_280_arduino-0.0.0-py3.12.egg-info
+[10.974s] running install_scripts
+[11.909s] Installing camera_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.912s] Installing detect_marker script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.912s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.913s] Installing following_marker script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.915s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.916s] Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.917s] Installing listen_real_service script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.917s] Installing opencv_camera script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.917s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.917s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.918s] Installing slider_control_adaptive_gripper script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.918s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/mycobot_280_arduino
+[11.927s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/install.log'
+[12.032s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_arduino' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_280_arduino build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_280_arduino/install.log --single-version-externally-managed install_data

@@ -1,0 +1,60 @@
+[0.060s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/pro450_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2
+[0.482s] -- The C compiler identification is GNU 13.2.0
+[0.763s] -- The CXX compiler identification is GNU 13.2.0
+[0.819s] -- Detecting C compiler ABI info
+[1.320s] -- Detecting C compiler ABI info - done
+[1.398s] -- Check for working C compiler: /bin/cc - skipped
+[1.399s] -- Detecting C compile features
+[1.406s] -- Detecting C compile features - done
+[1.459s] -- Detecting CXX compiler ABI info
+[1.965s] -- Detecting CXX compiler ABI info - done
+[2.059s] -- Check for working CXX compiler: /bin/c++ - skipped
+[2.063s] -- Detecting CXX compile features
+[2.065s] -- Detecting CXX compile features - done
+[2.094s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.486s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.569s] -- Configuring done (4.5s)
+[4.588s] -- Generating done (0.0s)
+[4.598s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2
+[5.745s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/pro450_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2
+[5.752s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2 -- -j4 -l4
+[5.985s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2 -- -j4 -l4
+[6.089s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2
+[6.138s] -- Install configuration: ""
+[6.139s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/ament_index/resource_index/package_run_dependencies/pro450_moveit2
+[6.146s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/ament_index/resource_index/parent_prefix_path/pro450_moveit2
+[6.146s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/environment/ament_prefix_path.sh
+[6.147s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/environment/ament_prefix_path.dsv
+[6.147s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/environment/path.sh
+[6.153s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/environment/path.dsv
+[6.154s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/local_setup.bash
+[6.154s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/local_setup.sh
+[6.154s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/local_setup.zsh
+[6.155s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/local_setup.dsv
+[6.155s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/package.dsv
+[6.156s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/ament_index/resource_index/packages/pro450_moveit2
+[6.160s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/cmake/pro450_moveit2Config.cmake
+[6.161s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/cmake/pro450_moveit2Config-version.cmake
+[6.163s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/package.xml
+[6.164s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch
+[6.168s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/static_virtual_joint_tfs.launch.py
+[6.168s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/move_group.launch.py
+[6.169s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/warehouse_db.launch.py
+[6.170s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/demo.launch.py
+[6.170s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/setup_assistant.launch.py
+[6.171s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/rsp.launch.py
+[6.172s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/moveit_rviz.launch.py
+[6.178s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/launch/spawn_controllers.launch.py
+[6.178s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config
+[6.178s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/pilz_cartesian_limits.yaml
+[6.181s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/firefighter.ros2_control.xacro
+[6.184s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/initial_positions.yaml
+[6.185s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/ros2_controllers.yaml
+[6.186s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/firefighter.urdf.xacro
+[6.190s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/kinematics.yaml
+[6.191s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/moveit.rviz
+[6.191s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/firefighter.srdf
+[6.194s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/joint_limits.yaml
+[6.194s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/config/moveit_controllers.yaml
+[6.195s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/pro450_moveit2/share/pro450_moveit2/.setup_assistant
+[6.242s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/pro450_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/pro450_moveit2

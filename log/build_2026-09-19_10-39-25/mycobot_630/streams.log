@@ -1,0 +1,46 @@
+[8.704s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_630': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_630/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_630 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_630/install.log --single-version-externally-managed install_data
+[11.595s] running egg_info
+[11.596s] creating ../../../build/mycobot_630/mycobot_630.egg-info
+[11.763s] writing ../../../build/mycobot_630/mycobot_630.egg-info/PKG-INFO
+[11.764s] writing dependency_links to ../../../build/mycobot_630/mycobot_630.egg-info/dependency_links.txt
+[11.765s] writing entry points to ../../../build/mycobot_630/mycobot_630.egg-info/entry_points.txt
+[11.770s] writing requirements to ../../../build/mycobot_630/mycobot_630.egg-info/requires.txt
+[11.770s] writing top-level names to ../../../build/mycobot_630/mycobot_630.egg-info/top_level.txt
+[11.771s] writing manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+[12.106s] reading manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+[12.107s] adding license file 'LICENSE'
+[12.108s] writing manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+[12.109s] running build
+[12.109s] running build_py
+[12.109s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build
+[12.110s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib
+[12.110s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+[12.110s] copying mycobot_630/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+[12.111s] copying mycobot_630/test.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+[12.111s] copying mycobot_630/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+[12.111s] running install
+[12.139s] running install_lib
+[12.306s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+[12.308s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+[12.309s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/test.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+[12.309s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+[12.311s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/slider_control.py to slider_control.cpython-312.pyc
+[12.312s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/test.py to test.cpython-312.pyc
+[12.314s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/__init__.py to __init__.cpython-312.pyc
+[12.314s] running install_data
+[12.315s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index
+[12.315s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index
+[12.315s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index/packages
+[12.316s] copying resource/mycobot_630 -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index/packages
+[12.316s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630
+[12.338s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+[12.339s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+[12.343s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+[12.343s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/config
+[12.344s] copying config/mycobot_630.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/config
+[12.383s] running install_egg_info
+[12.611s] Copying ../../../build/mycobot_630/mycobot_630.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630-0.0.0-py3.12.egg-info
+[12.621s] running install_scripts
+[13.958s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/mycobot_630
+[13.959s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_630/install.log'
+[14.111s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_630' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_630/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_630 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_630/install.log --single-version-externally-managed install_data

@@ -1,0 +1,55 @@
+[8.821s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/Mybuddy/mybuddy': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mybuddy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mybuddy build --build-base /home/meta/Documents/robotics_workspace_new/build/mybuddy/build install --record /home/meta/Documents/robotics_workspace_new/build/mybuddy/install.log --single-version-externally-managed install_data
+[10.950s] running egg_info
+[10.951s] creating ../../../build/mybuddy/mybuddy.egg-info
+[11.095s] writing ../../../build/mybuddy/mybuddy.egg-info/PKG-INFO
+[11.097s] writing dependency_links to ../../../build/mybuddy/mybuddy.egg-info/dependency_links.txt
+[11.099s] writing entry points to ../../../build/mybuddy/mybuddy.egg-info/entry_points.txt
+[11.099s] writing requirements to ../../../build/mybuddy/mybuddy.egg-info/requires.txt
+[11.101s] writing top-level names to ../../../build/mybuddy/mybuddy.egg-info/top_level.txt
+[11.101s] writing manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+[11.401s] reading manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+[11.404s] writing manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+[11.405s] running build
+[11.407s] running build_py
+[11.407s] creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build
+[11.407s] creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib
+[11.408s] creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.409s] copying mybuddy/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.409s] copying mybuddy/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.412s] copying mybuddy/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.412s] copying mybuddy/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.412s] copying mybuddy/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+[11.413s] running install
+[11.438s] running install_lib
+[11.588s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.589s] copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.589s] copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.590s] copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.592s] copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.593s] copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+[11.593s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+[11.597s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/slider_control.py to slider_control.cpython-312.pyc
+[11.605s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/follow_display.py to follow_display.cpython-312.pyc
+[11.606s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/__init__.py to __init__.cpython-312.pyc
+[11.607s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/listen_real.py to listen_real.cpython-312.pyc
+[11.609s] running install_data
+[11.610s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index
+[11.611s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index
+[11.611s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index/packages
+[11.612s] copying resource/mybuddy -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index/packages
+[11.612s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy
+[12.522s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+[12.522s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+[12.522s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+[12.523s] copying launch/mybuddy_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+[12.523s] creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/config
+[12.524s] copying config/dual_arm.rviz -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/config
+[12.984s] running install_egg_info
+[13.148s] Copying ../../../build/mybuddy/mybuddy.egg-info to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy-0.0.0-py3.12.egg-info
+[13.152s] running install_scripts
+[14.472s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+[14.477s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+[14.477s] Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+[14.479s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+[14.481s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mybuddy/install.log'
+[14.622s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/Mybuddy/mybuddy' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mybuddy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mybuddy build --build-base /home/meta/Documents/robotics_workspace_new/build/mybuddy/build install --record /home/meta/Documents/robotics_workspace_new/build/mybuddy/install.log --single-version-externally-managed install_data

@@ -1,0 +1,58 @@
+[6.712s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_300': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_300/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_300 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_300/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_300/install.log --single-version-externally-managed install_data
+[8.748s] running egg_info
+[8.749s] creating ../../../build/myarm_300/myarm_300.egg-info
+[9.041s] writing ../../../build/myarm_300/myarm_300.egg-info/PKG-INFO
+[9.042s] writing dependency_links to ../../../build/myarm_300/myarm_300.egg-info/dependency_links.txt
+[9.042s] writing entry points to ../../../build/myarm_300/myarm_300.egg-info/entry_points.txt
+[9.043s] writing requirements to ../../../build/myarm_300/myarm_300.egg-info/requires.txt
+[9.043s] writing top-level names to ../../../build/myarm_300/myarm_300.egg-info/top_level.txt
+[9.043s] writing manifest file '../../../build/myarm_300/myarm_300.egg-info/SOURCES.txt'
+[9.389s] reading manifest file '../../../build/myarm_300/myarm_300.egg-info/SOURCES.txt'
+[9.390s] adding license file 'LICENSE'
+[9.394s] writing manifest file '../../../build/myarm_300/myarm_300.egg-info/SOURCES.txt'
+[9.395s] running build
+[9.395s] running build_py
+[9.395s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_300/build
+[9.396s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib
+[9.413s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.414s] copying myarm_300/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.415s] copying myarm_300/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.418s] copying myarm_300/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.418s] copying myarm_300/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.419s] copying myarm_300/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300
+[9.419s] running install
+[9.454s] running install_lib
+[9.633s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.634s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.635s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.635s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.636s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.636s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_300/build/lib/myarm_300/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300
+[9.638s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300/simple_gui.py to simple_gui.cpython-312.pyc
+[9.653s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[9.660s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300/slider_control.py to slider_control.cpython-312.pyc
+[9.662s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300/follow_display.py to follow_display.cpython-312.pyc
+[9.666s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300/__init__.py to __init__.cpython-312.pyc
+[9.667s] running install_data
+[9.667s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/ament_index
+[9.680s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/ament_index/resource_index
+[9.682s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/ament_index/resource_index/packages
+[9.683s] copying resource/myarm_300 -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/ament_index/resource_index/packages
+[9.684s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300
+[9.717s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.739s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.743s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.743s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.743s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.744s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/launch
+[9.745s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/config
+[9.746s] copying config/myarm_300.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_300/share/myarm_300/config
+[9.748s] running install_egg_info
+[9.945s] Copying ../../../build/myarm_300/myarm_300.egg-info to /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages/myarm_300-0.0.0-py3.12.egg-info
+[9.946s] running install_scripts
+[10.908s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/myarm_300
+[10.909s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/myarm_300
+[10.909s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/myarm_300
+[10.910s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/myarm_300
+[10.910s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/myarm_300/install.log'
+[11.011s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_300' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_300/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_300 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_300/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_300/install.log --single-version-externally-managed install_data

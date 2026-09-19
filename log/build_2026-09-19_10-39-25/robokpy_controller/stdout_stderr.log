@@ -1,0 +1,274 @@
+running egg_info
+creating ../../build/robokpy_controller/robokpy_controller.egg-info
+writing ../../build/robokpy_controller/robokpy_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/robokpy_controller/robokpy_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/robokpy_controller/robokpy_controller.egg-info/entry_points.txt
+writing requirements to ../../build/robokpy_controller/robokpy_controller.egg-info/requires.txt
+writing top-level names to ../../build/robokpy_controller/robokpy_controller.egg-info/top_level.txt
+writing manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/planner_core.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/cell_orchestrator_node.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/resource_lock.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/object_pose_resolver.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/arm_registry.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/ik_factory.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/data_logger.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/arm_executor_node.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/robot_command_server.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/mp_types.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/tool_action_server.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/recipe_compiler.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/virtual_jog_relay.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/preflight_recipe.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/profile_planner.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/mp_viz.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/object_spawner.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/object_catalog.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/steps.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/kinematic_solver.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/safety_bridge.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/grasp_attach_bridge.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/mp_waypoints.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/mp_kinematics.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/joint_jog_server.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/execution_monitor.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/pose_target_interface.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/run_recipe.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/robot_state_manager.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+copying robokpy_controller/robot_state_interface_virtual.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends
+copying robokpy_controller/ik_backends/pinocchio_backend.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends
+copying robokpy_controller/ik_backends/robokpy_backend.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends
+copying robokpy_controller/ik_backends/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends
+copying robokpy_controller/ik_backends/base.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/planner_core.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/cell_orchestrator_node.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/resource_lock.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/object_pose_resolver.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/arm_registry.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_factory.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/data_logger.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/arm_executor_node.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/robot_command_server.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/mp_types.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/tool_action_server.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/recipe_compiler.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/virtual_jog_relay.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/preflight_recipe.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/profile_planner.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/mp_viz.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/object_spawner.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/object_catalog.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends/pinocchio_backend.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends/robokpy_backend.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/ik_backends/base.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/steps.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/kinematic_solver.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/safety_bridge.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/grasp_attach_bridge.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/mp_waypoints.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/mp_kinematics.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/joint_jog_server.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/execution_monitor.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/pose_target_interface.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/run_recipe.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/robot_state_manager.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build/lib/robokpy_controller/robot_state_interface_virtual.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/planner_core.py to planner_core.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/cell_orchestrator_node.py to cell_orchestrator_node.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/resource_lock.py to resource_lock.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/object_pose_resolver.py to object_pose_resolver.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/arm_registry.py to arm_registry.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_factory.py to ik_factory.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/data_logger.py to data_logger.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/arm_executor_node.py to arm_executor_node.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/robot_command_server.py to robot_command_server.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/mp_types.py to mp_types.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/tool_action_server.py to tool_action_server.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/recipe_compiler.py to recipe_compiler.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/virtual_jog_relay.py to virtual_jog_relay.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/preflight_recipe.py to preflight_recipe.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/profile_planner.py to profile_planner.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/mp_viz.py to mp_viz.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/object_spawner.py to object_spawner.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/object_catalog.py to object_catalog.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends/pinocchio_backend.py to pinocchio_backend.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends/robokpy_backend.py to robokpy_backend.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/ik_backends/base.py to base.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/steps.py to steps.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/kinematic_solver.py to kinematic_solver.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/safety_bridge.py to safety_bridge.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/grasp_attach_bridge.py to grasp_attach_bridge.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/mp_waypoints.py to mp_waypoints.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/mp_kinematics.py to mp_kinematics.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/joint_jog_server.py to joint_jog_server.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/execution_monitor.py to execution_monitor.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/pose_target_interface.py to pose_target_interface.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/run_recipe.py to run_recipe.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/robot_state_manager.py to robot_state_manager.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller/robot_state_interface_virtual.py to robot_state_interface_virtual.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/ament_index/resource_index/packages
+copying resource/robokpy_controller -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf
+copying urdf/robokpy_robot.urdf.xacro -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf/macros
+copying urdf/macros/ur5e_macro.xacro -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf/macros
+copying urdf/macros/ros2_control_macros.xacro -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf/macros
+copying urdf/macros/mycobot_280_macro.xacro -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf/macros
+copying urdf/macros/robotiq_85_macro.xacro -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/urdf/macros
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/launch
+copying launch/arm.launch.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/launch
+copying launch/cell.launch.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/launch
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/config.rviz -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/tools.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/mycobot_280_controllers.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/objects.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/cell_arms.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/ur5e_robotiq_85_gripper_controllers.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+copying config/robokpy_base.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config/robots
+copying config/robots/ur5e.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config/robots
+copying config/robots/mycobot_280.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config/robots
+copying config/robots/mecharm.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/config/robots
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/data_files
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/worlds
+copying worlds/motus_world.sdf -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/worlds
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+copying robokpy_controller/recipes/test2.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+copying robokpy_controller/recipes/test0.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+copying robokpy_controller/recipes/test.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+copying robokpy_controller/recipes/test4.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+copying robokpy_controller/recipes/test3.yaml -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/recipes
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/shoulder.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/wrist1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/wrist2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/upperarm.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/wrist3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+copying meshes/ur5e/visual/forearm.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/visual
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/wrist2.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/wrist3.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/shoulder.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/forearm.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/base.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/upperarm.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+copying meshes/ur5e/collision/wrist1.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/ur5e/collision
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+copying meshes/robotiq_85_gripper_meshes/visual/robotiq_85_finger_link.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+copying meshes/robotiq_85_gripper_meshes/visual/robotiq_85_inner_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+copying meshes/robotiq_85_gripper_meshes/visual/robotiq_85_finger_tip_link.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+copying meshes/robotiq_85_gripper_meshes/visual/robotiq_85_base_link.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+copying meshes/robotiq_85_gripper_meshes/visual/robotiq_85_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/visual
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+copying meshes/robotiq_85_gripper_meshes/collision/robotiq_85_base_link.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+copying meshes/robotiq_85_gripper_meshes/collision/robotiq_85_inner_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+copying meshes/robotiq_85_gripper_meshes/collision/robotiq_85_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+copying meshes/robotiq_85_gripper_meshes/collision/robotiq_85_finger_link.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+copying meshes/robotiq_85_gripper_meshes/collision/robotiq_85_finger_tip_link.stl -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/robotiq_85_gripper_meshes/collision
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/camera_flange.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/suit_env.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/pump_head.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint3.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint4.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint1.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint5.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/G_base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint7.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint2.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/pump_box.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint6.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint7.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+copying meshes/mycobot_280_m5/visual/joint6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/visual
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/camera_flange.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/suit_env.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/pump_head.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint3.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint4.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint1.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint5.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/G_base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint7.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint2.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/pump_box.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint6.png -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint7.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+copying meshes/mycobot_280_m5/collision/joint6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mycobot_280_m5/collision
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+copying meshes/mecharm_270_pi/visual/link1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/visual
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link2.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link4.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link3.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link6.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link5.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/base.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+copying meshes/mecharm_270_pi/collision/link1.dae -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/meshes/mecharm_270_pi/collision
+running install_egg_info
+Copying ../../build/robokpy_controller/robokpy_controller.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing arm_executor script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing cell_orchestrator script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing grasp_attach_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing joint_jog_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing kinematic_solver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing kinematics_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing object_pose_resolver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing object_spawner script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing pose_target_interface script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing preflight_recipe script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing robot_command_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing robot_description_viewer script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing robot_state_interface_virtual script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing robot_state_manager script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing run_recipe script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing safety_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing tool_action_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing trajectory_plotter script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+Installing virtual_jog_relay script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log'

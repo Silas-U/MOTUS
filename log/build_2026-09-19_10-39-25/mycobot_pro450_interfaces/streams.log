@@ -1,0 +1,589 @@
+[0.086s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_pro450_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces
+[0.307s] -- The C compiler identification is GNU 13.2.0
+[0.503s] -- The CXX compiler identification is GNU 13.2.0
+[0.555s] -- Detecting C compiler ABI info
+[0.855s] -- Detecting C compiler ABI info - done
+[0.894s] -- Check for working C compiler: /bin/cc - skipped
+[0.895s] -- Detecting C compile features
+[0.898s] -- Detecting C compile features - done
+[0.927s] -- Detecting CXX compiler ABI info
+[1.253s] -- Detecting CXX compiler ABI info - done
+[1.295s] -- Check for working CXX compiler: /bin/c++ - skipped
+[1.300s] -- Detecting CXX compile features
+[1.304s] -- Detecting CXX compile features - done
+[1.337s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.117s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.604s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[2.634s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.909s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.136s] -- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[3.152s] -- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+[3.169s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[8.443s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[11.672s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[16.566s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[16.581s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[17.601s] -- Found PythonExtra: /bin/python3  
+[20.494s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[21.070s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[21.363s] -- Added test 'copyright' to check source files copyright and LICENSE
+[21.377s] -- Added test 'lint_cmake' to check CMake code style
+[21.390s] -- Added test 'xmllint' to check XML markup files
+[21.423s] -- Configuring done (21.3s)
+[21.973s] -- Generating done (0.4s)
+[21.991s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces
+[22.073s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_pro450_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces
+[22.074s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces -- -j4 -l4
+[22.409s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[24.408s] [  1%] Built target mycobot_pro450_interfaces__rosidl_generator_type_description
+[24.653s] [  1%] Built target ament_cmake_python_copy_mycobot_pro450_interfaces
+[24.742s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[34.286s] [  2%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_angles__description.c.o[0m
+[34.508s] [  3%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_angles__functions.c.o[0m
+[34.802s] [  4%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.c.o[0m
+[35.021s] [  5%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_coords__description.c.o[0m
+[35.248s] [  5%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_coords__functions.c.o[0m
+[35.807s] [  6%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.c.o[0m
+[36.148s] [  7%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__description.c.o[0m
+[36.422s] [  8%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__functions.c.o[0m
+[36.670s] [  8%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.c.o[0m
+[36.807s] [  9%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__description.c.o[0m
+[36.950s] [ 10%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__functions.c.o[0m
+[37.135s] [ 11%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.c.o[0m
+[37.258s] [ 11%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__description.c.o[0m
+[37.423s] [ 12%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__functions.c.o[0m
+[37.667s] [ 13%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.c.o[0m
+[37.798s] [ 14%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_angles__description.c.o[0m
+[38.006s] [ 14%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_angles__functions.c.o[0m
+[38.302s] [ 15%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[38.459s] [ 16%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_angles__description.c.o[0m
+[38.685s] [ 17%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_angles__functions.c.o[0m
+[38.968s] [ 17%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[39.116s] [ 18%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_coords__description.c.o[0m
+[39.308s] [ 19%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_coords__functions.c.o[0m
+[39.642s] [ 20%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[39.797s] [ 20%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_coords__description.c.o[0m
+[40.056s] [ 21%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_coords__functions.c.o[0m
+[40.696s] [ 22%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[40.978s] [ 23%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/gripper_status__description.c.o[0m
+[41.357s] [ 23%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/gripper_status__functions.c.o[0m
+[41.673s] [ 24%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[41.816s] [ 25%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_gripper_value__description.c.o[0m
+[42.046s] [ 26%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_gripper_value__functions.c.o[0m
+[42.599s] [ 26%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.c.o[0m
+[42.934s] [ 27%] [32m[1mLinking C shared library libmycobot_pro450_interfaces__rosidl_generator_c.so[0m
+[43.294s] [ 27%] Built target mycobot_pro450_interfaces__rosidl_generator_c
+[45.283s] running egg_info
+[45.290s] creating mycobot_pro450_interfaces.egg-info
+[45.469s] writing mycobot_pro450_interfaces.egg-info/PKG-INFO
+[45.471s] writing dependency_links to mycobot_pro450_interfaces.egg-info/dependency_links.txt
+[45.474s] writing top-level names to mycobot_pro450_interfaces.egg-info/top_level.txt
+[45.474s] writing manifest file 'mycobot_pro450_interfaces.egg-info/SOURCES.txt'
+[46.058s] reading manifest file 'mycobot_pro450_interfaces.egg-info/SOURCES.txt'
+[46.060s] writing manifest file 'mycobot_pro450_interfaces.egg-info/SOURCES.txt'
+[46.163s] [ 27%] Built target ament_cmake_python_build_mycobot_pro450_interfaces_egg
+[46.205s] [ 27%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[51.520s] [ 28%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.c.o[0m
+[51.722s] [ 29%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.c.o[0m
+[52.113s] [ 30%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.c.o[0m
+[52.400s] [ 30%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.c.o[0m
+[52.764s] [ 31%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.c.o[0m
+[52.957s] [ 32%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[53.366s] [ 33%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[53.589s] [ 33%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[53.791s] [ 34%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[54.016s] [ 35%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[54.219s] [ 36%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.c.o[0m
+[54.421s] [ 36%] [32m[1mLinking C shared library libmycobot_pro450_interfaces__rosidl_typesupport_introspection_c.so[0m
+[54.539s] [ 36%] Built target mycobot_pro450_interfaces__rosidl_typesupport_introspection_c
+[54.588s] [ 37%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[57.635s] [ 37%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/msg/mycobot_angles__type_support.cpp.o[0m
+[57.823s] [ 38%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/msg/mycobot_coords__type_support.cpp.o[0m
+[58.042s] [ 39%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/msg/mycobot_set_angles__type_support.cpp.o[0m
+[58.316s] [ 40%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/msg/mycobot_set_coords__type_support.cpp.o[0m
+[58.555s] [ 40%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/msg/mycobot_gripper_status__type_support.cpp.o[0m
+[58.847s] [ 41%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/get_angles__type_support.cpp.o[0m
+[59.272s] [ 42%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/set_angles__type_support.cpp.o[0m
+[59.458s] [ 43%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/get_coords__type_support.cpp.o[0m
+[59.644s] [ 43%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/set_coords__type_support.cpp.o[0m
+[59.837s] [ 44%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[60.039s] [ 45%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mycobot_pro450_interfaces/srv/get_gripper_value__type_support.cpp.o[0m
+[60.437s] [ 46%] [32m[1mLinking CXX shared library libmycobot_pro450_interfaces__rosidl_typesupport_c.so[0m
+[60.606s] [ 46%] Built target mycobot_pro450_interfaces__rosidl_typesupport_c
+[60.656s] [ 47%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[67.636s] [ 48%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support_c.cpp.o[0m
+[70.129s] [ 49%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support_c.cpp.o[0m
+[73.284s] [ 50%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support_c.cpp.o[0m
+[75.654s] [ 51%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support_c.cpp.o[0m
+[78.928s] [ 51%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/get_angles__type_support_c.cpp.o[0m
+[81.211s] [ 52%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/set_angles__type_support_c.cpp.o[0m
+[83.709s] [ 53%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/get_coords__type_support_c.cpp.o[0m
+[86.077s] [ 54%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/set_coords__type_support_c.cpp.o[0m
+[88.845s] [ 54%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support_c.cpp.o[0m
+[91.810s] [ 55%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support_c.cpp.o[0m
+[94.902s] [ 55%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support_c.cpp.o[0m
+[98.644s] [ 56%] [32m[1mLinking CXX shared library libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[98.889s] [ 56%] Built target mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c
+[99.041s] [ 56%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[107.411s] [ 56%] Built target mycobot_pro450_interfaces__cpp
+[107.471s] [ 56%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[110.280s] [ 57%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/msg/mycobot_angles__type_support.cpp.o[0m
+[112.386s] [ 58%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/msg/mycobot_coords__type_support.cpp.o[0m
+[114.518s] [ 59%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/msg/mycobot_set_angles__type_support.cpp.o[0m
+[116.628s] [ 59%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/msg/mycobot_set_coords__type_support.cpp.o[0m
+[118.274s] [ 60%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/msg/mycobot_gripper_status__type_support.cpp.o[0m
+[120.930s] [ 61%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/get_angles__type_support.cpp.o[0m
+[123.459s] [ 61%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/set_angles__type_support.cpp.o[0m
+[125.985s] [ 62%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/get_coords__type_support.cpp.o[0m
+[128.192s] [ 63%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/set_coords__type_support.cpp.o[0m
+[131.904s] [ 64%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[135.733s] [ 64%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mycobot_pro450_interfaces/srv/get_gripper_value__type_support.cpp.o[0m
+[139.302s] [ 65%] [32m[1mLinking CXX shared library libmycobot_pro450_interfaces__rosidl_typesupport_cpp.so[0m
+[139.875s] [ 65%] Built target mycobot_pro450_interfaces__rosidl_typesupport_cpp
+[139.946s] [ 66%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[143.729s] [ 67%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.cpp.o[0m
+[145.501s] [ 67%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.cpp.o[0m
+[147.313s] [ 68%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.cpp.o[0m
+[149.506s] [ 69%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.cpp.o[0m
+[151.448s] [ 70%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.cpp.o[0m
+[153.576s] [ 70%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.cpp.o[0m
+[156.626s] [ 71%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.cpp.o[0m
+[160.556s] [ 72%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.cpp.o[0m
+[163.416s] [ 73%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.cpp.o[0m
+[165.389s] [ 73%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.cpp.o[0m
+[168.582s] [ 74%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.cpp.o[0m
+[171.336s] [ 75%] [32m[1mLinking CXX shared library libmycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[171.870s] [ 75%] Built target mycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp
+[171.944s] [ 76%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[179.674s] [ 76%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/msg/detail/dds_fastrtps/mycobot_angles__type_support.cpp.o[0m
+[182.856s] [ 77%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/msg/detail/dds_fastrtps/mycobot_set_coords__type_support.cpp.o[0m
+[186.218s] [ 77%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/msg/detail/dds_fastrtps/mycobot_gripper_status__type_support.cpp.o[0m
+[189.678s] [ 78%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/get_angles__type_support.cpp.o[0m
+[193.740s] [ 79%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/set_angles__type_support.cpp.o[0m
+[197.882s] [ 80%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/get_coords__type_support.cpp.o[0m
+[200.713s] [ 80%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/set_coords__type_support.cpp.o[0m
+[203.924s] [ 81%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/gripper_status__type_support.cpp.o[0m
+[207.523s] [ 82%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/srv/detail/dds_fastrtps/get_gripper_value__type_support.cpp.o[0m
+[212.259s] [ 83%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/msg/detail/dds_fastrtps/mycobot_set_angles__type_support.cpp.o[0m
+[214.944s] [ 84%] [32mBuilding CXX object CMakeFiles/mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mycobot_pro450_interfaces/msg/detail/dds_fastrtps/mycobot_coords__type_support.cpp.o[0m
+[218.027s] [ 85%] [32m[1mLinking CXX shared library libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[218.531s] [ 85%] Built target mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp
+[218.612s] [ 85%] Built target mycobot_pro450_interfaces
+[218.689s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[226.601s] [ 86%] Built target mycobot_pro450_interfaces__py
+[226.684s] [ 87%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/msg/_mycobot_angles_s.c.o[0m
+[227.329s] [ 88%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/msg/_mycobot_set_coords_s.c.o[0m
+[227.925s] [ 89%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/msg/_mycobot_gripper_status_s.c.o[0m
+[228.496s] [ 90%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_get_angles_s.c.o[0m
+[229.199s] [ 90%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_set_angles_s.c.o[0m
+[229.950s] [ 91%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_get_coords_s.c.o[0m
+[230.691s] [ 92%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_set_coords_s.c.o[0m
+[231.359s] [ 93%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_gripper_status_s.c.o[0m
+[232.509s] [ 93%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/srv/_get_gripper_value_s.c.o[0m
+[233.110s] [ 93%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/msg/_mycobot_set_angles_s.c.o[0m
+[233.709s] [ 94%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mycobot_pro450_interfaces/msg/_mycobot_coords_s.c.o[0m
+[234.259s] [ 95%] [32m[1mLinking C shared library libmycobot_pro450_interfaces__rosidl_generator_py.so[0m
+[234.424s] [ 95%] Built target mycobot_pro450_interfaces__rosidl_generator_py
+[234.498s] [ 95%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[235.288s] [ 96%] [32m[1mLinking C shared module rosidl_generator_py/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[235.434s] [ 96%] Built target mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c
+[235.503s] [ 97%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[236.311s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_c.so[0m
+[236.422s] [ 98%] Built target mycobot_pro450_interfaces_s__rosidl_typesupport_c
+[236.493s] [ 99%] [32mBuilding C object CMakeFiles/mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[237.248s] [100%] [32m[1mLinking C shared module rosidl_generator_py/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[237.362s] [100%] Built target mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c
+[237.410s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces -- -j4 -l4
+[238.571s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces
+[238.632s] -- Install configuration: ""
+[238.633s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/ament_index/resource_index/rosidl_interfaces/mycobot_pro450_interfaces
+[238.637s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotAngles.json
+[238.637s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotCoords.json
+[238.640s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetAngles.json
+[238.641s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetCoords.json
+[238.641s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotGripperStatus.json
+[238.641s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetAngles.json
+[238.642s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetAngles.json
+[238.642s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetCoords.json
+[238.645s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetCoords.json
+[238.645s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GripperStatus.json
+[238.647s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetGripperValue.json
+[238.647s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.648s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.648s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_gripper_value.h
+[238.648s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.648s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__functions.h
+[238.652s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.c
+[238.652s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.h
+[238.653s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.h
+[238.653s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__functions.c
+[238.653s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__struct.h
+[238.654s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__description.c
+[238.654s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__functions.c
+[238.654s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.c
+[238.654s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.h
+[238.660s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__functions.c
+[238.660s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.c
+[238.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.h
+[238.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__functions.c
+[238.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__description.c
+[238.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.c
+[238.662s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__functions.h
+[238.665s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__functions.h
+[238.665s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__description.c
+[238.665s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__functions.h
+[238.665s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__description.c
+[238.666s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__functions.h
+[238.666s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__struct.h
+[238.667s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__struct.h
+[238.667s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.c
+[238.667s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.h
+[238.670s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__functions.c
+[238.670s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__description.c
+[238.670s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__struct.h
+[238.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.h
+[238.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__functions.h
+[238.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__description.c
+[238.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__struct.h
+[238.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__functions.c
+[238.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.c
+[238.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__struct.h
+[238.685s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/gripper_status.h
+[238.685s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_angles.h
+[238.685s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/set_angles.h
+[238.686s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_coords.h
+[238.687s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/set_coords.h
+[238.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_angles.h
+[238.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_set_angles.h
+[238.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.689s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__description.c
+[238.689s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__functions.c
+[238.689s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.c
+[238.695s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__description.c
+[238.695s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.h
+[238.695s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__functions.h
+[238.696s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__functions.c
+[238.698s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__functions.c
+[238.699s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.c
+[238.699s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__struct.h
+[238.701s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__struct.h
+[238.701s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.c
+[238.701s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.h
+[238.702s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.c
+[238.702s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.h
+[238.702s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__functions.c
+[238.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__functions.h
+[238.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__functions.c
+[238.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__functions.h
+[238.707s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__description.c
+[238.707s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.h
+[238.708s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__struct.h
+[238.708s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__description.c
+[238.708s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__functions.h
+[238.716s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__struct.h
+[238.716s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__description.c
+[238.717s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.h
+[238.717s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.c
+[238.718s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__struct.h
+[238.718s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__functions.h
+[238.718s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_set_coords.h
+[238.721s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_gripper_status.h
+[238.721s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_coords.h
+[238.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/rosidl_generator_c__visibility_control.h
+[238.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/library_path.sh
+[238.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/library_path.dsv
+[238.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_generator_c.so
+[238.723s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_generator_c.so" to ""
+[238.723s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.725s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.725s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.725s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_c.h
+[238.727s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_c.h
+[238.727s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_c.h
+[238.727s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__rosidl_typesupport_fastrtps_c.h
+[238.727s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_c.h
+[238.729s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_c.h
+[238.730s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.730s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.731s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_fastrtps_c.h
+[238.734s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_fastrtps_c.h
+[238.734s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_fastrtps_c.h
+[238.734s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_fastrtps_c.h
+[238.734s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_fastrtps_c.h
+[238.735s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[238.735s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.so
+[238.735s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[238.744s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.744s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.744s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.744s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.c
+[238.745s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_c.h
+[238.745s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.c
+[238.745s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.c
+[238.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_c.h
+[238.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.c
+[238.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__rosidl_typesupport_introspection_c.h
+[238.748s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.c
+[238.748s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_c.h
+[238.748s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_c.h
+[238.751s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.c
+[238.752s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_c.h
+[238.752s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.753s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.753s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.c
+[238.754s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_introspection_c.h
+[238.754s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_introspection_c.h
+[238.757s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_introspection_c.h
+[238.757s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_introspection_c.h
+[238.757s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.c
+[238.758s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.c
+[238.758s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.c
+[238.761s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_introspection_c.h
+[238.762s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.c
+[238.762s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[238.763s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_introspection_c.so
+[238.763s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[238.763s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_c.so
+[238.764s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_c.so" to ""
+[238.764s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.764s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.768s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/set_coords.hpp
+[238.768s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/set_angles.hpp
+[238.769s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_angles.hpp
+[238.769s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.769s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.hpp
+[238.770s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.hpp
+[238.770s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__traits.hpp
+[238.770s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__struct.hpp
+[238.770s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__struct.hpp
+[238.771s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__traits.hpp
+[238.771s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.hpp
+[238.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__builder.hpp
+[238.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__struct.hpp
+[238.773s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__builder.hpp
+[238.773s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.hpp
+[238.773s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__traits.hpp
+[238.774s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__builder.hpp
+[238.774s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__struct.hpp
+[238.776s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__traits.hpp
+[238.777s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__traits.hpp
+[238.778s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__builder.hpp
+[238.779s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__builder.hpp
+[238.779s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__struct.hpp
+[238.780s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__struct.hpp
+[238.781s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__traits.hpp
+[238.782s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.hpp
+[238.784s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.hpp
+[238.786s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__builder.hpp
+[238.787s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_coords.hpp
+[238.788s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/get_gripper_value.hpp
+[238.789s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/gripper_status.hpp
+[238.789s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.791s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[238.792s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_angles.hpp
+[238.793s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_coords.hpp
+[238.793s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.796s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__struct.hpp
+[238.796s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__traits.hpp
+[238.799s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__traits.hpp
+[238.799s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__struct.hpp
+[238.799s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__struct.hpp
+[238.800s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.hpp
+[238.801s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__struct.hpp
+[238.802s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__traits.hpp
+[238.803s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.hpp
+[238.804s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.hpp
+[238.805s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__struct.hpp
+[238.806s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__traits.hpp
+[238.807s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__builder.hpp
+[238.810s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__builder.hpp
+[238.812s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__builder.hpp
+[238.813s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__builder.hpp
+[238.817s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__traits.hpp
+[238.820s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.hpp
+[238.820s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.hpp
+[238.821s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__builder.hpp
+[238.824s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_set_angles.hpp
+[238.825s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_gripper_status.hpp
+[238.825s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/mycobot_set_coords.hpp
+[238.826s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.827s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.828s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.828s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[238.829s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[238.830s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__rosidl_typesupport_fastrtps_cpp.hpp
+[238.831s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[238.832s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[238.833s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[238.834s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/dds_fastrtps
+[238.837s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.838s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[238.842s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.842s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[238.842s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[238.846s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[238.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[238.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/dds_fastrtps
+[238.854s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[238.854s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[238.865s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[238.866s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces
+[238.870s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv
+[238.871s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail
+[238.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__type_support.cpp
+[238.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__type_support.cpp
+[238.879s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__type_support.cpp
+[238.879s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_cpp.hpp
+[238.879s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_cpp.hpp
+[238.880s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__type_support.cpp
+[238.880s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_cpp.hpp
+[238.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_cpp.hpp
+[238.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[238.886s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/set_angles__type_support.cpp
+[238.887s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__rosidl_typesupport_introspection_cpp.hpp
+[238.887s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/srv/detail/get_gripper_value__type_support.cpp
+[238.892s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg
+[238.897s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail
+[238.897s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__type_support.cpp
+[238.897s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[238.898s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__type_support.cpp
+[238.898s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_introspection_cpp.hpp
+[238.903s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_introspection_cpp.hpp
+[238.903s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__type_support.cpp
+[238.904s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__type_support.cpp
+[238.904s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_introspection_cpp.hpp
+[238.904s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_set_coords__type_support.cpp
+[238.905s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/include/mycobot_pro450_interfaces/mycobot_pro450_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_introspection_cpp.hpp
+[238.908s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.so
+[238.913s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[238.914s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_cpp.so
+[238.920s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_typesupport_cpp.so" to ""
+[238.927s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/pythonpath.sh
+[238.933s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/pythonpath.dsv
+[238.933s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces-1.0.0-py3.12.egg-info
+[238.933s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces-1.0.0-py3.12.egg-info/dependency_links.txt
+[238.934s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces-1.0.0-py3.12.egg-info/SOURCES.txt
+[238.935s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces-1.0.0-py3.12.egg-info/PKG-INFO
+[238.936s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces-1.0.0-py3.12.egg-info/top_level.txt
+[238.937s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces
+[238.938s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[238.939s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv
+[238.940s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_angles.py
+[238.941s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_coords.py
+[238.942s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_gripper_status_s.c
+[238.943s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_angles_s.c
+[238.944s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_coords.py
+[238.944s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_angles_s.c
+[238.945s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_gripper_value.py
+[238.946s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/__init__.py
+[238.946s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_gripper_value_s.c
+[238.948s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_angles.py
+[238.948s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_coords_s.c
+[238.949s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_coords_s.c
+[238.950s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_gripper_status.py
+[238.952s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_c.so
+[238.952s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg
+[238.953s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_coords.py
+[238.954s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_angles_s.c
+[238.956s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_angles_s.c
+[238.957s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_coords_s.c
+[238.957s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_gripper_status.py
+[238.957s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_gripper_status_s.c
+[238.959s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_coords_s.c
+[238.959s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_angles.py
+[238.959s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_coords.py
+[238.960s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/__init__.py
+[238.961s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_angles.py
+[238.962s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[238.963s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c.so
+[238.964s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/__init__.py
+[238.965s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[238.966s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/_mycobot_pro450_interfaces_s.ep.rosidl_typesupport_c.c
+[239.308s] Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces'...
+[239.308s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/__init__.py'...
+[239.308s] Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg'...
+[239.309s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/__init__.py'...
+[239.309s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_angles.py'...
+[239.309s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_coords.py'...
+[239.310s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_gripper_status.py'...
+[239.310s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_angles.py'...
+[239.310s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/msg/_mycobot_set_coords.py'...
+[239.311s] Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv'...
+[239.311s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/__init__.py'...
+[239.311s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_angles.py'...
+[239.312s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_coords.py'...
+[239.312s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_get_gripper_value.py'...
+[239.314s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_gripper_status.py'...
+[239.315s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_angles.py'...
+[239.315s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/srv/_set_coords.py'...
+[239.335s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[239.336s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[239.339s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c.so
+[239.339s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[239.339s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_c.so
+[239.340s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages/mycobot_pro450_interfaces/mycobot_pro450_interfaces_s__rosidl_typesupport_c.so" to ""
+[239.341s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_generator_py.so
+[239.343s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/libmycobot_pro450_interfaces__rosidl_generator_py.so" to ""
+[239.343s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotAngles.idl
+[239.345s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotCoords.idl
+[239.346s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetAngles.idl
+[239.347s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetCoords.idl
+[239.348s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotGripperStatus.idl
+[239.349s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetAngles.idl
+[239.350s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetAngles.idl
+[239.351s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetCoords.idl
+[239.352s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetCoords.idl
+[239.355s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GripperStatus.idl
+[239.356s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetGripperValue.idl
+[239.357s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotAngles.msg
+[239.358s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotCoords.msg
+[239.358s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetAngles.msg
+[239.360s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotSetCoords.msg
+[239.361s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/msg/MycobotGripperStatus.msg
+[239.362s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetAngles.srv
+[239.363s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetAngles.srv
+[239.364s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetCoords.srv
+[239.365s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/SetCoords.srv
+[239.366s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GripperStatus.srv
+[239.367s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/srv/GetGripperValue.srv
+[239.369s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/ament_index/resource_index/package_run_dependencies/mycobot_pro450_interfaces
+[239.371s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/ament_index/resource_index/parent_prefix_path/mycobot_pro450_interfaces
+[239.371s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/ament_prefix_path.sh
+[239.372s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/ament_prefix_path.dsv
+[239.373s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/path.sh
+[239.373s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/environment/path.dsv
+[239.373s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/local_setup.bash
+[239.374s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/local_setup.sh
+[239.374s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/local_setup.zsh
+[239.374s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/local_setup.dsv
+[239.375s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/package.dsv
+[239.375s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/ament_index/resource_index/packages/mycobot_pro450_interfaces
+[239.375s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_generator_cExport.cmake
+[239.377s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_generator_cExport-noconfig.cmake
+[239.378s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[239.378s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[239.378s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[239.379s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[239.379s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_cExport.cmake
+[239.379s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[239.384s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_generator_cppExport.cmake
+[239.384s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[239.384s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[239.385s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[239.385s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[239.385s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_cppExport.cmake
+[239.385s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[239.386s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_generator_pyExport.cmake
+[239.386s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/export_mycobot_pro450_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[239.386s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/rosidl_cmake-extras.cmake
+[239.391s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[239.392s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[239.392s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[239.393s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[239.394s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[239.394s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[239.395s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfacesConfig.cmake
+[239.395s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/cmake/mycobot_pro450_interfacesConfig-version.cmake
+[239.396s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/share/mycobot_pro450_interfaces/package.xml
+[239.397s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_pro450_interfaces

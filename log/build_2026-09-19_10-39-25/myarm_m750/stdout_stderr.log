@@ -1,0 +1,69 @@
+running egg_info
+creating ../../../build/myarm_m750/myarm_m750.egg-info
+writing ../../../build/myarm_m750/myarm_m750.egg-info/PKG-INFO
+writing dependency_links to ../../../build/myarm_m750/myarm_m750.egg-info/dependency_links.txt
+writing entry points to ../../../build/myarm_m750/myarm_m750.egg-info/entry_points.txt
+writing requirements to ../../../build/myarm_m750/myarm_m750.egg-info/requires.txt
+writing top-level names to ../../../build/myarm_m750/myarm_m750.egg-info/top_level.txt
+writing manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+reading manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../../build/myarm_m750/myarm_m750.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build
+creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/read_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+copying myarm_m750/combined_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/read_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+copying /home/meta/Documents/robotics_workspace_new/build/myarm_m750/build/lib/myarm_m750/combined_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/simple_gui.py to simple_gui.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/read_control.py to read_control.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/slider_control.py to slider_control.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/follow_display.py to follow_display.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750/combined_control.py to combined_control.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index/packages
+copying resource/myarm_m750 -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/debug.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/combined_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/launch
+creating /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+copying config/myarm_m_with_myarm_c650.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+copying config/myarm_m750.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+copying config/mycobot_with_marker.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+copying config/myarm_m750_with_myarm_c650.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_m750/share/myarm_m750/config
+running install_egg_info
+Copying ../../../build/myarm_m750/myarm_m750.egg-info to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages/myarm_m750-0.0.0-py3.12.egg-info
+running install_scripts
+Installing combined_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+Installing read_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/myarm_m750
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/myarm_m750/install.log'

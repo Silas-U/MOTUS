@@ -1,0 +1,57 @@
+running egg_info
+creating ../../build/robokpy/robokpy.egg-info
+writing ../../build/robokpy/robokpy.egg-info/PKG-INFO
+writing dependency_links to ../../build/robokpy/robokpy.egg-info/dependency_links.txt
+writing requirements to ../../build/robokpy/robokpy.egg-info/requires.txt
+writing top-level names to ../../build/robokpy/robokpy.egg-info/top_level.txt
+writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+reading manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+writing manifest file '../../build/robokpy/robokpy.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/jacobian.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/ik.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/trajectory.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/industrial_trajectory.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/model.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/try.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/pipeline.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/fk.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+copying robokpy/Init_Model.py -> /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/jacobian.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/ik.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/trajectory.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/industrial_trajectory.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/model.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/try.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/pipeline.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/fk.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+copying /home/meta/Documents/robotics_workspace_new/build/robokpy/build/lib/robokpy/Init_Model.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/jacobian.py to jacobian.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/ik.py to ik.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/trajectory.py to trajectory.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/industrial_trajectory.py to industrial_trajectory.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/model.py to model.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/try.py to try.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/pipeline.py to pipeline.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/fk.py to fk.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy/Init_Model.py to Init_Model.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index/packages
+copying resource/robokpy -> /home/meta/Documents/robotics_workspace_new/install/robokpy/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/robokpy/share/robokpy
+running install_egg_info
+Copying ../../build/robokpy/robokpy.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages/robokpy-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy/install.log'

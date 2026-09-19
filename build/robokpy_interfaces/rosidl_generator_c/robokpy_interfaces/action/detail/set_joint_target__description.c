@@ -203,10 +203,10 @@ robokpy_interfaces__action__SetJointTarget_FeedbackMessage__get_type_hash(
 #include <string.h>
 
 // Include directives for referenced types
-#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
-#include "builtin_interfaces/msg/detail/time__functions.h"
 #include "sensor_msgs/msg/detail/joint_state__functions.h"
 #include "std_msgs/msg/detail/header__functions.h"
+#include "builtin_interfaces/msg/detail/time__functions.h"
+#include "unique_identifier_msgs/msg/detail/uuid__functions.h"
 #include "service_msgs/msg/detail/service_event_info__functions.h"
 
 // Hashes for external referenced types

@@ -1,0 +1,61 @@
+[0.070s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280rdkx5_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2
+[0.469s] -- The C compiler identification is GNU 13.2.0
+[0.903s] -- The CXX compiler identification is GNU 13.2.0
+[1.012s] -- Detecting C compiler ABI info
+[1.406s] -- Detecting C compiler ABI info - done
+[1.453s] -- Check for working C compiler: /bin/cc - skipped
+[1.456s] -- Detecting C compile features
+[1.459s] -- Detecting C compile features - done
+[1.492s] -- Detecting CXX compiler ABI info
+[2.212s] -- Detecting CXX compiler ABI info - done
+[2.355s] -- Check for working CXX compiler: /bin/c++ - skipped
+[2.357s] -- Detecting CXX compile features
+[2.369s] -- Detecting CXX compile features - done
+[2.408s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[4.154s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[5.338s] -- Configuring done (5.2s)
+[5.377s] -- Generating done (0.0s)
+[5.391s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2
+[5.404s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280rdkx5_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2
+[5.407s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2 -- -j4 -l4
+[5.665s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2 -- -j4 -l4
+[5.777s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2
+[5.817s] -- Install configuration: ""
+[5.819s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/ament_index/resource_index/package_run_dependencies/mycobot_280rdkx5_moveit2
+[5.821s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/ament_index/resource_index/parent_prefix_path/mycobot_280rdkx5_moveit2
+[5.831s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/environment/ament_prefix_path.sh
+[5.831s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/environment/ament_prefix_path.dsv
+[5.832s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/environment/path.sh
+[5.832s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/environment/path.dsv
+[5.840s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/local_setup.bash
+[5.842s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/local_setup.sh
+[5.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/local_setup.zsh
+[5.847s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/local_setup.dsv
+[5.847s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/package.dsv
+[5.854s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/ament_index/resource_index/packages/mycobot_280rdkx5_moveit2
+[5.855s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/cmake/mycobot_280rdkx5_moveit2Config.cmake
+[5.856s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/cmake/mycobot_280rdkx5_moveit2Config-version.cmake
+[5.858s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/package.xml
+[5.862s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch
+[5.863s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/static_virtual_joint_tfs.launch.py
+[5.873s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/move_group.launch.py
+[5.873s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/warehouse_db.launch.py
+[5.874s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/demo.launch.py
+[5.874s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/setup_assistant.launch.py
+[5.874s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/rsp.launch.py
+[5.875s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/moveit_rviz.launch.py
+[5.875s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/launch/spawn_controllers.launch.py
+[5.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config
+[5.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/pilz_cartesian_limits.yaml
+[5.885s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/firefighter.ros2_control.xacro
+[5.885s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/initial_positions.yaml
+[5.888s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/ros2_controllers.yaml
+[5.889s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/firefighter.urdf.xacro
+[5.890s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/sensors_3d.yaml
+[5.900s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/kinematics.yaml
+[5.901s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/moveit.rviz
+[5.901s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/firefighter.srdf
+[5.901s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/joint_limits.yaml
+[5.902s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/config/moveit_controllers.yaml
+[5.906s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2/share/mycobot_280rdkx5_moveit2/.setup_assistant
+[5.911s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_280rdkx5_moveit2

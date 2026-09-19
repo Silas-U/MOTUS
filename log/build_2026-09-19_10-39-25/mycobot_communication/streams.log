@@ -1,0 +1,60 @@
+[6.159s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_communication': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_communication/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/mycobot_communication build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/install.log --single-version-externally-managed install_data
+[7.973s] running egg_info
+[7.974s] creating ../../build/mycobot_communication/mycobot_communication.egg-info
+[8.091s] writing ../../build/mycobot_communication/mycobot_communication.egg-info/PKG-INFO
+[8.092s] writing dependency_links to ../../build/mycobot_communication/mycobot_communication.egg-info/dependency_links.txt
+[8.093s] writing entry points to ../../build/mycobot_communication/mycobot_communication.egg-info/entry_points.txt
+[8.093s] writing requirements to ../../build/mycobot_communication/mycobot_communication.egg-info/requires.txt
+[8.093s] writing top-level names to ../../build/mycobot_communication/mycobot_communication.egg-info/top_level.txt
+[8.094s] writing manifest file '../../build/mycobot_communication/mycobot_communication.egg-info/SOURCES.txt'
+[8.424s] reading manifest file '../../build/mycobot_communication/mycobot_communication.egg-info/SOURCES.txt'
+[8.427s] adding license file 'LICENSE'
+[8.429s] writing manifest file '../../build/mycobot_communication/mycobot_communication.egg-info/SOURCES.txt'
+[8.430s] running build
+[8.430s] running build_py
+[8.431s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build
+[8.432s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib
+[8.435s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.436s] copying mycobot_communication/mycobot_topics_pi.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.436s] copying mycobot_communication/mycobot_services.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.436s] copying mycobot_communication/mycobot_topics.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.436s] copying mycobot_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.437s] copying mycobot_communication/mycobot_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.437s] copying mycobot_communication/mycobot_topics_jsnn.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication
+[8.437s] running install
+[8.460s] running install_lib
+[8.635s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.637s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/mycobot_topics_pi.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.640s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/mycobot_services.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.640s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/mycobot_topics.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.640s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.641s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/mycobot_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.644s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build/lib/mycobot_communication/mycobot_topics_jsnn.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication
+[8.645s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/mycobot_topics_pi.py to mycobot_topics_pi.cpython-312.pyc
+[8.647s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/mycobot_services.py to mycobot_services.cpython-312.pyc
+[8.652s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/mycobot_topics.py to mycobot_topics.cpython-312.pyc
+[8.658s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/__init__.py to __init__.cpython-312.pyc
+[8.659s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/mycobot_topics_seeed.py to mycobot_topics_seeed.cpython-312.pyc
+[8.665s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication/mycobot_topics_jsnn.py to mycobot_topics_jsnn.cpython-312.pyc
+[8.671s] running install_data
+[8.672s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/ament_index
+[8.672s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/ament_index/resource_index
+[8.673s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/ament_index/resource_index/packages
+[8.673s] copying resource/mycobot_communication -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/ament_index/resource_index/packages
+[8.673s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication
+[8.694s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.694s] copying launch/communication_seeed.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.695s] copying launch/communication_service.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.696s] copying launch/communication_topic_pi.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.698s] copying launch/communication_jsnn.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.702s] copying launch/communication_topic.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/share/mycobot_communication/launch
+[8.702s] running install_egg_info
+[8.891s] Copying ../../build/mycobot_communication/mycobot_communication.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages/mycobot_communication-0.0.0-py3.12.egg-info
+[8.895s] running install_scripts
+[9.868s] Installing mycobot_services script to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/mycobot_communication
+[9.871s] Installing mycobot_topics script to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/mycobot_communication
+[9.872s] Installing mycobot_topics_jsnn script to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/mycobot_communication
+[9.876s] Installing mycobot_topics_pi script to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/mycobot_communication
+[9.877s] Installing mycobot_topics_seeed script to /home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/mycobot_communication
+[9.877s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_communication/install.log'
+[9.989s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_communication' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_communication/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/mycobot_communication build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_communication/install.log --single-version-externally-managed install_data

@@ -1,0 +1,77 @@
+[6.706s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_260': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mypalletizer_260 build --build-base /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build install --record /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/install.log --single-version-externally-managed install_data
+[9.095s] running egg_info
+[9.096s] creating ../../../build/mypalletizer_260/mypalletizer_260.egg-info
+[9.248s] writing ../../../build/mypalletizer_260/mypalletizer_260.egg-info/PKG-INFO
+[9.251s] writing dependency_links to ../../../build/mypalletizer_260/mypalletizer_260.egg-info/dependency_links.txt
+[9.253s] writing entry points to ../../../build/mypalletizer_260/mypalletizer_260.egg-info/entry_points.txt
+[9.253s] writing requirements to ../../../build/mypalletizer_260/mypalletizer_260.egg-info/requires.txt
+[9.253s] writing top-level names to ../../../build/mypalletizer_260/mypalletizer_260.egg-info/top_level.txt
+[9.254s] writing manifest file '../../../build/mypalletizer_260/mypalletizer_260.egg-info/SOURCES.txt'
+[9.741s] reading manifest file '../../../build/mypalletizer_260/mypalletizer_260.egg-info/SOURCES.txt'
+[9.745s] adding license file 'LICENSE'
+[9.748s] writing manifest file '../../../build/mypalletizer_260/mypalletizer_260.egg-info/SOURCES.txt'
+[9.751s] running build
+[9.751s] running build_py
+[9.755s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build
+[9.756s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib
+[9.756s] creating /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.757s] copying mypalletizer_260/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.759s] copying mypalletizer_260/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.760s] copying mypalletizer_260/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.760s] copying mypalletizer_260/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.761s] copying mypalletizer_260/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.762s] copying mypalletizer_260/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.763s] copying mypalletizer_260/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.766s] copying mypalletizer_260/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.766s] copying mypalletizer_260/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260
+[9.772s] running install
+[9.841s] running install_lib
+[10.022s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.023s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.024s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.025s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.026s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.027s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.029s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.030s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.031s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.034s] copying /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build/lib/mypalletizer_260/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260
+[10.034s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/slider_control_adaptive_gripper.py to slider_control_adaptive_gripper.cpython-312.pyc
+[10.038s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+[10.048s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/simple_gui.py to simple_gui.cpython-312.pyc
+[10.073s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[10.083s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/slider_control.py to slider_control.cpython-312.pyc
+[10.087s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/follow_display.py to follow_display.cpython-312.pyc
+[10.096s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/__init__.py to __init__.cpython-312.pyc
+[10.097s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/listen_real.py to listen_real.cpython-312.pyc
+[10.104s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260/listen_real_service.py to listen_real_service.cpython-312.pyc
+[10.111s] running install_data
+[10.112s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/ament_index
+[10.113s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/ament_index/resource_index
+[10.115s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/ament_index/resource_index/packages
+[10.117s] copying resource/mypalletizer_260 -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/ament_index/resource_index/packages
+[10.118s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260
+[10.118s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.119s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.121s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.122s] copying launch/test_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.122s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.125s] copying launch/slider_control_adaptive_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.127s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.128s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/launch
+[10.129s] creating /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/config
+[10.130s] copying config/mypalletizer.rviz -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/config
+[10.137s] copying config/mycobot_with_marker.rviz -> /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/share/mypalletizer_260/config
+[10.137s] running install_egg_info
+[10.442s] Copying ../../../build/mypalletizer_260/mypalletizer_260.egg-info to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages/mypalletizer_260-0.0.0-py3.12.egg-info
+[10.445s] running install_scripts
+[11.795s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.799s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.800s] Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.801s] Installing listen_real_service script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.803s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.803s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.803s] Installing slider_control_adaptive_gripper script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.804s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/mypalletizer_260
+[11.811s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/install.log'
+[13.034s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_260' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mypalletizer_260 build --build-base /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/build install --record /home/meta/Documents/robotics_workspace_new/build/mypalletizer_260/install.log --single-version-externally-managed install_data

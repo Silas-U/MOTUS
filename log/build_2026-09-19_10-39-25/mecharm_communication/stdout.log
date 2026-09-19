@@ -1,0 +1,57 @@
+running egg_info
+creating ../../../build/mecharm_communication/mecharm_communication.egg-info
+writing ../../../build/mecharm_communication/mecharm_communication.egg-info/PKG-INFO
+writing dependency_links to ../../../build/mecharm_communication/mecharm_communication.egg-info/dependency_links.txt
+writing entry points to ../../../build/mecharm_communication/mecharm_communication.egg-info/entry_points.txt
+writing requirements to ../../../build/mecharm_communication/mecharm_communication.egg-info/requires.txt
+writing top-level names to ../../../build/mecharm_communication/mecharm_communication.egg-info/top_level.txt
+writing manifest file '../../../build/mecharm_communication/mecharm_communication.egg-info/SOURCES.txt'
+reading manifest file '../../../build/mecharm_communication/mecharm_communication.egg-info/SOURCES.txt'
+writing manifest file '../../../build/mecharm_communication/mecharm_communication.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build
+creating /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/mecharm_topics.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/mecharm_services.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/mecharm_topics_pi.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/mecharm_topics_jsnn.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+copying mecharm_communication/mecharm_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/mecharm_topics.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/mecharm_services.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/mecharm_topics_pi.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/mecharm_topics_jsnn.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+copying /home/meta/Documents/robotics_workspace_new/build/mecharm_communication/build/lib/mecharm_communication/mecharm_topics_seeed.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/mecharm_topics.py to mecharm_topics.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/mecharm_services.py to mecharm_services.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/mecharm_topics_pi.py to mecharm_topics_pi.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/mecharm_topics_jsnn.py to mecharm_topics_jsnn.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication/mecharm_topics_seeed.py to mecharm_topics_seeed.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/ament_index/resource_index/packages
+copying resource/mecharm_communication -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication
+creating /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+copying launch/communication_seeed.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+copying launch/communication_service.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+copying launch/communication_topic_pi.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+copying launch/communication_jsnn.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+copying launch/communication_topic.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/share/mecharm_communication/launch
+running install_egg_info
+Copying ../../../build/mecharm_communication/mecharm_communication.egg-info to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages/mecharm_communication-0.0.0-py3.12.egg-info
+running install_scripts
+Installing mecharm_services script to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/mecharm_communication
+Installing mycobot_topics script to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/mecharm_communication
+Installing mycobot_topics_jsnn script to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/mecharm_communication
+Installing mycobot_topics_pi script to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/mecharm_communication
+Installing mycobot_topics_seeed script to /home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/mecharm_communication
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mecharm_communication/install.log'

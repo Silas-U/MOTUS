@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from mycobot_pro450_interfaces/srv/SetCoords.srv
+// generated code does not contain a copyright notice
+
+
+module mycobot_pro450_interfaces {
+  module srv {
+    struct SetCoords_Request {
+      float x;
+
+      float y;
+
+      float z;
+
+      float rx;
+
+      float ry;
+
+      float rz;
+
+      int8 speed;
+    };
+    struct SetCoords_Response {
+      boolean flag;
+    };
+  };
+};

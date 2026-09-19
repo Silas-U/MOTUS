@@ -1,0 +1,68 @@
+[6.736s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_rdkx5': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_280_rdkx5 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/install.log --single-version-externally-managed install_data
+[8.903s] running egg_info
+[8.906s] creating ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info
+[9.093s] writing ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/PKG-INFO
+[9.096s] writing dependency_links to ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/dependency_links.txt
+[9.096s] writing entry points to ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/entry_points.txt
+[9.099s] writing requirements to ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/requires.txt
+[9.101s] writing top-level names to ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/top_level.txt
+[9.101s] writing manifest file '../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/SOURCES.txt'
+[9.476s] reading manifest file '../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/SOURCES.txt'
+[9.478s] adding license file 'LICENSE'
+[9.480s] writing manifest file '../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info/SOURCES.txt'
+[9.483s] running build
+[9.485s] running build_py
+[9.487s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build
+[9.489s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib
+[9.489s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.490s] copying mycobot_280_rdkx5/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.494s] copying mycobot_280_rdkx5/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.495s] copying mycobot_280_rdkx5/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.495s] copying mycobot_280_rdkx5/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.498s] copying mycobot_280_rdkx5/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.499s] copying mycobot_280_rdkx5/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.502s] copying mycobot_280_rdkx5/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5
+[9.506s] running install
+[9.565s] running install_lib
+[9.872s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.873s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/slider_control_adaptive_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.876s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.877s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.879s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.879s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.880s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.883s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build/lib/mycobot_280_rdkx5/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5
+[9.884s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/slider_control_adaptive_gripper.py to slider_control_adaptive_gripper.cpython-312.pyc
+[9.884s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/simple_gui.py to simple_gui.cpython-312.pyc
+[9.899s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[9.906s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/slider_control.py to slider_control.cpython-312.pyc
+[9.908s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/follow_display.py to follow_display.cpython-312.pyc
+[9.917s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/__init__.py to __init__.cpython-312.pyc
+[9.917s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5/listen_real.py to listen_real.cpython-312.pyc
+[9.920s] running install_data
+[9.920s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/ament_index
+[9.920s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/ament_index/resource_index
+[9.921s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/ament_index/resource_index/packages
+[9.921s] copying resource/mycobot_280_rdkx5 -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/ament_index/resource_index/packages
+[9.923s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5
+[9.924s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.925s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.925s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.926s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.926s] copying launch/slider_control_adaptive_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.926s] copying launch/test_adaptive_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.926s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.927s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/launch
+[9.927s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/config
+[9.927s] copying config/mycobot_280_rdkx5.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/share/mycobot_280_rdkx5/config
+[9.928s] running install_egg_info
+[10.096s] Copying ../../../build/mycobot_280_rdkx5/mycobot_280_rdkx5.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages/mycobot_280_rdkx5-0.0.0-py3.12.egg-info
+[10.099s] running install_scripts
+[11.069s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.072s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.073s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.077s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.077s] Installing slider_control_adaptive_gripper script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.077s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/mycobot_280_rdkx5
+[11.083s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/install.log'
+[11.197s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_rdkx5' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_280_rdkx5 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_280_rdkx5/install.log --single-version-externally-managed install_data

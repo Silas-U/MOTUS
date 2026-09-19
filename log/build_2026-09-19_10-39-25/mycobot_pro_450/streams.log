@@ -1,0 +1,87 @@
+[7.390s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_pro_450': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_pro_450 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/install.log --single-version-externally-managed install_data
+[9.929s] running egg_info
+[9.930s] creating ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info
+[10.202s] writing ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/PKG-INFO
+[10.204s] writing dependency_links to ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/dependency_links.txt
+[10.205s] writing entry points to ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/entry_points.txt
+[10.210s] writing requirements to ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/requires.txt
+[10.211s] writing top-level names to ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/top_level.txt
+[10.211s] writing manifest file '../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/SOURCES.txt'
+[10.671s] reading manifest file '../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/SOURCES.txt'
+[10.672s] adding license file 'LICENSE'
+[10.675s] writing manifest file '../../../build/mycobot_pro_450/mycobot_pro_450.egg-info/SOURCES.txt'
+[10.675s] running build
+[10.676s] running build_py
+[10.676s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build
+[10.677s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib
+[10.683s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.683s] copying mycobot_pro_450/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.684s] copying mycobot_pro_450/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.684s] copying mycobot_pro_450/teleop_keyboard_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.684s] copying mycobot_pro_450/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.684s] copying mycobot_pro_450/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.685s] copying mycobot_pro_450/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.685s] copying mycobot_pro_450/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.685s] copying mycobot_pro_450/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.686s] copying mycobot_pro_450/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.686s] copying mycobot_pro_450/simple_gui_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.686s] copying mycobot_pro_450/slider_control_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450
+[10.692s] running install
+[10.739s] running install_lib
+[10.908s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.909s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.911s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.911s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/teleop_keyboard_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.912s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.916s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.917s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.917s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.917s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.928s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/listen_real_service.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.928s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/simple_gui_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.928s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build/lib/mycobot_pro_450/slider_control_force_gripper.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450
+[10.929s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+[10.929s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/simple_gui.py to simple_gui.cpython-312.pyc
+[10.935s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/teleop_keyboard_force_gripper.py to teleop_keyboard_force_gripper.cpython-312.pyc
+[10.946s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[10.948s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/slider_control.py to slider_control.cpython-312.pyc
+[10.953s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/follow_display.py to follow_display.cpython-312.pyc
+[10.959s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/__init__.py to __init__.cpython-312.pyc
+[10.959s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/listen_real.py to listen_real.cpython-312.pyc
+[10.961s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/listen_real_service.py to listen_real_service.cpython-312.pyc
+[10.972s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/simple_gui_force_gripper.py to simple_gui_force_gripper.cpython-312.pyc
+[10.983s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450/slider_control_force_gripper.py to slider_control_force_gripper.cpython-312.pyc
+[10.987s] running install_data
+[10.987s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/ament_index
+[10.988s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/ament_index/resource_index
+[10.988s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/ament_index/resource_index/packages
+[10.988s] copying resource/mycobot_pro_450 -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/ament_index/resource_index/packages
+[10.988s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450
+[11.012s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.015s] copying launch/slider_control_force_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.017s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.018s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.019s] copying launch/test_force_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.020s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.021s] copying launch/teleop_keyboard_force_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.022s] copying launch/simple_gui_force_gripper.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.025s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.026s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/launch
+[11.027s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/config
+[11.027s] copying config/mycobot_pro_450.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/share/mycobot_pro_450/config
+[11.028s] running install_egg_info
+[11.384s] Copying ../../../build/mycobot_pro_450/mycobot_pro_450.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages/mycobot_pro_450-0.0.0-py3.12.egg-info
+[11.394s] running install_scripts
+[13.021s] Installing camera_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.022s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.022s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.027s] Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.028s] Installing listen_real_service script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.028s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.032s] Installing simple_gui_force_gripper script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.033s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.033s] Installing slider_control_force_gripper script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.033s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.033s] Installing teleop_keyboard_force_gripper script to /home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/mycobot_pro_450
+[13.039s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/install.log'
+[13.279s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_pro_450' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_pro_450 build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_pro_450/install.log --single-version-externally-managed install_data

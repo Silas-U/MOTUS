@@ -1,0 +1,60 @@
+[0.123s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2
+[0.554s] -- The C compiler identification is GNU 13.2.0
+[0.950s] -- The CXX compiler identification is GNU 13.2.0
+[1.005s] -- Detecting C compiler ABI info
+[1.411s] -- Detecting C compiler ABI info - done
+[1.499s] -- Check for working C compiler: /bin/cc - skipped
+[1.505s] -- Detecting C compile features
+[1.506s] -- Detecting C compile features - done
+[1.572s] -- Detecting CXX compiler ABI info
+[2.223s] -- Detecting CXX compiler ABI info - done
+[2.305s] -- Check for working CXX compiler: /bin/c++ - skipped
+[2.309s] -- Detecting CXX compile features
+[2.311s] -- Detecting CXX compile features - done
+[2.344s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.622s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.596s] -- Configuring done (4.4s)
+[4.638s] -- Generating done (0.0s)
+[4.644s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2
+[4.672s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_280/mycobot_280_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2
+[4.673s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2 -- -j4 -l4
+[4.923s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2 -- -j4 -l4
+[5.044s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2
+[5.098s] -- Install configuration: ""
+[5.102s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/ament_index/resource_index/package_run_dependencies/mycobot_280_moveit2
+[5.104s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/ament_index/resource_index/parent_prefix_path/mycobot_280_moveit2
+[5.104s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/environment/ament_prefix_path.sh
+[5.105s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/environment/ament_prefix_path.dsv
+[5.107s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/environment/path.sh
+[5.109s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/environment/path.dsv
+[5.110s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/local_setup.bash
+[5.110s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/local_setup.sh
+[5.110s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/local_setup.zsh
+[5.112s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/local_setup.dsv
+[5.113s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/package.dsv
+[5.116s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/ament_index/resource_index/packages/mycobot_280_moveit2
+[5.117s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/cmake/mycobot_280_moveit2Config.cmake
+[5.118s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/cmake/mycobot_280_moveit2Config-version.cmake
+[5.119s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/package.xml
+[5.125s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch
+[5.125s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/static_virtual_joint_tfs.launch.py
+[5.128s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/move_group.launch.py
+[5.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/warehouse_db.launch.py
+[5.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/demo.launch.py
+[5.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/setup_assistant.launch.py
+[5.136s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/rsp.launch.py
+[5.137s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/moveit_rviz.launch.py
+[5.138s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/launch/spawn_controllers.launch.py
+[5.138s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config
+[5.138s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/pilz_cartesian_limits.yaml
+[5.139s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/firefighter.ros2_control.xacro
+[5.139s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/initial_positions.yaml
+[5.139s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/ros2_controllers.yaml
+[5.139s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/firefighter.urdf.xacro
+[5.140s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/kinematics.yaml
+[5.140s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/moveit.rviz
+[5.147s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/firefighter.srdf
+[5.148s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/joint_limits.yaml
+[5.148s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/config/moveit_controllers.yaml
+[5.148s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2/share/mycobot_280_moveit2/.setup_assistant
+[5.155s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2

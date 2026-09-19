@@ -1,0 +1,42 @@
+[8.973s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/ultraArm/ultraarm': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/ultraarm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/ultraarm build --build-base /home/meta/Documents/robotics_workspace_new/build/ultraarm/build install --record /home/meta/Documents/robotics_workspace_new/build/ultraarm/install.log --single-version-externally-managed install_data
+[11.291s] running egg_info
+[11.294s] creating ../../../build/ultraarm/ultraarm.egg-info
+[11.653s] writing ../../../build/ultraarm/ultraarm.egg-info/PKG-INFO
+[11.653s] writing dependency_links to ../../../build/ultraarm/ultraarm.egg-info/dependency_links.txt
+[11.654s] writing entry points to ../../../build/ultraarm/ultraarm.egg-info/entry_points.txt
+[11.654s] writing requirements to ../../../build/ultraarm/ultraarm.egg-info/requires.txt
+[11.654s] writing top-level names to ../../../build/ultraarm/ultraarm.egg-info/top_level.txt
+[11.655s] writing manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+[12.105s] reading manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+[12.109s] writing manifest file '../../../build/ultraarm/ultraarm.egg-info/SOURCES.txt'
+[12.110s] running build
+[12.110s] running build_py
+[12.111s] creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build
+[12.111s] creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib
+[12.120s] creating /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+[12.121s] copying ultraarm/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+[12.121s] copying ultraarm/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm
+[12.121s] running install
+[12.152s] running install_lib
+[12.370s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+[12.371s] copying /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+[12.372s] copying /home/meta/Documents/robotics_workspace_new/build/ultraarm/build/lib/ultraarm/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm
+[12.381s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm/slider_control.py to slider_control.cpython-312.pyc
+[12.385s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm/__init__.py to __init__.cpython-312.pyc
+[12.386s] running install_data
+[12.387s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index
+[12.388s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index
+[12.388s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index/packages
+[12.389s] copying resource/ultraarm -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ament_index/resource_index/packages
+[12.390s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm
+[12.403s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+[12.404s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+[12.404s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/launch
+[12.404s] creating /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/config
+[12.405s] copying config/ultraarm.rviz -> /home/meta/Documents/robotics_workspace_new/install/ultraarm/share/ultraarm/config
+[12.411s] running install_egg_info
+[12.598s] Copying ../../../build/ultraarm/ultraarm.egg-info to /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages/ultraarm-0.0.0-py3.12.egg-info
+[12.602s] running install_scripts
+[13.628s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/ultraarm
+[13.629s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/ultraarm/install.log'
+[13.747s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/ultraArm/ultraarm' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/ultraarm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/ultraarm build --build-base /home/meta/Documents/robotics_workspace_new/build/ultraarm/build install --record /home/meta/Documents/robotics_workspace_new/build/ultraarm/install.log --single-version-externally-managed install_data

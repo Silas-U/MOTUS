@@ -1,0 +1,623 @@
+[0.032s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mecharm/mecharm_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces
+[0.335s] -- The C compiler identification is GNU 13.2.0
+[0.596s] -- The CXX compiler identification is GNU 13.2.0
+[0.652s] -- Detecting C compiler ABI info
+[0.971s] -- Detecting C compiler ABI info - done
+[1.010s] -- Check for working C compiler: /bin/cc - skipped
+[1.011s] -- Detecting C compile features
+[1.014s] -- Detecting C compile features - done
+[1.063s] -- Detecting CXX compiler ABI info
+[1.432s] -- Detecting CXX compiler ABI info - done
+[1.473s] -- Check for working CXX compiler: /bin/c++ - skipped
+[1.475s] -- Detecting CXX compile features
+[1.477s] -- Detecting CXX compile features - done
+[1.514s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.319s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.875s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[2.934s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.252s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.461s] -- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[3.474s] -- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+[3.484s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[6.125s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[8.519s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[11.552s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[11.583s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[12.298s] -- Found PythonExtra: /bin/python3  
+[14.961s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[16.002s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[16.731s] -- Added test 'copyright' to check source files copyright and LICENSE
+[16.783s] -- Added test 'lint_cmake' to check CMake code style
+[16.795s] -- Added test 'xmllint' to check XML markup files
+[16.822s] -- Configuring done (16.8s)
+[17.098s] -- Generating done (0.2s)
+[17.110s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces
+[17.191s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mecharm/mecharm_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces
+[17.192s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces -- -j4 -l4
+[17.607s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[20.478s] [  1%] Built target mecharm_interfaces__rosidl_generator_type_description
+[20.668s] [  1%] Built target ament_cmake_python_copy_mecharm_interfaces
+[20.724s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[29.911s] [  2%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_angles__description.c.o[0m
+[30.053s] [  3%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_angles__functions.c.o[0m
+[30.232s] [  4%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_angles__type_support.c.o[0m
+[30.338s] [  4%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_coords__description.c.o[0m
+[30.477s] [  5%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_coords__functions.c.o[0m
+[30.656s] [  6%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_coords__type_support.c.o[0m
+[30.777s] [  6%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_angles__description.c.o[0m
+[30.919s] [  7%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_angles__functions.c.o[0m
+[31.097s] [  8%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.c.o[0m
+[31.204s] [  9%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_coords__description.c.o[0m
+[31.345s] [  9%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_coords__functions.c.o[0m
+[31.529s] [ 10%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.c.o[0m
+[31.635s] [ 11%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_gripper_status__description.c.o[0m
+[31.746s] [ 11%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_gripper_status__functions.c.o[0m
+[31.913s] [ 12%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.c.o[0m
+[32.026s] [ 13%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_pump_status__description.c.o[0m
+[32.169s] [ 13%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_pump_status__functions.c.o[0m
+[32.354s] [ 14%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.c.o[0m
+[32.466s] [ 15%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_angles__description.c.o[0m
+[32.660s] [ 15%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_angles__functions.c.o[0m
+[32.909s] [ 16%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[33.041s] [ 17%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_angles__description.c.o[0m
+[33.254s] [ 18%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_angles__functions.c.o[0m
+[33.555s] [ 18%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[33.702s] [ 19%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_coords__description.c.o[0m
+[33.884s] [ 20%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_coords__functions.c.o[0m
+[34.179s] [ 20%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[34.328s] [ 21%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_coords__description.c.o[0m
+[34.509s] [ 22%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_coords__functions.c.o[0m
+[34.796s] [ 22%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[34.934s] [ 23%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/gripper_status__description.c.o[0m
+[35.103s] [ 24%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/gripper_status__functions.c.o[0m
+[35.372s] [ 25%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[35.511s] [ 25%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/pump_status__description.c.o[0m
+[35.721s] [ 26%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/pump_status__functions.c.o[0m
+[35.998s] [ 27%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mecharm_interfaces/srv/detail/pump_status__type_support.c.o[0m
+[36.141s] [ 27%] [32m[1mLinking C shared library libmecharm_interfaces__rosidl_generator_c.so[0m
+[36.295s] [ 27%] Built target mecharm_interfaces__rosidl_generator_c
+[37.497s] running egg_info
+[37.501s] creating mecharm_interfaces.egg-info
+[37.652s] writing mecharm_interfaces.egg-info/PKG-INFO
+[37.653s] writing dependency_links to mecharm_interfaces.egg-info/dependency_links.txt
+[37.653s] writing top-level names to mecharm_interfaces.egg-info/top_level.txt
+[37.657s] writing manifest file 'mecharm_interfaces.egg-info/SOURCES.txt'
+[38.124s] reading manifest file 'mecharm_interfaces.egg-info/SOURCES.txt'
+[38.128s] writing manifest file 'mecharm_interfaces.egg-info/SOURCES.txt'
+[38.226s] [ 27%] Built target ament_cmake_python_build_mecharm_interfaces_egg
+[38.259s] [ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[41.759s] [ 28%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_angles__type_support.c.o[0m
+[41.898s] [ 29%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_coords__type_support.c.o[0m
+[42.038s] [ 30%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.c.o[0m
+[42.169s] [ 30%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.c.o[0m
+[42.312s] [ 31%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.c.o[0m
+[42.452s] [ 32%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.c.o[0m
+[42.589s] [ 32%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[42.778s] [ 33%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[42.971s] [ 34%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[43.156s] [ 35%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[43.334s] [ 35%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[43.502s] [ 36%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mecharm_interfaces/srv/detail/pump_status__type_support.c.o[0m
+[43.663s] [ 37%] [32m[1mLinking C shared library libmecharm_interfaces__rosidl_typesupport_introspection_c.so[0m
+[43.775s] [ 37%] Built target mecharm_interfaces__rosidl_typesupport_introspection_c
+[43.807s] [ 38%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[46.185s] [ 38%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_angles__type_support.cpp.o[0m
+[46.355s] [ 39%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_coords__type_support.cpp.o[0m
+[46.515s] [ 40%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_set_angles__type_support.cpp.o[0m
+[46.677s] [ 40%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_set_coords__type_support.cpp.o[0m
+[46.840s] [ 41%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_gripper_status__type_support.cpp.o[0m
+[46.999s] [ 42%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/msg/mecharm_pump_status__type_support.cpp.o[0m
+[47.160s] [ 43%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/get_angles__type_support.cpp.o[0m
+[47.344s] [ 43%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/set_angles__type_support.cpp.o[0m
+[47.521s] [ 44%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/get_coords__type_support.cpp.o[0m
+[47.698s] [ 45%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/set_coords__type_support.cpp.o[0m
+[47.873s] [ 45%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[48.059s] [ 46%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mecharm_interfaces/srv/pump_status__type_support.cpp.o[0m
+[48.237s] [ 47%] [32m[1mLinking CXX shared library libmecharm_interfaces__rosidl_typesupport_c.so[0m
+[48.387s] [ 47%] Built target mecharm_interfaces__rosidl_typesupport_c
+[48.425s] [ 48%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[53.693s] [ 49%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_angles__type_support_c.cpp.o[0m
+[55.714s] [ 49%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support_c.cpp.o[0m
+[57.785s] [ 50%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support_c.cpp.o[0m
+[59.844s] [ 51%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support_c.cpp.o[0m
+[61.910s] [ 51%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support_c.cpp.o[0m
+[63.869s] [ 52%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/get_angles__type_support_c.cpp.o[0m
+[65.998s] [ 53%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/set_angles__type_support_c.cpp.o[0m
+[68.175s] [ 53%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/get_coords__type_support_c.cpp.o[0m
+[70.404s] [ 54%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/set_coords__type_support_c.cpp.o[0m
+[72.581s] [ 55%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/gripper_status__type_support_c.cpp.o[0m
+[74.740s] [ 55%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/srv/detail/pump_status__type_support_c.cpp.o[0m
+[76.722s] [ 56%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mecharm_interfaces/msg/detail/mecharm_coords__type_support_c.cpp.o[0m
+[78.821s] [ 57%] [32m[1mLinking CXX shared library libmecharm_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[79.085s] [ 57%] Built target mecharm_interfaces__rosidl_typesupport_fastrtps_c
+[79.158s] [ 57%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[84.854s] [ 57%] Built target mecharm_interfaces__cpp
+[84.892s] [ 57%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[87.343s] [ 58%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_angles__type_support.cpp.o[0m
+[88.667s] [ 59%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_coords__type_support.cpp.o[0m
+[89.973s] [ 60%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_set_angles__type_support.cpp.o[0m
+[91.456s] [ 60%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_set_coords__type_support.cpp.o[0m
+[92.701s] [ 61%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_gripper_status__type_support.cpp.o[0m
+[93.963s] [ 62%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/msg/mecharm_pump_status__type_support.cpp.o[0m
+[95.239s] [ 62%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/get_angles__type_support.cpp.o[0m
+[96.871s] [ 63%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/set_angles__type_support.cpp.o[0m
+[98.428s] [ 64%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/get_coords__type_support.cpp.o[0m
+[99.964s] [ 64%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/set_coords__type_support.cpp.o[0m
+[101.550s] [ 65%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[103.116s] [ 66%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mecharm_interfaces/srv/pump_status__type_support.cpp.o[0m
+[104.731s] [ 66%] [32m[1mLinking CXX shared library libmecharm_interfaces__rosidl_typesupport_cpp.so[0m
+[105.024s] [ 66%] Built target mecharm_interfaces__rosidl_typesupport_cpp
+[105.057s] [ 66%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[108.469s] [ 67%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_angles__type_support.cpp.o[0m
+[109.834s] [ 67%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.cpp.o[0m
+[111.213s] [ 68%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.cpp.o[0m
+[112.607s] [ 69%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.cpp.o[0m
+[113.940s] [ 69%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.cpp.o[0m
+[115.336s] [ 70%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/get_angles__type_support.cpp.o[0m
+[117.160s] [ 71%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/set_angles__type_support.cpp.o[0m
+[118.965s] [ 72%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/get_coords__type_support.cpp.o[0m
+[120.765s] [ 72%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/set_coords__type_support.cpp.o[0m
+[122.597s] [ 73%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/gripper_status__type_support.cpp.o[0m
+[124.366s] [ 74%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/srv/detail/pump_status__type_support.cpp.o[0m
+[126.116s] [ 75%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mecharm_interfaces/msg/detail/mecharm_coords__type_support.cpp.o[0m
+[127.492s] [ 75%] [32m[1mLinking CXX shared library libmecharm_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[127.775s] [ 75%] Built target mecharm_interfaces__rosidl_typesupport_introspection_cpp
+[127.811s] [ 76%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[132.564s] [ 77%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_angles__type_support.cpp.o[0m
+[134.507s] [ 78%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_set_coords__type_support.cpp.o[0m
+[136.269s] [ 78%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_gripper_status__type_support.cpp.o[0m
+[138.250s] [ 79%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_pump_status__type_support.cpp.o[0m
+[140.321s] [ 80%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/get_angles__type_support.cpp.o[0m
+[142.885s] [ 80%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/set_angles__type_support.cpp.o[0m
+[145.430s] [ 81%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/get_coords__type_support.cpp.o[0m
+[147.990s] [ 82%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/set_coords__type_support.cpp.o[0m
+[149.911s] [ 83%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/gripper_status__type_support.cpp.o[0m
+[152.430s] [ 83%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/srv/detail/dds_fastrtps/pump_status__type_support.cpp.o[0m
+[155.045s] [ 84%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_set_angles__type_support.cpp.o[0m
+[157.571s] [ 84%] [32mBuilding CXX object CMakeFiles/mecharm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mecharm_interfaces/msg/detail/dds_fastrtps/mecharm_coords__type_support.cpp.o[0m
+[159.669s] [ 85%] [32m[1mLinking CXX shared library libmecharm_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[160.048s] [ 85%] Built target mecharm_interfaces__rosidl_typesupport_fastrtps_cpp
+[160.115s] [ 85%] Built target mecharm_interfaces
+[160.187s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[171.215s] [ 86%] Built target mecharm_interfaces__py
+[171.343s] [ 87%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_angles_s.c.o[0m
+[172.652s] [ 88%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_set_coords_s.c.o[0m
+[173.390s] [ 89%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_gripper_status_s.c.o[0m
+[174.398s] [ 89%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_pump_status_s.c.o[0m
+[175.500s] [ 90%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_get_angles_s.c.o[0m
+[176.681s] [ 91%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_set_angles_s.c.o[0m
+[177.582s] [ 92%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_get_coords_s.c.o[0m
+[178.798s] [ 92%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_set_coords_s.c.o[0m
+[180.164s] [ 93%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_gripper_status_s.c.o[0m
+[181.253s] [ 94%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/srv/_pump_status_s.c.o[0m
+[182.549s] [ 94%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_set_angles_s.c.o[0m
+[183.438s] [ 95%] [32mBuilding C object CMakeFiles/mecharm_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mecharm_interfaces/msg/_mecharm_coords_s.c.o[0m
+[184.138s] [ 95%] [32m[1mLinking C shared library libmecharm_interfaces__rosidl_generator_py.so[0m
+[184.329s] [ 95%] Built target mecharm_interfaces__rosidl_generator_py
+[184.465s] [ 95%] [32mBuilding C object CMakeFiles/mecharm_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[186.165s] [ 96%] [32m[1mLinking C shared module rosidl_generator_py/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[186.404s] [ 96%] Built target mecharm_interfaces_s__rosidl_typesupport_fastrtps_c
+[186.544s] [ 97%] [32mBuilding C object CMakeFiles/mecharm_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[187.365s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_c.so[0m
+[187.565s] [ 98%] Built target mecharm_interfaces_s__rosidl_typesupport_c
+[187.676s] [ 99%] [32mBuilding C object CMakeFiles/mecharm_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[188.631s] [100%] [32m[1mLinking C shared module rosidl_generator_py/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[188.848s] [100%] Built target mecharm_interfaces_s__rosidl_typesupport_introspection_c
+[188.969s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces -- -j4 -l4
+[190.752s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces
+[190.797s] -- Install configuration: ""
+[190.799s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/ament_index/resource_index/rosidl_interfaces/mecharm_interfaces
+[190.802s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmAngles.json
+[190.805s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmCoords.json
+[190.807s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetAngles.json
+[190.808s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetCoords.json
+[190.808s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmGripperStatus.json
+[190.809s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmPumpStatus.json
+[190.815s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetAngles.json
+[190.815s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetAngles.json
+[190.819s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetCoords.json
+[190.820s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetCoords.json
+[190.822s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GripperStatus.json
+[190.822s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/PumpStatus.json
+[190.823s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[190.823s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[190.823s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/pump_status.h
+[190.823s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[190.827s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__functions.h
+[190.828s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__type_support.c
+[190.828s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__type_support.h
+[190.828s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__type_support.h
+[190.829s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__functions.c
+[190.833s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__struct.h
+[190.834s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__description.c
+[190.834s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__functions.c
+[190.834s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__type_support.c
+[190.835s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__type_support.h
+[190.836s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__functions.c
+[190.837s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__type_support.c
+[190.838s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__description.c
+[190.839s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__description.c
+[190.840s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__type_support.c
+[190.841s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__functions.h
+[190.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__functions.h
+[190.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__description.c
+[190.845s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__functions.h
+[190.846s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__description.c
+[190.847s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__struct.h
+[190.847s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__type_support.c
+[190.848s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__struct.h
+[190.850s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__type_support.c
+[190.850s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__type_support.h
+[190.851s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__functions.c
+[190.852s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__struct.h
+[190.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__type_support.h
+[190.854s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__functions.h
+[190.855s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__description.c
+[190.856s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__functions.h
+[190.857s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__struct.h
+[190.858s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__type_support.h
+[190.859s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__functions.c
+[190.860s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__functions.c
+[190.861s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__struct.h
+[190.863s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/gripper_status.h
+[190.863s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/get_angles.h
+[190.864s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/set_angles.h
+[190.865s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/get_coords.h
+[190.866s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/set_coords.h
+[190.867s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[190.871s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_gripper_status.h
+[190.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_angles.h
+[190.876s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[190.876s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__functions.h
+[190.877s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__type_support.h
+[190.878s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__description.c
+[190.879s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__functions.h
+[190.881s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.c
+[190.881s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__functions.c
+[190.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__functions.h
+[190.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__functions.h
+[190.885s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__functions.c
+[190.886s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__struct.h
+[190.887s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.h
+[190.888s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__description.c
+[190.889s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.c
+[190.889s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__struct.h
+[190.889s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.c
+[190.892s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__struct.h
+[190.893s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__functions.c
+[190.893s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.c
+[190.893s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__description.c
+[190.894s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__description.c
+[190.894s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__functions.c
+[190.896s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__functions.c
+[190.896s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__type_support.c
+[190.900s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__functions.h
+[190.901s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__struct.h
+[190.901s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__functions.c
+[190.902s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__struct.h
+[190.903s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__functions.h
+[190.903s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.h
+[190.906s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.h
+[190.907s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__description.c
+[190.908s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__description.c
+[190.908s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__struct.h
+[190.908s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__type_support.c
+[190.908s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.h
+[190.911s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__type_support.h
+[190.912s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_set_angles.h
+[190.912s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_coords.h
+[190.912s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_pump_status.h
+[190.912s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_set_coords.h
+[190.913s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/rosidl_generator_c__visibility_control.h
+[190.917s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/library_path.sh
+[190.917s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/library_path.dsv
+[190.921s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_generator_c.so
+[190.929s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_generator_c.so" to ""
+[190.929s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[190.930s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[190.931s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[190.931s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_c.h
+[190.931s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_c.h
+[190.931s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_c.h
+[190.932s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_c.h
+[190.932s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_c.h
+[190.932s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_c.h
+[190.935s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[190.936s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[190.937s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__rosidl_typesupport_fastrtps_c.h
+[190.938s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__rosidl_typesupport_fastrtps_c.h
+[190.939s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__rosidl_typesupport_fastrtps_c.h
+[190.939s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__rosidl_typesupport_fastrtps_c.h
+[190.942s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__rosidl_typesupport_fastrtps_c.h
+[190.942s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__rosidl_typesupport_fastrtps_c.h
+[190.943s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[190.943s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_fastrtps_c.so
+[190.943s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[190.944s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[190.944s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[190.945s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[190.945s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__type_support.c
+[190.945s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_c.h
+[190.947s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__type_support.c
+[190.951s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__type_support.c
+[190.952s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_c.h
+[190.952s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__type_support.c
+[190.953s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_c.h
+[190.955s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__type_support.c
+[190.955s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__type_support.c
+[190.956s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_c.h
+[190.956s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_c.h
+[190.958s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_c.h
+[190.959s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[190.960s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[190.960s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__rosidl_typesupport_introspection_c.h
+[190.960s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__rosidl_typesupport_introspection_c.h
+[190.960s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.c
+[190.961s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.c
+[190.966s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__rosidl_typesupport_introspection_c.h
+[190.968s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.c
+[190.974s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.c
+[190.974s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__type_support.c
+[190.975s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__rosidl_typesupport_introspection_c.h
+[190.975s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__rosidl_typesupport_introspection_c.h
+[190.975s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__rosidl_typesupport_introspection_c.h
+[190.975s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__type_support.c
+[190.981s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[190.981s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_introspection_c.so
+[190.987s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[190.987s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_c.so
+[190.988s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_c.so" to ""
+[190.988s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[190.988s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[190.988s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/set_coords.hpp
+[190.989s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/set_angles.hpp
+[190.996s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/get_angles.hpp
+[190.996s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[190.996s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__type_support.hpp
+[190.996s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__traits.hpp
+[190.997s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__struct.hpp
+[191.000s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__struct.hpp
+[191.001s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__traits.hpp
+[191.002s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__type_support.hpp
+[191.002s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__builder.hpp
+[191.002s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__struct.hpp
+[191.010s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__builder.hpp
+[191.010s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__type_support.hpp
+[191.010s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__struct.hpp
+[191.011s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__traits.hpp
+[191.011s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__traits.hpp
+[191.011s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__struct.hpp
+[191.011s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__traits.hpp
+[191.012s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__builder.hpp
+[191.013s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__builder.hpp
+[191.014s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__type_support.hpp
+[191.015s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__struct.hpp
+[191.015s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__traits.hpp
+[191.016s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__type_support.hpp
+[191.017s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__type_support.hpp
+[191.018s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__builder.hpp
+[191.019s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__builder.hpp
+[191.023s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/get_coords.hpp
+[191.024s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/gripper_status.hpp
+[191.025s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/pump_status.hpp
+[191.026s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[191.026s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[191.027s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_set_angles.hpp
+[191.029s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_gripper_status.hpp
+[191.031s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[191.031s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__builder.hpp
+[191.032s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.hpp
+[191.034s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__traits.hpp
+[191.034s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.hpp
+[191.035s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__builder.hpp
+[191.036s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__type_support.hpp
+[191.037s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__builder.hpp
+[191.038s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__struct.hpp
+[191.039s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__builder.hpp
+[191.040s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.hpp
+[191.041s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__traits.hpp
+[191.042s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__builder.hpp
+[191.043s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__struct.hpp
+[191.044s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__struct.hpp
+[191.045s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__traits.hpp
+[191.046s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.hpp
+[191.047s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__traits.hpp
+[191.053s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__type_support.hpp
+[191.054s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__builder.hpp
+[191.054s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__traits.hpp
+[191.054s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__struct.hpp
+[191.054s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__traits.hpp
+[191.055s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__struct.hpp
+[191.056s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__struct.hpp
+[191.056s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_pump_status.hpp
+[191.060s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_angles.hpp
+[191.060s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_set_coords.hpp
+[191.061s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/mecharm_coords.hpp
+[191.065s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[191.065s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[191.065s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[191.066s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[191.072s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[191.073s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[191.073s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+[191.073s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[191.073s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[191.076s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/dds_fastrtps
+[191.077s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[191.077s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[191.079s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[191.079s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+[191.080s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[191.086s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[191.086s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[191.086s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[191.087s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/dds_fastrtps
+[191.088s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[191.093s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[191.099s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[191.099s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces
+[191.099s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv
+[191.100s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail
+[191.100s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__type_support.cpp
+[191.102s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__type_support.cpp
+[191.102s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_cpp.hpp
+[191.103s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__type_support.cpp
+[191.103s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_cpp.hpp
+[191.108s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_cpp.hpp
+[191.108s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__type_support.cpp
+[191.108s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_cpp.hpp
+[191.109s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_cpp.hpp
+[191.110s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[191.111s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/pump_status__type_support.cpp
+[191.113s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/srv/detail/set_angles__type_support.cpp
+[191.115s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg
+[191.116s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail
+[191.116s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__type_support.cpp
+[191.121s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__type_support.cpp
+[191.121s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[191.122s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_coords__rosidl_typesupport_introspection_cpp.hpp
+[191.122s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__type_support.cpp
+[191.122s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_gripper_status__type_support.cpp
+[191.127s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_angles__rosidl_typesupport_introspection_cpp.hpp
+[191.129s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__type_support.cpp
+[191.129s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__rosidl_typesupport_introspection_cpp.hpp
+[191.129s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_pump_status__rosidl_typesupport_introspection_cpp.hpp
+[191.130s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_set_coords__rosidl_typesupport_introspection_cpp.hpp
+[191.130s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/include/mecharm_interfaces/mecharm_interfaces/msg/detail/mecharm_angles__type_support.cpp
+[191.136s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_introspection_cpp.so
+[191.137s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[191.143s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_cpp.so
+[191.144s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_typesupport_cpp.so" to ""
+[191.147s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/pythonpath.sh
+[191.147s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/pythonpath.dsv
+[191.149s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces-0.0.0-py3.12.egg-info
+[191.149s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[191.153s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[191.153s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[191.154s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[191.156s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces
+[191.159s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[191.159s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv
+[191.160s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_angles.py
+[191.161s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_coords.py
+[191.162s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_gripper_status_s.c
+[191.164s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_pump_status.py
+[191.165s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_angles_s.c
+[191.166s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_coords.py
+[191.167s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_angles_s.c
+[191.168s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/__init__.py
+[191.168s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_angles.py
+[191.169s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_coords_s.c
+[191.169s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_pump_status_s.c
+[191.178s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_coords_s.c
+[191.181s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_gripper_status.py
+[191.182s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg
+[191.182s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_coords.py
+[191.182s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_gripper_status.py
+[191.182s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_angles.py
+[191.183s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_angles_s.c
+[191.186s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_gripper_status_s.c
+[191.186s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_angles_s.c
+[191.187s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/__init__.py
+[191.187s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_pump_status.py
+[191.187s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_coords.py
+[191.189s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_pump_status_s.c
+[191.191s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_coords_s.c
+[191.191s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_coords_s.c
+[191.197s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_angles.py
+[191.197s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_c.so
+[191.197s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[191.197s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/__init__.py
+[191.198s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[191.198s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_introspection_c.so
+[191.198s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/_mecharm_interfaces_s.ep.rosidl_typesupport_c.c
+[191.718s] Listing '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces'...
+[191.718s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/__init__.py'...
+[191.719s] Listing '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg'...
+[191.719s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/__init__.py'...
+[191.720s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_angles.py'...
+[191.720s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_coords.py'...
+[191.723s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_gripper_status.py'...
+[191.723s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_pump_status.py'...
+[191.725s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_angles.py'...
+[191.725s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/msg/_mecharm_set_coords.py'...
+[191.726s] Listing '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv'...
+[191.726s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/__init__.py'...
+[191.729s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_angles.py'...
+[191.730s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_get_coords.py'...
+[191.730s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_gripper_status.py'...
+[191.730s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_pump_status.py'...
+[191.731s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_angles.py'...
+[191.731s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/srv/_set_coords.py'...
+[191.767s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[191.767s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[191.771s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_introspection_c.so
+[191.771s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[191.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_c.so
+[191.778s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages/mecharm_interfaces/mecharm_interfaces_s__rosidl_typesupport_c.so" to ""
+[191.779s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_generator_py.so
+[191.785s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/libmecharm_interfaces__rosidl_generator_py.so" to ""
+[191.785s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmAngles.idl
+[191.785s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmCoords.idl
+[191.788s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetAngles.idl
+[191.788s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetCoords.idl
+[191.788s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmGripperStatus.idl
+[191.791s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmPumpStatus.idl
+[191.796s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetAngles.idl
+[191.797s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetAngles.idl
+[191.797s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetCoords.idl
+[191.808s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetCoords.idl
+[191.808s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GripperStatus.idl
+[191.813s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/PumpStatus.idl
+[191.813s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmAngles.msg
+[191.813s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmCoords.msg
+[191.813s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetAngles.msg
+[191.814s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmSetCoords.msg
+[191.814s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmGripperStatus.msg
+[191.814s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/msg/MecharmPumpStatus.msg
+[191.814s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetAngles.srv
+[191.815s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetAngles.srv
+[191.815s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GetCoords.srv
+[191.820s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/SetCoords.srv
+[191.821s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/GripperStatus.srv
+[191.829s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/srv/PumpStatus.srv
+[191.829s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/ament_index/resource_index/package_run_dependencies/mecharm_interfaces
+[191.830s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/ament_index/resource_index/parent_prefix_path/mecharm_interfaces
+[191.830s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/ament_prefix_path.sh
+[191.830s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/ament_prefix_path.dsv
+[191.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/path.sh
+[191.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/environment/path.dsv
+[191.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/local_setup.bash
+[191.843s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/local_setup.sh
+[191.844s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/local_setup.zsh
+[191.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/local_setup.dsv
+[191.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/package.dsv
+[191.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/ament_index/resource_index/packages/mecharm_interfaces
+[191.853s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_generator_cExport.cmake
+[191.854s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_generator_cExport-noconfig.cmake
+[191.867s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[191.867s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[191.867s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[191.867s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[191.868s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_cExport.cmake
+[191.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[191.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_generator_cppExport.cmake
+[191.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[191.873s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[191.873s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[191.882s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[191.882s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_cppExport.cmake
+[191.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[191.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_generator_pyExport.cmake
+[191.883s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/export_mecharm_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[191.898s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/rosidl_cmake-extras.cmake
+[191.898s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[191.899s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[191.899s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[191.899s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[191.903s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[191.904s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[191.904s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfacesConfig.cmake
+[191.905s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/cmake/mecharm_interfacesConfig-version.cmake
+[191.905s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/share/mecharm_interfaces/package.xml
+[191.932s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mecharm_interfaces

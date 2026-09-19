@@ -1,0 +1,66 @@
+[8.157s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_320/mycobot_320_riscv': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_320_riscv build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/install.log --single-version-externally-managed install_data
+[10.872s] running egg_info
+[10.872s] creating ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info
+[11.102s] writing ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/PKG-INFO
+[11.105s] writing dependency_links to ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/dependency_links.txt
+[11.106s] writing entry points to ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/entry_points.txt
+[11.109s] writing requirements to ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/requires.txt
+[11.114s] writing top-level names to ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/top_level.txt
+[11.114s] writing manifest file '../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/SOURCES.txt'
+[11.586s] reading manifest file '../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/SOURCES.txt'
+[11.587s] adding license file 'LICENSE'
+[11.591s] writing manifest file '../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info/SOURCES.txt'
+[11.593s] running build
+[11.593s] running build_py
+[11.595s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build
+[11.595s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib
+[11.597s] creating /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.597s] copying mycobot_320_riscv/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.602s] copying mycobot_320_riscv/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.602s] copying mycobot_320_riscv/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.605s] copying mycobot_320_riscv/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.605s] copying mycobot_320_riscv/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.606s] copying mycobot_320_riscv/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.612s] copying mycobot_320_riscv/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv
+[11.612s] running install
+[11.640s] running install_lib
+[11.899s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.905s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.905s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.905s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.906s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.907s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.907s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.915s] copying /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build/lib/mycobot_320_riscv/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv
+[11.915s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+[11.919s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/simple_gui.py to simple_gui.cpython-312.pyc
+[11.957s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[11.975s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/slider_control.py to slider_control.cpython-312.pyc
+[11.983s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/follow_display.py to follow_display.cpython-312.pyc
+[11.990s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/__init__.py to __init__.cpython-312.pyc
+[11.991s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv/listen_real.py to listen_real.cpython-312.pyc
+[12.001s] running install_data
+[12.001s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/ament_index
+[12.002s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/ament_index/resource_index
+[12.005s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/ament_index/resource_index/packages
+[12.006s] copying resource/mycobot_320_riscv -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/ament_index/resource_index/packages
+[12.008s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv
+[12.041s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.041s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.046s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.046s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.049s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.050s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/launch
+[12.050s] creating /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/config
+[12.054s] copying config/mycobot_320_riscv.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/share/mycobot_320_riscv/config
+[12.097s] running install_egg_info
+[12.465s] Copying ../../../build/mycobot_320_riscv/mycobot_320_riscv.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages/mycobot_320_riscv-0.0.0-py3.12.egg-info
+[12.471s] running install_scripts
+[15.234s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.265s] Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.268s] Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.269s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.269s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.269s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/mycobot_320_riscv
+[15.272s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/install.log'
+[15.514s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_320/mycobot_320_riscv' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/mycobot_320_riscv build --build-base /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/build install --record /home/meta/Documents/robotics_workspace_new/build/mycobot_320_riscv/install.log --single-version-externally-managed install_data

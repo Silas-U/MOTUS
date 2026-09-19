@@ -1,0 +1,61 @@
+[0.071s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_630_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2
+[0.451s] -- The C compiler identification is GNU 13.2.0
+[0.864s] -- The CXX compiler identification is GNU 13.2.0
+[0.973s] -- Detecting C compiler ABI info
+[1.490s] -- Detecting C compiler ABI info - done
+[1.537s] -- Check for working C compiler: /bin/cc - skipped
+[1.538s] -- Detecting C compile features
+[1.541s] -- Detecting C compile features - done
+[1.585s] -- Detecting CXX compiler ABI info
+[2.034s] -- Detecting CXX compiler ABI info - done
+[2.127s] -- Check for working CXX compiler: /bin/c++ - skipped
+[2.129s] -- Detecting CXX compile features
+[2.135s] -- Detecting CXX compile features - done
+[2.153s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.326s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.934s] -- Configuring done (4.8s)
+[4.977s] -- Generating done (0.0s)
+[4.978s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2
+[5.035s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mycobot_pro/mycobot_630_moveit2 -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2
+[5.036s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2 -- -j4 -l4
+[6.551s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2 -- -j4 -l4
+[6.646s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2
+[6.699s] -- Install configuration: ""
+[6.701s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/ament_index/resource_index/package_run_dependencies/mycobot_630_moveit2
+[6.704s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/ament_index/resource_index/parent_prefix_path/mycobot_630_moveit2
+[6.704s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/environment/ament_prefix_path.sh
+[6.705s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/environment/ament_prefix_path.dsv
+[6.705s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/environment/path.sh
+[6.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/environment/path.dsv
+[6.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/local_setup.bash
+[6.707s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/local_setup.sh
+[6.707s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/local_setup.zsh
+[6.710s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/local_setup.dsv
+[6.711s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/package.dsv
+[6.711s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/ament_index/resource_index/packages/mycobot_630_moveit2
+[6.712s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/cmake/mycobot_630_moveit2Config.cmake
+[6.712s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/cmake/mycobot_630_moveit2Config-version.cmake
+[6.716s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/package.xml
+[6.717s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch
+[6.717s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/static_virtual_joint_tfs.launch.py
+[6.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/move_group.launch.py
+[6.722s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/warehouse_db.launch.py
+[6.723s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/demo.launch.py
+[6.723s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/setup_assistant.launch.py
+[6.723s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/rsp.launch.py
+[6.724s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/moveit_rviz.launch.py
+[6.724s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/launch/spawn_controllers.launch.py
+[6.724s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config
+[6.725s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/pilz_cartesian_limits.yaml
+[6.759s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/firefighter.ros2_control.xacro
+[6.784s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/initial_positions.yaml
+[6.803s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/ros2_controllers.yaml
+[6.824s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/firefighter.urdf.xacro
+[6.826s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/sensors_3d.yaml
+[6.841s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/kinematics.yaml
+[6.872s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/moveit.rviz
+[6.881s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/firefighter.srdf
+[6.895s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/joint_limits.yaml
+[6.910s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/config/moveit_controllers.yaml
+[6.927s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2/share/mycobot_630_moveit2/.setup_assistant
+[6.945s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mycobot_630_moveit2

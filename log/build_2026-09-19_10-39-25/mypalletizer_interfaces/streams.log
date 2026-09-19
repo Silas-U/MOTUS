@@ -1,0 +1,623 @@
+[0.720s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces
+[3.472s] -- The C compiler identification is GNU 13.2.0
+[13.120s] -- The CXX compiler identification is GNU 13.2.0
+[14.404s] -- Detecting C compiler ABI info
+[15.613s] -- Detecting C compiler ABI info - done
+[15.642s] -- Check for working C compiler: /bin/cc - skipped
+[15.661s] -- Detecting C compile features
+[15.699s] -- Detecting C compile features - done
+[15.852s] -- Detecting CXX compiler ABI info
+[16.292s] -- Detecting CXX compiler ABI info - done
+[16.328s] -- Check for working CXX compiler: /bin/c++ - skipped
+[16.328s] -- Detecting CXX compile features
+[16.329s] -- Detecting CXX compile features - done
+[18.445s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[19.851s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+[22.849s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[23.228s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[25.758s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[34.260s] -- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[34.601s] -- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+[34.910s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[39.737s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[42.471s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[47.565s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[48.976s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[49.843s] -- Found PythonExtra: /bin/python3  
+[57.818s] -- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[58.924s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[61.789s] -- Added test 'copyright' to check source files copyright and LICENSE
+[61.910s] -- Added test 'lint_cmake' to check CMake code style
+[62.074s] -- Added test 'xmllint' to check XML markup files
+[62.396s] -- Configuring done (61.2s)
+[62.835s] -- Generating done (0.4s)
+[62.845s] -- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces
+[62.887s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake /home/meta/Documents/robotics_workspace_new/mycobot_ros2/mypalletizer_260/mypalletizer_interfaces -DCMAKE_INSTALL_PREFIX=/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces
+[62.892s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces -- -j4 -l4
+[63.112s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[63.155s] [  1%] Built target ament_cmake_python_copy_mypalletizer_interfaces
+[65.172s] running egg_info
+[65.176s] creating mypalletizer_interfaces.egg-info
+[65.389s] writing mypalletizer_interfaces.egg-info/PKG-INFO
+[65.389s] writing dependency_links to mypalletizer_interfaces.egg-info/dependency_links.txt
+[65.392s] writing top-level names to mypalletizer_interfaces.egg-info/top_level.txt
+[65.396s] writing manifest file 'mypalletizer_interfaces.egg-info/SOURCES.txt'
+[66.033s] reading manifest file 'mypalletizer_interfaces.egg-info/SOURCES.txt'
+[66.035s] writing manifest file 'mypalletizer_interfaces.egg-info/SOURCES.txt'
+[66.198s] [  1%] Built target mypalletizer_interfaces__rosidl_generator_type_description
+[66.207s] [  1%] Built target ament_cmake_python_build_mypalletizer_interfaces_egg
+[66.252s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[66.344s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[74.828s] [  2%] Built target mypalletizer_interfaces__cpp
+[75.120s] [  2%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_angles__description.c.o[0m
+[83.745s] [  2%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_coords__description.c.o[0m
+[83.867s] [  3%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_coords__functions.c.o[0m
+[84.134s] [  4%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.c.o[0m
+[84.261s] [  4%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_angles__description.c.o[0m
+[84.385s] [  5%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_angles__functions.c.o[0m
+[84.568s] [  6%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.c.o[0m
+[84.672s] [  7%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_coords__description.c.o[0m
+[84.790s] [  7%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_coords__functions.c.o[0m
+[84.957s] [  8%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.c.o[0m
+[85.043s] [  9%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_gripper_status__description.c.o[0m
+[85.152s] [  9%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_gripper_status__functions.c.o[0m
+[85.311s] [ 10%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.c.o[0m
+[85.405s] [ 11%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_pump_status__description.c.o[0m
+[85.505s] [ 11%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_pump_status__functions.c.o[0m
+[85.673s] [ 12%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.c.o[0m
+[85.780s] [ 13%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_angles__description.c.o[0m
+[86.556s] [ 13%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_angles__functions.c.o[0m
+[86.794s] [ 14%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[86.907s] [ 15%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_angles__description.c.o[0m
+[87.084s] [ 16%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_angles__functions.c.o[0m
+[87.331s] [ 16%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[87.463s] [ 17%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_coords__description.c.o[0m
+[87.645s] [ 18%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_coords__functions.c.o[0m
+[87.923s] [ 18%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[88.066s] [ 19%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_coords__description.c.o[0m
+[88.248s] [ 20%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_coords__functions.c.o[0m
+[88.514s] [ 20%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[88.629s] [ 21%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/gripper_status__description.c.o[0m
+[88.816s] [ 22%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/gripper_status__functions.c.o[0m
+[89.081s] [ 23%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[89.221s] [ 23%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/pump_status__description.c.o[0m
+[89.413s] [ 24%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/pump_status__functions.c.o[0m
+[89.692s] [ 25%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/srv/detail/pump_status__type_support.c.o[0m
+[89.854s] [ 26%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.c.o[0m
+[89.960s] [ 27%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_c.dir/rosidl_generator_c/mypalletizer_interfaces/msg/detail/mypal_angles__functions.c.o[0m
+[90.135s] [ 27%] [32m[1mLinking C shared library libmypalletizer_interfaces__rosidl_generator_c.so[0m
+[90.314s] [ 27%] Built target mypalletizer_interfaces__rosidl_generator_c
+[90.354s] [ 27%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[92.806s] [ 28%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_angles__type_support.cpp.o[0m
+[95.453s] [ 29%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_coords__type_support.cpp.o[0m
+[96.780s] [ 30%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_set_angles__type_support.cpp.o[0m
+[98.144s] [ 30%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_set_coords__type_support.cpp.o[0m
+[99.469s] [ 31%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_gripper_status__type_support.cpp.o[0m
+[100.739s] [ 32%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/msg/mypal_pump_status__type_support.cpp.o[0m
+[102.501s] [ 32%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/get_angles__type_support.cpp.o[0m
+[105.811s] [ 33%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/set_angles__type_support.cpp.o[0m
+[108.063s] [ 34%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/get_coords__type_support.cpp.o[0m
+[110.632s] [ 34%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/set_coords__type_support.cpp.o[0m
+[112.890s] [ 35%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[115.009s] [ 36%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mypalletizer_interfaces/srv/pump_status__type_support.cpp.o[0m
+[116.851s] [ 36%] [32m[1mLinking CXX shared library libmypalletizer_interfaces__rosidl_typesupport_cpp.so[0m
+[117.313s] [ 36%] Built target mypalletizer_interfaces__rosidl_typesupport_cpp
+[117.343s] [ 37%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[120.217s] [ 37%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_angles__type_support.cpp.o[0m
+[120.384s] [ 38%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_coords__type_support.cpp.o[0m
+[120.538s] [ 39%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_set_angles__type_support.cpp.o[0m
+[120.691s] [ 39%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_set_coords__type_support.cpp.o[0m
+[120.851s] [ 40%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_gripper_status__type_support.cpp.o[0m
+[121.006s] [ 41%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/msg/mypal_pump_status__type_support.cpp.o[0m
+[121.163s] [ 42%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/get_angles__type_support.cpp.o[0m
+[121.386s] [ 42%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/set_angles__type_support.cpp.o[0m
+[121.571s] [ 43%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/get_coords__type_support.cpp.o[0m
+[121.779s] [ 44%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/set_coords__type_support.cpp.o[0m
+[121.978s] [ 44%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/gripper_status__type_support.cpp.o[0m
+[122.166s] [ 45%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/mypalletizer_interfaces/srv/pump_status__type_support.cpp.o[0m
+[122.371s] [ 46%] [32m[1mLinking CXX shared library libmypalletizer_interfaces__rosidl_typesupport_c.so[0m
+[122.517s] [ 46%] Built target mypalletizer_interfaces__rosidl_typesupport_c
+[122.555s] [ 47%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[127.509s] [ 48%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_angles__type_support.cpp.o[0m
+[130.141s] [ 48%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_coords__type_support.cpp.o[0m
+[132.136s] [ 49%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_set_angles__type_support.cpp.o[0m
+[134.219s] [ 50%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_set_coords__type_support.cpp.o[0m
+[136.196s] [ 50%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_gripper_status__type_support.cpp.o[0m
+[138.118s] [ 51%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/msg/detail/dds_fastrtps/mypal_pump_status__type_support.cpp.o[0m
+[140.081s] [ 52%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/get_angles__type_support.cpp.o[0m
+[142.728s] [ 52%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/set_angles__type_support.cpp.o[0m
+[145.315s] [ 53%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/get_coords__type_support.cpp.o[0m
+[147.915s] [ 54%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/set_coords__type_support.cpp.o[0m
+[150.594s] [ 55%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/gripper_status__type_support.cpp.o[0m
+[153.206s] [ 55%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mypalletizer_interfaces/srv/detail/dds_fastrtps/pump_status__type_support.cpp.o[0m
+[155.764s] [ 56%] [32m[1mLinking CXX shared library libmypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[156.166s] [ 56%] Built target mypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp
+[156.218s] [ 56%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[159.997s] [ 57%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.cpp.o[0m
+[161.328s] [ 58%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.cpp.o[0m
+[162.679s] [ 58%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.cpp.o[0m
+[163.862s] [ 59%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.cpp.o[0m
+[165.135s] [ 60%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.cpp.o[0m
+[166.449s] [ 60%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.cpp.o[0m
+[167.878s] [ 61%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/get_angles__type_support.cpp.o[0m
+[169.693s] [ 62%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/set_angles__type_support.cpp.o[0m
+[171.342s] [ 63%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/get_coords__type_support.cpp.o[0m
+[173.098s] [ 63%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/set_coords__type_support.cpp.o[0m
+[174.945s] [ 64%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/gripper_status__type_support.cpp.o[0m
+[176.773s] [ 65%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mypalletizer_interfaces/srv/detail/pump_status__type_support.cpp.o[0m
+[178.642s] [ 65%] [32m[1mLinking CXX shared library libmypalletizer_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[178.948s] [ 65%] Built target mypalletizer_interfaces__rosidl_typesupport_introspection_cpp
+[178.983s] [ 66%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[182.616s] [ 66%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.c.o[0m
+[182.749s] [ 67%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.c.o[0m
+[182.877s] [ 67%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.c.o[0m
+[183.016s] [ 68%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.c.o[0m
+[183.156s] [ 69%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.c.o[0m
+[183.292s] [ 69%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/get_angles__type_support.c.o[0m
+[183.475s] [ 70%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/set_angles__type_support.c.o[0m
+[183.670s] [ 71%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/get_coords__type_support.c.o[0m
+[183.861s] [ 72%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/set_coords__type_support.c.o[0m
+[184.054s] [ 72%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/gripper_status__type_support.c.o[0m
+[184.236s] [ 73%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/srv/detail/pump_status__type_support.c.o[0m
+[184.411s] [ 74%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.c.o[0m
+[184.541s] [ 75%] [32m[1mLinking C shared library libmypalletizer_interfaces__rosidl_typesupport_introspection_c.so[0m
+[184.665s] [ 75%] Built target mypalletizer_interfaces__rosidl_typesupport_introspection_c
+[184.701s] [ 76%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[190.209s] [ 77%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_angles__type_support_c.cpp.o[0m
+[192.223s] [ 78%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support_c.cpp.o[0m
+[194.192s] [ 79%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support_c.cpp.o[0m
+[195.980s] [ 79%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support_c.cpp.o[0m
+[197.819s] [ 80%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/get_angles__type_support_c.cpp.o[0m
+[199.874s] [ 81%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/set_angles__type_support_c.cpp.o[0m
+[201.893s] [ 81%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/get_coords__type_support_c.cpp.o[0m
+[203.896s] [ 82%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/set_coords__type_support_c.cpp.o[0m
+[206.065s] [ 83%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/gripper_status__type_support_c.cpp.o[0m
+[208.215s] [ 83%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/srv/detail/pump_status__type_support_c.cpp.o[0m
+[210.289s] [ 83%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support_c.cpp.o[0m
+[212.243s] [ 84%] [32mBuilding CXX object CMakeFiles/mypalletizer_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mypalletizer_interfaces/msg/detail/mypal_coords__type_support_c.cpp.o[0m
+[214.162s] [ 85%] [32m[1mLinking CXX shared library libmypalletizer_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[214.349s] [ 85%] Built target mypalletizer_interfaces__rosidl_typesupport_fastrtps_c
+[214.413s] [ 85%] Built target mypalletizer_interfaces
+[214.488s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[222.628s] [ 86%] Built target mypalletizer_interfaces__py
+[222.696s] [ 87%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_angles_s.c.o[0m
+[224.233s] [ 88%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_set_coords_s.c.o[0m
+[224.818s] [ 89%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_gripper_status_s.c.o[0m
+[225.338s] [ 89%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_pump_status_s.c.o[0m
+[225.891s] [ 90%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_get_angles_s.c.o[0m
+[226.540s] [ 91%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_set_angles_s.c.o[0m
+[227.186s] [ 92%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_get_coords_s.c.o[0m
+[227.954s] [ 92%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_set_coords_s.c.o[0m
+[228.592s] [ 93%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_gripper_status_s.c.o[0m
+[229.209s] [ 94%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/srv/_pump_status_s.c.o[0m
+[229.845s] [ 94%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_set_angles_s.c.o[0m
+[230.388s] [ 95%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces__rosidl_generator_py.dir/rosidl_generator_py/mypalletizer_interfaces/msg/_mypal_coords_s.c.o[0m
+[230.970s] [ 95%] [32m[1mLinking C shared library libmypalletizer_interfaces__rosidl_generator_py.so[0m
+[231.135s] [ 95%] Built target mypalletizer_interfaces__rosidl_generator_py
+[231.203s] [ 95%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[231.960s] [ 96%] [32m[1mLinking C shared module rosidl_generator_py/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[232.066s] [ 96%] Built target mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c
+[232.142s] [ 97%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[232.945s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_c.so[0m
+[233.050s] [ 98%] Built target mypalletizer_interfaces_s__rosidl_typesupport_c
+[233.117s] [ 99%] [32mBuilding C object CMakeFiles/mypalletizer_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[233.946s] [100%] [32m[1mLinking C shared module rosidl_generator_py/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[234.058s] [100%] Built target mypalletizer_interfaces_s__rosidl_typesupport_introspection_c
+[234.138s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --build /home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces -- -j4 -l4
+[235.189s] Invoking command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces
+[235.226s] -- Install configuration: ""
+[235.228s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/ament_index/resource_index/rosidl_interfaces/mypalletizer_interfaces
+[235.230s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalAngles.json
+[235.267s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalCoords.json
+[235.268s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetAngles.json
+[235.270s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetCoords.json
+[235.271s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalGripperStatus.json
+[235.272s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalPumpStatus.json
+[235.275s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetAngles.json
+[235.276s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetAngles.json
+[235.278s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetCoords.json
+[235.279s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetCoords.json
+[235.282s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GripperStatus.json
+[235.282s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/PumpStatus.json
+[235.284s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.286s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.286s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/pump_status.h
+[235.287s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.287s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__functions.h
+[235.287s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__type_support.c
+[235.290s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__type_support.h
+[235.291s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__type_support.h
+[235.292s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__functions.c
+[235.309s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__struct.h
+[235.311s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__description.c
+[235.313s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__functions.c
+[235.314s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__type_support.c
+[235.323s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__type_support.h
+[235.324s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__functions.c
+[235.381s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__type_support.c
+[235.395s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__description.c
+[235.409s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__description.c
+[235.409s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__type_support.c
+[235.417s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__functions.h
+[235.422s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__functions.h
+[235.422s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__description.c
+[235.422s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__functions.h
+[235.423s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__description.c
+[235.423s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__struct.h
+[235.424s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__type_support.c
+[235.424s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__struct.h
+[235.424s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__type_support.c
+[235.434s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__type_support.h
+[235.435s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__functions.c
+[235.435s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__struct.h
+[235.435s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__type_support.h
+[235.436s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__functions.h
+[235.436s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__description.c
+[235.452s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__functions.h
+[235.453s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__struct.h
+[235.455s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__type_support.h
+[235.455s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__functions.c
+[235.455s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__functions.c
+[235.456s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__struct.h
+[235.456s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/gripper_status.h
+[235.457s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/get_angles.h
+[235.457s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/set_angles.h
+[235.459s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/get_coords.h
+[235.459s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/set_coords.h
+[235.459s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.460s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_coords.h
+[235.465s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_angles.h
+[235.466s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_set_coords.h
+[235.466s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_pump_status.h
+[235.467s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.467s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.h
+[235.467s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__struct.h
+[235.468s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.h
+[235.468s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.c
+[235.469s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.c
+[235.469s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__description.c
+[235.470s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__functions.h
+[235.471s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__functions.c
+[235.472s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__functions.h
+[235.472s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.c
+[235.472s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__struct.h
+[235.473s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__struct.h
+[235.473s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__functions.c
+[235.474s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__description.c
+[235.474s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__description.c
+[235.475s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__struct.h
+[235.475s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__functions.c
+[235.476s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.h
+[235.476s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.h
+[235.477s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__struct.h
+[235.478s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__functions.h
+[235.479s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__functions.h
+[235.479s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__functions.c
+[235.479s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.c
+[235.480s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.h
+[235.480s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.h
+[235.481s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__struct.h
+[235.481s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__functions.h
+[235.481s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__functions.h
+[235.482s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__description.c
+[235.483s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.c
+[235.484s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__functions.c
+[235.484s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__description.c
+[235.484s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.c
+[235.484s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__functions.c
+[235.485s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__description.c
+[235.485s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_gripper_status.h
+[235.488s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/rosidl_generator_c__visibility_control.h
+[235.489s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_set_angles.h
+[235.489s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/library_path.sh
+[235.490s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/library_path.dsv
+[235.493s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_generator_c.so
+[235.493s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_generator_c.so" to ""
+[235.493s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.494s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.494s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.496s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_c.h
+[235.497s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_c.h
+[235.503s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_c.h
+[235.504s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_c.h
+[235.505s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_c.h
+[235.506s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_c.h
+[235.508s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.510s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.511s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__rosidl_typesupport_fastrtps_c.h
+[235.513s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__rosidl_typesupport_fastrtps_c.h
+[235.521s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__rosidl_typesupport_fastrtps_c.h
+[235.521s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__rosidl_typesupport_fastrtps_c.h
+[235.522s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__rosidl_typesupport_fastrtps_c.h
+[235.522s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__rosidl_typesupport_fastrtps_c.h
+[235.524s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[235.527s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_fastrtps_c.so
+[235.539s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[235.539s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.539s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.540s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.541s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__type_support.c
+[235.542s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_c.h
+[235.545s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__type_support.c
+[235.550s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__type_support.c
+[235.551s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_c.h
+[235.562s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__type_support.c
+[235.564s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_c.h
+[235.565s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__type_support.c
+[235.566s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__type_support.c
+[235.568s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_c.h
+[235.569s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_c.h
+[235.570s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_c.h
+[235.571s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.572s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.572s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__rosidl_typesupport_introspection_c.h
+[235.575s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__rosidl_typesupport_introspection_c.h
+[235.575s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.c
+[235.575s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.c
+[235.576s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__rosidl_typesupport_introspection_c.h
+[235.576s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__rosidl_typesupport_introspection_c.h
+[235.577s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.c
+[235.577s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__rosidl_typesupport_introspection_c.h
+[235.577s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__rosidl_typesupport_introspection_c.h
+[235.578s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.c
+[235.578s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.c
+[235.578s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.c
+[235.579s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[235.580s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_introspection_c.so
+[235.582s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[235.582s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_c.so
+[235.582s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_c.so" to ""
+[235.583s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.583s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.583s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/set_coords.hpp
+[235.584s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/set_angles.hpp
+[235.585s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/get_angles.hpp
+[235.586s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.586s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__type_support.hpp
+[235.587s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__traits.hpp
+[235.588s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__struct.hpp
+[235.588s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__struct.hpp
+[235.588s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__traits.hpp
+[235.598s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__type_support.hpp
+[235.599s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__builder.hpp
+[235.605s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__struct.hpp
+[235.606s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__builder.hpp
+[235.619s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__type_support.hpp
+[235.622s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__struct.hpp
+[235.623s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__traits.hpp
+[235.629s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__traits.hpp
+[235.632s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__struct.hpp
+[235.634s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__traits.hpp
+[235.635s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__builder.hpp
+[235.635s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__builder.hpp
+[235.636s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__type_support.hpp
+[235.637s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__struct.hpp
+[235.638s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__traits.hpp
+[235.642s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__type_support.hpp
+[235.643s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__type_support.hpp
+[235.644s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__builder.hpp
+[235.647s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__builder.hpp
+[235.649s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/get_coords.hpp
+[235.649s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/gripper_status.hpp
+[235.649s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/pump_status.hpp
+[235.649s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.653s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_angles.hpp
+[235.658s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_set_angles.hpp
+[235.660s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_gripper_status.hpp
+[235.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[235.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_coords.hpp
+[235.661s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_set_coords.hpp
+[235.662s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.662s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.hpp
+[235.662s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__struct.hpp
+[235.662s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__builder.hpp
+[235.668s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__struct.hpp
+[235.668s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__struct.hpp
+[235.669s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__traits.hpp
+[235.669s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.hpp
+[235.669s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__builder.hpp
+[235.670s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__struct.hpp
+[235.670s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__builder.hpp
+[235.671s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__struct.hpp
+[235.671s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__traits.hpp
+[235.673s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__traits.hpp
+[235.673s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__traits.hpp
+[235.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__builder.hpp
+[235.674s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__struct.hpp
+[235.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.hpp
+[235.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__builder.hpp
+[235.675s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__traits.hpp
+[235.676s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.hpp
+[235.676s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.hpp
+[235.676s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.hpp
+[235.679s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__builder.hpp
+[235.679s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__traits.hpp
+[235.679s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/mypal_pump_status.hpp
+[235.680s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.680s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.681s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.681s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[235.681s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[235.682s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[235.682s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+[235.682s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[235.682s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[235.683s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/dds_fastrtps
+[235.683s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.684s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[235.685s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.685s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[235.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+[235.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__rosidl_typesupport_fastrtps_cpp.hpp
+[235.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[235.688s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+[235.689s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/dds_fastrtps
+[235.689s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+[235.690s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[235.693s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[235.693s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces
+[235.693s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv
+[235.694s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail
+[235.694s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__type_support.cpp
+[235.695s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__type_support.cpp
+[235.695s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_cpp.hpp
+[235.696s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__type_support.cpp
+[235.697s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_cpp.hpp
+[235.698s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_cpp.hpp
+[235.698s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__type_support.cpp
+[235.699s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_cpp.hpp
+[235.699s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_cpp.hpp
+[235.700s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[235.700s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/pump_status__type_support.cpp
+[235.701s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/srv/detail/set_angles__type_support.cpp
+[235.702s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg
+[235.702s] -- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail
+[235.702s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__rosidl_typesupport_introspection_cpp.hpp
+[235.703s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__rosidl_typesupport_introspection_cpp.hpp
+[235.704s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__rosidl_typesupport_introspection_cpp.hpp
+[235.705s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__rosidl_typesupport_introspection_cpp.hpp
+[235.705s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_coords__type_support.cpp
+[235.706s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__type_support.cpp
+[235.707s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_set_angles__rosidl_typesupport_introspection_cpp.hpp
+[235.708s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_angles__type_support.cpp
+[235.708s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__rosidl_typesupport_introspection_cpp.hpp
+[235.709s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_gripper_status__type_support.cpp
+[235.709s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_coords__type_support.cpp
+[235.711s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/include/mypalletizer_interfaces/mypalletizer_interfaces/msg/detail/mypal_pump_status__type_support.cpp
+[235.715s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_introspection_cpp.so
+[235.718s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[235.718s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_cpp.so
+[235.718s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_typesupport_cpp.so" to ""
+[235.719s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/pythonpath.sh
+[235.738s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/pythonpath.dsv
+[235.739s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces-0.0.0-py3.12.egg-info
+[235.739s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[235.741s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[235.743s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[235.744s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[235.745s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces
+[235.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_c.c
+[235.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[235.746s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv
+[235.747s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_angles.py
+[235.747s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_coords.py
+[235.747s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_gripper_status_s.c
+[235.751s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_pump_status.py
+[235.752s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_angles_s.c
+[235.752s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_coords.py
+[235.753s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_angles_s.c
+[235.753s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/__init__.py
+[235.753s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_angles.py
+[235.753s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_coords_s.c
+[235.757s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_pump_status_s.c
+[235.757s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_coords_s.c
+[235.758s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_gripper_status.py
+[235.762s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg
+[235.762s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_angles_s.c
+[235.763s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_coords_s.c
+[235.764s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_gripper_status.py
+[235.766s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_coords.py
+[235.766s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_coords.py
+[235.767s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_coords_s.c
+[235.767s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_pump_status_s.c
+[235.768s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_pump_status.py
+[235.769s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/__init__.py
+[235.769s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_angles.py
+[235.770s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_angles.py
+[235.771s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_gripper_status_s.c
+[235.771s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_angles_s.c
+[235.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[235.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/__init__.py
+[235.772s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_introspection_c.so
+[235.773s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_c.so
+[235.773s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/_mypalletizer_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[236.043s] Listing '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces'...
+[236.043s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/__init__.py'...
+[236.043s] Listing '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg'...
+[236.043s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/__init__.py'...
+[236.044s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_angles.py'...
+[236.044s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_coords.py'...
+[236.044s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_gripper_status.py'...
+[236.044s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_pump_status.py'...
+[236.047s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_angles.py'...
+[236.048s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/msg/_mypal_set_coords.py'...
+[236.048s] Listing '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv'...
+[236.048s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/__init__.py'...
+[236.049s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_angles.py'...
+[236.049s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_get_coords.py'...
+[236.049s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_gripper_status.py'...
+[236.055s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_pump_status.py'...
+[236.055s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_angles.py'...
+[236.056s] Compiling '/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/srv/_set_coords.py'...
+[236.070s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[236.070s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[236.071s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_introspection_c.so
+[236.071s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[236.071s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_c.so
+[236.072s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages/mypalletizer_interfaces/mypalletizer_interfaces_s__rosidl_typesupport_c.so" to ""
+[236.075s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_generator_py.so
+[236.075s] -- Set non-toolchain portion of runtime path of "/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/libmypalletizer_interfaces__rosidl_generator_py.so" to ""
+[236.076s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalAngles.idl
+[236.076s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalCoords.idl
+[236.079s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetAngles.idl
+[236.080s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetCoords.idl
+[236.081s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalGripperStatus.idl
+[236.081s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalPumpStatus.idl
+[236.081s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetAngles.idl
+[236.082s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetAngles.idl
+[236.082s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetCoords.idl
+[236.083s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetCoords.idl
+[236.086s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GripperStatus.idl
+[236.087s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/PumpStatus.idl
+[236.087s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalAngles.msg
+[236.087s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalCoords.msg
+[236.088s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetAngles.msg
+[236.088s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalSetCoords.msg
+[236.089s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalGripperStatus.msg
+[236.091s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/msg/MypalPumpStatus.msg
+[236.091s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetAngles.srv
+[236.091s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetAngles.srv
+[236.092s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GetCoords.srv
+[236.092s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/SetCoords.srv
+[236.092s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/GripperStatus.srv
+[236.097s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/srv/PumpStatus.srv
+[236.098s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/ament_index/resource_index/package_run_dependencies/mypalletizer_interfaces
+[236.099s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/ament_index/resource_index/parent_prefix_path/mypalletizer_interfaces
+[236.100s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/ament_prefix_path.sh
+[236.101s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/ament_prefix_path.dsv
+[236.102s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/path.sh
+[236.103s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/environment/path.dsv
+[236.104s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/local_setup.bash
+[236.106s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/local_setup.sh
+[236.106s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/local_setup.zsh
+[236.108s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/local_setup.dsv
+[236.110s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/package.dsv
+[236.115s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/ament_index/resource_index/packages/mypalletizer_interfaces
+[236.116s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_generator_cExport.cmake
+[236.117s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_generator_cExport-noconfig.cmake
+[236.119s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[236.121s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[236.122s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[236.122s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[236.123s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_cExport.cmake
+[236.123s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[236.124s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_generator_cppExport.cmake
+[236.124s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[236.126s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[236.127s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[236.128s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[236.128s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_cppExport.cmake
+[236.129s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[236.130s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_generator_pyExport.cmake
+[236.130s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/export_mypalletizer_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[236.130s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/rosidl_cmake-extras.cmake
+[236.131s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[236.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[236.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[236.132s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[236.133s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[236.133s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[236.135s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfacesConfig.cmake
+[236.135s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/cmake/mypalletizer_interfacesConfig-version.cmake
+[236.136s] -- Installing: /home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/share/mypalletizer_interfaces/package.xml
+[236.154s] Invoked command in '/home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /bin/cmake --install /home/meta/Documents/robotics_workspace_new/build/mypalletizer_interfaces

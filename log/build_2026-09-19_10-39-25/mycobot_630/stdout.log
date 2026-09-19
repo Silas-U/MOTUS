@@ -1,0 +1,44 @@
+running egg_info
+creating ../../../build/mycobot_630/mycobot_630.egg-info
+writing ../../../build/mycobot_630/mycobot_630.egg-info/PKG-INFO
+writing dependency_links to ../../../build/mycobot_630/mycobot_630.egg-info/dependency_links.txt
+writing entry points to ../../../build/mycobot_630/mycobot_630.egg-info/entry_points.txt
+writing requirements to ../../../build/mycobot_630/mycobot_630.egg-info/requires.txt
+writing top-level names to ../../../build/mycobot_630/mycobot_630.egg-info/top_level.txt
+writing manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+reading manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../../build/mycobot_630/mycobot_630.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+copying mycobot_630/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+copying mycobot_630/test.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+copying mycobot_630/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/test.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_630/build/lib/mycobot_630/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/slider_control.py to slider_control.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/test.py to test.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index/packages
+copying resource/mycobot_630 -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/launch
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/config
+copying config/mycobot_630.rviz -> /home/meta/Documents/robotics_workspace_new/install/mycobot_630/share/mycobot_630/config
+running install_egg_info
+Copying ../../../build/mycobot_630/mycobot_630.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages/mycobot_630-0.0.0-py3.12.egg-info
+running install_scripts
+Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/mycobot_630
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_630/install.log'

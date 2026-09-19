@@ -1,0 +1,49 @@
+running egg_info
+creating ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info
+writing ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/PKG-INFO
+writing dependency_links to ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/dependency_links.txt
+writing entry points to ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/entry_points.txt
+writing requirements to ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/requires.txt
+writing top-level names to ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/top_level.txt
+writing manifest file '../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/SOURCES.txt'
+reading manifest file '../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+copying mycobot_280_moveit2_control/sync_plan_rdkx5.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+copying mycobot_280_moveit2_control/test.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+copying mycobot_280_moveit2_control/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+copying mycobot_280_moveit2_control/sync_plan.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+copying mycobot_280_moveit2_control/sync_plan_arduino.py -> /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control/sync_plan_rdkx5.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control/test.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control/sync_plan.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+copying /home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/build/lib/mycobot_280_moveit2_control/sync_plan_arduino.py -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control/sync_plan_rdkx5.py to sync_plan_rdkx5.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control/test.py to test.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control/sync_plan.py to sync_plan.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control/sync_plan_arduino.py to sync_plan_arduino.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/ament_index/resource_index/packages
+copying resource/mycobot_280_moveit2_control -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/mycobot_280_moveit2_control
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/mycobot_280_moveit2_control/launch
+creating /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/share/mycobot_280_moveit2_control/config
+running install_egg_info
+Copying ../../../build/mycobot_280_moveit2_control/mycobot_280_moveit2_control.egg-info to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages/mycobot_280_moveit2_control-0.0.0-py3.12.egg-info
+running install_scripts
+Installing sync_plan script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/mycobot_280_moveit2_control
+Installing sync_plan_arduino script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/mycobot_280_moveit2_control
+Installing sync_plan_rdkx5 script to /home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/mycobot_280_moveit2_control
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mycobot_280_moveit2_control/install.log'

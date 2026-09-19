@@ -1,0 +1,53 @@
+running egg_info
+creating ../../../build/mybuddy/mybuddy.egg-info
+writing ../../../build/mybuddy/mybuddy.egg-info/PKG-INFO
+writing dependency_links to ../../../build/mybuddy/mybuddy.egg-info/dependency_links.txt
+writing entry points to ../../../build/mybuddy/mybuddy.egg-info/entry_points.txt
+writing requirements to ../../../build/mybuddy/mybuddy.egg-info/requires.txt
+writing top-level names to ../../../build/mybuddy/mybuddy.egg-info/top_level.txt
+writing manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+reading manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+writing manifest file '../../../build/mybuddy/mybuddy.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build
+creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib
+creating /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+copying mybuddy/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+copying mybuddy/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+copying mybuddy/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+copying mybuddy/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+copying mybuddy/listen_real.py -> /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/listen_real_of_topic.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+copying /home/meta/Documents/robotics_workspace_new/build/mybuddy/build/lib/mybuddy/listen_real.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/listen_real_of_topic.py to listen_real_of_topic.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/slider_control.py to slider_control.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/follow_display.py to follow_display.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy/listen_real.py to listen_real.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index/packages
+copying resource/mybuddy -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+copying launch/mybuddy_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/launch
+creating /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/config
+copying config/dual_arm.rviz -> /home/meta/Documents/robotics_workspace_new/install/mybuddy/share/mybuddy/config
+running install_egg_info
+Copying ../../../build/mybuddy/mybuddy.egg-info to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages/mybuddy-0.0.0-py3.12.egg-info
+running install_scripts
+Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+Installing listen_real script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+Installing listen_real_of_topic script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/mybuddy
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/mybuddy/install.log'

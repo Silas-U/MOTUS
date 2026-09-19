@@ -1,0 +1,67 @@
+[8.071s] Invoking command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_c650': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_c650/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_c650 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_c650/install.log --single-version-externally-managed install_data
+[11.592s] running egg_info
+[11.596s] creating ../../../build/myarm_c650/myarm_c650.egg-info
+[11.899s] writing ../../../build/myarm_c650/myarm_c650.egg-info/PKG-INFO
+[11.902s] writing dependency_links to ../../../build/myarm_c650/myarm_c650.egg-info/dependency_links.txt
+[11.903s] writing entry points to ../../../build/myarm_c650/myarm_c650.egg-info/entry_points.txt
+[11.909s] writing requirements to ../../../build/myarm_c650/myarm_c650.egg-info/requires.txt
+[11.911s] writing top-level names to ../../../build/myarm_c650/myarm_c650.egg-info/top_level.txt
+[11.911s] writing manifest file '../../../build/myarm_c650/myarm_c650.egg-info/SOURCES.txt'
+[12.418s] reading manifest file '../../../build/myarm_c650/myarm_c650.egg-info/SOURCES.txt'
+[12.418s] adding license file 'LICENSE'
+[12.421s] writing manifest file '../../../build/myarm_c650/myarm_c650.egg-info/SOURCES.txt'
+[12.422s] running build
+[12.422s] running build_py
+[12.422s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build
+[12.423s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib
+[12.427s] creating /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.427s] copying myarm_c650/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.427s] copying myarm_c650/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.428s] copying myarm_c650/slider_control.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.428s] copying myarm_c650/follow_display.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.428s] copying myarm_c650/test.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.434s] copying myarm_c650/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.434s] copying myarm_c650/debug.py -> /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650
+[12.435s] running install
+[12.465s] running install_lib
+[12.635s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.635s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/simple_gui.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.637s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/teleop_keyboard.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.637s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/slider_control.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.637s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/follow_display.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.637s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/test.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.643s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.643s] copying /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build/lib/myarm_c650/debug.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650
+[12.645s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/simple_gui.py to simple_gui.cpython-312.pyc
+[12.665s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/teleop_keyboard.py to teleop_keyboard.cpython-312.pyc
+[12.671s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/slider_control.py to slider_control.cpython-312.pyc
+[12.676s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/follow_display.py to follow_display.cpython-312.pyc
+[12.677s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/test.py to test.cpython-312.pyc
+[12.683s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/__init__.py to __init__.cpython-312.pyc
+[12.683s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650/debug.py to debug.cpython-312.pyc
+[12.684s] running install_data
+[12.687s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/ament_index
+[12.687s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/ament_index/resource_index
+[12.688s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/ament_index/resource_index/packages
+[12.688s] copying resource/myarm_c650 -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/ament_index/resource_index/packages
+[12.688s] copying package.xml -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650
+[12.729s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.730s] copying launch/slider_control.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.730s] copying launch/teleop_keyboard.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.730s] copying launch/test.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.733s] copying launch/simple_gui.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.738s] copying launch/mycobot_follow.launch.py -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/launch
+[12.738s] creating /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/config
+[12.738s] copying config/myarm_c650.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/config
+[12.743s] copying config/myarm_with_marker.rviz -> /home/meta/Documents/robotics_workspace_new/install/myarm_c650/share/myarm_c650/config
+[12.743s] running install_egg_info
+[13.002s] Copying ../../../build/myarm_c650/myarm_c650.egg-info to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages/myarm_c650-0.0.0-py3.12.egg-info
+[13.008s] running install_scripts
+[13.946s] Installing debug script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.946s] Installing follow_display script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.950s] Installing simple_gui script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.950s] Installing slider_control script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.950s] Installing teleop_keyboard script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.951s] Installing test script to /home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/myarm_c650
+[13.951s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/myarm_c650/install.log'
+[14.068s] Invoked command in '/home/meta/Documents/robotics_workspace_new/mycobot_ros2/myArm/myarm_c650' returned '0': AMENT_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/myarm_c650/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/myarm_c650 build --build-base /home/meta/Documents/robotics_workspace_new/build/myarm_c650/build install --record /home/meta/Documents/robotics_workspace_new/build/myarm_c650/install.log --single-version-externally-managed install_data
