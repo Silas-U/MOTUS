@@ -1,0 +1,26 @@
+[18.333s] Invoking command in '/home/meta/Documents/robotics_workspace_new/motus_cli': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/motus_cli/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/motus_cli build --build-base /home/meta/Documents/robotics_workspace_new/build/motus_cli/build install --record /home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log --single-version-externally-managed
+[19.948s] running egg_info
+[20.123s] writing ../build/motus_cli/motus_cli.egg-info/PKG-INFO
+[20.125s] writing dependency_links to ../build/motus_cli/motus_cli.egg-info/dependency_links.txt
+[20.126s] writing entry points to ../build/motus_cli/motus_cli.egg-info/entry_points.txt
+[20.127s] writing requirements to ../build/motus_cli/motus_cli.egg-info/requires.txt
+[20.129s] writing top-level names to ../build/motus_cli/motus_cli.egg-info/top_level.txt
+[20.392s] reading manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'
+[20.396s] writing manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'
+[20.397s] running build
+[20.397s] running build_py
+[20.397s] copying motus_cli/builder/ros2_control_injector.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[20.412s] copying motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[20.414s] running install
+[20.440s] running install_lib
+[20.599s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/ros2_control_injector.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[20.603s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[20.605s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/ros2_control_injector.py to ros2_control_injector.cpython-312.pyc
+[20.611s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/robot_add.py to robot_add.cpython-312.pyc
+[20.616s] running install_egg_info
+[20.778s] removing '/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli-0.1.0-py3.12.egg-info' (and everything under it)
+[20.780s] Copying ../build/motus_cli/motus_cli.egg-info to /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli-0.1.0-py3.12.egg-info
+[20.782s] running install_scripts
+[21.388s] Installing motus script to /home/meta/Documents/robotics_workspace_new/install/motus_cli/bin
+[21.390s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log'
+[21.469s] Invoked command in '/home/meta/Documents/robotics_workspace_new/motus_cli' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/motus_cli/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/motus_cli build --build-base /home/meta/Documents/robotics_workspace_new/build/motus_cli/build install --record /home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log --single-version-externally-managed

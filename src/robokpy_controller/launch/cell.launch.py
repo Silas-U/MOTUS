@@ -91,6 +91,16 @@ def generate_launch_description():
         'controllers_yaml_full_path', default_value='')
     mesh_package_name_arg = DeclareLaunchArgument(
         'mesh_package_name', default_value='')
+    # NEW: per-project object-catalog override (Motus Builder support).
+    # Without this, every generated project silently falls back to
+    # robokpy_controller's own config/objects.yaml -- fine for object_types
+    # (shared cell "furniture", robot-independent), but its gripper.parent_link
+    # is a UR5e-specific link name (wrist_3_link) that doesn't exist on any
+    # other robot, so the embedded object-catalog Gazebo plugin fails outright
+    # (DetachableJoint "Link ... not found") for anything else. Confirmed
+    # against a real myCobot import.
+    objects_config_path_arg = DeclareLaunchArgument(
+        'objects_config_path', default_value='')
 
     use_sim = LaunchConfiguration('use_sim')
     launch_rviz = LaunchConfiguration('launch_rviz')
@@ -101,25 +111,36 @@ def generate_launch_description():
     robot_config_path_launch = LaunchConfiguration('robot_config_path')
     controllers_yaml_full_path_launch = LaunchConfiguration('controllers_yaml_full_path')
     mesh_package_name_launch = LaunchConfiguration('mesh_package_name')
+    objects_config_path_launch = LaunchConfiguration('objects_config_path')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
     rviz_config = os.path.join(pkg, 'config', 'config.rviz')
     tool_config_path = os.path.join(pkg, 'config', 'tools.yaml')
-    objects_config_path = os.path.join(pkg, 'config', 'objects.yaml')
     world_file = os.path.join(pkg, 'worlds', 'motus_world.sdf')
 
-    catalog = ObjectCatalog(objects_config_path)
-
-    with open(tool_config_path, 'r') as f:
-        tools_dict = yaml.safe_load(f)
-    for tool_id, cfg in tools_dict.items():
-        if cfg.get('backend') == 'grasp_attach':
-            cfg.setdefault('parent_model', catalog.parent_model)
-            cfg.setdefault('parent_link', catalog.parent_link)
-            cfg.setdefault('objects_catalog_path', objects_config_path)
-    tools_config = json.dumps(tools_dict)
-
     def configure(context):
+        # NEW: moved here (was eager, module-level) so objects_config_path
+        # can actually be overridden -- LaunchConfiguration.perform() needs
+        # a real context, which only exists inside a deferred function like
+        # this OpaqueFunction. Everything below that reads objects_config_path,
+        # catalog, or tools_config used to be plain module-level code; moving
+        # it here is a pure relocation, not a logic change -- it's still
+        # computed exactly once, just now with the override actually wired up.
+        objects_config_path = (
+            objects_config_path_launch.perform(context)
+            or os.path.join(pkg, 'config', 'objects.yaml')
+        )
+        catalog = ObjectCatalog(objects_config_path)
+
+        with open(tool_config_path, 'r') as f:
+            tools_dict = yaml.safe_load(f)
+        for tool_id, cfg in tools_dict.items():
+            if cfg.get('backend') == 'grasp_attach':
+                cfg.setdefault('parent_model', catalog.parent_model)
+                cfg.setdefault('parent_link', catalog.parent_link)
+                cfg.setdefault('objects_catalog_path', objects_config_path)
+        tools_config = json.dumps(tools_dict)
+
         arms_config_path = arms_config.perform(context)
         if arms_config_path:
             with open(arms_config_path, 'r') as f:
@@ -302,5 +323,6 @@ def generate_launch_description():
         robot_config_path_arg,
         controllers_yaml_full_path_arg,
         mesh_package_name_arg,
+        objects_config_path_arg,
         OpaqueFunction(function=configure),
     ])

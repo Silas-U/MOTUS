@@ -1,0 +1,170 @@
+[0.000000] (-) TimerEvent: {}
+[0.001202] (-) JobUnselected: {'identifier': 'mecharm'}
+[0.001523] (-) JobUnselected: {'identifier': 'mecharm_communication'}
+[0.001592] (-) JobUnselected: {'identifier': 'mecharm_interfaces'}
+[0.001647] (-) JobUnselected: {'identifier': 'mecharm_pi'}
+[0.001697] (-) JobUnselected: {'identifier': 'myarm_300'}
+[0.001755] (-) JobUnselected: {'identifier': 'myarm_c650'}
+[0.001806] (-) JobUnselected: {'identifier': 'myarm_m750'}
+[0.001852] (-) JobUnselected: {'identifier': 'mybuddy'}
+[0.001896] (-) JobUnselected: {'identifier': 'mycobot_280'}
+[0.001941] (-) JobUnselected: {'identifier': 'mycobot_280_arduino'}
+[0.001999] (-) JobUnselected: {'identifier': 'mycobot_280_moveit2'}
+[0.002073] (-) JobUnselected: {'identifier': 'mycobot_280_moveit2_control'}
+[0.002129] (-) JobUnselected: {'identifier': 'mycobot_280_rdkx5'}
+[0.002171] (-) JobUnselected: {'identifier': 'mycobot_280_riscv'}
+[0.002216] (-) JobUnselected: {'identifier': 'mycobot_280_x3pi'}
+[0.002274] (-) JobUnselected: {'identifier': 'mycobot_280arduino_moveit2'}
+[0.002325] (-) JobUnselected: {'identifier': 'mycobot_280jn'}
+[0.002376] (-) JobUnselected: {'identifier': 'mycobot_280pi'}
+[0.002420] (-) JobUnselected: {'identifier': 'mycobot_280rdkx5_moveit2'}
+[0.002487] (-) JobUnselected: {'identifier': 'mycobot_320'}
+[0.002532] (-) JobUnselected: {'identifier': 'mycobot_320_riscv'}
+[0.002574] (-) JobUnselected: {'identifier': 'mycobot_320pi'}
+[0.002620] (-) JobUnselected: {'identifier': 'mycobot_600'}
+[0.002664] (-) JobUnselected: {'identifier': 'mycobot_630'}
+[0.002707] (-) JobUnselected: {'identifier': 'mycobot_630_moveit2'}
+[0.002752] (-) JobUnselected: {'identifier': 'mycobot_communication'}
+[0.002800] (-) JobUnselected: {'identifier': 'mycobot_description'}
+[0.002845] (-) JobUnselected: {'identifier': 'mycobot_interfaces'}
+[0.002888] (-) JobUnselected: {'identifier': 'mycobot_pi_motus'}
+[0.002931] (-) JobUnselected: {'identifier': 'mycobot_pro450_interfaces'}
+[0.002976] (-) JobUnselected: {'identifier': 'mycobot_pro_450'}
+[0.003020] (-) JobUnselected: {'identifier': 'mypalletizer_260'}
+[0.003078] (-) JobUnselected: {'identifier': 'mypalletizer_260_pi'}
+[0.003293] (-) JobUnselected: {'identifier': 'mypalletizer_communication'}
+[0.003343] (-) JobUnselected: {'identifier': 'mypalletizer_interfaces'}
+[0.003390] (-) JobUnselected: {'identifier': 'pro450_moveit2'}
+[0.003436] (-) JobUnselected: {'identifier': 'pro450_moveit2_control'}
+[0.003482] (-) JobUnselected: {'identifier': 'robokpy'}
+[0.003526] (-) JobUnselected: {'identifier': 'robokpy_interfaces'}
+[0.003577] (-) JobUnselected: {'identifier': 'ultraarm'}
+[0.003644] (motus_cli) JobQueued: {'identifier': 'motus_cli', 'dependencies': OrderedDict()}
+[0.003738] (robokpy_controller) JobQueued: {'identifier': 'robokpy_controller', 'dependencies': OrderedDict({'robokpy_interfaces': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces'})}
+[0.003868] (motus_cli) JobStarted: {'identifier': 'motus_cli'}
+[0.035386] (robokpy_controller) JobStarted: {'identifier': 'robokpy_controller'}
+[0.099245] (-) TimerEvent: {}
+[0.199637] (-) TimerEvent: {}
+[0.300021] (-) TimerEvent: {}
+[0.400406] (-) TimerEvent: {}
+[0.500824] (-) TimerEvent: {}
+[0.601239] (-) TimerEvent: {}
+[0.701625] (-) TimerEvent: {}
+[0.802020] (-) TimerEvent: {}
+[0.902431] (-) TimerEvent: {}
+[1.002838] (-) TimerEvent: {}
+[1.103260] (-) TimerEvent: {}
+[1.203678] (-) TimerEvent: {}
+[1.304585] (-) TimerEvent: {}
+[1.405077] (-) TimerEvent: {}
+[1.505531] (-) TimerEvent: {}
+[1.605961] (-) TimerEvent: {}
+[1.706388] (-) TimerEvent: {}
+[1.806787] (-) TimerEvent: {}
+[1.907199] (-) TimerEvent: {}
+[2.007603] (-) TimerEvent: {}
+[2.108001] (-) TimerEvent: {}
+[2.208418] (-) TimerEvent: {}
+[2.308870] (-) TimerEvent: {}
+[2.409329] (-) TimerEvent: {}
+[2.509795] (-) TimerEvent: {}
+[2.563711] (motus_cli) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/motus_cli', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/build/motus_cli/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log', '--single-version-externally-managed'], 'cwd': '/home/meta/Documents/robotics_workspace_new/motus_cli', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2814-4-meta-Inspiron-3542_TIME3604843', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents/robotics_workspace_new/mycobot_pi', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2476', 'SYSTEMD_EXEC_PID': '2814', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '11249', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:21626', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2774,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2774', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'ee40eac5eb1f4a1a8021928cd24d59d1', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:8d913d6c-4103-40cd-b05d-1822a4a953a4', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/motus_cli', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/build/motus_cli/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.609921] (-) TimerEvent: {}
+[2.710443] (-) TimerEvent: {}
+[2.811113] (-) TimerEvent: {}
+[2.911508] (-) TimerEvent: {}
+[3.011911] (-) TimerEvent: {}
+[3.112331] (-) TimerEvent: {}
+[3.212742] (-) TimerEvent: {}
+[3.258083] (robokpy_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/robokpy_controller', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/meta/Documents/robotics_workspace_new/src/robokpy_controller', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2814-4-meta-Inspiron-3542_TIME3604843', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents/robotics_workspace_new/mycobot_pi', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2476', 'SYSTEMD_EXEC_PID': '2814', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '11249', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:21626', '_': '/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2774,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2774', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'ee40eac5eb1f4a1a8021928cd24d59d1', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:8d913d6c-4103-40cd-b05d-1822a4a953a4', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[3.312869] (-) TimerEvent: {}
+[3.413866] (-) TimerEvent: {}
+[3.445067] (motus_cli) StdoutLine: {'line': b'running egg_info\n'}
+[3.514012] (-) TimerEvent: {}
+[3.529370] (motus_cli) StdoutLine: {'line': b'writing ../build/motus_cli/motus_cli.egg-info/PKG-INFO\n'}
+[3.530462] (motus_cli) StdoutLine: {'line': b'writing dependency_links to ../build/motus_cli/motus_cli.egg-info/dependency_links.txt\n'}
+[3.531004] (motus_cli) StdoutLine: {'line': b'writing entry points to ../build/motus_cli/motus_cli.egg-info/entry_points.txt\n'}
+[3.531450] (motus_cli) StdoutLine: {'line': b'writing requirements to ../build/motus_cli/motus_cli.egg-info/requires.txt\n'}
+[3.531858] (motus_cli) StdoutLine: {'line': b'writing top-level names to ../build/motus_cli/motus_cli.egg-info/top_level.txt\n'}
+[3.614151] (-) TimerEvent: {}
+[3.695188] (motus_cli) StdoutLine: {'line': b"reading manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'\n"}
+[3.697421] (motus_cli) StdoutLine: {'line': b"writing manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'\n"}
+[3.699157] (motus_cli) StdoutLine: {'line': b'running build\n'}
+[3.699506] (motus_cli) StdoutLine: {'line': b'running build_py\n'}
+[3.699761] (motus_cli) StdoutLine: {'line': b'copying motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder\n'}
+[3.700303] (motus_cli) StdoutLine: {'line': b'copying motus_cli/builder/templates.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder\n'}
+[3.710609] (motus_cli) StdoutLine: {'line': b'copying motus_cli/builder/config_generator.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder\n'}
+[3.711759] (motus_cli) StdoutLine: {'line': b'running install\n'}
+[3.714249] (-) TimerEvent: {}
+[3.726491] (motus_cli) StdoutLine: {'line': b'running install_lib\n'}
+[3.806967] (motus_cli) StdoutLine: {'line': b'copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder\n'}
+[3.807993] (motus_cli) StdoutLine: {'line': b'copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/templates.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder\n'}
+[3.808531] (motus_cli) StdoutLine: {'line': b'copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/config_generator.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder\n'}
+[3.810247] (motus_cli) StdoutLine: {'line': b'byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/robot_add.py to robot_add.cpython-312.pyc\n'}
+[3.814356] (-) TimerEvent: {}
+[3.816859] (motus_cli) StdoutLine: {'line': b'byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/templates.py to templates.cpython-312.pyc\n'}
+[3.818103] (motus_cli) StdoutLine: {'line': b'byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/config_generator.py to config_generator.cpython-312.pyc\n'}
+[3.821013] (motus_cli) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.905392] (motus_cli) StdoutLine: {'line': b"removing '/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli-0.1.0-py3.12.egg-info' (and everything under it)\n"}
+[3.906153] (motus_cli) StdoutLine: {'line': b'Copying ../build/motus_cli/motus_cli.egg-info to /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli-0.1.0-py3.12.egg-info\n'}
+[3.908300] (motus_cli) StdoutLine: {'line': b'running install_scripts\n'}
+[3.914478] (-) TimerEvent: {}
+[4.014887] (-) TimerEvent: {}
+[4.115584] (-) TimerEvent: {}
+[4.206566] (robokpy_controller) StdoutLine: {'line': b'running egg_info\n'}
+[4.215692] (-) TimerEvent: {}
+[4.289967] (robokpy_controller) StdoutLine: {'line': b'writing ../../build/robokpy_controller/robokpy_controller.egg-info/PKG-INFO\n'}
+[4.290528] (robokpy_controller) StdoutLine: {'line': b'writing dependency_links to ../../build/robokpy_controller/robokpy_controller.egg-info/dependency_links.txt\n'}
+[4.291343] (robokpy_controller) StdoutLine: {'line': b'writing entry points to ../../build/robokpy_controller/robokpy_controller.egg-info/entry_points.txt\n'}
+[4.291805] (robokpy_controller) StdoutLine: {'line': b'writing requirements to ../../build/robokpy_controller/robokpy_controller.egg-info/requires.txt\n'}
+[4.292331] (robokpy_controller) StdoutLine: {'line': b'writing top-level names to ../../build/robokpy_controller/robokpy_controller.egg-info/top_level.txt\n'}
+[4.315816] (-) TimerEvent: {}
+[4.395874] (motus_cli) StdoutLine: {'line': b'Installing motus script to /home/meta/Documents/robotics_workspace_new/install/motus_cli/bin\n'}
+[4.407338] (motus_cli) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log'\n"}
+[4.415954] (-) TimerEvent: {}
+[4.462428] (robokpy_controller) StdoutLine: {'line': b"reading manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'\n"}
+[4.468013] (robokpy_controller) StdoutLine: {'line': b"writing manifest file '../../build/robokpy_controller/robokpy_controller.egg-info/SOURCES.txt'\n"}
+[4.468740] (robokpy_controller) StdoutLine: {'line': b'running build\n'}
+[4.469080] (robokpy_controller) StdoutLine: {'line': b'running build_py\n'}
+[4.473007] (motus_cli) CommandEnded: {'returncode': 0}
+[4.474518] (robokpy_controller) StdoutLine: {'line': b'running install\n'}
+[4.487609] (robokpy_controller) StdoutLine: {'line': b'running install_lib\n'}
+[4.504620] (motus_cli) JobEnded: {'identifier': 'motus_cli', 'rc': 0}
+[4.516088] (-) TimerEvent: {}
+[4.583680] (robokpy_controller) StdoutLine: {'line': b'running install_data\n'}
+[4.584206] (robokpy_controller) StdoutLine: {'line': b'copying launch/cell.launch.py -> /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/share/robokpy_controller/launch\n'}
+[4.602527] (robokpy_controller) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.616180] (-) TimerEvent: {}
+[4.686417] (robokpy_controller) StdoutLine: {'line': b"removing '/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[4.686998] (robokpy_controller) StdoutLine: {'line': b'Copying ../../build/robokpy_controller/robokpy_controller.egg-info to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages/robokpy_controller-0.0.0-py3.12.egg-info\n'}
+[4.688857] (robokpy_controller) StdoutLine: {'line': b'running install_scripts\n'}
+[4.716306] (-) TimerEvent: {}
+[4.816698] (-) TimerEvent: {}
+[4.917087] (-) TimerEvent: {}
+[5.017475] (-) TimerEvent: {}
+[5.117867] (-) TimerEvent: {}
+[5.165734] (robokpy_controller) StdoutLine: {'line': b'Installing arm_executor script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.166229] (robokpy_controller) StdoutLine: {'line': b'Installing cell_orchestrator script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.166618] (robokpy_controller) StdoutLine: {'line': b'Installing grasp_attach_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.166991] (robokpy_controller) StdoutLine: {'line': b'Installing joint_jog_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.167401] (robokpy_controller) StdoutLine: {'line': b'Installing kinematic_solver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.167766] (robokpy_controller) StdoutLine: {'line': b'Installing kinematics_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.168135] (robokpy_controller) StdoutLine: {'line': b'Installing object_pose_resolver script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.168779] (robokpy_controller) StdoutLine: {'line': b'Installing object_spawner script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.169161] (robokpy_controller) StdoutLine: {'line': b'Installing pose_target_interface script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.172595] (robokpy_controller) StdoutLine: {'line': b'Installing preflight_recipe script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.172973] (robokpy_controller) StdoutLine: {'line': b'Installing robot_command_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.173376] (robokpy_controller) StdoutLine: {'line': b'Installing robot_description_viewer script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.173757] (robokpy_controller) StdoutLine: {'line': b'Installing robot_state_interface_virtual script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.217972] (-) TimerEvent: {}
+[5.252385] (robokpy_controller) StdoutLine: {'line': b'Installing robot_state_manager script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.254146] (robokpy_controller) StdoutLine: {'line': b'Installing run_recipe script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.254613] (robokpy_controller) StdoutLine: {'line': b'Installing safety_bridge script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.254884] (robokpy_controller) StdoutLine: {'line': b'Installing tool_action_server script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.255169] (robokpy_controller) StdoutLine: {'line': b'Installing trajectory_plotter script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.255425] (robokpy_controller) StdoutLine: {'line': b'Installing virtual_jog_relay script to /home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/robokpy_controller\n'}
+[5.256831] (robokpy_controller) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/robokpy_controller/install.log'\n"}
+[5.315462] (robokpy_controller) CommandEnded: {'returncode': 0}
+[5.318059] (-) TimerEvent: {}
+[5.330307] (robokpy_controller) JobEnded: {'identifier': 'robokpy_controller', 'rc': 0}
+[5.331978] (-) EventReactorShutdown: {}

@@ -123,27 +123,8 @@ _DUMMY_INERTIAL = """<inertial>
     </inertial>"""
 
 
-def ensure_base_link_inertial(urdf_text: str, desc: RobotDescription, base_link: str) -> str:
-    """Found the hard way against a real launch: Gazebo's urdf2sdf
-    conversion tries to lump a massless link into its neighbor via fixed
-    joint reduction, but for the ROOT link specifically there's nothing
-    upstream to lump into -- it just gets silently dropped entirely
-    ("link[g_base] is not modeled in sdf"), which then breaks the whole
-    frame graph downstream (every joint attached to it reports as
-    disconnected) and, as far as I can tell from that failure signature,
-    is why gz_ros2_control never finished initializing either (spawners
-    still couldn't reach /controller_manager). A massless root link with
-    only fixed children is common in real vendor URDFs that were only
-    ever meant for RViz/MoveIt display, not physics sim -- so give it a
-    negligible-but-nonzero dummy inertial rather than assume every
-    imported description already has one. Only touches base_link, and
-    only if it genuinely has none -- every other link keeps whatever the
-    source description gave it."""
-    link = desc.links.get(base_link)
-    if link is None or link.has_inertial:
-        return urdf_text
-
-    open_tag_prefix = f'<link name="{base_link}"'
+def _inject_dummy_inertial_into_link(urdf_text: str, link_name: str) -> str:
+    open_tag_prefix = f'<link name="{link_name}"'
     idx = urdf_text.find(open_tag_prefix)
     if idx == -1:
         return urdf_text  # shouldn't happen if desc was parsed from this same text
@@ -152,9 +133,48 @@ def ensure_base_link_inertial(urdf_text: str, desc: RobotDescription, base_link:
         return urdf_text
 
     if urdf_text[tag_close - 1] == "/":
-        # Self-closing <link name="base"/> -- expand it to hold the inertial.
+        # Self-closing <link name="..."/> -- expand it to hold the inertial.
         return (
             urdf_text[:tag_close - 1] + f">\n    {_DUMMY_INERTIAL}\n  </link>"
             + urdf_text[tag_close + 1:]
         )
     return urdf_text[:tag_close + 1] + f"\n    {_DUMMY_INERTIAL}" + urdf_text[tag_close + 1:]
+
+
+def ensure_required_inertials(urdf_text: str, desc: RobotDescription, base_link: str) -> str:
+    """Found the hard way against a real launch: Gazebo's urdf2sdf
+    conversion tries to lump a massless link into its neighbor via fixed
+    joint reduction. That reduction path only exists when the joint
+    connecting the link to its parent is itself type="fixed" -- for the
+    ROOT link there's nothing upstream to lump into at all, and for any
+    link hanging off a movable (revolute/continuous/prismatic) joint the
+    joint itself can't be reduced away either, since collapsing it would
+    delete a real, actuated DOF. Either way the link just gets silently
+    dropped entirely ("link[X] is not modeled in sdf", "parent joint[...]
+    ignored"), which breaks the whole frame graph downstream (every
+    joint/link past that point reports as disconnected) and, as far as
+    I can tell from that failure signature, is why gz_ros2_control never
+    finished initializing either (spawners still couldn't reach
+    /controller_manager) -- confirmed against a real import where an
+    interior link (not just the root) had no <inertial> and was dropped
+    the same way. A massless link with no mass properties is common in
+    real vendor URDFs that were only ever meant for RViz/MoveIt display,
+    not physics sim -- so give every link that needs one (the root, plus
+    any link that is the child of a movable joint) a negligible-but-
+    nonzero dummy inertial rather than assume the imported description
+    already has it. Only touches links that genuinely have none -- every
+    link that already ships mass properties keeps exactly what the
+    source description gave it, and fixed-child links are left alone
+    since Gazebo's reduction already handles those correctly."""
+    needs_inertial = {base_link}
+    for joint in desc.joints.values():
+        if joint.is_movable:
+            needs_inertial.add(joint.child)
+
+    for link_name in needs_inertial:
+        link = desc.links.get(link_name)
+        if link is None or link.has_inertial:
+            continue
+        urdf_text = _inject_dummy_inertial_into_link(urdf_text, link_name)
+
+    return urdf_text

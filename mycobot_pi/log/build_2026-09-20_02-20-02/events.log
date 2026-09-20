@@ -1,0 +1,88 @@
+[0.000000] (-) TimerEvent: {}
+[0.000297] (mycobot_pi_motus) JobQueued: {'identifier': 'mycobot_pi_motus', 'dependencies': OrderedDict()}
+[0.000389] (mycobot_pi_motus) JobStarted: {'identifier': 'mycobot_pi_motus'}
+[0.098400] (-) TimerEvent: {}
+[0.198972] (-) TimerEvent: {}
+[0.305488] (-) TimerEvent: {}
+[0.406609] (-) TimerEvent: {}
+[0.508587] (-) TimerEvent: {}
+[0.609036] (-) TimerEvent: {}
+[0.709357] (-) TimerEvent: {}
+[0.809753] (-) TimerEvent: {}
+[0.910322] (-) TimerEvent: {}
+[1.010832] (-) TimerEvent: {}
+[1.111449] (-) TimerEvent: {}
+[1.211853] (-) TimerEvent: {}
+[1.312566] (-) TimerEvent: {}
+[1.413860] (-) TimerEvent: {}
+[1.514216] (-) TimerEvent: {}
+[1.614650] (-) TimerEvent: {}
+[1.715673] (-) TimerEvent: {}
+[1.816074] (-) TimerEvent: {}
+[1.916461] (-) TimerEvent: {}
+[2.016862] (-) TimerEvent: {}
+[2.117267] (-) TimerEvent: {}
+[2.217680] (-) TimerEvent: {}
+[2.319540] (-) TimerEvent: {}
+[2.419949] (-) TimerEvent: {}
+[2.520483] (-) TimerEvent: {}
+[2.621129] (-) TimerEvent: {}
+[2.721944] (-) TimerEvent: {}
+[2.822445] (-) TimerEvent: {}
+[2.923133] (-) TimerEvent: {}
+[3.024480] (-) TimerEvent: {}
+[3.124825] (-) TimerEvent: {}
+[3.225186] (-) TimerEvent: {}
+[3.325549] (-) TimerEvent: {}
+[3.426452] (-) TimerEvent: {}
+[3.526996] (-) TimerEvent: {}
+[3.627349] (-) TimerEvent: {}
+[3.656375] (mycobot_pi_motus) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/mycobot_pi_motus', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/mycobot_pi/build/mycobot_pi_motus/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/mycobot_pi/build/mycobot_pi_motus/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/src/mycobot_pi_motus', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2814-4-meta-Inspiron-3542_TIME3604843', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents/robotics_workspace_new', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2476', 'SYSTEMD_EXEC_PID': '2814', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '11249', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:21626', '_': '/home/meta/.local/bin/motus', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2774,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2774', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'ee40eac5eb1f4a1a8021928cd24d59d1', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:8d913d6c-4103-40cd-b05d-1822a4a953a4', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/build/mycobot_pi_motus', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/mycobot_pi/build/mycobot_pi_motus/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[3.727492] (-) TimerEvent: {}
+[3.827831] (-) TimerEvent: {}
+[3.928156] (-) TimerEvent: {}
+[4.028496] (-) TimerEvent: {}
+[4.128845] (-) TimerEvent: {}
+[4.229177] (-) TimerEvent: {}
+[4.329488] (-) TimerEvent: {}
+[4.429876] (-) TimerEvent: {}
+[4.530228] (-) TimerEvent: {}
+[4.630662] (-) TimerEvent: {}
+[4.731192] (-) TimerEvent: {}
+[4.831746] (-) TimerEvent: {}
+[4.894683] (mycobot_pi_motus) StdoutLine: {'line': b'running egg_info\n'}
+[4.933044] (-) TimerEvent: {}
+[5.033465] (-) TimerEvent: {}
+[5.067750] (mycobot_pi_motus) StdoutLine: {'line': b'writing ../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/PKG-INFO\n'}
+[5.068169] (mycobot_pi_motus) StdoutLine: {'line': b'writing dependency_links to ../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/dependency_links.txt\n'}
+[5.068478] (mycobot_pi_motus) StdoutLine: {'line': b'writing requirements to ../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/requires.txt\n'}
+[5.068789] (mycobot_pi_motus) StdoutLine: {'line': b'writing top-level names to ../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/top_level.txt\n'}
+[5.133592] (-) TimerEvent: {}
+[5.234834] (-) TimerEvent: {}
+[5.331338] (mycobot_pi_motus) StdoutLine: {'line': b"reading manifest file '../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/SOURCES.txt'\n"}
+[5.334069] (mycobot_pi_motus) StdoutLine: {'line': b"writing manifest file '../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info/SOURCES.txt'\n"}
+[5.334618] (mycobot_pi_motus) StdoutLine: {'line': b'running build\n'}
+[5.334930] (-) TimerEvent: {}
+[5.336509] (mycobot_pi_motus) StdoutLine: {'line': b'running build_py\n'}
+[5.336904] (mycobot_pi_motus) StdoutLine: {'line': b'running install\n'}
+[5.358392] (mycobot_pi_motus) StdoutLine: {'line': b'running install_lib\n'}
+[5.435535] (-) TimerEvent: {}
+[5.483428] (mycobot_pi_motus) StdoutLine: {'line': b'running install_data\n'}
+[5.485888] (mycobot_pi_motus) StdoutLine: {'line': b'copying ./urdf/mycobot_pi.urdf.xacro -> /home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/share/mycobot_pi_motus/urdf\n'}
+[5.489478] (mycobot_pi_motus) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.535654] (-) TimerEvent: {}
+[5.603067] (mycobot_pi_motus) StdoutLine: {'line': b"removing '/home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[5.604131] (mycobot_pi_motus) StdoutLine: {'line': b'Copying ../../build/mycobot_pi_motus/mycobot_pi_motus.egg-info to /home/meta/Documents/robotics_workspace_new/mycobot_pi/install/mycobot_pi_motus/lib/python3.12/site-packages/mycobot_pi_motus-0.0.0-py3.12.egg-info\n'}
+[5.606056] (mycobot_pi_motus) StdoutLine: {'line': b'running install_scripts\n'}
+[5.635791] (-) TimerEvent: {}
+[5.737694] (-) TimerEvent: {}
+[5.838440] (-) TimerEvent: {}
+[5.938931] (-) TimerEvent: {}
+[6.039353] (-) TimerEvent: {}
+[6.139821] (-) TimerEvent: {}
+[6.237703] (mycobot_pi_motus) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/mycobot_pi/build/mycobot_pi_motus/install.log'\n"}
+[6.239966] (-) TimerEvent: {}
+[6.321627] (mycobot_pi_motus) CommandEnded: {'returncode': 0}
+[6.340947] (-) TimerEvent: {}
+[6.345651] (mycobot_pi_motus) JobEnded: {'identifier': 'mycobot_pi_motus', 'rc': 0}
+[6.347527] (-) EventReactorShutdown: {}

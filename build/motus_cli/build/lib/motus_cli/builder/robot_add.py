@@ -26,7 +26,7 @@ from . import templates
 from .urdf_parser import RobotDescription, UrdfParseError
 from .xacro_support import parse_description_file
 from .kinematic_analyzer import analyze, KinematicAnalysis
-from .ros2_control_injector import inject_ros2_control, ensure_base_link_inertial
+from .ros2_control_injector import inject_ros2_control, ensure_required_inertials
 from .resource_resolver import resolve_resources, rewrite_mesh_uris, ResourceResolutionResult
 from .config_generator import generate_configs, ConfigGenerationResult
 
@@ -157,12 +157,13 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
     with open(urdf_file, "r", encoding="utf-8") as f:
         urdf_text = f.read()
     rewritten_urdf = rewrite_mesh_uris(urdf_text, resolution, pkg_name)
-    # Give the root link a dummy inertial if the source description
-    # didn't -- Gazebo's urdf2sdf silently drops a massless ROOT link
-    # entirely rather than lumping it (there's nothing upstream to lump
-    # into), which breaks the whole frame graph. Common on real vendor
-    # URDFs authored only for RViz/MoveIt display, not physics sim.
-    rewritten_urdf = ensure_base_link_inertial(rewritten_urdf, desc, analysis.base_link)
+    # Give any link that needs one a dummy inertial if the source
+    # description didn't provide it -- Gazebo's urdf2sdf silently drops a
+    # massless link entirely (root link, or any link hanging off a
+    # movable joint) rather than lumping it, which breaks the whole frame
+    # graph. Common on real vendor URDFs authored only for RViz/MoveIt
+    # display, not physics sim.
+    rewritten_urdf = ensure_required_inertials(rewritten_urdf, desc, analysis.base_link)
     # Always inject <ros2_control>/<gazebo><plugin> and write the result
     # as .urdf.xacro regardless of the source's original extension --
     # the injected $(arg controllers_yaml_path)/$(arg namespace) need
@@ -185,6 +186,7 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
     (pkg_dir / "config").mkdir(parents=True, exist_ok=True)
     (pkg_dir / "config" / "robot.yaml").write_text(cfg.robot_yaml_text, encoding="utf-8")
     (pkg_dir / "config" / "controllers.yaml").write_text(cfg.controllers_yaml_text, encoding="utf-8")
+    (pkg_dir / "config" / "objects.yaml").write_text(cfg.objects_yaml_text, encoding="utf-8")
 
     launch_filename = f"{robot_name}.launch.py"
     (pkg_dir / "launch").mkdir(parents=True, exist_ok=True)

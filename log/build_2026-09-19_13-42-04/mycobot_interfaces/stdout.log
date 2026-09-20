@@ -1,0 +1,446 @@
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.3 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /bin/python3  
+-- Found Python3: /bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (28.2s)
+-- Generating done (1.0s)
+-- Build files have been written to: /home/meta/Documents/robotics_workspace_new/build/mycobot_interfaces
+[  1%] Built target mycobot_interfaces__rosidl_generator_type_description
+[  1%] Built target ament_cmake_python_copy_mycobot_interfaces
+[ 27%] Built target mycobot_interfaces__rosidl_generator_c
+running egg_info
+writing mycobot_interfaces.egg-info/PKG-INFO
+writing dependency_links to mycobot_interfaces.egg-info/dependency_links.txt
+writing top-level names to mycobot_interfaces.egg-info/top_level.txt
+reading manifest file 'mycobot_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'mycobot_interfaces.egg-info/SOURCES.txt'
+[ 27%] Built target ament_cmake_python_build_mycobot_interfaces_egg
+[ 37%] Built target mycobot_interfaces__rosidl_typesupport_introspection_c
+[ 47%] Built target mycobot_interfaces__rosidl_typesupport_c
+[ 57%] Built target mycobot_interfaces__rosidl_typesupport_fastrtps_c
+[ 57%] Built target mycobot_interfaces__cpp
+[ 66%] Built target mycobot_interfaces__rosidl_typesupport_cpp
+[ 75%] Built target mycobot_interfaces__rosidl_typesupport_introspection_cpp
+[ 85%] Built target mycobot_interfaces__rosidl_typesupport_fastrtps_cpp
+[ 85%] Built target mycobot_interfaces
+[ 86%] Built target mycobot_interfaces__py
+[ 95%] Built target mycobot_interfaces__rosidl_generator_py
+[ 96%] Built target mycobot_interfaces_s__rosidl_typesupport_fastrtps_c
+[ 98%] Built target mycobot_interfaces_s__rosidl_typesupport_c
+[100%] Built target mycobot_interfaces_s__rosidl_typesupport_introspection_c
+-- Install configuration: ""
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/ament_index/resource_index/rosidl_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotAngles.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotCoords.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetAngles.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetCoords.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotGripperStatus.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotPumpStatus.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetAngles.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetAngles.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetCoords.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetCoords.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GripperStatus.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/PumpStatus.json
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/pump_status.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__functions.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__functions.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__functions.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__description.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__struct.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__struct.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/gripper_status.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/get_angles.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/set_angles.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/get_coords.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/set_coords.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_pump_status.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_angles.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_set_angles.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__functions.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__functions.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__struct.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__type_support.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__functions.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__struct.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__description.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__type_support.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__type_support.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__struct.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__functions.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_set_coords.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_gripper_status.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_coords.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/library_path.sh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/library_path.dsv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_generator_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_c.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__type_support.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_c.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_c.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__type_support.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_introspection_c.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__type_support.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__type_support.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_introspection_c.h
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__type_support.c
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__type_support.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/set_coords.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/set_angles.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/get_angles.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/get_coords.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/gripper_status.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/pump_status.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_angles.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_coords.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__struct.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__traits.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__type_support.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__builder.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_set_angles.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_gripper_status.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_pump_status.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/mycobot_set_coords.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/dds_fastrtps
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/dds_fastrtps
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_fastrtps_cpp.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_angles__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/get_coords__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_coords__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/pump_status__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/srv/detail/set_angles__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_gripper_status__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_angles__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_angles__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_set_coords__type_support.cpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_coords__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/include/mycobot_interfaces/mycobot_interfaces/msg/detail/mycobot_pump_status__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_introspection_cpp.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_typesupport_cpp.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/pythonpath.sh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/pythonpath.dsv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces-0.0.0-py3.12.egg-info
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/_mycobot_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_set_angles.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_get_coords.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_gripper_status_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_pump_status.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_get_angles_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_set_coords.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_set_angles_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/__init__.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_get_angles.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_set_coords_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_pump_status_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_get_coords_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv/_gripper_status.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_coords.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_set_angles_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_angles_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_set_coords_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_gripper_status.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_gripper_status_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_coords_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_set_angles.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_pump_status_s.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_set_coords.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_pump_status.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/__init__.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg/_mycobot_angles.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_c.so
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/__init__.py
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/_mycobot_interfaces_s.ep.rosidl_typesupport_c.c
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/_mycobot_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces'...
+Compiling '/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/__init__.py'...
+Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/msg'...
+Listing '/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/srv'...
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages/mycobot_interfaces/mycobot_interfaces_s__rosidl_typesupport_c.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/libmycobot_interfaces__rosidl_generator_py.so
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotAngles.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotCoords.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetAngles.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetCoords.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotGripperStatus.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotPumpStatus.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetAngles.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetAngles.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetCoords.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetCoords.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GripperStatus.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/PumpStatus.idl
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotAngles.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotCoords.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetAngles.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotSetCoords.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotGripperStatus.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/msg/MycobotPumpStatus.msg
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetAngles.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetAngles.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GetCoords.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/SetCoords.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/GripperStatus.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/srv/PumpStatus.srv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/ament_index/resource_index/package_run_dependencies/mycobot_interfaces
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/ament_index/resource_index/parent_prefix_path/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/ament_prefix_path.sh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/path.sh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/environment/path.dsv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/local_setup.bash
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/local_setup.sh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/local_setup.zsh
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/local_setup.dsv
+-- Installing: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/package.dsv
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/ament_index/resource_index/packages/mycobot_interfaces
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/export_mycobot_interfaces__rosidl_generator_pyExport-noconfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfacesConfig.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/cmake/mycobot_interfacesConfig-version.cmake
+-- Up-to-date: /home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/share/mycobot_interfaces/package.xml

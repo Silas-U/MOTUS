@@ -45,6 +45,11 @@
   </link>
 
   <link name="joint2">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        <mesh filename="package://mycobot_pi_motus/meshes/joint2.dae"/>
@@ -61,6 +66,11 @@
 
 
   <link name="joint3">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        
@@ -78,6 +88,11 @@
 
 
   <link name="joint4">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        <!--- 0.0 0 -0.04 -->
@@ -98,6 +113,11 @@
 
 
 <link name="joint5">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        <!--- 0.0 0 -0.04 -->
@@ -116,6 +136,11 @@
 
 
   <link name="joint6">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        <!--- 0.0 0 -0.04 -->
@@ -134,6 +159,11 @@
 
 
   <link name="joint6_flange">
+    <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
     <visual>
       <geometry>
        <!--- 0.0 0 -0.04 -->

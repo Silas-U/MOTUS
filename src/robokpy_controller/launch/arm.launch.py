@@ -378,11 +378,75 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 import os
+import re
 import tempfile
+import xml.etree.ElementTree as ET
 import yaml
 import xacro
 
 from robokpy_controller.object_catalog import ObjectCatalog
+
+
+_DUMMY_INERTIAL_XML = (
+    '<inertial><mass value="0.001"/><origin xyz="0 0 0" rpy="0 0 0"/>'
+    '<inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/></inertial>'
+)
+
+
+def _repair_dropped_inertials(urdf_text: str) -> str:
+    """Defensive pass run on the fully xacro-EXPANDED description, right
+    after xacro.process_file()/.toxml(). Found against a real machine (ROS2
+    Jazzy apt-packaged xacro): the Motus Builder pipeline correctly writes a
+    dummy <inertial> onto the root link and every link that's the child of a
+    movable joint (see motus_cli's ensure_required_inertials -- confirmed
+    present in the .urdf.xacro source file on disk in the case that exposed
+    this), but that install's xacro.process_file()/.toxml() call silently
+    dropped every one of those <inertial> blocks except the very first
+    (confirmed by dumping robot_description_sim_gz to disk and diffing
+    against the source). NOT reproduced with pip's xacro 2.1.1 nor a fresh
+    build of upstream xacro 2.0.13 against the same input -- isolated to
+    that specific install, root cause not pinned down. Rather than depend on
+    a particular xacro build's behavior, re-derive which links need a dummy
+    inertial from the ALREADY-EXPANDED text itself (root link, or any link
+    that's the child of a revolute/continuous/prismatic joint) and patch
+    back in whatever's missing. A document that came through xacro cleanly
+    is untouched -- this only ever adds something that should already be
+    there and isn't."""
+    try:
+        root = ET.fromstring(urdf_text)
+    except ET.ParseError:
+        return urdf_text  # let the real (downstream) parser raise the real error
+
+    has_inertial = {
+        link.get('name') for link in root.findall('link')
+        if link.find('inertial') is not None
+    }
+    child_links, movable_children = set(), set()
+    for joint in root.findall('joint'):
+        child_el = joint.find('child')
+        if child_el is None:
+            continue
+        child = child_el.get('link')
+        child_links.add(child)
+        if joint.get('type') in ('revolute', 'continuous', 'prismatic'):
+            movable_children.add(child)
+    root_links = {
+        link.get('name') for link in root.findall('link')
+        if link.get('name') not in child_links
+    }
+
+    needs_inertial = (root_links | movable_children) - has_inertial
+    for link_name in needs_inertial:
+        pattern = re.compile(r'(<link name="{}"[^/>]*>)'.format(re.escape(link_name)))
+        urdf_text, count = pattern.subn(
+            lambda m: m.group(1) + _DUMMY_INERTIAL_XML, urdf_text, count=1)
+        if count == 0:
+            # Self-closing <link name="..."/> -- expand it to hold the inertial.
+            self_closing = re.compile(r'<link name="{}"[^>]*/>'.format(re.escape(link_name)))
+            urdf_text = self_closing.sub(
+                '<link name="{}">{}</link>'.format(link_name, _DUMMY_INERTIAL_XML),
+                urdf_text, count=1)
+    return urdf_text
 
 
 def generate_launch_description():
@@ -539,6 +603,7 @@ def generate_launch_description():
             meshes_path = meshes_path_default
 
         robot_description_sim_rviz = _process_description('true')
+        robot_description_sim_rviz = _repair_dropped_inertials(robot_description_sim_rviz)
 
         robot_description_sim_gz = robot_description_sim_rviz.replace(
             f'package://{resolved_mesh_package}/meshes', meshes_path)
@@ -551,6 +616,7 @@ def generate_launch_description():
             f.write(robot_description_sim_gz)
 
         robot_description_real = _process_description('true')
+        robot_description_real = _repair_dropped_inertials(robot_description_real)
 
         # --- Gazebo, this arm's model only (world itself is launched once in cell.launch.py) ---
         gz_robot_state_publisher = Node(
