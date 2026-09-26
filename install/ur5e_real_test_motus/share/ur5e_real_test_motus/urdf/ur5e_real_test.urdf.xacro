@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<robot name="robokpy_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- =========================================================
+       Generic top-level entry point. Replaces the old per-robot
+       ur5e_sim_..._urdf / ur5e_virtual_..._urdf file pair. One file,
+       selected behavior via xacro:arg — new robots/arms/grippers are
+       added by (1) writing a new macro file under macros/, (2) adding
+       one xacro:if branch below, not by adding a new top-level file.
+
+       Multi-arm: prefix is a single value here because this file
+       instantiates ONE arm + one gripper (a "cell"). A multi-arm scene
+       is built by xacro:include-ing this same file's macros directly
+       from a scene-level xacro that calls e.g. ur5e_arm twice with
+       prefix="left_" / prefix="right_" and different mount origins —
+       that scene file doesn't exist yet (no multi-arm cell requested
+       yet) but nothing here blocks writing it, since every name in
+       every macro is already prefix-qualified.
+       ========================================================= -->
+
+  <xacro:arg name="prefix" default=""/>
+  <xacro:arg name="arm_type" default="ur5e"/>
+  <xacro:arg name="gripper_type" default="robotiq_85"/>
+  <xacro:arg name="sim" default="true"/>
+  <xacro:arg name="position_proportional_gain" default="0.1"/>
+  <xacro:arg name="controllers_yaml_path" default=""/>
+  <xacro:arg name="namespace" default=""/>
+
+  <xacro:property name="prefix" value="$(arg prefix)"/>
+  <xacro:property name="arm_type" value="$(arg arm_type)"/>
+  <xacro:property name="gripper_type" value="$(arg gripper_type)"/>
+  <xacro:property name="sim" value="$(arg sim)"/>
+  <xacro:property name="position_proportional_gain" value="$(arg position_proportional_gain)"/>
+
+  <xacro:include filename="ur5e_macro.xacro"/>
+  <xacro:include filename="mycobot_280_macro.xacro"/>
+  <xacro:include filename="robotiq_85_macro.xacro"/>
+  <xacro:include filename="ros2_control_macros.xacro"/>
+
+  <link name="world"/>
+
+  <!-- ============================= ARM ============================= -->
+
+  <xacro:if value="${arm_type == 'ur5e'}">
+    <xacro:ur5e_arm prefix="${prefix}" parent="world">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </xacro:ur5e_arm>
+  </xacro:if>
+
+  <xacro:if value="${arm_type == 'mycobot_280'}">
+    <xacro:mycobot_280_arm prefix="${prefix}" parent="world">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </xacro:mycobot_280_arm>
+  </xacro:if>
+
+  <!-- ============================ GRIPPER =========================== -->
+
+  <xacro:if value="${gripper_type == 'robotiq_85'}">
+    <xacro:robotiq_85_gripper prefix="${prefix}" parent="${prefix}tool0"/>
+  </xacro:if>
+  <!-- gripper_type:=none (or any other unhandled value) mounts nothing,
+       e.g. mycobot_280 today, which has no gripper macro yet. -->
+
+  <!-- ======================= ros2_control / sim ===================== -->
+
+  <xacro:if value="${sim and arm_type == 'ur5e' and gripper_type == 'robotiq_85'}">
+    <xacro:ur5e_robotiq_85_ros2_control_gz
+        prefix="${prefix}"
+        position_proportional_gain="${position_proportional_gain}"/>
+  </xacro:if>
+
+  <xacro:if value="${sim and arm_type == 'mycobot_280'}">
+    <xacro:mycobot_280_ros2_control_gz
+        prefix="${prefix}"
+        position_proportional_gain="${position_proportional_gain}"/>
+  </xacro:if>
+
+  <!-- sim:=false (real hardware) currently has no branch — deliberately
+       not implemented (see ros2_control_macros.xacro's note on
+       ur_robot_driver). Falls through to a URDF with kinematics only,
+       same as the old rviz-only mycobot file today. -->
+
+</robot>

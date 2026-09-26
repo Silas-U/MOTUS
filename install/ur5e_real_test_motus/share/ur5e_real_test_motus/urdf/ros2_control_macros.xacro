@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Generic building blocks, reusable by any future robot's
+       ros2_control assembly macro — not just this cell's. -->
+
+  <!-- A commanded revolute/prismatic joint: position+velocity command,
+       position/velocity/effort state. Matches the pattern every ur5e
+       arm joint and the gripper's primary knuckle use today. -->
+  <xacro:macro name="pv_command_joint" params="name initial_position:=0.0">
+    <joint name="${name}">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position">
+        <param name="initial_value">${initial_position}</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+
+  <!-- A state-only joint: no command interface. Used for gripper mimic
+       joints, which are driven by gz_ros2_control's native <mimic> tag
+       support rather than their own command. -->
+  <xacro:macro name="state_only_joint" params="name">
+    <joint name="${name}">
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- =========================================================
+       Assembled macro for THIS cell's hardware: a ur5e arm plus a
+       robotiq_85 gripper on one gz_ros2_control system. A future
+       robot (different arm, different/no gripper, or real hardware
+       instead of sim) gets its own assembly macro built from the
+       same pv_command_joint/state_only_joint snippets above rather
+       than editing this one — see ur5e note on real-hardware plugin
+       swap below.
+
+       prefix: same convention as the kinematic macros.
+       position_proportional_gain: gz_ros2_control's POSITION-interface
+         P-gain (see comment history in the old sim/virtual URDF split
+         this replaces) — was the axis that used to require two whole
+         duplicate URDF files; now a single xacro:arg.
+       initial_* : per-joint startup pose, defaults match the
+         existing sim start pose.
+
+       NOTE for real hardware: this macro's <hardware><plugin> is
+       gz_ros2_control/GazeboSimSystem — sim-only. A real UR5e needs
+       ur_robot_driver's hardware interface plugin instead, which is
+       a separate, not-yet-done piece of work (flagged, not solved
+       here) — the joint interface list below (position+velocity
+       command / position+velocity+effort state) matches what
+       ur_robot_driver expects, so swapping just the <hardware> block
+       for a real robot_type is the intended future path. -->
+  <xacro:macro name="ur5e_robotiq_85_ros2_control_gz" params="
+      prefix
+      position_proportional_gain:=0.1
+      initial_shoulder_pan:=1.5697
+      initial_shoulder_lift:=-2.0535
+      initial_elbow:=1.9318
+      initial_wrist_1:=-1.4490
+      initial_wrist_2:=-1.5708
+      initial_wrist_3:=0.0
+      initial_gripper:=0.001">
+
+    <ros2_control name="${prefix}GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+      <xacro:pv_command_joint name="${prefix}shoulder_pan_joint" initial_position="${initial_shoulder_pan}"/>
+      <xacro:pv_command_joint name="${prefix}shoulder_lift_joint" initial_position="${initial_shoulder_lift}"/>
+      <xacro:pv_command_joint name="${prefix}elbow_joint" initial_position="${initial_elbow}"/>
+      <xacro:pv_command_joint name="${prefix}wrist_1_joint" initial_position="${initial_wrist_1}"/>
+      <xacro:pv_command_joint name="${prefix}wrist_2_joint" initial_position="${initial_wrist_2}"/>
+      <xacro:pv_command_joint name="${prefix}wrist_3_joint" initial_position="${initial_wrist_3}"/>
+
+      <!-- Robotiq 2F-85 — 8 joints total. Only the primary
+           (left_knuckle_joint) has a command_interface; the other 7
+           are state-only and rely on native gz_ros2_control mimic
+           joint support driven by the <mimic> tags in
+           robotiq_85_macro.xacro. -->
+      <xacro:pv_command_joint name="${prefix}robotiq_85_left_knuckle_joint" initial_position="${initial_gripper}"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_right_knuckle_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_left_finger_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_right_finger_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_left_inner_knuckle_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_right_inner_knuckle_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_left_finger_tip_joint"/>
+      <xacro:state_only_joint name="${prefix}robotiq_85_right_finger_tip_joint"/>
+
+      <sensor name="${prefix}tcp_fts_sensor">
+        <state_interface name="force.x"/>
+        <state_interface name="force.y"/>
+        <state_interface name="force.z"/>
+        <state_interface name="torque.x"/>
+        <state_interface name="torque.y"/>
+        <state_interface name="torque.z"/>
+      </sensor>
+      <sensor name="${prefix}tcp_pose">
+        <state_interface name="position.x"/>
+        <state_interface name="position.y"/>
+        <state_interface name="position.z"/>
+        <state_interface name="orientation.x"/>
+        <state_interface name="orientation.y"/>
+        <state_interface name="orientation.z"/>
+        <state_interface name="orientation.w"/>
+      </sensor>
+    </ros2_control>
+
+    <gazebo reference="${prefix}shoulder_pan_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+    <gazebo reference="${prefix}shoulder_lift_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+    <gazebo reference="${prefix}elbow_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_1_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_2_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_3_joint">
+      <position_proportional_gain>${position_proportional_gain}</position_proportional_gain>
+    </gazebo>
+
+    <gazebo>
+      <plugin filename="gz_ros2_control-system"
+              name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(arg controllers_yaml_path)</parameters>
+        <ros>
+          <namespace>$(arg namespace)</namespace>
+        </ros>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+  <!-- mycobot_280: RViz-only today (no ros2_control block existed in
+       the source URDF at all). Placeholder macro so the top-level
+       file's structure is uniform across robot_types even before this
+       is filled in — deliberately left unimplemented per Silas's
+       "assuming that is added" framing; this is the seam where that
+       work lands. Calling this macro currently emits nothing. -->
+  <xacro:macro name="mycobot_280_ros2_control_gz" params="prefix position_proportional_gain:=0.1">
+    <!-- TODO: not yet implemented — see mycobot_280_macro.xacro's
+         6 revolute joints (joint2_to_joint1 .. joint6_to_joint6_flange)
+         for the joint list this needs once real ros2_control support
+         is added for this arm. -->
+  </xacro:macro>
+
+</robot>

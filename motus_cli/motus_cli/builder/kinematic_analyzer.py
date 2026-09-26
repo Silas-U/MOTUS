@@ -57,7 +57,7 @@ _TIP_NAME_PREFERENCE = ("tool0", "tcp", "flange", "ee_link", "end_effector", "ti
 
 @dataclass
 class ChainWarning:
-    kind: str        # 'dead_end_frame' | 'missing_limit' | 'multi_root' | 'fork'
+    kind: str        # 'dead_end_frame' | 'missing_limit' | 'multi_root' | 'fork' | 'name_collision'
     message: str
     link_or_joint: str
 
@@ -149,6 +149,40 @@ def _deepest_fixed_leaf(desc: RobotDescription, link: str, visited: set[str]) ->
 
 def analyze(desc: RobotDescription) -> KinematicAnalysis:
     warnings: list[ChainWarning] = []
+
+    # A link and a joint sharing the same name is valid URDF (link names
+    # and joint names are two separate namespaces there), but breaks
+    # downstream at runtime: SDF, which Gazebo converts URDF into,
+    # requires every element name unique across the WHOLE model, and
+    # kinematics libraries doing frame lookup by name (Pinocchio
+    # confirmed) aren't type-disambiguated either. Confirmed against a
+    # real vendor file (Elephant Robotics myarm_c650) that reuses
+    # "gripper" for both a link and its driving joint: it parses as
+    # perfectly valid URDF, passes every other check here, and then
+    # fails identically and unhelpfully in Gazebo (SDF graph-cycle
+    # errors) AND in every one of Motus's own kinematics-consuming nodes
+    # (Pinocchio's "Several frames match the filter") -- three separate
+    # cryptic runtime failures for one root cause. Catching it here, once,
+    # with a real diagnostic, generalizes to any manufacturer's file with
+    # this same authoring mistake, not just this one.
+    name_collisions = set(desc.links.keys()) & set(desc.joints.keys())
+    for name in sorted(name_collisions):
+        warnings.append(ChainWarning(
+            kind="name_collision",
+            message=(
+                f"'{name}' is used as both a link name and a joint name in this "
+                f"description. Valid URDF, but Gazebo's URDF-to-SDF conversion and "
+                f"Pinocchio-based kinematics both require every name unique across "
+                f"the whole model -- this WILL fail at launch (SDF graph-cycle "
+                f"errors in Gazebo, \"Several frames match the filter\" from "
+                f"Pinocchio), not just a style concern. This is very likely inherited "
+                f"from the source description itself; rename one of the two "
+                f"(e.g. '{name}_link' or '{name}_joint') in the source file and "
+                f"re-import."
+            ),
+            link_or_joint=name,
+        ))
+
     base_link = _find_root(desc, warnings)
 
     chain_joints: list[Joint] = []

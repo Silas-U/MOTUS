@@ -2,7 +2,20 @@
 # arm_controller) are not arbitrary -- robokpy_controller's arm.launch.py
 # spawns controllers by these exact names. Do not rename them here without
 # also changing arm.launch.py's spawner arguments.
-controller_manager:
+#
+# Every top-level key is prefixed /**/ -- the ROS2 node-namespace wildcard,
+# same convention robokpy_controller's own built-in controllers.yaml files
+# already use (see e.g. ur5e_robotiq_85_gripper_controllers.yaml) and the
+# same one this function's OWN robot_yaml output above uses for /**:.
+# Without it a top-level key like `controller_manager:` only matches an
+# UNNAMESPACED node -- arm.launch.py always launches under a per-arm
+# namespace (e.g. /arm1/controller_manager), so a bare key silently never
+# matches at all. Confirmed against a real launch: every controller failed
+# identically with "'type' param was not defined", including
+# joint_state_broadcaster, which has nothing gripper/robot-specific about
+# it -- that uniformity is what pointed at a namespace-matching problem
+# rather than anything controller-specific.
+/**/controller_manager:
   ros__parameters:
     update_rate: 100
 
@@ -12,7 +25,10 @@ controller_manager:
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-arm_controller:
+/**/joint_state_broadcaster:
+  ros__parameters: {}
+
+/**/arm_controller:
   ros__parameters:
     joints:
       - shoulder_pan_joint

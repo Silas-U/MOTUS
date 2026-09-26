@@ -120,6 +120,15 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
         detail="; ".join(w.message for w in missing_limit_warnings[:3]) +
                (f" (+{len(missing_limit_warnings) - 3} more)" if len(missing_limit_warnings) > 3 else ""),
     ))
+    name_collisions = [w for w in result.warnings if w.kind == "name_collision"]
+    if name_collisions:
+        checks.append(Check(
+            "Link/joint name collisions", False, "error",
+            detail="; ".join(w.message for w in name_collisions[:3]) +
+                   (f" (+{len(name_collisions) - 3} more)" if len(name_collisions) > 3 else ""),
+        ))
+    else:
+        checks.append(Check("Link/joint name collisions", True))
     fork_or_dead_end = [w for w in result.warnings if w.kind in ("fork", "dead_end_frame")]
     if fork_or_dead_end:
         checks.append(Check(
@@ -152,12 +161,24 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
     # This is the #1 real-world hand-edit failure mode noted in the
     # original design doc -- catch it explicitly rather than letting it
     # surface as an opaque ros2_control error at launch time.
+    #
+    # Top-level keys are looked up under BOTH the bare name and the
+    # `/**/`-prefixed ROS2 node-namespace-wildcard form. Generated files
+    # always use `/**/arm_controller` now (see config_generator.py --
+    # without the wildcard, a namespaced launch like arm.launch.py's
+    # per-arm `/arm1/...` never matches at all, confirmed against a real
+    # launch: every controller failed identically). A hand-edited or
+    # older file might still use the bare form, which is also valid YAML
+    # parameter-file syntax (it just only matches an unnamespaced node) --
+    # doctor should validate joints either way, not just flag the newer
+    # convention as if the key were missing.
     if controllers_yaml is not None and result.dof > 0:
-        configured = set(
-            controllers_yaml.get("arm_controller", {})
-            .get("ros__parameters", {})
-            .get("joints", [])
+        arm_controller_cfg = (
+            controllers_yaml.get("arm_controller")
+            or controllers_yaml.get("/**/arm_controller")
+            or {}
         )
+        configured = set(arm_controller_cfg.get("ros__parameters", {}).get("joints", []))
         expected = set(result.joint_names)
         if configured != expected:
             missing = expected - configured
