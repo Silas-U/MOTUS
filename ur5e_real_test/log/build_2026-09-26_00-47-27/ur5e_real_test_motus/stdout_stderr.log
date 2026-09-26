@@ -1,0 +1,69 @@
+running egg_info
+creating ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info
+writing ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/PKG-INFO
+writing dependency_links to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/dependency_links.txt
+writing requirements to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/requires.txt
+writing top-level names to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/top_level.txt
+writing manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'
+reading manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'
+writing manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus
+copying ur5e_real_test_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus
+running install
+running install_lib
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus
+copying /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus
+byte-compiling /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index/packages
+copying resource/ur5e_real_test_motus -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index/packages
+copying package.xml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/resource
+copying ./resource/ur5e_real_test_motus -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/resource
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+copying ./urdf/ur5e_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+copying ./urdf/ros2_control_macros.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+copying ./urdf/mycobot_280_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+copying ./urdf/robotiq_85_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+copying ./urdf/ur5e_real_test.urdf.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config
+copying ./config/objects.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config
+copying ./config/controllers.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config
+copying ./config/robot.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/launch
+copying ./launch/ur5e_real_test.launch.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/launch
+creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_base_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_inner_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/shoulder.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_finger_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist1.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_inner_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist2.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/base.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist2.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_finger_tip_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist3.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/shoulder.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/forearm.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_base_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/upperarm.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/base.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_finger_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist3.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/forearm.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_finger_tip_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/upperarm.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/wrist1.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+copying ./meshes/robotiq_85_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes
+running install_egg_info
+Copying ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info to /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/install.log'

@@ -28,6 +28,7 @@ import shutil
 
 
 _PACKAGE_URI_RE = re.compile(r"^package://([^/]+)/(.+)$")
+_MESH_FILENAME_RE = re.compile(r'(<mesh\s+filename\s*=\s*")([^"]+)(")')
 
 
 @dataclass
@@ -123,13 +124,41 @@ def resolve_resources(
 
 
 def rewrite_mesh_uris(urdf_text: str, resolution: ResourceResolutionResult, new_pkg_name: str) -> str:
-    """Replace every resolved mesh URI in the URDF/xacro text with
-    package://<new_pkg_name>/meshes/<basename>. Unresolved URIs are left
-    untouched -- they're already reported in `resolution.unresolved` for
-    `motus doctor` to surface as a hard error; silently rewriting them to
-    a path that doesn't exist would hide the problem instead."""
-    out = urdf_text
-    for r in resolution.resolved:
-        new_uri = f"package://{new_pkg_name}/meshes/{r.dest_relative_path}"
-        out = out.replace(r.original_uri, new_uri)
-    return out
+    """Replace every resolved mesh reference in the URDF/xacro TEXT with
+    package://<new_pkg_name>/meshes/<basename>.
+
+    Matches by BASENAME via regex on the <mesh filename="..."> attribute,
+    not by literal-string-replacing resolution's `original_uri`. That
+    distinction matters: `original_uri` came from the fully xacro-EXPANDED
+    description (what analysis/resolution saw), but this function is
+    called on RAW, unexpanded source text (the entry file, and -- for
+    manufacturer descriptions that split mesh-owning macros into their
+    own xacro:include'd files -- every one of those copied files too).
+    When a manufacturer parameterizes the package name with a xacro
+    property/arg (e.g. `package://${mesh_pkg}/meshes/x.stl`, a real
+    pattern seen in practice, not hypothetical), the raw text literally
+    contains "${mesh_pkg}" while `original_uri` holds the substituted
+    value ("robokpy_controller") -- a literal-string .replace() between
+    those never matches, silently leaving the old reference in place.
+    The mesh FILENAME itself is essentially always a literal (paths need
+    to be resolvable on disk), even when the package/prefix around it
+    isn't, so basename matching is robust to this in general, not just
+    for this one property name.
+
+    Unresolved URIs are left untouched -- they're already reported in
+    `resolution.unresolved` for `motus doctor` to surface as a hard
+    error; silently rewriting them to a path that doesn't exist would
+    hide the problem instead."""
+    dest_by_basename = {
+        os.path.basename(r.source_path): r.dest_relative_path
+        for r in resolution.resolved
+    }
+
+    def _sub(m: "re.Match[str]") -> str:
+        basename = os.path.basename(m.group(2))
+        if basename not in dest_by_basename:
+            return m.group(0)
+        new_uri = f"package://{new_pkg_name}/meshes/{dest_by_basename[basename]}"
+        return f"{m.group(1)}{new_uri}{m.group(3)}"
+
+    return _MESH_FILENAME_RE.sub(_sub, urdf_text)

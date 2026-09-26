@@ -24,10 +24,11 @@ from pathlib import Path
 
 from . import templates
 from .urdf_parser import RobotDescription, UrdfParseError
-from .xacro_support import parse_description_file
+from .xacro_support import parse_description_file_with_includes
 from .kinematic_analyzer import analyze, KinematicAnalysis
 from .ros2_control_injector import inject_ros2_control, ensure_required_inertials
-from .resource_resolver import resolve_resources, rewrite_mesh_uris, ResourceResolutionResult
+from .resource_resolver import rewrite_mesh_uris, ResourceResolutionResult
+from . import dependency_resolver as _deps
 from .config_generator import generate_configs, ConfigGenerationResult
 
 _URDF_EXTENSIONS = (".urdf", ".xacro", ".urdf.xacro")
@@ -141,22 +142,49 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
     urdf_file, source_root = _find_source_urdf(source_path)
 
     try:
-        desc: RobotDescription = parse_description_file(urdf_file)
+        desc: RobotDescription
+        desc, include_paths, expanded_xml = parse_description_file_with_includes(urdf_file)
     except UrdfParseError as e:
         raise RobotAddError(f"could not parse '{urdf_file}': {e}") from e
+
+    already_has_ros2_control = "<ros2_control" in expanded_xml
 
     analysis = analyze(desc)
 
     all_mesh_uris = sorted({uri for link in desc.links.values() for uri in link.mesh_uris})
+    dest_urdf_dir = pkg_dir / "urdf"
     dest_meshes_dir = pkg_dir / "meshes"
-    resolution = resolve_resources(
-        mesh_uris=all_mesh_uris, urdf_file_path=urdf_file,
-        dest_meshes_dir=str(dest_meshes_dir), source_root=source_root,
+    dep_resolution = _deps.resolve_all(
+        urdf_file_path=urdf_file, mesh_uris=all_mesh_uris, include_paths=include_paths,
+        dest_urdf_dir=str(dest_urdf_dir), dest_meshes_dir=str(dest_meshes_dir),
+        source_root=source_root,
     )
+    resolution: ResourceResolutionResult = dep_resolution.mesh_result
 
+    # Any xacro:include a manufacturer's entry file pulls in (a macro
+    # file, a shared materials/transmission.xacro -- whatever their split
+    # convention is) is now copied alongside it in urdf/; retarget every
+    # xacro:include AND every mesh URI in the entry file, and -- just as
+    # important -- inside each copied dependency file too (a macro file
+    # can define its own <mesh> references, e.g. a gripper macro's own
+    # meshes; those need rewriting right where they live, not just in the
+    # entry file, or the generated package still points at the source
+    # workspace's package name for anything not directly in the entry
+    # file), so the generated package has no dependency on the original
+    # source tree at all.
     with open(urdf_file, "r", encoding="utf-8") as f:
         urdf_text = f.read()
-    rewritten_urdf = rewrite_mesh_uris(urdf_text, resolution, pkg_name)
+    urdf_text = _deps.rewrite_include_uris(urdf_text, dep_resolution.copied_includes)
+    urdf_text = rewrite_mesh_uris(urdf_text, resolution, pkg_name)
+    for basename in dep_resolution.copied_includes:
+        dep_path = dest_urdf_dir / basename
+        with open(dep_path, "r", encoding="utf-8") as f:
+            dep_text = f.read()
+        dep_text = _deps.rewrite_include_uris(dep_text, dep_resolution.copied_includes)
+        dep_text = rewrite_mesh_uris(dep_text, resolution, pkg_name)
+        dep_path.write_text(dep_text, encoding="utf-8")
+
+    rewritten_urdf = urdf_text
     # Give any link that needs one a dummy inertial if the source
     # description didn't provide it -- Gazebo's urdf2sdf silently drops a
     # massless link entirely (root link, or any link hanging off a
@@ -164,13 +192,22 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
     # graph. Common on real vendor URDFs authored only for RViz/MoveIt
     # display, not physics sim.
     rewritten_urdf = ensure_required_inertials(rewritten_urdf, desc, analysis.base_link)
-    # Always inject <ros2_control>/<gazebo><plugin> and write the result
-    # as .urdf.xacro regardless of the source's original extension --
-    # the injected $(arg controllers_yaml_path)/$(arg namespace) need
-    # xacro's substitution mechanism at launch time (see
-    # ros2_control_injector.py); a plain .urdf has no such mechanism, so
-    # those would just sit there as permanently-unresolved dead text.
-    rewritten_urdf = inject_ros2_control(rewritten_urdf, analysis, pkg_name)
+    # Always inject <ros2_control>/<gazebo><plugin> UNLESS the source
+    # already declares its own (checked against the fully xacro-expanded
+    # robot, not just the entry file's raw text -- see
+    # already_has_ros2_control above and ros2_control_injector.py).
+    # Injecting a second one used to make two hardware components fight
+    # over the same joint names at runtime and take the whole
+    # controller_manager down with it -- confirmed against a real launch.
+    # When injected, written as .urdf.xacro regardless of the source's
+    # original extension -- the injected $(arg controllers_yaml_path)/
+    # $(arg namespace) need xacro's substitution mechanism at launch
+    # time; a plain .urdf has no such mechanism, so those would just sit
+    # there as permanently-unresolved dead text.
+    rewritten_urdf = inject_ros2_control(
+        rewritten_urdf, analysis, pkg_name,
+        already_has_ros2_control=already_has_ros2_control,
+    )
 
     urdf_filename = f"{robot_name}.urdf.xacro"
     (pkg_dir / "urdf").mkdir(parents=True, exist_ok=True)

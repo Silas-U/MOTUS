@@ -1,0 +1,75 @@
+[9.928s] Invoking command in '/home/meta/Documents/robotics_workspace_new/motus_cli': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/motus_cli/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/motus_cli build --build-base /home/meta/Documents/robotics_workspace_new/build/motus_cli/build install --record /home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log --single-version-externally-managed
+[11.174s] running egg_info
+[11.175s] creating ../build/motus_cli/motus_cli.egg-info
+[11.271s] writing ../build/motus_cli/motus_cli.egg-info/PKG-INFO
+[11.271s] writing dependency_links to ../build/motus_cli/motus_cli.egg-info/dependency_links.txt
+[11.272s] writing entry points to ../build/motus_cli/motus_cli.egg-info/entry_points.txt
+[11.272s] writing requirements to ../build/motus_cli/motus_cli.egg-info/requires.txt
+[11.272s] writing top-level names to ../build/motus_cli/motus_cli.egg-info/top_level.txt
+[11.273s] writing manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'
+[11.490s] reading manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'
+[11.493s] writing manifest file '../build/motus_cli/motus_cli.egg-info/SOURCES.txt'
+[11.494s] running build
+[11.494s] running build_py
+[11.494s] creating /home/meta/Documents/robotics_workspace_new/build/motus_cli/build
+[11.495s] creating /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib
+[11.495s] creating /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli
+[11.495s] copying motus_cli/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli
+[11.496s] copying motus_cli/cli.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli
+[11.496s] creating /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.496s] copying motus_cli/builder/build_cmd.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.538s] copying motus_cli/builder/ros2_control_injector.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.538s] copying motus_cli/builder/dependency_resolver.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.539s] copying motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.539s] copying motus_cli/builder/doctor.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.540s] copying motus_cli/builder/kinematic_analyzer.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.540s] copying motus_cli/builder/resource_resolver.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.558s] copying motus_cli/builder/xacro_support.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.559s] copying motus_cli/builder/urdf_parser.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.560s] copying motus_cli/builder/launch_cmd.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.574s] copying motus_cli/builder/__init__.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.574s] copying motus_cli/builder/templates.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.589s] copying motus_cli/builder/package_generator.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.590s] copying motus_cli/builder/config_generator.py -> /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder
+[11.602s] running install
+[11.620s] running install_lib
+[11.714s] creating /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli
+[11.715s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli
+[11.715s] creating /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.716s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/build_cmd.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.716s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/ros2_control_injector.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.718s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/dependency_resolver.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.718s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/robot_add.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.718s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/doctor.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.719s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/kinematic_analyzer.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.719s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/resource_resolver.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.719s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/xacro_support.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.720s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/urdf_parser.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.720s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/launch_cmd.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.720s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/__init__.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.721s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/templates.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.721s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/package_generator.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.721s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/builder/config_generator.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder
+[11.721s] copying /home/meta/Documents/robotics_workspace_new/build/motus_cli/build/lib/motus_cli/cli.py -> /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli
+[11.722s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/__init__.py to __init__.cpython-312.pyc
+[11.723s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/build_cmd.py to build_cmd.cpython-312.pyc
+[11.725s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/ros2_control_injector.py to ros2_control_injector.cpython-312.pyc
+[11.728s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/dependency_resolver.py to dependency_resolver.cpython-312.pyc
+[11.732s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/robot_add.py to robot_add.cpython-312.pyc
+[11.738s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/doctor.py to doctor.cpython-312.pyc
+[11.744s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/kinematic_analyzer.py to kinematic_analyzer.cpython-312.pyc
+[11.755s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/resource_resolver.py to resource_resolver.cpython-312.pyc
+[11.755s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/xacro_support.py to xacro_support.cpython-312.pyc
+[11.758s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/urdf_parser.py to urdf_parser.cpython-312.pyc
+[11.764s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/launch_cmd.py to launch_cmd.cpython-312.pyc
+[11.764s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/__init__.py to __init__.cpython-312.pyc
+[11.765s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/templates.py to templates.cpython-312.pyc
+[11.765s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/package_generator.py to package_generator.cpython-312.pyc
+[11.767s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/builder/config_generator.py to config_generator.cpython-312.pyc
+[11.770s] byte-compiling /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli/cli.py to cli.cpython-312.pyc
+[11.775s] running install_egg_info
+[11.890s] Copying ../build/motus_cli/motus_cli.egg-info to /home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages/motus_cli-0.1.0-py3.12.egg-info
+[11.892s] running install_scripts
+[12.436s] Installing motus script to /home/meta/Documents/robotics_workspace_new/install/motus_cli/bin
+[12.438s] writing list of installed files to '/home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log'
+[12.508s] Invoked command in '/home/meta/Documents/robotics_workspace_new/motus_cli' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/meta/Documents/robotics_workspace_new/build/motus_cli/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/motus_cli build --build-base /home/meta/Documents/robotics_workspace_new/build/motus_cli/build install --record /home/meta/Documents/robotics_workspace_new/build/motus_cli/install.log --single-version-externally-managed

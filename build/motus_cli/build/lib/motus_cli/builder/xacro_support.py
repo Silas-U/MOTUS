@@ -113,3 +113,56 @@ def parse_description_file(path: str) -> RobotDescription:
     # is far more misleading than a load-time error would be.
     _check_fully_resolved(processed_xml, path)
     return parse_urdf_string(processed_xml)
+
+
+def parse_description_file_with_includes(path: str) -> tuple[RobotDescription, list[str], str]:
+    """Same as parse_description_file, but also returns:
+      - the absolute path of every file pulled in via xacro:include
+        (transitively across nested includes)
+      - the fully xacro-EXPANDED XML text itself
+
+    xacro resolves relative paths AND $(find pkg)/... substitution args
+    internally while expanding a description -- that resolution is the
+    only reliable way to know where these files actually live on disk
+    for an arbitrary manufacturer's layout, so we harvest it from
+    xacro's own `process_includes()` side effect (`xacro.all_includes`,
+    the same list `xacro --deps` reads) rather than re-implementing
+    xacro's include search.
+
+    The expanded XML is returned too (not just discarded after parsing)
+    because some structural questions -- "does this robot already
+    declare <ros2_control>?" being the concrete one that mattered in
+    practice -- can only be answered correctly against the fully
+    assembled robot. A raw-text scan of just the entry file would miss
+    a <ros2_control> block that lives inside a macro DEFINITION in a
+    separately xacro:include'd file (a real, common split), and would
+    also false-positive on a macro that's included but never actually
+    invoked. See ros2_control_injector.py.
+
+    Plain .urdf has no includes by definition -- returns an empty list
+    and the raw text unchanged for those."""
+    if not path.endswith(".xacro"):
+        desc = parse_description_file(path)
+        with open(path, "r", encoding="utf-8") as f:
+            return desc, [], f.read()
+    if _xacro is None:
+        raise UrdfParseError(
+            f"'{path}' is a xacro file but the `xacro` Python package isn't "
+            f"importable in this environment -- install it (it ships with a "
+            f"sourced ROS2 install, or `pip install xacro` standalone) to import "
+            f"xacro-based descriptions."
+        )
+    if hasattr(_xacro, "all_includes"):
+        _xacro.all_includes.clear()  # module-global; don't inherit a prior call's list
+    try:
+        processed_xml = _xacro.process_file(path, mappings={}).toxml()
+    except Exception as e:
+        raise UrdfParseError(
+            f"failed to expand xacro file '{path}': {e}. If this xacro requires "
+            f"specific arguments (arm_type, gripper_type, etc), expand it yourself "
+            f"with `xacro {path} arg:=value ...` and pass the resulting .urdf instead."
+        ) from e
+
+    include_paths = list(dict.fromkeys(getattr(_xacro, "all_includes", [])))  # dedupe, keep order
+    _check_fully_resolved(processed_xml, path)
+    return parse_urdf_string(processed_xml), include_paths, processed_xml

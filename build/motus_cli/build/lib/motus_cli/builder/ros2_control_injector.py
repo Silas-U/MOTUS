@@ -92,9 +92,31 @@ def build_ros2_control_block(analysis: KinematicAnalysis, pkg_name: str) -> str:
 """
 
 
-def inject_ros2_control(urdf_text: str, analysis: KinematicAnalysis, pkg_name: str) -> str:
+def inject_ros2_control(
+    urdf_text: str, analysis: KinematicAnalysis, pkg_name: str,
+    already_has_ros2_control: bool = False,
+) -> str:
     if analysis.dof == 0:
         return urdf_text  # nothing to control; leave the placeholder URDF alone
+
+    if already_has_ros2_control or "<ros2_control" in urdf_text:
+        # The source description already declares its own hardware
+        # block -- e.g. any robot built from Motus's own
+        # ros2_control_macros.xacro pattern (see this module's docstring:
+        # the block itself commonly lives inside a macro DEFINITION in a
+        # separate xacro:include'd file, invoked from the entry file --
+        # `already_has_ros2_control` is computed against the fully
+        # xacro-EXPANDED robot by the caller for exactly that reason; the
+        # raw-text check here is only a fallback for callers that don't
+        # have that). Blindly adding a second one used to claim the same
+        # joint names under a second hardware component name, which
+        # corrupts ros2_control's resource manager at runtime (duplicate
+        # state/command interface keys) and cascades into every
+        # controller spawner failing with "'type' param was not defined"
+        # -- confirmed against a real launch, not theoretical. An
+        # existing block is trusted as-is; Motus does not try to
+        # merge/reconcile two hardware declarations for one robot.
+        return urdf_text
 
     urdf_text = _ensure_xacro_namespace(urdf_text)
 

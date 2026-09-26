@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- mycobot_280_arm: kinematic + visual/collision/inertial chain
+       only (no ros2_control — see ros2_control_macros.xacro).
+       Same prefix/parent/*origin contract as ur5e_arm despite a
+       structurally different chain (g_base/jointN naming, different
+       depth) — that's the point: arm_type in the top-level xacro
+       swaps which of these macros gets called, callers don't care
+       which arm is underneath. -->
+  <xacro:macro name="mycobot_280_arm" params="prefix parent *origin">
+
+    <xacro:property name="mesh_pkg" value="robokpy_controller"/>
+
+    <joint name="${prefix}base_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}base_link"/>
+    </joint>
+
+    <link name="${prefix}base_link">
+      <inertial>
+        <mass value="0.01"/>
+        <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+      </inertial>
+    </link>
+
+    <link name="${prefix}g_base">
+      <inertial>
+        <origin xyz="0.0 0 -0.03" rpy="0 0 0"/>
+        <mass value="0.30"/>
+        <inertia ixx="0.0006" ixy="0" ixz="0" iyy="0.0006" iyz="0" izz="0.0005"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/G_base.dae"/></geometry>
+        <origin xyz="0.0 0 -0.03" rpy="0 0 1.5708"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/G_base.dae"/></geometry>
+        <origin xyz="0.0 0 -0.03" rpy="0 0 1.5708"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint1">
+      <inertial>
+        <origin xyz="0.0 0 0" rpy="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.00016" ixy="0" ixz="0" iyy="0.00016" iyz="0" izz="0.00006"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint1.dae"/></geometry>
+        <origin xyz="0.0 0 0" rpy="0 0 -1.5708"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint1.dae"/></geometry>
+        <origin xyz="0.0 0 0" rpy="0 0 -1.5708"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint2">
+      <inertial>
+        <origin xyz="0.0 0 -0.06096" rpy="0 0 0"/>
+        <mass value="0.20"/>
+        <inertia ixx="0.00027" ixy="0" ixz="0" iyy="0.00027" iyz="0" izz="0.00005"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint2.dae"/></geometry>
+        <origin xyz="0.0 0 -0.06096" rpy="0 0 -1.5708"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint2.dae"/></geometry>
+        <origin xyz="0.0 0 -0.06096" rpy="0 0 -1.5708"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint3">
+      <inertial>
+        <origin xyz="0.0 0 0.03256" rpy="0 0 0"/>
+        <mass value="0.15"/>
+        <inertia ixx="0.00014" ixy="0" ixz="0" iyy="0.00014" iyz="0" izz="0.00004"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint3.dae"/></geometry>
+        <origin xyz="0.0 0 0.03256" rpy="0 -1.5708 0"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint3.dae"/></geometry>
+        <origin xyz="0.0 0 0.03256" rpy="0 -1.5708 0"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint4">
+      <inertial>
+        <origin xyz="0.0 0 0.03056" rpy="0 0 0"/>
+        <mass value="0.10"/>
+        <inertia ixx="0.00006" ixy="0" ixz="0" iyy="0.00006" iyz="0" izz="0.00002"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint4.dae"/></geometry>
+        <origin xyz="0.0 0 0.03056" rpy="0 -1.5708 0"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint4.dae"/></geometry>
+        <origin xyz="0.0 0 0.03056" rpy="0 -1.5708 0"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint5">
+      <inertial>
+        <origin xyz="0.0 0 -0.03356" rpy="0 0 0"/>
+        <mass value="0.08"/>
+        <inertia ixx="0.00003" ixy="0" ixz="0" iyy="0.00003" iyz="0" izz="0.00001"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint5.dae"/></geometry>
+        <origin xyz="0.0 0 -0.03356" rpy="-1.5708 0 0"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint5.dae"/></geometry>
+        <origin xyz="0.0 0 -0.03356" rpy="-1.5708 0 0"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint6">
+      <inertial>
+        <origin xyz="0 0.00 -0.038" rpy="0 0 0"/>
+        <mass value="0.05"/>
+        <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.000003"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint6.dae"/></geometry>
+        <origin xyz="0 0.00 -0.038" rpy="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint6.dae"/></geometry>
+        <origin xyz="0 0.00 -0.038" rpy="0 0 0"/>
+      </collision>
+    </link>
+
+    <link name="${prefix}joint6_flange">
+      <inertial>
+        <origin xyz="0.0 0 -0.012" rpy="0 0 0"/>
+        <mass value="0.02"/>
+        <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+      </inertial>
+      <visual>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/visual/joint7.dae"/></geometry>
+        <origin xyz="0.0 0 -0.012" rpy="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry><mesh filename="package://${mesh_pkg}/meshes/mycobot_280_m5/collision/joint7.dae"/></geometry>
+        <origin xyz="0.0 0 -0.012" rpy="0 0 0"/>
+      </collision>
+    </link>
+
+    <!-- ROS-Industrial tool0 frame at the flange — same convention as
+         ur5e_arm, so downstream (planning_tip_link/tcp handling) does
+         not need to special-case this arm type. -->
+    <link name="${prefix}tool0">
+      <inertial>
+        <mass value="0.01"/>
+        <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+      </inertial>
+    </link>
+
+    <joint name="${prefix}base_link_to_g_base" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0.03"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}g_base"/>
+    </joint>
+    <joint name="${prefix}g_base_to_joint1" type="fixed">
+      <parent link="${prefix}g_base"/>
+      <child link="${prefix}joint1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <joint name="${prefix}joint2_to_joint1" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="50.0" lower="-2.9321" upper="2.9321" velocity="2.5"/>
+      <parent link="${prefix}joint1"/>
+      <child link="${prefix}joint2"/>
+      <origin xyz="0 0 0.13156" rpy="0 0 0"/>
+    </joint>
+    <joint name="${prefix}joint3_to_joint2" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="50.0" lower="-2.4434" upper="2.4434" velocity="2.5"/>
+      <parent link="${prefix}joint2"/>
+      <child link="${prefix}joint3"/>
+      <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
+    </joint>
+    <joint name="${prefix}joint4_to_joint3" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="20.0" lower="-2.6179" upper="2.6179" velocity="2.5"/>
+      <parent link="${prefix}joint3"/>
+      <child link="${prefix}joint4"/>
+      <origin xyz="-0.1104 0 0" rpy="0 0 0"/>
+    </joint>
+    <joint name="${prefix}joint5_to_joint4" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="20.0" lower="-2.6179" upper="2.6179" velocity="2.5"/>
+      <parent link="${prefix}joint4"/>
+      <child link="${prefix}joint5"/>
+      <origin xyz="-0.096 0 0.06462" rpy="0 0 -1.5708"/>
+    </joint>
+    <joint name="${prefix}joint6_to_joint5" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="20.0" lower="-2.7052" upper="2.7925" velocity="2.5"/>
+      <parent link="${prefix}joint5"/>
+      <child link="${prefix}joint6"/>
+      <origin xyz="0 -0.07318 0" rpy="1.5708 -1.5708 0"/>
+    </joint>
+    <joint name="${prefix}joint6_to_joint6_flange" type="revolute">
+      <axis xyz="0 0 1"/>
+      <limit effort="20.0" lower="-3.14159" upper="3.14159" velocity="2.5"/>
+      <parent link="${prefix}joint6"/>
+      <child link="${prefix}joint6_flange"/>
+      <origin xyz="0 0.0456 0" rpy="-1.5708 0 0"/>
+    </joint>
+    <joint name="${prefix}flange-tool0" type="fixed">
+      <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
+      <parent link="${prefix}joint6_flange"/>
+      <child link="${prefix}tool0"/>
+    </joint>
+
+  </xacro:macro>
+</robot>

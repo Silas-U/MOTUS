@@ -1,0 +1,166 @@
+[0.000000] (-) TimerEvent: {}
+[0.004161] (ur5e_real_test_motus) JobQueued: {'identifier': 'ur5e_real_test_motus', 'dependencies': OrderedDict()}
+[0.004338] (ur5e_real_test_motus) JobStarted: {'identifier': 'ur5e_real_test_motus'}
+[0.099428] (-) TimerEvent: {}
+[0.199853] (-) TimerEvent: {}
+[0.303073] (-) TimerEvent: {}
+[0.403554] (-) TimerEvent: {}
+[0.503952] (-) TimerEvent: {}
+[0.608158] (-) TimerEvent: {}
+[0.708586] (-) TimerEvent: {}
+[0.809010] (-) TimerEvent: {}
+[0.910798] (-) TimerEvent: {}
+[1.016349] (-) TimerEvent: {}
+[1.118126] (-) TimerEvent: {}
+[1.218561] (-) TimerEvent: {}
+[1.318981] (-) TimerEvent: {}
+[1.424791] (-) TimerEvent: {}
+[1.531176] (-) TimerEvent: {}
+[1.635169] (-) TimerEvent: {}
+[1.738175] (-) TimerEvent: {}
+[1.838634] (-) TimerEvent: {}
+[1.940537] (-) TimerEvent: {}
+[2.043558] (-) TimerEvent: {}
+[2.144001] (-) TimerEvent: {}
+[2.247492] (-) TimerEvent: {}
+[2.350980] (-) TimerEvent: {}
+[2.457164] (-) TimerEvent: {}
+[2.557677] (-) TimerEvent: {}
+[2.660684] (-) TimerEvent: {}
+[2.763242] (-) TimerEvent: {}
+[2.863709] (-) TimerEvent: {}
+[2.979912] (-) TimerEvent: {}
+[3.086401] (-) TimerEvent: {}
+[3.186887] (-) TimerEvent: {}
+[3.287323] (-) TimerEvent: {}
+[3.392417] (-) TimerEvent: {}
+[3.493161] (-) TimerEvent: {}
+[3.596691] (-) TimerEvent: {}
+[3.698309] (-) TimerEvent: {}
+[3.798736] (-) TimerEvent: {}
+[3.899159] (-) TimerEvent: {}
+[3.999602] (-) TimerEvent: {}
+[4.100322] (-) TimerEvent: {}
+[4.206172] (-) TimerEvent: {}
+[4.306656] (-) TimerEvent: {}
+[4.407476] (-) TimerEvent: {}
+[4.509929] (-) TimerEvent: {}
+[4.610409] (-) TimerEvent: {}
+[4.712108] (-) TimerEvent: {}
+[4.815376] (-) TimerEvent: {}
+[4.917158] (-) TimerEvent: {}
+[5.017631] (-) TimerEvent: {}
+[5.125409] (-) TimerEvent: {}
+[5.228222] (-) TimerEvent: {}
+[5.328752] (-) TimerEvent: {}
+[5.430236] (-) TimerEvent: {}
+[5.506417] (ur5e_real_test_motus) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ur5e_real_test_motus', 'build', '--build-base', '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build', 'install', '--record', '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/src/ur5e_real_test_motus', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'gnome-shell/Terminator/2805-5-meta-Inspiron-3542_TIME7551370', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'meta', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'STM32CubeMX_PATH': '/home/meta/STM32CubeMX', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib:/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/meta', 'OLDPWD': '/home/meta/Documents/robotics_workspace_new', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/meta/.nvm/versions/node/v25.2.1/bin', 'NVM_INC': '/home/meta/.nvm/versions/node/v25.2.1/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'MANAGERPID': '2468', 'SYSTEMD_EXEC_PID': '2805', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '9614', 'NVM_DIR': '/home/meta/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install:/home/meta/Documents/robotics_workspace_new/ur5e_test/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'meta', 'JOURNAL_STREAM': '8:21635', '_': '/home/meta/Documents/robotics_workspace_new/install/motus_cli/bin/motus', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/meta/Documents/robotics_workspace_new/install/motus_cli/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/meta/.local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/texlive/2025/texmf-dist/doc/man::/snap/bin', 'SESSION_MANAGER': 'local/meta-Inspiron-3542:@/tmp/.ICE-unix/2765,unix/meta-Inspiron-3542:/tmp/.ICE-unix/2765', 'GDM_LANG': 'en_US', 'INVOCATION_ID': 'af6702f266874fbe9aaeb8f44104131b', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'gnome-', 'VREP_DIR': '/home/meta/meta/Downloads/VREP', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/home/meta/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/meta', 'AMENT_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/ur5e_test_motus:/home/meta/Documents/robotics_workspace_new/install/ultraarm:/home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_pi_motus:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/robokpy:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260_pi:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces:/home/meta/Documents/robotics_workspace_new/install/myarm_m750:/home/meta/Documents/robotics_workspace_new/install/myarm_c650:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication:/home/meta/Documents/robotics_workspace_new/install/mecharm_communication:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_630:/home/meta/Documents/robotics_workspace_new/install/mycobot_600:/home/meta/Documents/robotics_workspace_new/install/mycobot_320pi:/home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv:/home/meta/Documents/robotics_workspace_new/install/mycobot_320:/home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280pi:/home/meta/Documents/robotics_workspace_new/install/mycobot_280jn:/home/meta/Documents/robotics_workspace_new/install/mycobot_280arduino_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_x3pi:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_riscv:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino:/home/meta/Documents/robotics_workspace_new/install/mycobot_280:/home/meta/Documents/robotics_workspace_new/install/mybuddy:/home/meta/Documents/robotics_workspace_new/install/myarm_300:/home/meta/Documents/robotics_workspace_new/install/mecharm_pi:/home/meta/Documents/robotics_workspace_new/install/mecharm:/home/meta/Documents/robotics_workspace_new/install/mycobot_description:/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces:/home/meta/Documents/robotics_workspace_new/ur5e_test/install/ur5e_test_motus:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5816f8ca-b3d9-4493-8785-4435df7902fb', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus', 'QT_QPA_PLATFORM': 'xcb', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/ur5e_test_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/ultraarm/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_pi_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_pi_motus/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_controller/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/robokpy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2_control/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260_pi/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_260/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro_450/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/myarm_m750/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/myarm_c650/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mecharm_communication/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_630/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_600/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_320pi/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_320_riscv/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_320/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280pi/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280jn/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_x3pi/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_riscv/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_rdkx5/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2_control/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_arduino/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_280/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mybuddy/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/myarm_300/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mecharm_pi/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mecharm/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mycobot_description/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/motus_cli/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces/lib/python3.12/site-packages:/home/meta/Documents/robotics_workspace_new/ur5e_test/install/ur5e_test_motus/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/meta/Documents/robotics_workspace_new/install/robokpy_interfaces:/home/meta/Documents/robotics_workspace_new/install/pro450_moveit2:/home/meta/Documents/robotics_workspace_new/install/mypalletizer_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_pro450_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_interfaces:/home/meta/Documents/robotics_workspace_new/install/mycobot_630_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280rdkx5_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280arduino_moveit2:/home/meta/Documents/robotics_workspace_new/install/mycobot_280_moveit2:/home/meta/Documents/robotics_workspace_new/install/mecharm_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[5.534248] (-) TimerEvent: {}
+[5.636153] (-) TimerEvent: {}
+[5.737523] (-) TimerEvent: {}
+[5.840807] (-) TimerEvent: {}
+[5.944704] (-) TimerEvent: {}
+[6.049164] (-) TimerEvent: {}
+[6.152174] (-) TimerEvent: {}
+[6.252653] (-) TimerEvent: {}
+[6.355018] (-) TimerEvent: {}
+[6.455489] (-) TimerEvent: {}
+[6.555935] (-) TimerEvent: {}
+[6.656504] (-) TimerEvent: {}
+[6.757238] (-) TimerEvent: {}
+[6.861157] (-) TimerEvent: {}
+[6.963971] (-) TimerEvent: {}
+[7.065366] (-) TimerEvent: {}
+[7.143759] (ur5e_real_test_motus) StdoutLine: {'line': b'running egg_info\n'}
+[7.144934] (ur5e_real_test_motus) StdoutLine: {'line': b'creating ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info\n'}
+[7.166185] (-) TimerEvent: {}
+[7.268455] (-) TimerEvent: {}
+[7.280828] (ur5e_real_test_motus) StdoutLine: {'line': b'writing ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/PKG-INFO\n'}
+[7.281642] (ur5e_real_test_motus) StdoutLine: {'line': b'writing dependency_links to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/dependency_links.txt\n'}
+[7.282218] (ur5e_real_test_motus) StdoutLine: {'line': b'writing requirements to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/requires.txt\n'}
+[7.282622] (ur5e_real_test_motus) StdoutLine: {'line': b'writing top-level names to ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/top_level.txt\n'}
+[7.282929] (ur5e_real_test_motus) StdoutLine: {'line': b"writing manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'\n"}
+[7.368578] (-) TimerEvent: {}
+[7.471156] (-) TimerEvent: {}
+[7.576863] (-) TimerEvent: {}
+[7.600459] (ur5e_real_test_motus) StdoutLine: {'line': b"reading manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'\n"}
+[7.605756] (ur5e_real_test_motus) StdoutLine: {'line': b"writing manifest file '../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info/SOURCES.txt'\n"}
+[7.606261] (ur5e_real_test_motus) StdoutLine: {'line': b'running build\n'}
+[7.606584] (ur5e_real_test_motus) StdoutLine: {'line': b'running build_py\n'}
+[7.606866] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build\n'}
+[7.607233] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib\n'}
+[7.607544] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus\n'}
+[7.607809] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ur5e_real_test_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus\n'}
+[7.611503] (ur5e_real_test_motus) StdoutLine: {'line': b'running install\n'}
+[7.631176] (ur5e_real_test_motus) StdoutLine: {'line': b'running install_lib\n'}
+[7.676950] (-) TimerEvent: {}
+[7.777444] (-) TimerEvent: {}
+[7.786062] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus\n'}
+[7.786636] (ur5e_real_test_motus) StdoutLine: {'line': b'copying /home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/build/lib/ur5e_real_test_motus/__init__.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus\n'}
+[7.791920] (ur5e_real_test_motus) StdoutLine: {'line': b'byte-compiling /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus/__init__.py to __init__.cpython-312.pyc\n'}
+[7.792849] (ur5e_real_test_motus) StdoutLine: {'line': b'running install_data\n'}
+[7.793841] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index\n'}
+[7.794285] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index\n'}
+[7.795571] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index/packages\n'}
+[7.795981] (ur5e_real_test_motus) StdoutLine: {'line': b'copying resource/ur5e_real_test_motus -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ament_index/resource_index/packages\n'}
+[7.796290] (ur5e_real_test_motus) StdoutLine: {'line': b'copying package.xml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus\n'}
+[7.802483] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/resource\n'}
+[7.802908] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./resource/ur5e_real_test_motus -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/resource\n'}
+[7.803230] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.803901] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./urdf/ur5e_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.804314] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./urdf/ros2_control_macros.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.808481] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./urdf/mycobot_280_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.808791] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./urdf/robotiq_85_macro.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.809246] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./urdf/ur5e_real_test.urdf.xacro -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/urdf\n'}
+[7.809787] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config\n'}
+[7.810069] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./config/objects.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config\n'}
+[7.811586] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./config/controllers.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config\n'}
+[7.811858] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./config/robot.yaml -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/config\n'}
+[7.812131] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/launch\n'}
+[7.812426] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./launch/ur5e_real_test.launch.py -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/launch\n'}
+[7.812700] (ur5e_real_test_motus) StdoutLine: {'line': b'creating /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.812981] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_base_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.818042] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_inner_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.820541] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/shoulder.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.821012] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_finger_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.821309] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist1.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.821574] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_inner_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.821813] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist2.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.822063] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/base.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.822428] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_knuckle_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.823017] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist2.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.825396] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_finger_tip_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.825717] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist3.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.825996] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/shoulder.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.826305] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/forearm.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.826583] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_base_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.827075] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/upperarm.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.828735] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/base.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.829218] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_finger_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.829699] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist3.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.830218] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/forearm.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.831031] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_finger_tip_link.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.831723] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/upperarm.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.832323] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/wrist1.stl -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.832807] (ur5e_real_test_motus) StdoutLine: {'line': b'copying ./meshes/robotiq_85_knuckle_link.dae -> /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/share/ur5e_real_test_motus/meshes\n'}
+[7.833370] (ur5e_real_test_motus) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.882156] (-) TimerEvent: {}
+[7.982585] (-) TimerEvent: {}
+[8.006188] (ur5e_real_test_motus) StdoutLine: {'line': b'Copying ../../build/ur5e_real_test_motus/ur5e_real_test_motus.egg-info to /home/meta/Documents/robotics_workspace_new/ur5e_real_test/install/ur5e_real_test_motus/lib/python3.12/site-packages/ur5e_real_test_motus-0.0.0-py3.12.egg-info\n'}
+[8.012925] (ur5e_real_test_motus) StdoutLine: {'line': b'running install_scripts\n'}
+[8.084158] (-) TimerEvent: {}
+[8.184509] (-) TimerEvent: {}
+[8.286587] (-) TimerEvent: {}
+[8.387020] (-) TimerEvent: {}
+[8.488694] (-) TimerEvent: {}
+[8.592896] (-) TimerEvent: {}
+[8.694150] (-) TimerEvent: {}
+[8.794581] (-) TimerEvent: {}
+[8.895275] (-) TimerEvent: {}
+[8.995678] (-) TimerEvent: {}
+[9.096097] (-) TimerEvent: {}
+[9.098939] (ur5e_real_test_motus) StdoutLine: {'line': b"writing list of installed files to '/home/meta/Documents/robotics_workspace_new/ur5e_real_test/build/ur5e_real_test_motus/install.log'\n"}
+[9.199066] (-) TimerEvent: {}
+[9.210751] (ur5e_real_test_motus) CommandEnded: {'returncode': 0}
+[9.274611] (ur5e_real_test_motus) JobEnded: {'identifier': 'ur5e_real_test_motus', 'rc': 0}
+[9.279399] (-) EventReactorShutdown: {}

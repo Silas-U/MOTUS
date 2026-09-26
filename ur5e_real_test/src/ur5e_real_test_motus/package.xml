@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ur5e_real_test_motus</name>
+  <version>0.0.0</version>
+  <description>Generated Motus robot project for ur5e_real_test. Thin package: URDF,
+    meshes and config for this robot only -- all planning/control logic lives in
+    robokpy_controller.</description>
+  <maintainer email="you@example.com">you</maintainer>
+  <license>TODO: License declaration</license>
+
+  <exec_depend>robokpy_controller</exec_depend>
+  <exec_depend>robokpy_interfaces</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
