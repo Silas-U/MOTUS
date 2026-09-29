@@ -3,8 +3,8 @@ cli.py
 
 `motus` command-line entry point.
 
-    motus create project <name> [--from PATH] [--dest DIR]
-    motus robot add <path>            # imports/replaces the project's robot description
+    motus create project <name> [--from PATH] [--dest DIR] [--arg NAME=VALUE ...]
+    motus robot add <path> [--arg NAME=VALUE ...]  # imports/replaces the robot description
     motus doctor [--verbose]          # validates the current project on disk
     motus build                       # doctor-gated colcon build
     motus launch [--sim/--real]       # ros2 launch wrapper
@@ -29,6 +29,28 @@ from .builder.build_cmd import run_build, BuildError
 from .builder.launch_cmd import run_launch, LaunchError
 
 
+def _parse_xacro_args(raw: list[str]) -> dict[str, str]:
+    """Turns repeated `--arg name=value` CLI values into a mappings dict
+    for xacro. Fails loud on a malformed entry (no '=', or an empty
+    name) rather than silently dropping it -- a typo'd arg here means
+    xacro falls back to whatever default it has (or errors on a
+    required one with no default), and either way the actual cause
+    would otherwise be invisible from `motus robot add`'s output."""
+    result: dict[str, str] = {}
+    for entry in raw:
+        if "=" not in entry:
+            raise SystemExit(
+                f"error: --arg '{entry}' is not in NAME=VALUE form "
+                f"(e.g. --arg ur_type=ur5e)"
+            )
+        name, _, value = entry.partition("=")
+        name = name.strip()
+        if not name:
+            raise SystemExit(f"error: --arg '{entry}' has an empty NAME")
+        result[name] = value
+    return result
+
+
 def _cmd_create_project(args: argparse.Namespace) -> int:
     try:
         paths = package_generator.create_project(
@@ -49,7 +71,10 @@ def _cmd_create_project(args: argparse.Namespace) -> int:
         return 0
 
     try:
-        report = robot_add(paths.workspace_root, args.from_path)
+        report = robot_add(
+            paths.workspace_root, args.from_path,
+            xacro_args=_parse_xacro_args(args.xacro_args),
+        )
     except RobotAddError as e:
         print(f"  robot import failed: {e}", file=sys.stderr)
         print("  Project was still created -- fix the source and re-run `motus robot add`.")
@@ -63,7 +88,9 @@ def _cmd_robot_add(args: argparse.Namespace) -> int:
     # same assumption arm.launch.py-generated projects make (`cd my_robot
     # && motus ...`), consistent with the workflow in the original design.
     try:
-        report = robot_add(os.getcwd(), args.path)
+        report = robot_add(
+            os.getcwd(), args.path, xacro_args=_parse_xacro_args(args.xacro_args),
+        )
     except RobotAddError as e:
         print(f"error: {e}", file=sys.stderr)
         return 1
@@ -114,12 +141,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="path to an existing robot description to import (URDF/xacro dir or file)")
     project.add_argument(
         "--dest", default=".", help="directory to create the project workspace in")
+    project.add_argument(
+        "--arg", dest="xacro_args", action="append", default=[], metavar="NAME=VALUE",
+        help="xacro argument to pass through when expanding --from's description "
+             "(repeatable, e.g. --arg ur_type=ur5e); ignored without --from")
     project.set_defaults(func=_cmd_create_project)
 
     robot = sub.add_parser("robot", help="manage a robot description within a project")
     robot_sub = robot.add_subparsers(dest="robot_command", required=True)
     robot_add_parser = robot_sub.add_parser("add", help="import/replace this project's robot description")
     robot_add_parser.add_argument("path", help="path to a robot description (URDF/xacro dir or file)")
+    robot_add_parser.add_argument(
+        "--arg", dest="xacro_args", action="append", default=[], metavar="NAME=VALUE",
+        help="xacro argument to pass through when expanding the description "
+             "(repeatable, e.g. --arg ur_type=ur5e)")
     robot_add_parser.set_defaults(func=_cmd_robot_add)
 
     doctor = sub.add_parser("doctor", help="validate the current project")

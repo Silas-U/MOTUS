@@ -92,10 +92,17 @@ confirmed the hard way against a real launch) and points it at THIS
 package's URDF, meshes and config via the override args cell.launch.py
 forwards straight through to arm.launch.py
 (robot_description_path / robot_config_path / controllers_yaml_full_path /
-mesh_package_name), plus objects_config_path (used directly by
-cell.launch.py itself, for the shared object-catalog services and the
-per-robot gripper.parent_link the object-catalog Gazebo plugin needs). If robokpy_controller's launch internals change later,
-this wrapper does not need to be regenerated.
+mesh_package_name / external_xacro_args), plus objects_config_path (used
+directly by cell.launch.py itself, for the shared object-catalog services
+and the per-robot gripper.parent_link the object-catalog Gazebo plugin
+needs). external_xacro_args is a JSON-encoded dict, baked in here at
+generation time from whatever `motus robot add --arg name=value` this
+robot was imported with (see robot_add.py's xacro_args) -- needed for any
+source description whose OWN xacro:arg declarations have no safely-
+reachable default (UR's name/ur_type/joint_limit_params/... being the
+confirmed real-world case; a source with no such args just gets '{{}}'
+here and this is a no-op). If robokpy_controller's launch internals
+change later, this wrapper does not need to be regenerated.
 \"\"\"
 
 import os
@@ -123,6 +130,7 @@ def generate_launch_description():
             'robot_config_path': os.path.join(this_pkg_share, 'config', 'robot.yaml'),
             'controllers_yaml_full_path': os.path.join(this_pkg_share, 'config', 'controllers.yaml'),
             'mesh_package_name': '{pkg_name}',
+            'external_xacro_args': {external_xacro_args_json},
             'objects_config_path': os.path.join(this_pkg_share, 'config', 'objects.yaml'),
         }}.items(),
     )

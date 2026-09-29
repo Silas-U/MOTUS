@@ -127,6 +127,7 @@ def create_project(
     _write(pkg_dir / "launch" / launch_filename, templates.LAUNCH_WRAPPER.format(
         launch_name=launch_filename, robot_name=robot_name, pkg_name=pkg_name,
         urdf_filename=urdf_filename,
+        external_xacro_args_json=repr(json.dumps({})),
     ))
 
     # --- workspace-level files ---

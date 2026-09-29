@@ -54,6 +54,14 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
     pkg_name = manifest["package_name"]
     robot_name = manifest["project_name"]
     pkg_dir = project_root / "src" / pkg_name
+    # Whatever `motus robot add ... --arg name=value` supplied at import
+    # time -- the written urdf/*.urdf.xacro is the RAW unexpanded source
+    # (only include/mesh URIs get rewritten, see robot_add.py), so any
+    # xacro:arg without a usable default (ur_type, $(find pkg)-based
+    # config paths, etc.) needs the same mappings again here or
+    # parse_description_file below fails the same way import would have
+    # without them.
+    xacro_args = manifest.get("xacro_args") or {}
 
     checks: list[Check] = []
 
@@ -73,7 +81,7 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
 
     # --- URDF parses ---
     try:
-        desc = parse_description_file(str(urdf_path))
+        desc = parse_description_file(str(urdf_path), xacro_args=xacro_args)
         checks.append(Check("URDF parses", True))
     except UrdfParseError as e:
         checks.append(Check("URDF parses", False, "error", str(e)))

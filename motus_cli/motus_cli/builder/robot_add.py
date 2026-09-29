@@ -2,11 +2,13 @@
 robot_add.py
 
 Orchestrates the pipeline stages built so far into the thing `motus robot
-add <path>` (and `motus create project <name> --from <path>`) actually
-runs: locate the source URDF/xacro within whatever path was given ->
-parse -> analyze the kinematic chain -> resolve/copy mesh resources ->
-generate robot.yaml/controllers.yaml -> write the imported URDF and
-regenerate the launch wrapper -> update motus.json.
+add <path> [--arg name=value ...]` (and `motus create project <name>
+--from <path>`) actually runs: locate the source URDF/xacro within
+whatever path was given -> parse (xacro args, if any, forwarded straight
+through to xacro's own expansion -- see xacro_support.py) -> analyze the
+kinematic chain -> resolve/copy mesh resources -> generate
+robot.yaml/controllers.yaml -> write the imported URDF and regenerate
+the launch wrapper -> update motus.json.
 
 Does not raise on recoverable problems (missing limits, dead-end frames,
 unresolved meshes) -- it collects everything into an ImportReport and
@@ -27,7 +29,9 @@ from .urdf_parser import RobotDescription, UrdfParseError
 from .xacro_support import parse_description_file_with_includes
 from .kinematic_analyzer import analyze, KinematicAnalysis
 from .ros2_control_injector import inject_ros2_control, ensure_required_inertials
-from .resource_resolver import rewrite_mesh_uris, ResourceResolutionResult
+from .resource_resolver import (
+    rewrite_mesh_uris, ResourceResolutionResult, patch_yaml_mesh_package_refs,
+)
 from . import dependency_resolver as _deps
 from .config_generator import generate_configs, ConfigGenerationResult
 
@@ -126,7 +130,10 @@ def _find_source_urdf(path: str) -> tuple[str, str | None]:
     return candidates[0], path
 
 
-def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport:
+def robot_add(
+    project_root: str | os.PathLike, source_path: str,
+    xacro_args: dict[str, str] | None = None,
+) -> ImportReport:
     project_root = Path(project_root)
     manifest_path = project_root / "motus.json"
     if not manifest_path.is_file():
@@ -141,9 +148,18 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
 
     urdf_file, source_root = _find_source_urdf(source_path)
 
+    # Patch any xacro-arg-supplied YAML config file that embeds the
+    # source package's name as literal DATA (not xacro/URDF text -- see
+    # patch_yaml_mesh_package_refs) BEFORE parsing, so both this import
+    # and every later `motus doctor` re-parse consistently produce mesh
+    # references to the new package rather than the original source's.
+    xacro_args = patch_yaml_mesh_package_refs(xacro_args, str(pkg_dir / "config"), pkg_name)
+
     try:
         desc: RobotDescription
-        desc, include_paths, expanded_xml = parse_description_file_with_includes(urdf_file)
+        desc, include_paths, expanded_xml = parse_description_file_with_includes(
+            urdf_file, xacro_args=xacro_args,
+        )
     except UrdfParseError as e:
         raise RobotAddError(f"could not parse '{urdf_file}': {e}") from e
 
@@ -231,11 +247,13 @@ def robot_add(project_root: str | os.PathLike, source_path: str) -> ImportReport
         templates.LAUNCH_WRAPPER.format(
             launch_name=launch_filename, robot_name=robot_name, pkg_name=pkg_name,
             urdf_filename=urdf_filename,
+            external_xacro_args_json=repr(json.dumps(xacro_args)),
         ),
         encoding="utf-8",
     )
 
     manifest["source_description_path"] = os.path.abspath(source_path)
+    manifest["xacro_args"] = xacro_args or {}
     manifest["last_build_fingerprint"] = None  # stale until the next `motus build`
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 

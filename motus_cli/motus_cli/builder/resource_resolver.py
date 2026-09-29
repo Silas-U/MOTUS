@@ -123,6 +123,83 @@ def resolve_resources(
     return result
 
 
+_YAML_MESH_BLOCK_RE = re.compile(
+    r"^(\s*)package:\s*\S+\s*\n(\s*)path:\s*(\S+)\s*$", re.MULTILINE
+)
+
+
+def patch_yaml_mesh_package_refs(
+    xacro_args: dict[str, str] | None, dest_config_dir: str, new_pkg_name: str,
+) -> dict[str, str]:
+    """Some vendor descriptions embed the source package's name as
+    literal DATA inside a YAML file passed in via a xacro arg, not as
+    text anywhere in the .xacro/.urdf source -- confirmed against the
+    real Universal_Robots_ROS2_Description repo: its visual_parameters.yaml
+    (passed as the `visual_params` xacro arg) has a
+        mesh:
+          package: ur_description
+          path: meshes/ur5e/visual/base.dae
+    block under every mesh entry, and urdf/inc/ur_common.xacro's
+    get_mesh_path macro assembles `package://<package>/<path>` from
+    THOSE TWO YAML values at expansion time. Neither "ur_description"
+    nor the meshes/ur5e/visual/... subdirectory structure appears in any
+    .xacro file at all in that case, so rewrite_mesh_uris() -- which
+    only ever rewrites URDF/xacro TEXT -- structurally cannot fix
+    either one no matter how its matching logic is tuned; both live one
+    level further out, in caller-supplied config data.
+
+    resolve_resources() (see above) copies every resolved mesh FLAT into
+    dest_meshes_dir -- just the basename, no subdirectories preserved --
+    so a rewrite that only fixed `package:` and left `path:` pointing at
+    the vendor's own nested layout (meshes/ur5e/visual/base.dae) would
+    still 404 against the flat copy (meshes/base.dae) doctor/launch
+    actually finds on disk. Both keys are rewritten together as a single
+    package+path BLOCK (matched by requiring `path:` to be the very next
+    line after `package:`, which holds for every entry in the real UR
+    file -- checked: 14 package: keys, 14 path: keys, always paired) so
+    the two edits can never drift out of sync with each other.
+
+    For every xacro_args value that is an existing .yaml/.yml file
+    containing at least one such package:+path: block (matched
+    generically -- this isn't UR-specific, any vendor YAML using the
+    same convention under a mesh block is caught the same way), rewrite
+    every block to `package: new_pkg_name` / `path: meshes/<basename>`,
+    write the patched copy into dest_config_dir, and return xacro_args
+    with that arg's value repointed at the patched copy. A value that
+    isn't an existing yaml/yml file, or that has no such block, is
+    passed through unchanged. Called BEFORE the description is ever
+    parsed -- both the initial import and every later `motus doctor`
+    re-parse (via the persisted, already-patched xacro_args in
+    motus.json) then see the new package name AND the flat mesh layout
+    consistently, matching exactly what resolve_resources() actually
+    put on disk."""
+    if not xacro_args:
+        return {}
+    patched = dict(xacro_args)
+    for key, value in xacro_args.items():
+        if not (value.endswith(".yaml") or value.endswith(".yml")):
+            continue
+        if not os.path.isfile(value):
+            continue
+        with open(value, "r", encoding="utf-8") as f:
+            text = f.read()
+        if not _YAML_MESH_BLOCK_RE.search(text):
+            continue
+
+        def _sub(m: "re.Match[str]") -> str:
+            pkg_indent, path_indent, orig_path = m.group(1), m.group(2), m.group(3)
+            new_path = f"meshes/{os.path.basename(orig_path)}"
+            return f"{pkg_indent}package: {new_pkg_name}\n{path_indent}path: {new_path}"
+
+        patched_text = _YAML_MESH_BLOCK_RE.sub(_sub, text)
+        os.makedirs(dest_config_dir, exist_ok=True)
+        dest_path = os.path.join(dest_config_dir, os.path.basename(value))
+        with open(dest_path, "w", encoding="utf-8") as f:
+            f.write(patched_text)
+        patched[key] = dest_path
+    return patched
+
+
 def rewrite_mesh_uris(urdf_text: str, resolution: ResourceResolutionResult, new_pkg_name: str) -> str:
     """Replace every resolved mesh reference in the URDF/xacro TEXT with
     package://<new_pkg_name>/meshes/<basename>.

@@ -377,6 +377,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+import json
 import os
 import re
 import tempfile
@@ -421,6 +422,26 @@ def _repair_dropped_inertials(urdf_text: str) -> str:
         link.get('name') for link in root.findall('link')
         if link.find('inertial') is not None
     }
+    # NEW: a root link with no <visual>/<collision> of its own (a bare
+    # anchor/reference frame -- UR's own ur.urdf.xacro declares exactly
+    # this: `<link name="world" />`, fixed-jointed to base_link, no
+    # geometry at all) was never at risk of the bug this function
+    # guards against -- Gazebo dropping a massless link and breaking the
+    # frame graph only matters for a link that HAS geometry to lose.
+    # Worse, stamping a dummy inertial onto it actively breaks something
+    # else: KDL (robot_state_publisher's TF backend) explicitly rejects
+    # a ROOT link carrying an inertia ("kdl_parser: the root link world
+    # has an inertia specified in the URDF, but KDL does not support a
+    # root link with an inertia" -- confirmed against a real launch,
+    # this exact link name). So: only the root case is filtered by
+    # "has geometry" -- a movable joint's child is, in every real-world
+    # case, an actual robot link with real geometry, never a bare
+    # reference frame, so that half of the original heuristic is
+    # unchanged.
+    has_geometry = {
+        link.get('name') for link in root.findall('link')
+        if link.find('visual') is not None or link.find('collision') is not None
+    }
     child_links, movable_children = set(), set()
     for joint in root.findall('joint'):
         child_el = joint.find('child')
@@ -432,7 +453,7 @@ def _repair_dropped_inertials(urdf_text: str) -> str:
             movable_children.add(child)
     root_links = {
         link.get('name') for link in root.findall('link')
-        if link.get('name') not in child_links
+        if link.get('name') not in child_links and link.get('name') in has_geometry
     }
 
     needs_inertial = (root_links | movable_children) - has_inertial
@@ -475,6 +496,24 @@ def generate_launch_description():
         'controllers_yaml_full_path', default_value='')
     mesh_package_name_arg = DeclareLaunchArgument(
         'mesh_package_name', default_value='')
+    # NEW: JSON-encoded dict of extra xacro mappings an external
+    # description's OWN xacro:arg declarations require (e.g. UR's
+    # name/ur_type/joint_limit_params/kinematics_params/physical_params/
+    # visual_params -- see motus_cli.robot_add's xacro_args, persisted in
+    # motus.json at import time and expected to be forwarded here
+    # unchanged by the generated project's launch wrapper). Without this,
+    # _process_description's external branch only ever supplied its own
+    # fixed prefix/sim/position_proportional_gain/controllers_yaml_path/
+    # namespace mappings, so any vendor xacro:arg with no safely-reachable
+    # default (confirmed on the real UR ROS2 description: `name` LOOKS
+    # like it has one, `default="ur"`, but the root <robot name="$(arg
+    # name)"> attribute evaluates before that xacro:arg declaration is
+    # even processed, so xacro raises "Undefined substitution argument
+    # name" regardless) failed at every single launch, even though the
+    # exact same args already worked fine at `motus robot add`/`motus
+    # doctor` time via xacro_support.py's separate mappings path.
+    external_xacro_args_arg = DeclareLaunchArgument(
+        'external_xacro_args', default_value='')
 
     namespace = LaunchConfiguration('namespace')
     arm_type = LaunchConfiguration('arm_type')
@@ -490,6 +529,7 @@ def generate_launch_description():
     robot_config_path_launch = LaunchConfiguration('robot_config_path')
     controllers_yaml_full_path_launch = LaunchConfiguration('controllers_yaml_full_path')
     mesh_package_name_launch = LaunchConfiguration('mesh_package_name')
+    external_xacro_args_launch = LaunchConfiguration('external_xacro_args')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
     robot_xacro_file_default = os.path.join(pkg, 'urdf', 'robokpy_robot.urdf.xacro')
@@ -514,6 +554,26 @@ def generate_launch_description():
         controllers_yaml_full_path_str = controllers_yaml_full_path_launch.perform(context)
         mesh_package_name_str = mesh_package_name_launch.perform(context)
         using_external_description = bool(robot_description_path_str)
+
+        # NEW: parse the persisted per-vendor xacro args (see
+        # external_xacro_args_arg above). A malformed/empty value degrades
+        # to "no extra args" rather than failing the whole launch -- the
+        # xacro expansion below will still fail with its own clear
+        # "Undefined substitution argument" error if the description
+        # actually needed them, which is no worse than today's silent gap.
+        extra_xacro_mappings = {}
+        external_xacro_args_str = external_xacro_args_launch.perform(context)
+        if external_xacro_args_str:
+            import launch.logging as _launch_logging
+            try:
+                extra_xacro_mappings = {
+                    str(k): str(v) for k, v in json.loads(external_xacro_args_str).items()
+                }
+            except (json.JSONDecodeError, AttributeError) as e:
+                _launch_logging.get_logger(f'arm.launch.{ns}').warning(
+                    f"external_xacro_args ('{external_xacro_args_str}') is not valid JSON, "
+                    f"ignoring it: {e}"
+                )
 
         catalog = ObjectCatalog(objects_config_path)
 
@@ -565,14 +625,23 @@ def generate_launch_description():
         def _process_description(sim_value):
             if using_external_description:
                 if robot_description_path_str.endswith('.xacro'):
+                    # extra_xacro_mappings (the vendor's OWN required args,
+                    # e.g. UR's name/ur_type/joint_limit_params/...) goes
+                    # first so Motus's own reserved keys below always win
+                    # if a persisted vendor arg name ever collided with one
+                    # of them -- shouldn't happen in practice, but a
+                    # vendor arg silently overriding `namespace` or
+                    # `controllers_yaml_path` would be a much more
+                    # confusing failure than this dict ordering prevents.
+                    mappings = dict(extra_xacro_mappings)
+                    mappings.update({
+                        'prefix': prefix, 'sim': sim_value,
+                        'position_proportional_gain': '0.5',
+                        'controllers_yaml_path': controllers_yaml_path,
+                        'namespace': ns,
+                    })
                     return xacro.process_file(
-                        robot_description_path_str,
-                        mappings={
-                            'prefix': prefix, 'sim': sim_value,
-                            'position_proportional_gain': '0.5',
-                            'controllers_yaml_path': controllers_yaml_path,
-                            'namespace': ns,
-                        },
+                        robot_description_path_str, mappings=mappings,
                     ).toxml()
                 # Plain .urdf — no xacro mappings to apply, use as-is.
                 with open(robot_description_path_str, 'r') as f:
@@ -662,14 +731,38 @@ def generate_launch_description():
             condition=IfCondition(use_sim),
         )
 
-        gripper_action_controller_spawner = Node(
-            package='controller_manager', executable='spawner',
-            name='gripper_action_controller_spawner', namespace=ns, output='screen',
-            arguments=['gripper_action_controller',
-                       '--controller-manager', f'/{ns}/controller_manager',
-                       '--controller-manager-timeout', '30'],
-            condition=IfCondition(use_sim),
-        )
+        # NEW: gripper_action_controller_spawner used to run unconditionally,
+        # regardless of whether this robot actually has one -- config_generator.py
+        # deliberately only emits joint_state_broadcaster + arm_controller for
+        # an imported robot with no gripper/tool import path yet (see its
+        # docstring), so an imported arm with tool_type=none has no
+        # gripper_action_controller key in controllers.yaml at all, and this
+        # spawner fatal-errors: "The 'type' param was not defined for
+        # 'gripper_action_controller'" -- confirmed against a real launch of
+        # a gripper-less UR5e import. Checked directly against
+        # controllers.yaml's actual content (both the bare and /**/-prefixed
+        # key form, same dual check doctor.py already uses for this exact
+        # file) rather than inferred from tool_type_str, since the YAML
+        # content is what the spawner actually depends on.
+        gripper_controller_configured = False
+        if os.path.isfile(controllers_yaml_path):
+            with open(controllers_yaml_path, 'r') as f:
+                _ctrl_cfg = yaml.safe_load(f) or {}
+            gripper_controller_configured = (
+                'gripper_action_controller' in _ctrl_cfg
+                or '/**/gripper_action_controller' in _ctrl_cfg
+            )
+
+        gripper_action_controller_spawner = None
+        if gripper_controller_configured:
+            gripper_action_controller_spawner = Node(
+                package='controller_manager', executable='spawner',
+                name='gripper_action_controller_spawner', namespace=ns, output='screen',
+                arguments=['gripper_action_controller',
+                           '--controller-manager', f'/{ns}/controller_manager',
+                           '--controller-manager-timeout', '30'],
+                condition=IfCondition(use_sim),
+            )
 
         # --- This arm's virtual twin + robokpy_controller node stack ---
         virtual_robot_state_publisher = Node(
@@ -753,11 +846,13 @@ def generate_launch_description():
         arm_handler = RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=joint_state_broadcaster_spawner, on_exit=[arm_controller_spawner]))
-        gripper_handler = RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=arm_controller_spawner, on_exit=[gripper_action_controller_spawner]))
+        gripper_handler = None
+        if gripper_action_controller_spawner is not None:
+            gripper_handler = RegisterEventHandler(
+                event_handler=OnProcessExit(
+                    target_action=arm_controller_spawner, on_exit=[gripper_action_controller_spawner]))
 
-        return [
+        actions = [
             gz_robot_state_publisher,
             spawn_entity,
             rviz_gz_robot_state_publisher,
@@ -773,8 +868,10 @@ def generate_launch_description():
             joint_jog_server,
             jsb_handler,
             arm_handler,
-            gripper_handler,
         ]
+        if gripper_handler is not None:
+            actions.append(gripper_handler)
+        return actions
 
     return LaunchDescription([
         namespace_arg, arm_type_arg, controllers_yaml_arg, use_sim_arg,
@@ -782,5 +879,6 @@ def generate_launch_description():
         objects_config_path_arg, embed_object_catalog_plugin_arg,
         robot_description_path_arg, robot_config_path_arg,
         controllers_yaml_full_path_arg, mesh_package_name_arg,
+        external_xacro_args_arg,
         OpaqueFunction(function=configure),
     ])

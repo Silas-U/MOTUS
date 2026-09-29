@@ -19,14 +19,15 @@ currently on disk, which -- by design, see robot_add.py -- is still the
 ORIGINAL unexpanded xacro source, not the expanded form used only for
 analysis).
 
-LIMITATION: only resolves xacro files that fully expand with their OWN
+By default only resolves xacro files that fully expand with their OWN
 default parameter values. An external xacro requiring caller-supplied
 mappings (the way Motus's own robokpy_robot.urdf.xacro requires
-arm_type/gripper_type) will fail here with whatever error the `xacro`
-package raises -- there's no way for `motus robot add` to know what
-mappings an arbitrary third-party xacro file expects. Supporting
-explicit `--xacro-arg name:=value` passthrough is a reasonable follow-on,
-not attempted yet.
+arm_type/gripper_type, or the way Universal_Robots_ROS2_Description
+requires ur_type) will fail here with whatever error the `xacro` package
+raises unless the caller supplies `xacro_args` -- there's no way for
+`motus robot add` to guess what mappings an arbitrary third-party xacro
+file expects. `motus robot add <path> --arg name=value` (repeatable)
+is how a caller supplies them; see robot_add.py/cli.py.
 """
 
 from __future__ import annotations
@@ -79,7 +80,7 @@ def _check_fully_resolved(xml_text: str, path: str) -> None:
         )
 
 
-def parse_description_file(path: str) -> RobotDescription:
+def parse_description_file(path: str, xacro_args: dict[str, str] | None = None) -> RobotDescription:
     if path.endswith(".xacro"):
         if _xacro is None:
             raise UrdfParseError(
@@ -89,14 +90,14 @@ def parse_description_file(path: str) -> RobotDescription:
                 f"xacro-based descriptions."
             )
         try:
-            processed_xml = _xacro.process_file(path, mappings={}).toxml()
+            processed_xml = _xacro.process_file(path, mappings=(xacro_args or {})).toxml()
         except Exception as e:  # xacro raises a mix of its own and expat/lxml errors
             raise UrdfParseError(
                 f"failed to expand xacro file '{path}': {e}. If this xacro requires "
                 f"specific arguments (arm_type, gripper_type, etc -- the way Motus's "
-                f"own robot macros do), `motus robot add` can't supply those "
-                f"automatically; expand it yourself with `xacro {path} arg:=value ...` "
-                f"and pass the resulting .urdf instead."
+                f"own robot macros do), pass them via `motus robot add {path} "
+                f"--arg name=value` (repeatable), or expand it yourself with "
+                f"`xacro {path} arg:=value ...` and pass the resulting .urdf instead."
             ) from e
     else:
         with open(path, "r", encoding="utf-8") as f:
@@ -115,7 +116,9 @@ def parse_description_file(path: str) -> RobotDescription:
     return parse_urdf_string(processed_xml)
 
 
-def parse_description_file_with_includes(path: str) -> tuple[RobotDescription, list[str], str]:
+def parse_description_file_with_includes(
+    path: str, xacro_args: dict[str, str] | None = None,
+) -> tuple[RobotDescription, list[str], str]:
     """Same as parse_description_file, but also returns:
       - the absolute path of every file pulled in via xacro:include
         (transitively across nested includes)
@@ -142,7 +145,7 @@ def parse_description_file_with_includes(path: str) -> tuple[RobotDescription, l
     Plain .urdf has no includes by definition -- returns an empty list
     and the raw text unchanged for those."""
     if not path.endswith(".xacro"):
-        desc = parse_description_file(path)
+        desc = parse_description_file(path, xacro_args=xacro_args)
         with open(path, "r", encoding="utf-8") as f:
             return desc, [], f.read()
     if _xacro is None:
@@ -155,12 +158,14 @@ def parse_description_file_with_includes(path: str) -> tuple[RobotDescription, l
     if hasattr(_xacro, "all_includes"):
         _xacro.all_includes.clear()  # module-global; don't inherit a prior call's list
     try:
-        processed_xml = _xacro.process_file(path, mappings={}).toxml()
+        processed_xml = _xacro.process_file(path, mappings=(xacro_args or {})).toxml()
     except Exception as e:
         raise UrdfParseError(
             f"failed to expand xacro file '{path}': {e}. If this xacro requires "
-            f"specific arguments (arm_type, gripper_type, etc), expand it yourself "
-            f"with `xacro {path} arg:=value ...` and pass the resulting .urdf instead."
+            f"specific arguments (arm_type, gripper_type, etc), pass them via "
+            f"`motus robot add {path} --arg name=value` (repeatable), or expand it "
+            f"yourself with `xacro {path} arg:=value ...` and pass the resulting "
+            f".urdf instead."
         ) from e
 
     include_paths = list(dict.fromkeys(getattr(_xacro, "all_includes", [])))  # dedupe, keep order

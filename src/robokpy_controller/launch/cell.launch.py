@@ -91,6 +91,13 @@ def generate_launch_description():
         'controllers_yaml_full_path', default_value='')
     mesh_package_name_arg = DeclareLaunchArgument(
         'mesh_package_name', default_value='')
+    # NEW: JSON-encoded dict of extra xacro args the external description
+    # itself requires (UR's name/ur_type/joint_limit_params/... -- see
+    # arm.launch.py's external_xacro_args_arg docstring for the full
+    # story). Forwarded straight through to arm.launch.py exactly like
+    # the four args above; cell.launch.py itself never inspects it.
+    external_xacro_args_arg = DeclareLaunchArgument(
+        'external_xacro_args', default_value='')
     # NEW: per-project object-catalog override (Motus Builder support).
     # Without this, every generated project silently falls back to
     # robokpy_controller's own config/objects.yaml -- fine for object_types
@@ -111,6 +118,7 @@ def generate_launch_description():
     robot_config_path_launch = LaunchConfiguration('robot_config_path')
     controllers_yaml_full_path_launch = LaunchConfiguration('controllers_yaml_full_path')
     mesh_package_name_launch = LaunchConfiguration('mesh_package_name')
+    external_xacro_args_launch = LaunchConfiguration('external_xacro_args')
     objects_config_path_launch = LaunchConfiguration('objects_config_path')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
@@ -162,6 +170,7 @@ def generate_launch_description():
         robot_config_path_str = robot_config_path_launch.perform(context)
         controllers_yaml_full_path_str = controllers_yaml_full_path_launch.perform(context)
         mesh_package_name_str = mesh_package_name_launch.perform(context)
+        external_xacro_args_str = external_xacro_args_launch.perform(context)
         single_arm_mode = not arms_config_path
 
         import launch.logging
@@ -195,6 +204,7 @@ def generate_launch_description():
                     'robot_config_path': robot_config_path_str,
                     'controllers_yaml_full_path': controllers_yaml_full_path_str,
                     'mesh_package_name': mesh_package_name_str,
+                    'external_xacro_args': external_xacro_args_str,
                 })
             arm_includes.append(IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
@@ -323,6 +333,7 @@ def generate_launch_description():
         robot_config_path_arg,
         controllers_yaml_full_path_arg,
         mesh_package_name_arg,
+        external_xacro_args_arg,
         objects_config_path_arg,
         OpaqueFunction(function=configure),
     ])
