@@ -1,0 +1,8 @@
+motus robot add /home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description \
+  --arg name=ur3 \
+  --arg ur_type=ur3 \
+  --arg joint_limit_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3/joint_limits.yaml \
+  --arg kinematics_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3/default_kinematics.yaml \
+  --arg physical_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3/physical_parameters.yaml \
+  --arg visual_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3/visual_parameters.yaml
+motus doctor

@@ -40,6 +40,34 @@ except ImportError:
     _HAS_PINOCCHIO = False
 
 
+
+def _continuous_to_revolute(urdf_text: str, half_span: float = 2.0 * 3.141592653589793) -> str:
+    """Pinocchio models a URDF `continuous` joint as a unit-circle joint
+    (nq=2: cos/sin, nv=1), which this backend's 1-DoF index maps can't
+    represent. Some UR variants (e.g. ur3e wrist_3) are continuous, so
+    rewrite them to `revolute` with +-half_span limits (default +-2*pi,
+    the physical UR wrist range) for the Pinocchio model ONLY. Gazebo/RViz
+    keep the original description. Existing <limit> effort/velocity are kept."""
+    import xml.etree.ElementTree as ET
+    try:
+        root = ET.fromstring(urdf_text)
+    except ET.ParseError:
+        return urdf_text
+    changed = False
+    for joint in root.iter("joint"):
+        if joint.get("type") != "continuous":
+            continue
+        joint.set("type", "revolute")
+        limit = joint.find("limit")
+        if limit is None:
+            limit = ET.SubElement(joint, "limit")
+            limit.set("effort", "1000")
+            limit.set("velocity", "10")
+        limit.set("lower", repr(-half_span))
+        limit.set("upper", repr(half_span))
+        changed = True
+    return ET.tostring(root, encoding="unicode") if changed else urdf_text
+
 class PinocchioBackend(IKSolverBackend):
     """
     Optimized Pinocchio-based IK using damped Newton iteration.
@@ -145,7 +173,7 @@ class PinocchioBackend(IKSolverBackend):
             suffix=".urdf",
             delete=False,
         ) as f:
-            f.write(robot_description)
+            f.write(_continuous_to_revolute(robot_description))
             urdf_path = f.name
 
         # Build the model ONCE.

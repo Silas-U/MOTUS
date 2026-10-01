@@ -28,7 +28,7 @@ from . import templates
 from .urdf_parser import RobotDescription, UrdfParseError
 from .xacro_support import parse_description_file_with_includes
 from .kinematic_analyzer import analyze, KinematicAnalysis
-from .ros2_control_injector import inject_ros2_control, ensure_required_inertials
+from .ros2_control_injector import inject_ros2_control
 from .resource_resolver import (
     rewrite_mesh_uris, ResourceResolutionResult, patch_yaml_mesh_package_refs,
 )
@@ -153,7 +153,9 @@ def robot_add(
     # patch_yaml_mesh_package_refs) BEFORE parsing, so both this import
     # and every later `motus doctor` re-parse consistently produce mesh
     # references to the new package rather than the original source's.
-    xacro_args = patch_yaml_mesh_package_refs(xacro_args, str(pkg_dir / "config"), pkg_name)
+    mesh_hints: dict[str, str] = {}
+    xacro_args = patch_yaml_mesh_package_refs(
+        xacro_args, str(pkg_dir / "config"), pkg_name, mesh_hints)
 
     try:
         desc: RobotDescription
@@ -173,7 +175,7 @@ def robot_add(
     dep_resolution = _deps.resolve_all(
         urdf_file_path=urdf_file, mesh_uris=all_mesh_uris, include_paths=include_paths,
         dest_urdf_dir=str(dest_urdf_dir), dest_meshes_dir=str(dest_meshes_dir),
-        source_root=source_root,
+        source_root=source_root, mesh_hints=mesh_hints,
     )
     resolution: ResourceResolutionResult = dep_resolution.mesh_result
 
@@ -201,13 +203,11 @@ def robot_add(
         dep_path.write_text(dep_text, encoding="utf-8")
 
     rewritten_urdf = urdf_text
-    # Give any link that needs one a dummy inertial if the source
-    # description didn't provide it -- Gazebo's urdf2sdf silently drops a
-    # massless link entirely (root link, or any link hanging off a
-    # movable joint) rather than lumping it, which breaks the whole frame
-    # graph. Common on real vendor URDFs authored only for RViz/MoveIt
-    # display, not physics sim.
-    rewritten_urdf = ensure_required_inertials(rewritten_urdf, desc, analysis.base_link)
+    # No inertial injection: inertials come from the manufacturer's
+    # description only. Warn (never edit) if a link with geometry has none.
+    for _name, _link in desc.links.items():
+        if not _link.has_inertial and _link.mesh_uris:
+            print(f"warning: link '{_name}' has geometry but no <inertial> in the source description.")
     # Always inject <ros2_control>/<gazebo><plugin> UNLESS the source
     # already declares its own (checked against the fully xacro-expanded
     # robot, not just the entry file's raw text -- see

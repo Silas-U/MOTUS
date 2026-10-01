@@ -1,0 +1,23 @@
+{
+  "motus_manifest_version": 1,
+  "project_name": "ur3e_cell",
+  "package_name": "ur3e_cell_motus",
+  "source_description_path": "/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description",
+  "parent_workspace_root": "/home/meta/Documents/robotics_workspace_new",
+  "builder_version": "0.1.0",
+  "last_build_fingerprint": "33d3b16a82da5d6c",
+  "xacro_args": {
+    "name": "ur3e",
+    "ur_type": "ur3e",
+    "joint_limit_params": "/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3e/joint_limits.yaml",
+    "kinematics_params": "/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3e/default_kinematics.yaml",
+    "physical_params": "/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur3e/physical_parameters.yaml",
+    "visual_params": "/home/meta/Documents/robotics_workspace_new/ur3e_cell/src/ur3e_cell_motus/config/visual_parameters.yaml",
+    "tf_prefix": "",
+    "transmission_hw_interface": "",
+    "safety_limits": "false",
+    "safety_pos_margin": "0.15",
+    "safety_k_position": "20",
+    "force_abs_paths": "false"
+  }
+}

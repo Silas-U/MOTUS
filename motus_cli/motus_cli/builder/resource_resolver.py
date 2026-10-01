@@ -45,7 +45,9 @@ class ResourceResolutionResult:
     collisions: list[str] = field(default_factory=list)   # basename collisions, informational
 
 
-def _candidate_paths(uri: str, urdf_dir: str, source_root: str | None) -> list[str]:
+def _candidate_paths(
+    uri: str, urdf_dir: str, source_root: str | None, hint_rel: str | None = None,
+) -> list[str]:
     m = _PACKAGE_URI_RE.match(uri)
     if m:
         _pkg_name, rel = m.group(1), m.group(2)
@@ -55,27 +57,27 @@ def _candidate_paths(uri: str, urdf_dir: str, source_root: str | None) -> list[s
         rel = uri  # bare relative path
 
     candidates = []
+    if source_root and hint_rel:
+        # The vendor's ORIGINAL path for this mesh (recorded by
+        # patch_yaml_mesh_package_refs before it flattened the yaml). This is
+        # the only unambiguous way to find it: a repo like
+        # Universal_Robots_ROS2_Description ships base.dae for ur3, ur5, ur10e...
+        candidates.append(os.path.join(source_root, hint_rel))
     if source_root:
         candidates.append(os.path.join(source_root, rel))
     candidates.append(os.path.join(urdf_dir, os.path.basename(rel)))
     candidates.append(os.path.join(urdf_dir, rel))
-    if source_root:
-        # last resort: recursive basename search under source_root, for
-        # repo layouts where the package-relative path in the URI doesn't
-        # match the actual directory structure on disk (common after
-        # someone reorganizes a vendor repo, or symlinks meshes/ in)
-        target_basename = os.path.basename(rel)
-        for root, _dirs, files in os.walk(source_root):
-            if target_basename in files:
-                candidates.append(os.path.join(root, target_basename))
     return candidates
 
 
 def resolve_resources(
     mesh_uris: list[str], urdf_file_path: str, dest_meshes_dir: str,
     source_root: str | None = None,
+    mesh_hints: dict[str, str] | None = None,
 ) -> ResourceResolutionResult:
     """
+    mesh_hints: {basename: original path relative to the source package
+      root}, filled by patch_yaml_mesh_package_refs. Tried first.
     mesh_uris: every distinct <mesh filename="..."> value pulled from the
       parsed description (urdf_parser.py's Link.mesh_uris, deduplicated
       by caller if desired -- duplicates are handled fine here too).
@@ -93,10 +95,29 @@ def resolve_resources(
 
     for uri in mesh_uris:
         found_path = None
-        for candidate in _candidate_paths(uri, urdf_dir, source_root):
+        hint_rel = (mesh_hints or {}).get(os.path.basename(uri))
+        for candidate in _candidate_paths(uri, urdf_dir, source_root, hint_rel):
             if os.path.isfile(candidate):
                 found_path = candidate
                 break
+
+        if found_path is None and source_root:
+            # Last resort: recursive basename search. Only accepted when the
+            # match is UNIQUE -- vendor repos hold the same basename for many
+            # robot variants, and guessing silently loads the wrong arm's mesh.
+            target = os.path.basename(uri)
+            matches = [
+                os.path.join(r, target)
+                for r, _d, files in os.walk(source_root) if target in files
+            ]
+            if len(matches) == 1:
+                found_path = matches[0]
+            elif len(matches) > 1:
+                result.collisions.append(
+                    f"'{target}' is ambiguous: {len(matches)} files with that name under "
+                    f"{source_root} and no original path recorded -- NOT guessing. "
+                    f"First few: {matches[:3]}"
+                )
 
         if found_path is None:
             result.unresolved.append(uri)
@@ -130,6 +151,7 @@ _YAML_MESH_BLOCK_RE = re.compile(
 
 def patch_yaml_mesh_package_refs(
     xacro_args: dict[str, str] | None, dest_config_dir: str, new_pkg_name: str,
+    mesh_hints: dict[str, str] | None = None,
 ) -> dict[str, str]:
     """Some vendor descriptions embed the source package's name as
     literal DATA inside a YAML file passed in via a xacro arg, not as
@@ -189,6 +211,8 @@ def patch_yaml_mesh_package_refs(
         def _sub(m: "re.Match[str]") -> str:
             pkg_indent, path_indent, orig_path = m.group(1), m.group(2), m.group(3)
             new_path = f"meshes/{os.path.basename(orig_path)}"
+            if mesh_hints is not None:
+                mesh_hints.setdefault(os.path.basename(orig_path), orig_path)
             return f"{pkg_indent}package: {new_pkg_name}\n{path_indent}path: {new_path}"
 
         patched_text = _YAML_MESH_BLOCK_RE.sub(_sub, text)

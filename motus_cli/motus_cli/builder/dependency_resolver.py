@@ -135,6 +135,7 @@ def resolve_all(
     dest_urdf_dir: str,
     dest_meshes_dir: str,
     source_root: str | None = None,
+    mesh_hints: dict[str, str] | None = None,
 ) -> DependencyResolution:
     """Single entry point a caller (robot_add.py / the future
     RobotImporter) uses for everything a description can reference.
@@ -164,7 +165,8 @@ def resolve_all(
     # keeping the best (most-resolved) result rather than the first.
     best = None
     for root in (effective_roots or [None]):
-        candidate = _mesh.resolve_resources(mesh_uris, urdf_file_path, dest_meshes_dir, root)
+        candidate = _mesh.resolve_resources(
+            mesh_uris, urdf_file_path, dest_meshes_dir, root, mesh_hints)
         if best is None or len(candidate.unresolved) < len(best.unresolved):
             best = candidate
         if not candidate.unresolved:
