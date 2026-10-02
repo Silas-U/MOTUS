@@ -2,6 +2,8 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
   <xacro:arg name="controllers_yaml_path" default=""/>
   <xacro:arg name="namespace" default=""/>
+  <xacro:arg name="home_pose" default=""/>
+  <xacro:property name="_motus_home_pose" value="$(arg home_pose)"/>
 
    <!-- robot name parameter -->
    <xacro:arg name="name" default="ur"/>
@@ -51,32 +53,44 @@
     </hardware>
       <joint name="shoulder_pan_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[0]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 0 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
       <joint name="shoulder_lift_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[1]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 1 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
       <joint name="elbow_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[2]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 2 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
       <joint name="wrist_1_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[3]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 3 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
       <joint name="wrist_2_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[4]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 4 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
       <joint name="wrist_3_joint">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[5]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 5 else 0.0}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
   </ros2_control>
@@ -90,4 +104,5 @@
       </ros>
     </plugin>
   </gazebo>
+
 </robot>

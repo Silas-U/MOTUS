@@ -47,7 +47,7 @@
      >
      <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
    </xacro:ur_robot>
-  <ros2_control name="ur3_cell_motus_GazeboSystem" type="system">
+  <ros2_control name="ur8long_cell_motus_GazeboSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>

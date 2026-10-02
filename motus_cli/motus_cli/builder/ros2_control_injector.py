@@ -60,18 +60,40 @@ def _ensure_xacro_namespace(urdf_text: str) -> str:
     return urdf_text[:insert_at] + f" {_XACRO_NS_ATTR}" + urdf_text[insert_at:]
 
 
+def _initial_value_expr(i: int) -> str:
+    """xacro expression for joint #i's initial position: the i-th entry of
+    the comma-separated `home_pose` xacro arg, or 0.0 when the arg is
+    unset/empty/too short (so a project launched without it behaves
+    exactly as before)."""
+    hp = "str(_motus_home_pose)"
+    return (
+        f"${{float({hp}.split(',')[{i}]) "
+        f"if {hp}.strip() and len({hp}.split(',')) > {i} else 0.0}}"
+    )
+
+
 def build_ros2_control_block(analysis: KinematicAnalysis, pkg_name: str) -> str:
+    # Each joint's POSITION state interface carries an initial_value taken
+    # from the `home_pose` xacro arg (comma-separated, in chain order),
+    # which the launch file fills from robot.yaml's home_pose. Without it
+    # gz_ros2_control spawns every joint at 0.0, and for arms whose
+    # all-zeros pose touches the floor (e.g. a UR5's wrist, ~5 cm below
+    # the ground plane) dartsim has to solve constant ground contact.
     joints_xml = "\n".join(
         f"""      <joint name="{j.name}">
         <command_interface name="position"/>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">{_initial_value_expr(i)}</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>"""
-        for j in analysis.chain_joints
+        for i, j in enumerate(analysis.chain_joints)
     )
     return f"""\
   <xacro:arg name="controllers_yaml_path" default=""/>
   <xacro:arg name="namespace" default=""/>
+  <xacro:arg name="home_pose" default=""/>
+  <xacro:property name="_motus_home_pose" value="$(arg home_pose)"/>
 
   <ros2_control name="{pkg_name}_GazeboSystem" type="system">
     <hardware>
@@ -130,8 +152,9 @@ def inject_ros2_control(
     # <robot ...> tag (top-level, alongside every other top-level
     # element) rather than jammed in next to </robot> with everything else.
     robot_tag_end = urdf_text.find(">", urdf_text.find("<robot")) + 1
-    args_only = "\n".join(block.splitlines()[0:3])  # the two xacro:arg lines + blank
-    rest = "\n".join(block.splitlines()[3:])
+    split_at = block.index("  <ros2_control ")  # everything before it: xacro:arg/property lines
+    args_only = block[:split_at].rstrip("\n") + "\n"
+    rest = block[split_at:]
 
     urdf_text = urdf_text[:robot_tag_end] + "\n" + args_only + urdf_text[robot_tag_end:]
     close_idx = urdf_text.rfind("</robot>")  # recompute: string shifted

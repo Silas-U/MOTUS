@@ -60,10 +60,15 @@ def _fmt_list(values: list[float]) -> str:
     return "[" + ", ".join(_fmt_float(v) for v in values) + "]"
 
 
-def generate_configs(analysis: KinematicAnalysis, robot_name: str) -> ConfigGenerationResult:
+def generate_configs(
+    analysis: KinematicAnalysis, robot_name: str, home_pose: list[float] | None = None,
+) -> ConfigGenerationResult:
+    """home_pose: starting joint pose (also what Gazebo spawns the arm in --
+    see safe_pose.py / ros2_control_injector.py). None = all zeros."""
     warnings: list[str] = []
 
-    home_pose = [0.0] * analysis.dof
+    if home_pose is None or len(home_pose) != analysis.dof:
+        home_pose = [0.0] * analysis.dof
     vel_limits, acc_limits, pos_lo, pos_hi = [], [], [], []
 
     for j in analysis.chain_joints:

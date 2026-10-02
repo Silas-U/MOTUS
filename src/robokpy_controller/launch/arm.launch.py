@@ -511,12 +511,23 @@ def generate_launch_description():
 
         tool_type_str = 'none'
         backend_str = 'robokpy'
+        # robot.yaml's home_pose, as a comma-separated string for the
+        # `home_pose` xacro arg: gz_ros2_control then spawns each joint AT
+        # home_pose instead of all zeros (a UR5's all-zeros wrist sits
+        # below the ground plane, which made dartsim crawl at ~0.02x RTF).
+        home_pose_str = ''
         if os.path.isfile(robot_config_yaml):
             with open(robot_config_yaml, 'r') as f:
                 robot_cfg = yaml.safe_load(f)
             if robot_cfg:
                 root_params = robot_cfg.get('/**', {}).get('ros__parameters', {})
                 tool_type_str = root_params.get('tool_type', 'none')
+                _hp = root_params.get('home_pose')
+                if isinstance(_hp, (list, tuple)) and _hp:
+                    try:
+                        home_pose_str = ','.join(repr(float(v)) for v in _hp)
+                    except (TypeError, ValueError):
+                        home_pose_str = ''
                 ks_params = robot_cfg.get('kinematic_solver', {}).get('ros__parameters', {})
                 backend_str = ks_params.get('kinematic_solver_backend', 'robokpy')
 
@@ -557,6 +568,7 @@ def generate_launch_description():
                         'position_proportional_gain': '0.5',
                         'controllers_yaml_path': controllers_yaml_path,
                         'namespace': ns,
+                        'home_pose': home_pose_str,
                     })
                     return xacro.process_file(
                         robot_description_path_str, mappings=mappings,

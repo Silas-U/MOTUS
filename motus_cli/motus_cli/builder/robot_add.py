@@ -34,6 +34,7 @@ from .resource_resolver import (
 )
 from . import dependency_resolver as _deps
 from .config_generator import generate_configs, ConfigGenerationResult
+from .safe_pose import choose_home_pose
 
 _URDF_EXTENSIONS = (".urdf", ".xacro", ".urdf.xacro")
 
@@ -68,6 +69,10 @@ class ImportReport:
             print(f"    ✗ could not locate: {uri}")
         for c in self.resolution.collisions:
             print(f"    ! {c}")
+        if self.resolution.dependencies:
+            print(f"  textures/materials copied: {len(self.resolution.dependencies)}")
+        for d in self.resolution.missing_dependencies:
+            print(f"    ! referenced file not found (material will render blank): {d}")
         all_warnings = (
             [w.message for w in self.analysis.warnings] + self.config.warnings
         )
@@ -235,7 +240,17 @@ def robot_add(
         if existing.name != urdf_filename:
             existing.unlink()
 
-    cfg = generate_configs(analysis, robot_name)
+    # home_pose is both the IK seed and the pose Gazebo spawns the arm in (the
+    # injected ros2_control block reads it back via the `home_pose` xacro arg).
+    # All zeros is kept when it's clear of the ground; otherwise a floor-clear
+    # pose is chosen so arms like the UR5 don't spawn with the wrist in the floor.
+    home_pose, home_note = choose_home_pose(
+        expanded_xml, analysis.base_link, analysis.tip_link,
+        [j.name for j in analysis.chain_joints],
+    )
+    cfg = generate_configs(analysis, robot_name, home_pose=home_pose)
+    if home_note:
+        cfg.warnings.append(home_note)
     (pkg_dir / "config").mkdir(parents=True, exist_ok=True)
     (pkg_dir / "config" / "robot.yaml").write_text(cfg.robot_yaml_text, encoding="utf-8")
     (pkg_dir / "config" / "controllers.yaml").write_text(cfg.controllers_yaml_text, encoding="utf-8")

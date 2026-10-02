@@ -25,6 +25,7 @@ from dataclasses import dataclass, field
 import os
 import re
 import shutil
+import urllib.parse
 
 
 _PACKAGE_URI_RE = re.compile(r"^package://([^/]+)/(.+)$")
@@ -43,6 +44,10 @@ class ResourceResolutionResult:
     resolved: list[ResolvedResource] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)   # original URIs not found anywhere
     collisions: list[str] = field(default_factory=list)   # basename collisions, informational
+    # Files a mesh REFERENCES from inside itself (textures named in a .dae's
+    # <init_from>, an .obj's mtllib / a .mtl's map_*), copied next to the meshes.
+    dependencies: list[str] = field(default_factory=list)          # basenames copied
+    missing_dependencies: list[str] = field(default_factory=list)  # "mesh -> ref" not found
 
 
 def _candidate_paths(
@@ -68,6 +73,88 @@ def _candidate_paths(
     candidates.append(os.path.join(urdf_dir, os.path.basename(rel)))
     candidates.append(os.path.join(urdf_dir, rel))
     return candidates
+
+
+_IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".tga", ".bmp", ".tif", ".tiff", ".gif", ".dds")
+_DAE_IMAGE_RE = re.compile(r"(<init_from>\s*)([^<]+?)(\s*</init_from>)", re.IGNORECASE)
+_OBJ_MTL_RE = re.compile(r"^(\s*mtllib\s+)(.+?)\s*$", re.MULTILINE)
+_MTL_MAP_RE = re.compile(r"^(\s*map_\w+\s+(?:-\S+\s+\S+\s+)*)(\S.*?)\s*$", re.MULTILINE | re.IGNORECASE)
+
+
+def _find_dependency(ref: str, mesh_src_dir: str, source_root: str | None) -> str | None:
+    """Locate a file a mesh references: relative to the mesh first, then by
+    basename in the mesh's own directory, then a UNIQUE basename match under
+    source_root (never guess between several)."""
+    ref = urllib.parse.unquote(ref).strip()
+    if ref.startswith("file://"):
+        ref = ref[len("file://"):]
+    base = os.path.basename(ref.replace("\\", "/"))
+    for cand in (ref if os.path.isabs(ref) else os.path.join(mesh_src_dir, ref),
+                 os.path.join(mesh_src_dir, base)):
+        if os.path.isfile(cand):
+            return cand
+    if source_root:
+        matches = [os.path.join(r, base) for r, _d, files in os.walk(source_root) if base in files]
+        if len(matches) == 1:
+            return matches[0]
+    return None
+
+
+def _copy_mesh_dependencies(
+    src_mesh: str, dest_mesh: str, source_root: str | None, dest_meshes_dir: str,
+    result: "ResourceResolutionResult",
+) -> None:
+    """Copy textures/materials a just-copied mesh points at into dest_meshes_dir
+    (flat, by basename, like the meshes themselves) and, only if a reference
+    isn't already a bare filename, rewrite it in the COPY of the mesh.
+
+    Why: a vendor .dae like UR's ur8long/ur15 meshes names its texture as
+    <init_from>UR15_DIFF_8bit_2K.jpg</init_from>, resolved next to the .dae.
+    Copying just the .dae left RViz and Gazebo with 'Unable to find texture'
+    and blank materials."""
+    ext = os.path.splitext(src_mesh)[1].lower()
+    if ext == ".dae":
+        pattern, want = _DAE_IMAGE_RE, lambda ref: ref.lower().endswith(_IMAGE_EXTS)
+    elif ext == ".obj":
+        pattern, want = _OBJ_MTL_RE, lambda ref: True
+    elif ext == ".mtl":
+        pattern, want = _MTL_MAP_RE, lambda ref: True
+    else:
+        return
+    try:
+        with open(src_mesh, "r", encoding="utf-8", errors="surrogateescape", newline="") as f:
+            text = f.read()
+    except OSError:
+        return
+
+    mesh_src_dir = os.path.dirname(src_mesh)
+    rewritten = {}
+
+    def _sub(m: "re.Match[str]") -> str:
+        ref = m.group(2)
+        if not want(ref):
+            return m.group(0)
+        found = _find_dependency(ref, mesh_src_dir, source_root)
+        label = f"{os.path.basename(src_mesh)} -> {ref}"
+        if found is None:
+            if label not in result.missing_dependencies:
+                result.missing_dependencies.append(label)
+            return m.group(0)
+        base = os.path.basename(found)
+        dest = os.path.join(dest_meshes_dir, base)
+        if not os.path.exists(dest):
+            shutil.copy2(found, dest)
+            result.dependencies.append(base)
+            _copy_mesh_dependencies(found, dest, source_root, dest_meshes_dir, result)  # .obj -> .mtl -> maps
+        if ref != base:
+            rewritten[ref] = base
+            return m.group(1) + base + m.group(3) if m.lastindex >= 3 else m.group(1) + base
+        return m.group(0)
+
+    new_text = pattern.sub(_sub, text)
+    if rewritten and new_text != text:
+        with open(dest_mesh, "w", encoding="utf-8", errors="surrogateescape", newline="") as f:
+            f.write(new_text)
 
 
 def resolve_resources(
@@ -136,6 +223,9 @@ def resolve_resources(
             seen_basenames[basename] = found_path
             dest_relative = basename
             shutil.copy2(found_path, os.path.join(dest_meshes_dir, dest_relative))
+            _copy_mesh_dependencies(
+                found_path, os.path.join(dest_meshes_dir, dest_relative),
+                source_root, dest_meshes_dir, result)
 
         result.resolved.append(ResolvedResource(
             original_uri=uri, dest_relative_path=dest_relative, source_path=found_path,
