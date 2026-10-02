@@ -1,8 +1,13 @@
-motus robot add /home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description \
-  --arg name=ur8long \
-  --arg ur_type=ur8long \
-  --arg joint_limit_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur8long/joint_limits.yaml \
-  --arg kinematics_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur8long/default_kinematics.yaml \
-  --arg physical_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur8long/physical_parameters.yaml \
-  --arg visual_params=/home/meta/Documents/robotics_workspace_new/Universal_Robots_ROS2_Description/config/ur8long/visual_parameters.yaml
+motus robot add /home/meta/Documents/Universal_Robots_ROS2_Description \
+  --arg name=ur5 \
+  --arg ur_type=ur5 \
+  --arg joint_limit_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur5/joint_limits.yaml \
+  --arg kinematics_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur5/default_kinematics.yaml \
+  --arg physical_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur5/physical_parameters.yaml \
+  --arg visual_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur5/visual_parameters.yaml
+motus doctor
+
+#mycobot projects
+
+motus robot add /home/meta/Documents/mycobot_ros2/mycobot_description/urdf/mycobot_pro_600
 motus doctor

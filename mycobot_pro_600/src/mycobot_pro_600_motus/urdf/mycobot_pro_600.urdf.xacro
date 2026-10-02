@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro" name="firefighter" >
+  <xacro:arg name="controllers_yaml_path" default=""/>
+  <xacro:arg name="namespace" default=""/>
+  <xacro:arg name="home_pose" default=""/>
+  <xacro:property name="_motus_home_pose" value="$(arg home_pose)"/>
+
+	
+<xacro:property name="width" value=".2" />
+
+
+  <link name="base">
+    <visual>
+      <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/base.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = " 0 0 0"/>
+    </visual>
+    <collision>
+    <geometry>
+	     <!--- 0.0 0 -0.04  1.5708 3.14159-->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/base.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = " 0 0 0"/>
+    </collision>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link1.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = "0 0 3.1415926"/>
+    </visual>
+     <collision>
+      <geometry>
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link1.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = " 0 0 3.1415926"/>
+    </collision>
+  </link>
+
+
+  <link name="link2">
+    <visual>
+      <geometry>
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link2.dae"/>
+      </geometry>
+    <origin xyz = "0 0 -0.080 " rpy = " 3.1415926 0 3.1415926"/>
+    </visual>
+     <collision>
+     <geometry>
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link2.dae"/>
+      </geometry>
+    <origin xyz = "0 0 -0.080 " rpy = " 3.1415926 0 3.1415926"/>
+    </collision>
+  </link>
+
+
+  <link name="link3">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link3.dae"/>
+      </geometry>
+    <origin xyz = "0 0 -0.0855 " rpy = " 3.1415926 0 3.1415926"/>
+    </visual>
+     <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link3.dae"/>
+      </geometry>
+    <origin xyz = "0 0 -0.0855 " rpy = "3.1415926 0 3.1415926"/>
+    </collision>
+  </link>
+
+
+
+<link name="link4">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link4.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = " 0 3.1415926 0"/>
+    </visual>
+     <collision>
+     <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link4.dae"/>
+      </geometry>
+    <origin xyz = "0 0 0 " rpy = " 0 3.1415926 0"/>
+    </collision>
+  </link>
+
+
+  <link name="link5">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link5.dae"/>
+      </geometry>
+    <origin xyz = "0 0  0 " rpy = " 0  0 1.5707"/>
+    </visual>
+     <collision>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link5.dae"/>
+      </geometry>
+    <origin xyz = "0 0  0 " rpy = " 0  0 1.5707"/>
+    </collision>
+  </link>
+
+  <link name="link6">
+    <visual>
+      <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link6.dae"/>
+      </geometry>
+      <material name = "grey">
+        <color rgba = "0.5 0.5 0.5 1"/>
+      </material>
+    <origin xyz = "0.03 0 0" rpy = " 0 -1.5707  0"/>
+    </visual>
+     <collision>
+     <geometry>
+       <!--- 0.0 0 -0.04 -->
+       <mesh filename="package://mycobot_pro_600_motus/meshes/link6.dae"/>
+      </geometry>
+      <material name = "grey">
+        <color rgba = "0.5 0.5 0.5 1"/>
+      </material>
+    <origin xyz = "0.03 0 0" rpy = " 0 -1.5707  0"/>
+    </collision>
+  </link>
+
+
+
+    <joint name="joint2_to_joint1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "0"/>
+    <parent link="base"/>
+    <child link="link1"/>
+    <origin xyz= "0 0 0.19934" rpy = "0 0 0"/>  
+  </joint>
+
+
+  <joint name="joint3_to_joint2" type="revolute">
+    <axis xyz="0 0 -1"/>
+    <!-- <limit effort = "1000.0" lower = "-4.7123" upper = "1.5708" velocity = "0"/> -->
+    <limit effort = "1000.0" lower = "-3.14159" upper = "3.14159" velocity = "0"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz= "0 0  0" rpy = "1.5708 -1.5708 0"/>  
+  </joint>
+
+
+  <joint name="joint4_to_joint3" type="revolute">
+    <axis xyz=" 0 0 -1"/>
+    <limit effort = "1000.0" lower = "-2.6179" upper = "2.443" velocity = "0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz= "0.25 0 0   " rpy = "0 0 0"/>  
+  </joint>
+
+  <joint name="joint5_to_joint4" type="revolute">
+    <axis xyz=" 0 0 -1"/>
+    <!-- <limit effort = "1000.0" lower = "-4.5378" upper = "1.3962" velocity = "0"/> -->
+    <limit effort = "1000.0" lower = "-2.9670" upper = "2.9670" velocity = "0"/>
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz= "0.25 0  -0.1091" rpy = "0 0 1.5708"/>  
+  </joint>
+
+  <joint name="joint6_to_joint5" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort = "1000.0" lower = "-2.9321" upper = "2.9321" velocity = "0"/>
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz= "0 -0.108 0" rpy = "1.57080 -1.57080 0"/>  
+  </joint>
+
+  <joint name="joint6output_to_joint6" type="revolute">
+    <axis xyz="-1 0 0"/>
+    <limit effort = "1000.0" lower = "-3.0368" upper = "3.0368" velocity = "0"/>
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz= "-0.07586 0 0" rpy = "-1.57080 0 0 "/>  
+  </joint>
+
+
+
+  <ros2_control name="mycobot_pro_600_motus_GazeboSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+      <joint name="joint2_to_joint1">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[0]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 0 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint3_to_joint2">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[1]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 1 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint4_to_joint3">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[2]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 2 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint5_to_joint4">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[3]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 3 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint6_to_joint5">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[4]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 4 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint6output_to_joint6">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${float(str(_motus_home_pose).split(',')[5]) if str(_motus_home_pose).strip() and len(str(_motus_home_pose).split(',')) > 5 else 0.0}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="gz_ros2_control-system"
+            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(arg controllers_yaml_path)</parameters>
+      <ros>
+        <namespace>$(arg namespace)</namespace>
+      </ros>
+    </plugin>
+  </gazebo>
+
+</robot>
+
