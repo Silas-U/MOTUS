@@ -11,7 +11,6 @@
 #
 # Supported backends (configured per tool in launch file):
 #   'digital_io'  — GPIO HIGH/LOW via gpiozero or RPi.GPIO
-#   'ros_service' — ROS2 service call to a hardware driver
 #   'ros_topic'   — publish to a hardware driver topic
 #   'modbus'      — Modbus TCP register write (requires pymodbus)
 #   'mock'        — simulated tool for testing (no hardware needed)
@@ -29,6 +28,9 @@
 #                   gz_ros2_control's native mimic support. No
 #                   max_effort/stall feedback; fire-and-forget position
 #                   command.
+#   'gripper_effort' — mimic-joint gripper via an effort
+#                   ForwardCommandController. Fire-and-forget like
+#                   gripper_position (settle_sec wait, no feedback).
 #   'grasp_attach'  — sim-only pick backend calling GraspAttach.srv to
 #                   weld/un-weld a target object to the gripper's
 #                   parent_link. Vision-driven: params=[x,y,z(,max_distance)]
@@ -46,13 +48,13 @@
 #     {
 #       "gripper_1": {
 #         "backend": "gripper_position",
-#         "topic": "/gripper_action_controller/commands",
+#         "topic": "gripper_position_controller/commands",
 #         "open_position": 0.0,
 #         "closed_position": 0.79
 #       },
 #       "vacuum": {
 #         "backend": "ros_topic",
-#         "topic": "/vacuum_controller/cmd",
+#         "topic": "vacuum_controller/cmd",
 #         "msg_type": "std_msgs/String",
 #         "on_value": "on",
 #         "off_value": "off"
@@ -80,7 +82,6 @@ from sensor_msgs.msg import JointState
 
 import json
 import time
-import asyncio
 import inspect
 import threading
 from typing import Optional, Dict, Any, Callable
@@ -226,15 +227,178 @@ class _AsyncLock:
 # TOOL BACKENDS
 # =========================================================
 
+async def _sleep_async(node: Node, seconds: float):
+    """Non-blocking sleep: one-shot node timer + rclpy Future (same
+    mechanism as the rest of this module — no asyncio loop, no thread
+    held while waiting)."""
+    if seconds <= 0:
+        return
+    fut = Future()
+    state = {}
+
+    def _fire():
+        state['timer'].cancel()
+        state['timer'].destroy()
+        if not fut.done():
+            fut.set_result(None)
+
+    state['timer'] = node.create_timer(seconds, _fire)
+    await fut
+
+
+# ── Gripper config schema ─────────────────────────────────
+# ONE canonical key set for every parallel-gripper consumer
+# (GripperActionBackend, GripperPositionBackend, and GraspAttachBackend's
+# parallel_jaw actuator):
+#   action_name, joint_name, open_position, closed_position,
+#   max_effort, action_timeout, min_close_ratio
+# Older grasp_attach blocks spelled these with a `gripper_` prefix;
+# those are still accepted and mapped (with a deprecation warning).
+_GRIPPER_KEY_ALIASES = {
+    'gripper_action_name': 'action_name',
+    'gripper_joint_name': 'joint_name',
+    'gripper_open_position': 'open_position',
+    'gripper_closed_position': 'closed_position',
+    'gripper_max_effort': 'max_effort',
+    'gripper_action_timeout': 'action_timeout',
+    'gripper_min_close_ratio': 'min_close_ratio',
+}
+
+# Hardware-specific values that used to be hardcoded in the backends
+# (Robotiq 2F-85 on this repo's UR5e). Kept ONLY as a warned fallback so
+# existing tools.yaml files keep working; the project generator should
+# always emit these keys explicitly, after which this table can go.
+_LEGACY_GRIPPER_DEFAULTS = {
+    'action_name': 'gripper_action_controller/gripper_cmd',
+    'joint_name': 'robotiq_85_left_knuckle_joint',
+    'open_position': 0.001,
+    'closed_position': 0.554,
+}
+
+
+def _normalize_gripper_config(tool_id: str, config: dict, logger) -> dict:
+    out = dict(config)
+    for old, new in _GRIPPER_KEY_ALIASES.items():
+        if old in out:
+            value = out.pop(old)
+            out.setdefault(new, value)   # canonical key wins if both given
+            logger.warn(
+                f'[{tool_id}] config key "{old}" is deprecated; use "{new}"')
+    return out
+
+
+def _gripper_params(tool_id: str, config: dict, logger,
+                    keys=('action_name', 'joint_name',
+                          'open_position', 'closed_position')) -> dict:
+    p = {}
+    for key in keys:
+        if key in config:
+            p[key] = config[key]
+        else:
+            p[key] = _LEGACY_GRIPPER_DEFAULTS[key]
+            logger.warn(
+                f'[{tool_id}] "{key}" missing from tool config - using '
+                f'legacy Robotiq 2F-85 default {p[key]!r}. Set it '
+                f'explicitly in tools.yaml.')
+    p['max_effort'] = config.get('max_effort', 50.0)
+    p['action_timeout'] = float(config.get('action_timeout', 5.0))
+    p['min_close_ratio'] = float(config.get('min_close_ratio', 0.7))
+    return p
+
+
+class ParallelGripperClient:
+    """ParallelGripperCommand action client + goal helper, shared by every
+    backend/actuator that drives the same action server.
+
+    One instance per action name (see get()). Its lock serializes goals
+    to that action server across ALL users — e.g. a `gripper_1` tool and
+    a `grasp_attach_1` tool's fire-and-forget engage/disengage can no
+    longer send overlapping goals to the same controller, and queued
+    goals run in FIFO order.
+    """
+
+    def __init__(self, node: Node, action_name: str, logger):
+        self._node = node
+        self.action_name = action_name
+        self.logger = logger
+        self._client = ActionClient(node, ParallelGripperCommand, action_name)
+        self._lock = _AsyncLock()
+
+    @classmethod
+    def get(cls, node: Node, action_name: str, logger):
+        registry = node.__dict__.setdefault('_gripper_clients', {})
+        client = registry.get(action_name)
+        if client is None:
+            client = cls(node, action_name, logger)
+            registry[action_name] = client
+        return client
+
+    async def move(self, position: float, joint_name: str, max_effort: float,
+                   timeout: float, tag: str, cancel_on_timeout: bool = True):
+        """Drive `joint_name` to `position`. Returns (status, result):
+        status is 'ok' | 'error_no_server' | 'timeout' |
+        'error_goal_rejected'; result is the action result when 'ok'."""
+        async with self._lock:
+            ready = await _wait_for_server_async(
+                self._node, self._client, timeout)
+            if not ready:
+                self.logger.error(
+                    f'[{tag}] action server "{self.action_name}" unavailable')
+                return 'error_no_server', None
+
+            goal = ParallelGripperCommand.Goal()
+            goal.command = JointState()
+            goal.command.name = [joint_name]
+            goal.command.position = [float(position)]
+            goal.command.velocity = []
+            goal.command.effort = [float(max_effort)] if max_effort else []
+
+            try:
+                goal_handle = await _future_with_timeout(
+                    self._node, self._client.send_goal_async(goal), timeout)
+            except TimeoutError:
+                self.logger.warn(
+                    f'[{tag}] goal-send timed out '
+                    f'(server never accepted/rejected the goal)')
+                return 'timeout', None
+
+            if not goal_handle.accepted:
+                self.logger.error(f'[{tag}] goal rejected')
+                return 'error_goal_rejected', None
+
+            try:
+                response = await _future_with_timeout(
+                    self._node, goal_handle.get_result_async(), timeout)
+            except TimeoutError:
+                if cancel_on_timeout:
+                    try:
+                        goal_handle.cancel_goal_async()
+                        self.logger.warn(
+                            f'[{tag}] timed out - cancel requested')
+                    except Exception as e:
+                        self.logger.error(f'[{tag}] cancel failed: {e}')
+                else:
+                    self.logger.warn(
+                        f'[{tag}] result timed out (gripper may still be moving)')
+                return 'timeout', None
+
+            return 'ok', response.result
+
+
 class ToolBackend:
-    """Base class for all tool backends."""
+    """Base class for all tool backends.
+
+    execute() may be a plain function OR a coroutine — the action server
+    awaits the return value if it is awaitable — and always receives the
+    goal's params list (backends that don't use it just ignore it).
+    """
 
     def __init__(self, tool_id: str, config: dict, logger):
         self.tool_id = tool_id
         self.config  = config
         self.logger  = logger
 
-    def execute(self, command: str) -> str:
+    def execute(self, command: str, params: list = None) -> str:
         """
         Execute a command and return the resulting status string.
         Returned string is published on /tool_status as
@@ -252,12 +416,14 @@ class ToolBackend:
 class MockBackend(ToolBackend):
     """
     Simulated tool — no hardware required.
-    Logs the command and returns status after a configurable delay.
+    Logs the command and returns status after a configurable delay
+    (non-blocking when a node is supplied).
     Use this for testing the full pipeline before real hardware.
     """
 
-    def __init__(self, tool_id: str, config: dict, logger):
+    def __init__(self, tool_id: str, config: dict, logger, node: Node = None):
         super().__init__(tool_id, config, logger)
+        self._node = node
         self._state = 'idle'
 
         # Command → (status_to_report, delay_seconds)
@@ -270,7 +436,7 @@ class MockBackend(ToolBackend):
             'release':('released',config.get('release_delay',0.3)),
         }
 
-    def execute(self, command: str) -> str:
+    async def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         if cmd in self._responses:
@@ -279,7 +445,10 @@ class MockBackend(ToolBackend):
                 f'[MOCK] {self.tool_id}:{cmd} — '
                 f'simulating {delay}s delay'
             )
-            time.sleep(delay)
+            if self._node is not None:
+                await _sleep_async(self._node, delay)
+            else:
+                time.sleep(delay)
             self._state = status
             self.logger.info(f'[MOCK] {self.tool_id} → {status}')
             return status
@@ -296,116 +465,72 @@ class GripperActionBackend(ToolBackend):
     GripperActionController, using the control_msgs ParallelGripperCommand
     action. Commands the single primary joint; mimic joints follow
     automatically via gz_ros2_control's native mimic support.
+
+    Config keys (canonical schema, see _GRIPPER_KEY_ALIASES):
+      action_name, joint_name, open_position, closed_position,
+      max_effort (default 50), action_timeout (default 5.0),
+      expect_grasp (default False — if True, a close that reaches its
+      target without stalling reports 'error_closed_empty').
+
+    Goals to the same action server from different tools are serialized
+    by the shared ParallelGripperClient.
     """
 
     def __init__(self, tool_id: str, config: dict, logger, node: Node):
+        config = _normalize_gripper_config(tool_id, config, logger)
         super().__init__(tool_id, config, logger)
-        self._node = node
-        action_name = config.get(
-            'action_name', 'gripper_action_controller/gripper_cmd')
-        self._client = ActionClient(node, ParallelGripperCommand, action_name)
+        p = _gripper_params(tool_id, config, logger)
+        self._node        = node
+        self._joint_name  = p['joint_name']
+        self._open_pos    = p['open_position']
+        self._closed_pos  = p['closed_position']
+        self._max_effort  = p['max_effort']
+        self._timeout     = p['action_timeout']
+        self._expect_grasp = bool(config.get('expect_grasp', False))
+        self._gripper = ParallelGripperClient.get(
+            node, p['action_name'], logger)
 
-        self._joint_name  = config.get(
-            'joint_name', 'robotiq_85_left_knuckle_joint')
-        self._open_pos    = config.get('open_position', 0.001)
-        self._closed_pos  = config.get('closed_position', 0.03)
-        self._max_effort  = config.get('max_effort', 50.0)
-        self._timeout     = config.get('action_timeout', 5.0)
-
-    async def execute(self, command: str) -> str:
-        """
-        Async — awaits the action client's futures directly instead of
-        blocking a worker thread on a threading.Event. Awaiting an
-        rclpy Future yields control back to the executor rather than
-        holding a thread for the whole op, so N concurrent/retried
-        gripper ops no longer require N free executor threads (this
-        was the root cause of tool ops going silent forever under
-        thread-pool exhaustion). Timeouts are enforced by
-        _future_with_timeout (a node timer), not by blocking.
-        """
+    async def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         if cmd in ('open', 'release'):
-            target, default_status = self._open_pos, 'opened'
+            target = self._open_pos
         elif cmd in ('close', 'grip'):
-            target, default_status = self._closed_pos, 'closed'
+            target = self._closed_pos
         else:
             self.logger.warn(
                 f'[GRIPPER_ACTION] {self.tool_id}: unknown command "{cmd}"')
             return f'unknown_command_{cmd}'
 
-        # One-time/rare wait (only if the server isn't up yet) — polled
-        # via a node timer, never blocks a thread.
-        server_ready = await _wait_for_server_async(
-            self._node, self._client, self._timeout)
-        if not server_ready:
-            self.logger.error(
-                f'[GRIPPER_ACTION] {self.tool_id}: action server unavailable')
-            return 'error_no_server'
+        status, result = await self._gripper.move(
+            target, self._joint_name, self._max_effort, self._timeout,
+            tag=f'GRIPPER_ACTION] [{self.tool_id}:{cmd}')
+        if status != 'ok':
+            return status   # error_no_server | timeout | error_goal_rejected
 
-        goal = ParallelGripperCommand.Goal()
-        goal.command = JointState()
-        goal.command.name     = [self._joint_name]
-        goal.command.position = [float(target)]
-        goal.command.velocity = []
-        goal.command.effort = (
-            [float(self._max_effort)] if self._max_effort else []
-        )
-
-        send_future = self._client.send_goal_async(goal)
-        try:
-            goal_handle = await _future_with_timeout(
-                self._node, send_future, self._timeout)
-        except TimeoutError:
-            self.logger.warn(
-                f'[GRIPPER_ACTION] {self.tool_id}:{cmd} goal-send timed out '
-                f'(server never accepted/rejected the goal)')
-            return 'timeout'
-
-        if not goal_handle.accepted:
-            self.logger.error(
-                f'[GRIPPER_ACTION] {self.tool_id}:{cmd} goal_rejected')
-            return 'goal_rejected'
-
-        result_future = goal_handle.get_result_async()
-        try:
-            result_response = await _future_with_timeout(
-                self._node, result_future, self._timeout)
-        except TimeoutError:
-            try:
-                goal_handle.cancel_goal_async()
-                self.logger.warn(
-                    f'[GRIPPER_ACTION] {self.tool_id}:{cmd} timed out — '
-                    f'cancel requested')
-            except Exception as e:
-                self.logger.error(
-                    f'[GRIPPER_ACTION] {self.tool_id}: cancel failed: {e}')
-            return 'timeout'
-
-        result = result_response.result
         reported_position = (
             result.state.position[0] if result.state.position else float('nan')
         )
-
         self.logger.info(
             f'[GRIPPER_ACTION] {self.tool_id}:{cmd} execution complete  '
             f'(reached_goal={result.reached_goal}, stalled={result.stalled}, '
             f'position={reported_position:.4f})'
         )
 
-        # ── EXPLICIT HARDWARE STATE CHECKING ──
         if cmd in ('open', 'release'):
             if result.stalled and not result.reached_goal:
-                self.logger.error(f'[GRIPPER_ACTION] {self.tool_id}: Failed to open. Gripper is stalled at position {reported_position:.4f}')
+                self.logger.error(
+                    f'[GRIPPER_ACTION] {self.tool_id}: Failed to open. '
+                    f'Gripper is stalled at position {reported_position:.4f}')
                 return 'open_failed_stalled'
             return 'opened'
-            
-        elif cmd in ('close', 'grip'):
-            if result.stalled:
-                return 'closed_grasped'
-            if result.reached_goal:
-                return 'closed_empty'
-            return 'closed'
+
+        # close / grip
+        if result.stalled:
+            return 'closed_grasped'
+        if result.reached_goal:
+            return 'error_closed_empty' if self._expect_grasp else 'closed_empty'
+        return 'closed'
 
 
 # ── Mimic-joint gripper backend via plain position ForwardCommandController ──
@@ -415,45 +540,41 @@ class GripperPositionBackend(ToolBackend):
     Drives a mimic-joint gripper via a plain position
     ForwardCommandController — no action server involved. Matches
     gz_ros2_control_demos/gripper_mimic_joint_example_position exactly:
-    this backend publishes a single-element Float64MultiArray position
-    command for the gripper's ONE actively-controlled (primary) joint;
-    every other mimic joint is driven entirely by gz_ros2_control's own
-    native mimic support (URDF <mimic> tag + ros2_control <param
-    name="mimic">/<param name="multiplier">) — confirmed working on
-    gz-physics7-dartsim via the same demo. No coordination logic is
-    needed here at all.
+    publishes a single-element Float64MultiArray position command for
+    the gripper's ONE actively-controlled (primary) joint; every other
+    mimic joint is driven by gz_ros2_control's native mimic support
+    (URDF <mimic> + ros2_control <param name="mimic">/<param
+    name="multiplier">).
 
-    TRADE-OFF vs GripperActionBackend: this is fire-and-forget — no
-    max_effort force-limiting, no stall/grasp detection, no action
-    result to confirm the goal was actually reached (e.g. object width
-    vs commanded target). Use GripperActionBackend + an action server
-    instead if force-limited grasping against real/variable objects
-    becomes a requirement later.
+    TRADE-OFF vs GripperActionBackend: no max_effort force-limiting, no
+    stall/grasp detection, no action result. To keep a recipe from racing
+    ahead of the fingers, execute() waits `settle_sec` after publishing
+    (non-blocking). Prefer gripper_action unless you can't run an action
+    server.
 
     Config keys:
-      topic          : command topic for the position
-                       ForwardCommandController (default
-                       '/gripper_action_controller/commands')
-      open_position  : target position (rad, or m for prismatic
-                       grippers) for 'open'/'release' (default 0.0)
-      closed_position: target position for 'close'/'grip'
-                       (default 0.79) — keep inside the joint's
-                       physical limits, same jamming caveat as
-                       GripperActionBackend above.
+      topic          : command topic, RELATIVE by default
+                       ('gripper_position_controller/commands') so a
+                       namespaced launch resolves it per-arm; the
+                       generator should emit the arm-prefixed name.
+      open_position / closed_position : targets (rad, or m if prismatic)
+      settle_sec     : wait after publishing (default 0.6; 0 = none)
     """
 
     def __init__(self, tool_id: str, config: dict, logger, node: Node):
         super().__init__(tool_id, config, logger)
+        p = _gripper_params(tool_id, config, logger,
+                            keys=('open_position', 'closed_position'))
         self._node   = node
         self._topic  = config.get(
             'topic', 'gripper_position_controller/commands')
         self._pub    = node.create_publisher(
             Float64MultiArray, self._topic, 10)
+        self._open_pos   = p['open_position']
+        self._closed_pos = p['closed_position']
+        self._settle     = float(config.get('settle_sec', 0.6))
 
-        self._open_pos   = config.get('open_position', 0.001)
-        self._closed_pos = config.get('closed_position', 0.03)
-
-    def execute(self, command: str) -> str:
+    async def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         if cmd in ('open', 'release'):
@@ -468,116 +589,78 @@ class GripperPositionBackend(ToolBackend):
         msg = Float64MultiArray()
         msg.data = [float(target)]
         self._pub.publish(msg)
+        await _sleep_async(self._node, self._settle)
 
         self.logger.info(
             f'[GRIPPER_POSITION] {self.tool_id}:{cmd} → {status} '
-            f'(target={target:.4f}, fire-and-forget — no force-limit/'
-            f'stall feedback)'
+            f'(target={target:.4f}, settled {self._settle:.2f}s, no '
+            f'force-limit/stall feedback)'
         )
         return status
-    
+
 
 class GripperEffortBackend(ToolBackend):
     """
     Drives a mimic-joint gripper through a ros2_control
     ForwardCommandController exposing the effort command interface.
 
-    Commands are sent as a single-element Float64MultiArray
-    representing the effort applied to the primary gripper joint.
-    The mimic joint follows automatically through the Gazebo
-    mimic constraint.
+    Commands are a single-element Float64MultiArray (effort on the
+    primary gripper joint); the mimic joint follows through the Gazebo
+    mimic constraint. Fire-and-forget: waits `settle_sec` after
+    publishing, no stall/grasp feedback.
 
     Config keys:
-      topic          : controller command topic
-                       (default '/gripper_effort_controller/commands')
-
-      open_effort    : effort applied when opening.
-                       Usually negative.
-                       (default -10.0)
-
-      close_effort   : effort applied when closing.
-                       Usually positive.
-                       (default 10.0)
-
-      clamp_effort   : optional absolute effort limit.
-                       (default None)
+      topic        : RELATIVE by default
+                     ('gripper_effort_controller/commands') — see
+                     GripperPositionBackend note on namespacing.
+      open_effort  : effort applied when opening (default -10.0)
+      close_effort : effort applied when closing (default 10.0)
+      clamp_effort : optional absolute effort limit (default None)
+      settle_sec   : wait after publishing (default 0.6; 0 = none)
     """
 
-    def __init__(
-        self,
-        tool_id: str,
-        config: dict,
-        logger,
-        node: Node,
-    ):
+    def __init__(self, tool_id: str, config: dict, logger, node: Node):
         super().__init__(tool_id, config, logger)
-
+        self._node = node
         self._topic = config.get(
-            "topic",
-            "/gripper_effort_controller/commands"
-        )
-
-        self._open_effort = float(
-            config.get("open_effort", -10.0)
-        )
-
-        self._close_effort = float(
-            config.get("close_effort", 10.0)
-        )
-
-        self._clamp = config.get("clamp_effort", None)
-
+            'topic', 'gripper_effort_controller/commands')
+        self._open_effort  = float(config.get('open_effort', -10.0))
+        self._close_effort = float(config.get('close_effort', 10.0))
+        self._clamp  = config.get('clamp_effort', None)
+        self._settle = float(config.get('settle_sec', 0.6))
         self._pub = node.create_publisher(
-            Float64MultiArray,
-            self._topic,
-            10,
-        )
+            Float64MultiArray, self._topic, 10)
 
     def _publish_effort(self, effort: float):
-
         if self._clamp is not None:
             limit = abs(float(self._clamp))
             effort = max(-limit, min(limit, effort))
-
         msg = Float64MultiArray()
         msg.data = [float(effort)]
-
         self._pub.publish(msg)
 
-    def execute(self, command: str) -> str:
-
+    async def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
-        if cmd in ("open", "release"):
-
+        if cmd in ('open', 'release'):
             self._publish_effort(self._open_effort)
-
+            await _sleep_async(self._node, self._settle)
             self.logger.info(
-                f"[GRIPPER_EFFORT] {self.tool_id}: "
-                f"OPEN ({self._open_effort:.2f} N)"
-            )
+                f'[GRIPPER_EFFORT] {self.tool_id}: '
+                f'OPEN ({self._open_effort:.2f} N)')
+            return 'opened'
 
-            return "opened"
-
-        elif cmd in ("close", "grip"):
-
+        if cmd in ('close', 'grip'):
             self._publish_effort(self._close_effort)
-
+            await _sleep_async(self._node, self._settle)
             self.logger.info(
-                f"[GRIPPER_EFFORT] {self.tool_id}: "
-                f"CLOSE ({self._close_effort:.2f} N)"
-            )
+                f'[GRIPPER_EFFORT] {self.tool_id}: '
+                f'CLOSE ({self._close_effort:.2f} N)')
+            return 'closed'
 
-            return "closed"
-
-        else:
-
-            self.logger.warn(
-                f"[GRIPPER_EFFORT] {self.tool_id}: "
-                f"Unknown command '{command}'"
-            )
-
-            return f"unknown_command_{command}"
+        self.logger.warn(
+            f'[GRIPPER_EFFORT] {self.tool_id}: unknown command "{command}"')
+        return f'unknown_command_{cmd}'
 
 # ── Digital I/O backend ───────────────────────────────────
 
@@ -637,7 +720,7 @@ class DigitalIOBackend(ToolBackend):
         else:
             device.on()
 
-    def execute(self, command: str) -> str:
+    def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         if cmd in ('open', 'on', 'release'):
@@ -693,13 +776,13 @@ class RosTopicBackend(ToolBackend):
     def __init__(self, tool_id: str, config: dict, logger, node: Node):
         super().__init__(tool_id, config, logger)
         self._node    = node
-        self._topic   = config.get('topic', f'/{tool_id}/cmd')
+        self._topic   = config.get('topic', f'{tool_id}/cmd')
         self._pub     = node.create_publisher(String, self._topic, 10)
         self._on_val  = config.get('on_value',  'open')
         self._off_val = config.get('off_value', 'close')
         self._cmd_map = config.get('cmd_map', {})
 
-    def execute(self, command: str) -> str:
+    def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         # Check explicit command map first
@@ -770,7 +853,7 @@ class ModbusBackend(ToolBackend):
         self._unit_id = config.get('unit_id', 1)
         self._state   = 'idle'
 
-    def execute(self, command: str) -> str:
+    def execute(self, command: str, params: list = None) -> str:
         cmd = command.lower().strip()
 
         try:
@@ -885,38 +968,32 @@ class GraspActuator:
 
 class ParallelJawActuator(GraspActuator):
     """Parallel-jaw gripper via ParallelGripperCommand (same action
-    GripperActionBackend drives). Sim doesn't need full mechanical
-    contact, so engage() drives to a position scaled by the target
-    object's size (from objects.yaml) rather than always fully
-    closed — grip width roughly matches whatever's being picked with
-    no per-object tuning required.
+    GripperActionBackend drives, through the SAME shared
+    ParallelGripperClient — so their goals are serialized, never
+    overlapping). Sim doesn't need full mechanical contact, so engage()
+    drives to a position scaled by the target object's size (from
+    objects.yaml) rather than always fully closed.
 
-    Config keys (read from the tool's config dict):
-      gripper_action_name    : ParallelGripperCommand action name
-      gripper_joint_name     : primary gripper joint
-      gripper_open_position, gripper_closed_position, gripper_max_effort,
-      gripper_action_timeout : same meaning as before
-      gripper_min_close_ratio: fraction of full travel used even for
-                                the LARGEST catalog object (default
-                                0.7), so the grip always looks
-                                committed rather than barely closing
-                                on something that already fills most
-                                of the gap between the fingers.
+    Config keys (canonical schema; GraspAttachBackend maps the legacy
+    gripper_-prefixed spellings before this is constructed):
+      action_name, joint_name, open_position, closed_position,
+      max_effort, action_timeout,
+      min_close_ratio: fraction of full travel used even for the LARGEST
+                       catalog object (default 0.7), so the grip always
+                       looks committed.
     """
 
-    def __init__(self, node: Node, config: dict, logger):
-        self._node = node
+    def __init__(self, node: Node, config: dict, logger, tool_id: str = ''):
         self.logger = logger
-        action_name = config.get(
-            'gripper_action_name', 'gripper_action_controller/gripper_cmd')
-        self._client = ActionClient(node, ParallelGripperCommand, action_name)
-        self._joint_name = config.get(
-            'gripper_joint_name', 'robotiq_85_left_knuckle_joint')
-        self._open_pos = config.get('gripper_open_position', 0.001)
-        self._closed_pos = config.get('gripper_closed_position', 0.554)
-        self._max_effort = config.get('gripper_max_effort', 50.0)
-        self._timeout = config.get('gripper_action_timeout', 5.0)
-        self._min_close_ratio = config.get('gripper_min_close_ratio', 0.7)
+        p = _gripper_params(tool_id or 'parallel_jaw', config, logger)
+        self._joint_name = p['joint_name']
+        self._open_pos = p['open_position']
+        self._closed_pos = p['closed_position']
+        self._max_effort = p['max_effort']
+        self._timeout = p['action_timeout']
+        self._min_close_ratio = p['min_close_ratio']
+        self._gripper = ParallelGripperClient.get(
+            node, p['action_name'], logger)
 
     def _target_position(self, object_type_cfg: Optional[dict], reference_size: float) -> float:
         if not object_type_cfg or reference_size <= 0:
@@ -941,33 +1018,11 @@ class ParallelJawActuator(GraspActuator):
         await self._move(self._open_pos)
 
     async def _move(self, position: float):
-        server_ready = await _wait_for_server_async(self._node, self._client, self._timeout)
-        if not server_ready:
-            self.logger.warn('[PARALLEL_JAW] gripper action server unavailable')
-            return
-
-        goal = ParallelGripperCommand.Goal()
-        goal.command = JointState()
-        goal.command.name = [self._joint_name]
-        goal.command.position = [float(position)]
-        goal.command.velocity = []
-        goal.command.effort = [float(self._max_effort)] if self._max_effort else []
-
-        send_future = self._client.send_goal_async(goal)
-        try:
-            goal_handle = await _future_with_timeout(self._node, send_future, self._timeout)
-        except TimeoutError:
-            self.logger.warn('[PARALLEL_JAW] goal-send timed out')
-            return
-        if not goal_handle.accepted:
-            self.logger.warn('[PARALLEL_JAW] goal rejected')
-            return
-
-        result_future = goal_handle.get_result_async()
-        try:
-            await _future_with_timeout(self._node, result_future, self._timeout)
-        except TimeoutError:
-            self.logger.warn('[PARALLEL_JAW] result timed out (arm may still be moving)')
+        status, _ = await self._gripper.move(
+            position, self._joint_name, self._max_effort, self._timeout,
+            tag='PARALLEL_JAW', cancel_on_timeout=False)
+        if status != 'ok':
+            self.logger.warn(f'[PARALLEL_JAW] move failed: {status}')
 
 
 class SuctionActuator(GraspActuator):
@@ -977,14 +1032,14 @@ class SuctionActuator(GraspActuator):
     hardware driver a standalone vacuum_X tool uses works here too.
 
     Config keys:
-      vacuum_topic     : target topic (default '/vacuum_controller/cmd')
+      vacuum_topic     : target topic (default 'vacuum_controller/cmd')
       vacuum_on_value  : string published on engage (default 'on')
       vacuum_off_value : string published on disengage (default 'off')
     """
 
-    def __init__(self, node: Node, config: dict, logger):
+    def __init__(self, node: Node, config: dict, logger, tool_id: str = ''):
         self.logger = logger
-        self._topic = config.get('vacuum_topic', '/vacuum_controller/cmd')
+        self._topic = config.get('vacuum_topic', 'vacuum_controller/cmd')
         self._on_val = config.get('vacuum_on_value', 'on')
         self._off_val = config.get('vacuum_off_value', 'off')
         self._pub = node.create_publisher(String, self._topic, 10)
@@ -1076,6 +1131,7 @@ class GraspAttachBackend(ToolBackend):
     """
 
     def __init__(self, tool_id: str, config: dict, logger, node: Node):
+        config = _normalize_gripper_config(tool_id, config, logger)
         super().__init__(tool_id, config, logger)
         self._node = node
         service_name = config.get('service_name', 'grasp_attach')
@@ -1101,7 +1157,7 @@ class GraspAttachBackend(ToolBackend):
                 f'"{mechanism}", falling back to parallel_jaw. '
                 f'Valid options: {list(_ACTUATOR_TYPES)}')
             actuator_cls = ParallelJawActuator
-        self._actuator: GraspActuator = actuator_cls(node, config, logger)
+        self._actuator: GraspActuator = actuator_cls(node, config, logger, tool_id=tool_id)
 
         # Background engage/disengage tasks, kept only so they aren't
         # garbage-collected mid-flight — see _fire_and_forget.
@@ -1335,6 +1391,25 @@ class GraspAttachBackend(ToolBackend):
 # TOOL MANAGER NODE
 # =========================================================
 
+# Backend registry. A factory is (tool_id, config, logger, node) -> backend.
+# Vendor/third-party backends plug in with register_backend() instead of
+# editing the node.
+_BACKEND_FACTORIES: Dict[str, Callable] = {
+    'mock':             lambda tid, cfg, log, node: MockBackend(tid, cfg, log, node),
+    'gripper_action':   lambda tid, cfg, log, node: GripperActionBackend(tid, cfg, log, node),
+    'gripper_position': lambda tid, cfg, log, node: GripperPositionBackend(tid, cfg, log, node),
+    'gripper_effort':   lambda tid, cfg, log, node: GripperEffortBackend(tid, cfg, log, node),
+    'digital_io':       lambda tid, cfg, log, node: DigitalIOBackend(tid, cfg, log),
+    'ros_topic':        lambda tid, cfg, log, node: RosTopicBackend(tid, cfg, log, node),
+    'modbus':           lambda tid, cfg, log, node: ModbusBackend(tid, cfg, log),
+    'grasp_attach':     lambda tid, cfg, log, node: GraspAttachBackend(tid, cfg, log, node),
+}
+
+
+def register_backend(name: str, factory: Callable):
+    _BACKEND_FACTORIES[name.lower()] = factory
+
+
 class ToolActionServer(Node):
     """
     Hardware boundary node for end-effector tooling.
@@ -1415,36 +1490,12 @@ class ToolActionServer(Node):
     def _create_backend(self, tool_id: str,
                          backend_type: str,
                          config: dict) -> ToolBackend:
-        if backend_type == 'mock':
-            return MockBackend(tool_id, config, self.get_logger())
-
-        elif backend_type == 'gripper_action':
-            return GripperActionBackend(tool_id, config, self.get_logger(), self)
-
-        elif backend_type == 'gripper_position':
-            return GripperPositionBackend(tool_id, config, self.get_logger(), self)
-
-        elif backend_type == "gripper_effort":
-            return GripperEffortBackend(tool_id, config, self.get_logger(), self)
-
-        elif backend_type == 'digital_io':
-            return DigitalIOBackend(tool_id, config, self.get_logger())
-
-        elif backend_type == 'ros_topic':
-            return RosTopicBackend(tool_id, config, self.get_logger(), self)
-
-        elif backend_type == 'modbus':
-            return ModbusBackend(tool_id, config, self.get_logger())
-
-        elif backend_type == 'grasp_attach':
-            return GraspAttachBackend(tool_id, config, self.get_logger(), self)
-
-        else:
+        factory = _BACKEND_FACTORIES.get(backend_type)
+        if factory is None:
             raise ValueError(
                 f'Unknown backend type: "{backend_type}". '
-                f'Valid: mock, gripper_action, gripper_position, gripper_effort, '
-                f'digital_io, ros_topic, modbus, grasp_attach'
-            )
+                f'Valid: {", ".join(sorted(_BACKEND_FACTORIES))}')
+        return factory(tool_id, config, self.get_logger(), self)
 
     # =========================================================
     # EXECUTE TOOL OP ACTION SERVER
@@ -1459,7 +1510,11 @@ class ToolActionServer(Node):
         return GoalResponse.ACCEPT
 
     def _cancel_cb(self, goal_handle):
-        return CancelResponse.ACCEPT
+        # Tool ops are short and not safely interruptible (e.g. cancelling
+        # between engage and weld would desync the gripper and the held
+        # joint). Rejecting also avoids ending a CANCELING goal with
+        # succeed()/abort(), which _execute_cb would otherwise do.
+        return CancelResponse.REJECT
 
     async def _execute_cb(self, goal_handle):
         goal = goal_handle.request
@@ -1485,18 +1540,9 @@ class ToolActionServer(Node):
         # before, unchanged.
         async with lock:
             try:
-                sig = inspect.signature(backend.execute)
-                accepts_params = len(sig.parameters) >= 2
-                if asyncio.iscoroutinefunction(backend.execute):
-                    if accepts_params:
-                        status = await backend.execute(goal.command, goal.params)
-                    else:
-                        status = await backend.execute(goal.command)
-                else:
-                    if accepts_params:
-                        status = backend.execute(goal.command, goal.params)
-                    else:
-                        status = backend.execute(goal.command)
+                status = backend.execute(goal.command, goal.params)
+                if inspect.isawaitable(status):
+                    status = await status
             except Exception as e:
                 self.get_logger().error(
                     f'Tool execution error [{goal.tool_id}:{goal.command}]: {e}')

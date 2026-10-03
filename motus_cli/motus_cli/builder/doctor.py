@@ -207,6 +207,11 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
     launch_path = pkg_dir / "launch" / f"{robot_name}.launch.py"
     checks.append(Check("Launch file", launch_path.is_file()))
 
+    # --- tools added with `motus tool add` ---
+    from .tool_add import run_tool_checks
+    for name, ok, level, detail in run_tool_checks(project_root, manifest, pkg_dir, desc):
+        checks.append(Check(name, ok, level, detail))
+
     return checks
 
 

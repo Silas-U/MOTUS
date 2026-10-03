@@ -109,6 +109,11 @@ def generate_launch_description():
     objects_config_path_arg = DeclareLaunchArgument(
         'objects_config_path', default_value='')
 
+    # Per-project tool config override (Motus Builder: `motus tool add` writes
+    # <pkg>/config/tools.yaml). Empty = robokpy_controller's own tools.yaml.
+    tools_config_path_arg = DeclareLaunchArgument(
+        'tools_config_path', default_value='')
+
     use_sim = LaunchConfiguration('use_sim')
     launch_rviz = LaunchConfiguration('launch_rviz')
     arm_type = LaunchConfiguration('arm_type')
@@ -120,6 +125,7 @@ def generate_launch_description():
     mesh_package_name_launch = LaunchConfiguration('mesh_package_name')
     external_xacro_args_launch = LaunchConfiguration('external_xacro_args')
     objects_config_path_launch = LaunchConfiguration('objects_config_path')
+    tools_config_path_launch = LaunchConfiguration('tools_config_path')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
     rviz_config = os.path.join(pkg, 'config', 'config.rviz')
@@ -140,7 +146,8 @@ def generate_launch_description():
         )
         catalog = ObjectCatalog(objects_config_path)
 
-        with open(tool_config_path, 'r') as f:
+        tools_path = tools_config_path_launch.perform(context) or tool_config_path
+        with open(tools_path, 'r') as f:
             tools_dict = yaml.safe_load(f)
         for tool_id, cfg in tools_dict.items():
             if cfg.get('backend') == 'grasp_attach':
@@ -335,5 +342,6 @@ def generate_launch_description():
         mesh_package_name_arg,
         external_xacro_args_arg,
         objects_config_path_arg,
+        tools_config_path_arg,
         OpaqueFunction(function=configure),
     ])

@@ -5,6 +5,8 @@ cli.py
 
     motus create project <name> [--from PATH] [--dest DIR] [--arg NAME=VALUE ...]
     motus robot add <path> [--arg NAME=VALUE ...]  # imports/replaces the robot description
+    motus tool add [SOURCE] [--profile KEY] [--id ID] ...  # attach a gripper
+    motus tool list | motus tool remove ID
     motus doctor [--verbose]          # validates the current project on disk
     motus build                       # doctor-gated colcon build
     motus launch [--sim/--real]       # ros2 launch wrapper
@@ -27,6 +29,7 @@ from .builder.robot_add import robot_add, RobotAddError
 from .builder.doctor import run_doctor, print_report, DoctorFatalError
 from .builder.build_cmd import run_build, BuildError
 from .builder.launch_cmd import run_launch, LaunchError
+from .builder.tool_add import tool_add, tool_remove, list_tools, ToolAddError
 
 
 def _parse_xacro_args(raw: list[str]) -> dict[str, str]:
@@ -54,7 +57,7 @@ def _parse_xacro_args(raw: list[str]) -> dict[str, str]:
 def _cmd_create_project(args: argparse.Namespace) -> int:
     try:
         paths = package_generator.create_project(
-            robot_name=args.name, dest=args.dest, from_path=args.from_path,
+            robot_name=args.name, dest=os.path.abspath(args.dest), from_path=args.from_path,
         )
     except FileExistsError as e:
         print(f"error: {e}", file=sys.stderr)
@@ -96,6 +99,46 @@ def _cmd_robot_add(args: argparse.Namespace) -> int:
         return 1
     report.print_summary()
     return 0 if report.ok else 1
+
+
+def _cmd_tool_add(args: argparse.Namespace) -> int:
+    try:
+        report = tool_add(
+            os.getcwd(), source_path=args.source, tool_id=args.tool_id, kind=args.kind,
+            profile=args.profile, macro=args.macro, macro_args=_parse_xacro_args(args.macro_args),
+            mount_link=args.mount, tcp_link=args.tcp, primary_joint=args.primary_joint,
+            open_position=args.open_position, closed_position=args.closed_position,
+            max_effort=args.max_effort, replace=args.replace,
+        )
+    except (ToolAddError, ValueError) as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    report.print_summary()
+    return 0
+
+
+def _cmd_tool_list(args: argparse.Namespace) -> int:
+    try:
+        tools = list_tools(os.getcwd())
+    except OSError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    if not tools:
+        print("no tools in this project (add one with `motus tool add`).")
+    for d in tools:
+        print(f"{d['id']}: {d['kind']} on {d['mount_link']}, driver={d['primary_joint']}, "
+              f"tcp={d['tcp_link']}")
+    return 0
+
+
+def _cmd_tool_remove(args: argparse.Namespace) -> int:
+    try:
+        tool_remove(os.getcwd(), args.tool_id)
+    except ToolAddError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print(f"removed tool '{args.tool_id}'. Run `motus doctor`.")
+    return 0
 
 
 def _cmd_doctor(args: argparse.Namespace) -> int:
@@ -156,6 +199,32 @@ def build_parser() -> argparse.ArgumentParser:
         help="xacro argument to pass through when expanding the description "
              "(repeatable, e.g. --arg ur_type=ur5e)")
     robot_add_parser.set_defaults(func=_cmd_robot_add)
+
+    tool = sub.add_parser("tool", help="manage end-effector tools in this project")
+    tool_sub = tool.add_subparsers(dest="tool_command", required=True)
+    ta = tool_sub.add_parser("add", help="attach a gripper from a xacro macro description")
+    ta.add_argument("source", nargs="?", default=None,
+                    help="description file or package directory containing the tool's xacro macro "
+                         "(optional with --profile when the parent workspace has it)")
+    ta.add_argument("--profile", default=None, help="known tool profile, e.g. robotiq_2f_85")
+    ta.add_argument("--id", dest="tool_id", default="gripper_1", help="tool id used in recipes (default gripper_1)")
+    ta.add_argument("--kind", default="parallel_gripper")
+    ta.add_argument("--macro", default=None, help="xacro macro name (auto-detected if unambiguous)")
+    ta.add_argument("--mount", default=None, help="link to mount on (default: the arm's tip link)")
+    ta.add_argument("--tcp", default=None, help="TCP link (default: auto-detected)")
+    ta.add_argument("--primary-joint", default=None, help="driver joint (default: the joint others mimic)")
+    ta.add_argument("--open", dest="open_position", type=float, default=None)
+    ta.add_argument("--closed", dest="closed_position", type=float, default=None)
+    ta.add_argument("--max-effort", dest="max_effort", type=float, default=None)
+    ta.add_argument("--arg", dest="macro_args", action="append", default=[], metavar="NAME=VALUE",
+                    help="macro parameter (repeatable)")
+    ta.add_argument("--replace", action="store_true", help="redo an existing tool of the same id")
+    ta.set_defaults(func=_cmd_tool_add)
+    tl = tool_sub.add_parser("list", help="list this project's tools")
+    tl.set_defaults(func=_cmd_tool_list)
+    tr = tool_sub.add_parser("remove", help="remove a tool and its managed config")
+    tr.add_argument("tool_id")
+    tr.set_defaults(func=_cmd_tool_remove)
 
     doctor = sub.add_parser("doctor", help="validate the current project")
     doctor.add_argument("--verbose", action="store_true")

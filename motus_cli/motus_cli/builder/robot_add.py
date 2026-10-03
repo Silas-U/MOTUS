@@ -46,6 +46,7 @@ class ImportReport:
     analysis: KinematicAnalysis
     resolution: ResourceResolutionResult
     config: ConfigGenerationResult
+    tool_notes: list = field(default_factory=list)
 
     @property
     def ok(self) -> bool:
@@ -82,6 +83,8 @@ class ImportReport:
                 print(f"    - {w}")
             if len(all_warnings) > 5:
                 print(f"    ... and {len(all_warnings) - 5} more")
+        for n in self.tool_notes:
+            print(f"  tool: {n}")
         if self.ok:
             print("  OK -- run `motus doctor` before `motus build` regardless.")
         else:
@@ -272,7 +275,14 @@ def robot_add(
     manifest["last_build_fingerprint"] = None  # stale until the next `motus build`
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
+    # A re-import regenerates the entry xacro and configs, which drops any
+    # managed tool blocks; put recorded tools back (see tool_add.py).
+    tool_notes: list = []
+    if manifest.get("tools"):
+        from .tool_add import reapply_tools
+        tool_notes = reapply_tools(project_root)
+
     return ImportReport(
         urdf_source=urdf_file, pkg_dir=pkg_dir, analysis=analysis,
-        resolution=resolution, config=cfg,
+        resolution=resolution, config=cfg, tool_notes=tool_notes,
     )

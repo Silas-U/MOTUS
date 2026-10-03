@@ -120,6 +120,9 @@ def generate_launch_description():
 
     this_pkg_share = FindPackageShare('{pkg_name}').find('{pkg_name}')
     controller_pkg_share = FindPackageShare('robokpy_controller').find('robokpy_controller')
+    # Per-project tool config (written by `motus tool add`). Empty string =
+    # fall back to robokpy_controller's own config/tools.yaml.
+    tools_yaml = os.path.join(this_pkg_share, 'config', 'tools.yaml')
 
     cell_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -132,6 +135,7 @@ def generate_launch_description():
             'mesh_package_name': '{pkg_name}',
             'external_xacro_args': {external_xacro_args_json},
             'objects_config_path': os.path.join(this_pkg_share, 'config', 'objects.yaml'),
+            'tools_config_path': tools_yaml if os.path.isfile(tools_yaml) else '',
         }}.items(),
     )
 
