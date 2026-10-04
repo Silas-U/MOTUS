@@ -46,11 +46,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
 import tempfile
 import xml.etree.ElementTree as ET
+import contextlib
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from xml.sax.saxutils import quoteattr
@@ -226,13 +228,17 @@ def _locate_macro(source_path, macro, profile, manifest) -> tuple[Path, str, lis
     return f, name, params, Path(root or f.parent)
 
 
-def _macro_call(name: str, params: list, prefix: str, mount: str, extra: dict) -> str:
+def _macro_call(name: str, params: list, prefix: str, mount: str, extra: dict,
+                rpy=(0.0, 0.0, 0.0)) -> str:
     attrs, block = {}, ""
     missing = []
+    if any(abs(v) > 1e-9 for v in rpy) and "*origin" not in params:
+        raise ToolAddError(f"macro '{name}' has no *origin block, so it cannot be rotated on the "
+                           f"mount (--mount-rpy / --align-approach).")
     for raw in params:
         if raw.startswith("*"):
             if raw == "*origin":
-                block = '<origin xyz="0 0 0" rpy="0 0 0"/>'
+                block = f'<origin xyz="0 0 0" rpy="{_fmt(rpy[0])} {_fmt(rpy[1])} {_fmt(rpy[2])}"/>'
             else:
                 raise ToolAddError(f"macro '{name}' needs a block parameter '{raw}', which "
                                    f"`motus tool add` can't fill. Wrap it in a small macro.")
@@ -305,6 +311,91 @@ def _joints_from_xml(xml_text: str) -> tuple[dict[str, _J], list[str]]:
             mimic=mimic.get("joint") if mimic is not None else None,
         )
     return joints, link_names
+
+
+def _bad_inertia_links(xml_text: str, only: set) -> list:
+    """Links Gazebo/DART would reject: missing/<=0 mass, or an inertia tensor that is
+    not positive definite / violates the triangle inequality."""
+    bad = []
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return bad
+    for l in root.findall("link"):
+        n = l.get("name")
+        if n not in only:
+            continue
+        ine = l.find("inertial")
+        if ine is None:
+            continue                     # no <inertial>: treated as static/massless, not 'invalid'
+        try:
+            m = float(ine.find("mass").get("value"))
+            i = ine.find("inertia")
+            ixx, iyy, izz, ixy, ixz, iyz = (float(i.get(k, 0)) for k in
+                                            ("ixx", "iyy", "izz", "ixy", "ixz", "iyz"))
+        except (AttributeError, TypeError, ValueError):
+            bad.append(n)
+            continue
+        det = (ixx * (iyy * izz - iyz * iyz) - ixy * (ixy * izz - iyz * ixz)
+               + ixz * (ixy * iyz - iyy * ixz))
+        ok = (m > 0 and ixx > 0 and iyy > 0 and izz > 0 and det > 0
+              and ixx + iyy >= izz * 1.001 and ixx + izz >= iyy * 1.001
+              and iyy + izz >= ixx * 1.001)
+        if not ok:
+            bad.append(n)
+    return sorted(bad)
+
+
+def _rpy_from_matrix(m):
+    p = -math.asin(max(-1.0, min(1.0, m[2][0])))
+    if abs(m[2][0]) > 0.999999:                       # gimbal lock
+        return [0.0, p, math.atan2(-m[0][1], m[1][1])]
+    return [math.atan2(m[2][1], m[2][2]), p, math.atan2(m[1][0], m[0][0])]
+
+
+def _rpy_aligning_to_z(v):
+    """Minimal rotation (as URDF rpy) that maps vector v onto +Z."""
+    n = math.sqrt(sum(c * c for c in v))
+    x, y, z = (c / n for c in v)
+    if z > 0.999999:
+        return [0.0, 0.0, 0.0]
+    if z < -0.999999:
+        return [math.pi, 0.0, 0.0]
+    ax, ay, az = y, -x, 0.0                           # v x z
+    s = math.sqrt(ax * ax + ay * ay)
+    ax, ay = ax / s, ay / s
+    c, sn = z, s
+    t = 1 - c
+    r = [[t * ax * ax + c, t * ax * ay - az * sn, t * ax * az + ay * sn],
+         [t * ax * ay + az * sn, t * ay * ay + c, t * ay * az - ax * sn],
+         [t * ax * az - ay * sn, t * ay * az + ax * sn, t * az * az + c]]
+    return _rpy_from_matrix(r)
+
+
+def _approach_vector(joints: dict, new_links: set, root_link: str):
+    """Mean position of the tool's leaf links in the tool root frame (joints at zero):
+    for a gripper this points from the base toward the fingertips."""
+    has_child = {j.parent for j in joints.values()}
+    by_child = {j.child: j for j in joints.values()}
+    pts = []
+    for leaf in sorted(l for l in new_links if l not in has_child and l != root_link):
+        chain, cur, guard = [], leaf, 0
+        while cur != root_link and guard < 64:
+            j = by_child.get(cur)
+            if j is None:
+                break
+            chain.append(j)
+            cur, guard = j.parent, guard + 1
+        if cur != root_link:
+            continue
+        m = [[1.0 if i == k else 0.0 for k in range(4)] for i in range(4)]
+        for j in reversed(chain):
+            m = _mat_mul(m, _origin_matrix(j.xyz, j.rpy))
+        pts.append((m[0][3], m[1][3], m[2][3]))
+    if not pts:
+        return None
+    v = [sum(p[i] for p in pts) / len(pts) for i in range(3)]
+    return v if math.sqrt(sum(c * c for c in v)) > 1e-6 else None
 
 
 def _pick_tcp(new_links, joints: dict[str, _J], explicit: str | None, root_link: str):
@@ -539,13 +630,58 @@ def _load(project_root: Path):
     return mp, manifest, pkg_dir, entry
 
 
-def tool_add(
+@contextlib.contextmanager
+def _source_package_overlay(source_path):
+    """Make plain (unbuilt) ROS packages inside `source_path` visible to
+    `$(find <pkg>)` / package:// lookups by xacro, via a temporary ament prefix.
+    Lets `motus tool add <folder>` work without colcon-building the vendor repo."""
+    roots = []
+    if source_path:
+        sp = Path(source_path).expanduser().resolve()
+        base = sp if sp.is_dir() else sp.parent
+        roots = [p.parent for p in base.rglob("package.xml")]
+        for up in [base, *base.parents][:4]:      # source may sit inside a package
+            if (up / "package.xml").is_file() and up not in roots:
+                roots.append(up)
+    if not roots:
+        yield
+        return
+    old = os.environ.get("AMENT_PREFIX_PATH")
+    with tempfile.TemporaryDirectory(prefix="motus_ament_") as t:
+        idx = Path(t, "share", "ament_index", "resource_index", "packages")
+        idx.mkdir(parents=True)
+        for r in roots:
+            try:
+                name = ET.parse(r / "package.xml").getroot().findtext("name").strip()
+            except Exception:
+                continue
+            if (idx / name).exists():
+                continue
+            (idx / name).write_text("")
+            os.symlink(r, Path(t, "share", name))
+        os.environ["AMENT_PREFIX_PATH"] = t + (os.pathsep + old if old else "")
+        try:
+            yield
+        finally:
+            if old is None:
+                os.environ.pop("AMENT_PREFIX_PATH", None)
+            else:
+                os.environ["AMENT_PREFIX_PATH"] = old
+
+
+def tool_add(project_root, *, source_path=None, **kw) -> "ToolAddReport":
+    with _source_package_overlay(source_path):
+        return _tool_add_impl(project_root, source_path=source_path, **kw)
+
+
+def _tool_add_impl(
     project_root, *, source_path: str | None = None, tool_id: str = "gripper_1",
     kind: str = "parallel_gripper", profile: str | None = None, macro: str | None = None,
     macro_args: dict | None = None, mount_link: str | None = None, tcp_link: str | None = None,
     primary_joint: str | None = None, open_position: float | None = None,
     closed_position: float | None = None, max_effort: float | None = None,
-    replace: bool = False,
+    replace: bool = False, tcp_offset: list | None = None,
+    mount_rpy: list | None = None, align_approach: bool = False,
 ) -> ToolAddReport:
     if kind not in SUPPORTED_KINDS:
         raise ToolAddError(f"tool kind '{kind}' is not implemented yet "
@@ -584,11 +720,20 @@ def tool_add(
         raise ToolAddError(f"mount link '{mount}' does not exist in the robot "
                            f"(arm tip is '{analysis_b.tip_link}').")
 
-    call = _macro_call(macro_name, macro_params, prefix, mount, macro_args)
+    if mount_rpy is not None and len(mount_rpy) != 3:
+        raise ToolAddError("--mount-rpy needs three numbers: ROLL PITCH YAW (radians).")
+    rpy0 = [float(v) for v in (mount_rpy or [0.0, 0.0, 0.0])]
+    call = _macro_call(macro_name, macro_params, prefix, mount, macro_args, rpy0)
     probe_block = (f'  <xacro:include filename="{macro_file}"/>\n  {call}\n')
     probe_text = _insert_before_ros2_control(base_text, probe_block)
     desc_t, inc_t, xml_t = _expand(urdf_dir, probe_text, "_motus_probe_tool.urdf.xacro", xacro_args)
 
+    if xml_t.count("<ros2_control") > xml_b.count("<ros2_control"):
+        raise ToolAddError(
+            "the tool's macro embeds its own <ros2_control> hardware block. Motus never merges "
+            "two hardware declarations for one robot (duplicate joint interfaces take the whole "
+            "controller_manager down). Disable it with the macro's switch, e.g. "
+            "--arg include_ros2_control=false (check the macro's params), then re-run.")
     joints_t, link_names_t = _joints_from_xml(xml_t)
     dup = sorted({n for n in link_names_t if link_names_t.count(n) > 1})
     if dup:
@@ -607,10 +752,62 @@ def tool_add(
         warnings.append(f"the macro attached to '{root_joint.parent}', not the requested '{mount}'.")
     mount_actual = root_joint.parent
 
+    if align_approach and mount_rpy is None:
+        v = _approach_vector(joints_t, new_links, root_joint.child)
+        if v is None:
+            raise ToolAddError("--align-approach could not find the tool's fingertip direction; "
+                               "pass --mount-rpy R P Y instead.")
+        mount_rpy = [round(a, 6) for a in _rpy_aligning_to_z(v)]
+        warnings.append(f"aligned the tool's approach axis {[round(c, 3) for c in v]} to the mount +Z "
+                        f"(rpy {mount_rpy}). If the fingers still open along the wrong axis, add a "
+                        f"yaw with --mount-rpy.")
+    if mount_rpy is not None and any(abs(float(a)) > 1e-9 for a in mount_rpy) and \
+            [float(a) for a in mount_rpy] != rpy0:
+        rpy0 = [float(a) for a in mount_rpy]
+        call = _macro_call(macro_name, macro_params, prefix, mount, macro_args, rpy0)
+        probe_text = _insert_before_ros2_control(
+            base_text, f'  <xacro:include filename="{macro_file}"/>\n  {call}\n')
+        desc_t, inc_t, xml_t = _expand(urdf_dir, probe_text, "_motus_probe_tool.urdf.xacro", xacro_args)
+        joints_t, link_names_t = _joints_from_xml(xml_t)
+        new_links = set(desc_t.links) - set(desc_b.links)
+        new_joints = {n: j for n, j in joints_t.items()
+                      if n in set(desc_t.joints) - set(desc_b.joints)}
+
+    if tcp_offset is not None:
+        if len(tcp_offset) != 3:
+            raise ToolAddError("--tcp-offset needs three numbers: X Y Z (metres).")
+        vtcp = f"{prefix}{tool_id}_tcp"
+        if vtcp in desc_b.links:
+            raise ToolAddError(f"link name '{vtcp}' already exists in the robot.")
+        xyz = " ".join(_fmt(float(v)) for v in tcp_offset)
+        call = (call + f'\n  <link name="{vtcp}"/>\n'
+                f'  <joint name="{vtcp}_joint" type="fixed"><parent link="{mount_actual}"/>'
+                f'<child link="{vtcp}"/><origin xyz="{xyz}" rpy="0 0 0"/></joint>')
+        probe_text = _insert_before_ros2_control(
+            base_text, f'  <xacro:include filename="{macro_file}"/>\n  {call}\n')
+        desc_t, inc_t, xml_t = _expand(urdf_dir, probe_text, "_motus_probe_tool.urdf.xacro", xacro_args)
+        joints_t, link_names_t = _joints_from_xml(xml_t)
+        new_links = set(desc_t.links) - set(desc_b.links)
+        new_joints = {n: j for n, j in joints_t.items()
+                      if n in set(desc_t.joints) - set(desc_b.joints)}
+        tcp_link = vtcp
+
     primary, followers = _classify(new_joints, primary_joint)
     pj = new_joints[primary]
     tcp, tcp_note = _pick_tcp(new_links, joints_t, tcp_link, root_joint.child)
     if tcp_note:
+        if tcp_note.startswith("no TCP frame found"):
+            cands = []
+            has_child = {j.parent for j in joints_t.values()}
+            for l in sorted(new_links):
+                if l not in has_child:
+                    try:
+                        cands.append(f"{l} @ {[round(v, 3) for v in _tcp_offset(joints_t, l, mount_actual)]}")
+                    except ToolAddError:
+                        pass
+            if cands:
+                tcp_note += " Tool leaf frames (offset from the mount): " + "; ".join(cands[:6]) + "."
+            tcp_note += " Or give the grasp point directly: --tcp-offset X Y Z (metres, in the mount/flange frame, +Z out of the flange)."
         warnings.append(tcp_note)
     offset = _tcp_offset(joints_t, tcp, mount_actual)
 
@@ -660,6 +857,13 @@ def tool_add(
         max_effort=eff, controller=ctrl, approach_offset=approach,
         grasp_tool_id=_grasp_id(tool_id),
         notes=[prof.notes] if prof and prof.notes else [])
+
+    bad_inertia = _bad_inertia_links(xml_t, new_links)
+    if bad_inertia:
+        warnings.append(
+            f"invalid inertia on: {', '.join(bad_inertia[:6])} -- Gazebo rejects the whole robot "
+            f"model (controller_manager never starts). Fix the <inertial> of these links in the "
+            f"source description (positive mass, positive-definite tensor).")
 
     low_effort = sorted(n for n, j in new_joints.items()
                         if j.type in _MOVABLE and j.effort is not None and j.effort < _MIN_SANE_EFFORT)
@@ -769,6 +973,8 @@ def tool_add(
             "macro_args": macro_args, "mount_link": mount_link, "tcp_link": tcp_link,
             "primary_joint": primary_joint, "open_position": open_position,
             "closed_position": closed_position, "max_effort": max_effort,
+            "tcp_offset": tcp_offset,
+            "mount_rpy": mount_rpy,
         },
         "descriptor": asdict(desc),
     }

@@ -109,6 +109,8 @@ def _cmd_tool_add(args: argparse.Namespace) -> int:
             mount_link=args.mount, tcp_link=args.tcp, primary_joint=args.primary_joint,
             open_position=args.open_position, closed_position=args.closed_position,
             max_effort=args.max_effort, replace=args.replace,
+            tcp_offset=args.tcp_offset,
+            mount_rpy=args.mount_rpy, align_approach=args.align_approach,
         )
     except (ToolAddError, ValueError) as e:
         print(f"error: {e}", file=sys.stderr)
@@ -212,6 +214,14 @@ def build_parser() -> argparse.ArgumentParser:
     ta.add_argument("--macro", default=None, help="xacro macro name (auto-detected if unambiguous)")
     ta.add_argument("--mount", default=None, help="link to mount on (default: the arm's tip link)")
     ta.add_argument("--tcp", default=None, help="TCP link (default: auto-detected)")
+    ta.add_argument("--tcp-offset", dest="tcp_offset", type=float, nargs=3, default=None,
+                    metavar=("X", "Y", "Z"),
+                    help="grasp point in the mount/flange frame (m, +Z out of the flange); creates "
+                         "a TCP frame when the description has none")
+    ta.add_argument("--mount-rpy", dest="mount_rpy", type=float, nargs=3, default=None,
+                    metavar=("R", "P", "Y"), help="rotate the tool on the mount (radians)")
+    ta.add_argument("--align-approach", dest="align_approach", action="store_true",
+                    help="auto-rotate the tool so its fingertip direction points out of the flange (+Z)")
     ta.add_argument("--primary-joint", default=None, help="driver joint (default: the joint others mimic)")
     ta.add_argument("--open", dest="open_position", type=float, default=None)
     ta.add_argument("--closed", dest="closed_position", type=float, default=None)

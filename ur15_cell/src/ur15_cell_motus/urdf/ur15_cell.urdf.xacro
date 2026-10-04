@@ -53,7 +53,7 @@
   <link name="gripper_1_tcp"/>
   <joint name="gripper_1_tcp_joint" type="fixed"><parent link="tool0"/><child link="gripper_1_tcp"/><origin xyz="0.0 0.0 0.145" rpy="0 0 0"/></joint>
   <!-- MOTUS-TOOL-END gripper_1 -->
-  <ros2_control name="ur5_cell_motus_GazeboSystem" type="system">
+  <ros2_control name="ur15_cell_motus_GazeboSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
