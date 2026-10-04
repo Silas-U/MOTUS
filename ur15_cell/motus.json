@@ -5,7 +5,12 @@
   "source_description_path": "/home/meta/Documents/Universal_Robots_ROS2_Description",
   "parent_workspace_root": "/home/meta/Documents/robotics_workspace_new",
   "builder_version": "0.1.0",
-  "last_build_fingerprint": "3bd5aaccc03436f8",
+  "last_build_fingerprint": "7565a140114a8043",
+  "world": {
+    "file": "worlds/motus_world.sdf",
+    "core_sha256": "921f460b9c9d5896d4697f1cd85472843baaf578bae89eb4d0a67ea1e07cb823",
+    "copy_sha256": "921f460b9c9d5896d4697f1cd85472843baaf578bae89eb4d0a67ea1e07cb823"
+  },
   "xacro_args": {
     "name": "ur15",
     "ur_type": "ur15",
@@ -47,7 +52,8 @@
           0.0,
           -1.570796,
           -0.0
-        ]
+        ],
+        "approach_offset": null
       },
       "descriptor": {
         "id": "gripper_1",
@@ -86,7 +92,7 @@
           "stall_timeout": 0.3,
           "max_effort": 5.0
         },
-        "approach_offset": 0.0,
+        "approach_offset": 0.0097,
         "grasp_tool_id": "grasp_attach_1",
         "notes": [
           "Targets, effort and approach_offset were measured with Motus's bundled robotiq_85_macro.xacro (TCP 0.104 m from the flange). approach_offset is only applied when the imported TCP matches."

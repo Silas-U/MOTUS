@@ -13,5 +13,6 @@ motus robot add /home/meta/Documents/mycobot_ros2/mycobot_description/urdf/mycob
 motus doctor
 
 #Attaching a gripper tool to the robot
+
 motus tool add /home/meta/Documents/robotiq_description-main --profile robotiq_2f_85 --replace --align-approach --tcp-offset 0 0 0.145
 motus build && motus launch --sim

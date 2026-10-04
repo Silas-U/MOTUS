@@ -42,6 +42,11 @@ def generate_launch_description():
     # Per-project tool config (written by `motus tool add`). Empty string =
     # fall back to robokpy_controller's own config/tools.yaml.
     tools_yaml = os.path.join(this_pkg_share, 'config', 'tools.yaml')
+    # Project-owned world and recipes (see `motus world init`). Empty string =
+    # robokpy_controller's own defaults, so a project without them behaves
+    # exactly as before.
+    project_world = os.path.join(this_pkg_share, 'worlds', 'motus_world.sdf')
+    project_recipes = os.path.join(this_pkg_share, 'recipes')
 
     cell_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -55,6 +60,8 @@ def generate_launch_description():
             'external_xacro_args': '{"name": "ur15", "ur_type": "ur15", "joint_limit_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/joint_limits.yaml", "kinematics_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/default_kinematics.yaml", "physical_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/physical_parameters.yaml", "visual_params": "/home/meta/Documents/robotics_workspace_new/ur15_cell/src/ur15_cell_motus/config/visual_parameters.yaml", "tf_prefix": "", "transmission_hw_interface": "", "safety_limits": "false", "safety_pos_margin": "0.15", "safety_k_position": "20", "force_abs_paths": "false"}',
             'objects_config_path': os.path.join(this_pkg_share, 'config', 'objects.yaml'),
             'tools_config_path': tools_yaml if os.path.isfile(tools_yaml) else '',
+            'world_file': project_world if os.path.isfile(project_world) else '',
+            'recipes_dir': project_recipes if os.path.isdir(project_recipes) else '',
         }.items(),
     )
 

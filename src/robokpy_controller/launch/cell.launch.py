@@ -43,6 +43,7 @@ import yaml
 
 from ament_index_python.packages import get_package_prefix
 from robokpy_controller.object_catalog import ObjectCatalog
+from robokpy_controller.project_paths import resolve_world_file, resolve_recipes_dir
 
 
 def generate_launch_description():
@@ -114,6 +115,16 @@ def generate_launch_description():
     tools_config_path_arg = DeclareLaunchArgument(
         'tools_config_path', default_value='')
 
+    # Project-owned world and recipes (Motus Builder). Both default to '' =
+    # exactly the previous behaviour (core world, core recipes). A non-empty
+    # value that does not exist aborts the launch -- see project_paths.py.
+    world_file_arg = DeclareLaunchArgument(
+        'world_file', default_value='',
+        description='Gazebo world (SDF). Empty = robokpy_controller/worlds/motus_world.sdf.')
+    recipes_dir_arg = DeclareLaunchArgument(
+        'recipes_dir', default_value='',
+        description='Project recipes folder searched before the core recipes. Empty = core only.')
+
     use_sim = LaunchConfiguration('use_sim')
     launch_rviz = LaunchConfiguration('launch_rviz')
     arm_type = LaunchConfiguration('arm_type')
@@ -126,13 +137,17 @@ def generate_launch_description():
     external_xacro_args_launch = LaunchConfiguration('external_xacro_args')
     objects_config_path_launch = LaunchConfiguration('objects_config_path')
     tools_config_path_launch = LaunchConfiguration('tools_config_path')
+    world_file_launch = LaunchConfiguration('world_file')
+    recipes_dir_launch = LaunchConfiguration('recipes_dir')
 
     pkg = FindPackageShare('robokpy_controller').find('robokpy_controller')
     rviz_config = os.path.join(pkg, 'config', 'config.rviz')
     tool_config_path = os.path.join(pkg, 'config', 'tools.yaml')
-    world_file = os.path.join(pkg, 'worlds', 'motus_world.sdf')
+    core_world_file = os.path.join(pkg, 'worlds', 'motus_world.sdf')
 
     def configure(context):
+        world_file = resolve_world_file(world_file_launch.perform(context), core_world_file)
+        recipes_dir = resolve_recipes_dir(recipes_dir_launch.perform(context))
         # NEW: moved here (was eager, module-level) so objects_config_path
         # can actually be overridden -- LaunchConfiguration.perform() needs
         # a real context, which only exists inside a deferred function like
@@ -298,7 +313,8 @@ def generate_launch_description():
         cell_orchestrator_real = Node(
             package='robokpy_controller', executable='cell_orchestrator', name='cell_orchestrator',
             output='screen',
-            parameters=[{'objects_config_path': objects_config_path, 'arm_namespaces': arm_namespaces}],
+            parameters=[{'objects_config_path': objects_config_path, 'arm_namespaces': arm_namespaces,
+                         'recipes_dir': recipes_dir}],
             condition=UnlessCondition(use_sim),
         )
 
@@ -307,7 +323,8 @@ def generate_launch_description():
             actions=[Node(
                 package='robokpy_controller', executable='cell_orchestrator', name='cell_orchestrator',
                 output='screen',
-                parameters=[{'objects_config_path': objects_config_path, 'arm_namespaces': arm_namespaces}],
+                parameters=[{'objects_config_path': objects_config_path, 'arm_namespaces': arm_namespaces,
+                         'recipes_dir': recipes_dir}],
             )],
             condition=IfCondition(use_sim),
         )
@@ -343,5 +360,7 @@ def generate_launch_description():
         external_xacro_args_arg,
         objects_config_path_arg,
         tools_config_path_arg,
+        world_file_arg,
+        recipes_dir_arg,
         OpaqueFunction(function=configure),
     ])

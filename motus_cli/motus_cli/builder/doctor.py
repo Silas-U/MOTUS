@@ -212,6 +212,11 @@ def run_doctor(project_root: str | os.PathLike) -> list[Check]:
     for name, ok, level, detail in run_tool_checks(project_root, manifest, pkg_dir, desc):
         checks.append(Check(name, ok, level, detail))
 
+    # --- project-owned world and recipes (`motus world init`) ---
+    from .project_assets import run_asset_checks
+    for name, ok, level, detail in run_asset_checks(project_root, manifest, pkg_dir):
+        checks.append(Check(name, ok, level, detail))
+
     return checks
 
 

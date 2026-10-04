@@ -28,6 +28,7 @@ from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import Bool
 from std_srvs.srv import Trigger
 from ament_index_python.packages import get_package_share_directory
+from robokpy_controller.project_paths import resolve_recipe_path
 from geometry_msgs.msg import Pose
 
 from robokpy_interfaces.action import ExecuteToolOp, ExecuteVisionOp, ExecuteMoveStep
@@ -92,6 +93,8 @@ class CellOrchestrator(Node):
 
         # --- Parameters ---
         self.declare_parameter('objects_config_path', '')
+        self.declare_parameter('recipes_dir', '')
+        self._recipes_dir = self.get_parameter('recipes_dir').value
         objects_config_path = self.get_parameter('objects_config_path').value
         if not objects_config_path:
             raise RuntimeError('cell_orchestrator requires objects_config_path')
@@ -131,12 +134,7 @@ class CellOrchestrator(Node):
     # Recipe loading
     # =================================================================
     def _resolve_recipe_path(self, recipe_path: str) -> str:
-        if os.path.isabs(recipe_path) and os.path.exists(recipe_path):
-            return recipe_path
-        if os.path.exists(recipe_path):
-            return recipe_path
-        share_dir = get_package_share_directory('robokpy_controller')
-        return os.path.join(share_dir, 'recipes', recipe_path)
+        return resolve_recipe_path(recipe_path, self._recipes_dir)
 
     def _load_recipe_cb(self, request, response):
         path = self._resolve_recipe_path(request.recipe_path)

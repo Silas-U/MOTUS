@@ -62,6 +62,7 @@ import rclpy
 from rclpy.node import Node
 
 from ament_index_python.packages import get_package_share_directory
+from robokpy_controller.project_paths import resolve_recipe_path
 
 import yaml
 import xacro
@@ -134,20 +135,10 @@ def _pose_to_array(pose) -> np.ndarray:
     ])
 
 
-def _resolve_recipe_path(recipe_path: str) -> str:
-    """Mirrors CellOrchestrator._resolve_recipe_path exactly (that
-    method touches no instance state, so this is a direct copy, not a
-    reimplementation) — lets a bare filename like 'test4.yaml' resolve
-    against share/robokpy_controller/recipes/, same as the live
-    load_recipe service already does. Without this, preflight would
-    reject a bare name the live service accepts just fine, forcing a
-    full path here for no reason."""
-    if os.path.isabs(recipe_path) and os.path.exists(recipe_path):
-        return recipe_path
-    if os.path.exists(recipe_path):
-        return recipe_path
-    share_dir = get_package_share_directory('robokpy_controller')
-    return os.path.join(share_dir, 'recipes', recipe_path)
+def _resolve_recipe_path(recipe_path: str, recipes_dir: str = '') -> str:
+    """Same resolver as CellOrchestrator (shared via project_paths, so the
+    two can no longer drift apart)."""
+    return resolve_recipe_path(recipe_path, recipes_dir)
 
 
 class PreflightNode(Node):
@@ -161,6 +152,9 @@ class PreflightNode(Node):
         if not recipe_path:
             raise RuntimeError(
                 'preflight_recipe requires -p recipe_path:=/path/to/recipe.yaml')
+
+        self.declare_parameter('recipes_dir', '')
+        self._recipes_dir = self.get_parameter('recipes_dir').value
 
         self.declare_parameter('arm_type', 'ur5e')
         self.declare_parameter('namespace', 'arm1')
@@ -263,7 +257,7 @@ class PreflightNode(Node):
         report = []
         ok = True
 
-        resolved_path = _resolve_recipe_path(self._recipe_path)
+        resolved_path = _resolve_recipe_path(self._recipe_path, self._recipes_dir)
         if not os.path.exists(resolved_path):
             self.get_logger().error(
                 f'[preflight] Recipe not found: {resolved_path}')

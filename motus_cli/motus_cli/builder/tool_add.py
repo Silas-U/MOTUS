@@ -682,6 +682,7 @@ def _tool_add_impl(
     closed_position: float | None = None, max_effort: float | None = None,
     replace: bool = False, tcp_offset: list | None = None,
     mount_rpy: list | None = None, align_approach: bool = False,
+    approach_offset: float | None = None,
 ) -> ToolAddReport:
     if kind not in SUPPORTED_KINDS:
         raise ToolAddError(f"tool kind '{kind}' is not implemented yet "
@@ -840,13 +841,26 @@ def _tool_add_impl(
 
     approach, why = 0.0, "NOT calibrated for this tool; measure it (see robokpy_controller objects.yaml)"
     if prof and prof.reference_tcp_offset:
-        dist = max(abs(a - b) for a, b in zip(offset, prof.reference_tcp_offset))
+        ref = prof.reference_tcp_offset
+        dist = max(abs(a - b) for a, b in zip(offset, ref))
+        lateral = max(abs(offset[0] - ref[0]), abs(offset[1] - ref[1]))
         if dist <= 0.002:
             approach, why = prof.approach_offset, f"calibrated for {prof.display_name} (profile {prof.key})"
+        elif lateral <= 0.002:
+            # Same gripper hardware and mount, only the TCP point slid along the approach axis:
+            # the proven flange height above the object is preserved.
+            approach = round(prof.approach_offset + (ref[2] - offset[2]), 4)
+            why = "derived from the profile's calibration"
+            warnings.append(f"approach_offset derived as {approach} m: the profile's {prof.approach_offset} "
+                            f"was measured with the TCP {ref[2]} m from the flange, this TCP is "
+                            f"{round(offset[2], 4)} m. Valid only if the gripper hardware matches; "
+                            f"verify with one grasp and adjust with --approach-offset.")
         else:
             warnings.append(f"profile {prof.key}'s approach_offset was measured for a TCP at "
-                            f"{list(prof.reference_tcp_offset)}, this one is at "
+                            f"{list(ref)}, this one is at "
                             f"{[round(v, 4) for v in offset]} -- using 0.0.")
+    if approach_offset is not None:
+        approach, why = float(approach_offset), "set with --approach-offset"
 
     desc = ToolDescriptor(
         id=tool_id, kind=kind, profile=profile, macro=macro_name, macro_file=macro_file.name,
@@ -974,7 +988,7 @@ def _tool_add_impl(
             "primary_joint": primary_joint, "open_position": open_position,
             "closed_position": closed_position, "max_effort": max_effort,
             "tcp_offset": tcp_offset,
-            "mount_rpy": mount_rpy,
+            "mount_rpy": mount_rpy, "approach_offset": approach_offset,
         },
         "descriptor": asdict(desc),
     }

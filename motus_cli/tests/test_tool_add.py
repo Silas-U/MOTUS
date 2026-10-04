@@ -189,3 +189,15 @@ def test_align_approach_rotates_x_forward_gripper_to_z(project):
     with pytest.raises(ToolAddError, match="no \\*origin"):
         g.write_text(GRIPPER)
         tool_add(root, source_path=str(g), mount_rpy=[0, 1.0, 0], replace=True)
+
+
+def test_approach_offset_is_derived_from_profile_when_only_tcp_z_differs(project):
+    root, g = project
+    g.write_text(GRIPPER.replace("macro name=\"toy_gripper\"", "macro name=\"robotiq_85_gripper\""))
+    # profile ref TCP is (0,0,0.104); the toy gripper's tcp is at z=0.1 -> offset 0.0507 + 0.004
+    rep = tool_add(root, source_path=str(g), profile="robotiq_2f_85", open_position=0.0,
+                   closed_position=0.03, replace=True)
+    assert rep.descriptor.approach_offset == pytest.approx(0.0547, abs=1e-4)
+    rep = tool_add(root, source_path=str(g), profile="robotiq_2f_85", open_position=0.0,
+                   closed_position=0.03, approach_offset=0.02, replace=True)
+    assert rep.descriptor.approach_offset == pytest.approx(0.02)

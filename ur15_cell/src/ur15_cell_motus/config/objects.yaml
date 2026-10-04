@@ -12,7 +12,7 @@ gripper:
                                    # against a real `gz model -m arm1_robot -l` if attach poses
                                    # ever look wrong; fixed-joint reduction can occasionally
                                    # surprise you.
-  approach_offset: 0.0   # NOT calibrated for this tool; measure it (see robokpy_controller objects.yaml)
+  approach_offset: 0.0097   # derived from the profile's calibration
 
 object_types:
   cube_small:

@@ -7,6 +7,7 @@ cli.py
     motus robot add <path> [--arg NAME=VALUE ...]  # imports/replaces the robot description
     motus tool add [SOURCE] [--profile KEY] [--id ID] ...  # attach a gripper
     motus tool list | motus tool remove ID
+    motus world init [--force] | status | diff   # project-owned world + recipes
     motus doctor [--verbose]          # validates the current project on disk
     motus build                       # doctor-gated colcon build
     motus launch [--sim/--real]       # ros2 launch wrapper
@@ -30,6 +31,8 @@ from .builder.doctor import run_doctor, print_report, DoctorFatalError
 from .builder.build_cmd import run_build, BuildError
 from .builder.launch_cmd import run_launch, LaunchError
 from .builder.tool_add import tool_add, tool_remove, list_tools, ToolAddError
+from .builder import project_assets
+from .builder.project_assets import ProjectAssetsError
 
 
 def _parse_xacro_args(raw: list[str]) -> dict[str, str]:
@@ -65,6 +68,11 @@ def _cmd_create_project(args: argparse.Namespace) -> int:
 
     print(f"Created project '{paths.robot_name}' at {paths.workspace_root}")
     print(f"  package: {paths.pkg_name}  (src/{paths.pkg_name})")
+    try:
+        project_assets.init_assets(paths.workspace_root)
+        print("  world + recipes: project-owned copies created (worlds/, recipes/)")
+    except ProjectAssetsError as e:
+        print(f"  note: no project-owned world yet ({e}) -- run `motus world init` later.")
 
     if not args.from_path:
         print(
@@ -111,6 +119,7 @@ def _cmd_tool_add(args: argparse.Namespace) -> int:
             max_effort=args.max_effort, replace=args.replace,
             tcp_offset=args.tcp_offset,
             mount_rpy=args.mount_rpy, align_approach=args.align_approach,
+            approach_offset=args.approach_offset,
         )
     except (ToolAddError, ValueError) as e:
         print(f"error: {e}", file=sys.stderr)
@@ -130,6 +139,48 @@ def _cmd_tool_list(args: argparse.Namespace) -> int:
     for d in tools:
         print(f"{d['id']}: {d['kind']} on {d['mount_link']}, driver={d['primary_joint']}, "
               f"tcp={d['tcp_link']}")
+    return 0
+
+
+def _cmd_world_init(args: argparse.Namespace) -> int:
+    try:
+        written = project_assets.init_assets(os.getcwd(), force=args.force)
+    except ProjectAssetsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    for w in written:
+        print(f"  wrote {w}")
+    print("Done. Run `motus doctor`, then `motus build` so the package installs them.")
+    return 0
+
+
+def _cmd_world_status(args: argparse.Namespace) -> int:
+    try:
+        st = project_assets.world_status(os.getcwd())
+    except ProjectAssetsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    msgs = {
+        "none": "no project world (the core world is used). `motus world init` creates one.",
+        "current": "project world is an unmodified copy of the current core world.",
+        "customised": "project world has your edits; the core world is unchanged.",
+        "core-newer": "core world changed since the copy; your copy is untouched "
+                      "(`motus world init --force` refreshes it).",
+        "core-newer-customised": "core world changed AND your copy has edits "
+                                 "(see `motus world diff`, merge by hand).",
+        "unknown-core": "core world not found in the parent workspace; can't compare.",
+    }
+    print(msgs[st["state"]])
+    return 0
+
+
+def _cmd_world_diff(args: argparse.Namespace) -> int:
+    try:
+        diff = project_assets.world_diff(os.getcwd())
+    except ProjectAssetsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print(diff or "No differences from the core world.")
     return 0
 
 
@@ -220,6 +271,8 @@ def build_parser() -> argparse.ArgumentParser:
                          "a TCP frame when the description has none")
     ta.add_argument("--mount-rpy", dest="mount_rpy", type=float, nargs=3, default=None,
                     metavar=("R", "P", "Y"), help="rotate the tool on the mount (radians)")
+    ta.add_argument("--approach-offset", dest="approach_offset", type=float, default=None,
+                    help="grasp height offset (m) above the object centre; overrides the profile value")
     ta.add_argument("--align-approach", dest="align_approach", action="store_true",
                     help="auto-rotate the tool so its fingertip direction points out of the flange (+Z)")
     ta.add_argument("--primary-joint", default=None, help="driver joint (default: the joint others mimic)")
@@ -235,6 +288,15 @@ def build_parser() -> argparse.ArgumentParser:
     tr = tool_sub.add_parser("remove", help="remove a tool and its managed config")
     tr.add_argument("tool_id")
     tr.set_defaults(func=_cmd_tool_remove)
+
+    world = sub.add_parser("world", help="manage this project's own Gazebo world and recipes")
+    world_sub = world.add_subparsers(dest="world_command", required=True)
+    wi = world_sub.add_parser("init", help="copy the core world into the project and create recipes/")
+    wi.add_argument("--force", action="store_true", help="replace an existing project world (a .bak is kept)")
+    wi.set_defaults(func=_cmd_world_init)
+    world_sub.add_parser("status", help="compare the project world with the core world").set_defaults(
+        func=_cmd_world_status)
+    world_sub.add_parser("diff", help="show project world vs core world").set_defaults(func=_cmd_world_diff)
 
     doctor = sub.add_parser("doctor", help="validate the current project")
     doctor.add_argument("--verbose", action="store_true")
