@@ -732,6 +732,54 @@ class KinematicsFacade:
                 q_arr,
             )
 
+    def characteristic_length(self) -> float:
+        """Robot-size length scale (m): largest TCP distance from the base
+        over a few spread-out poses inside the joint limits. Cached.
+        Used to make the Jacobian's linear rows (m/rad) comparable with its
+        angular rows (rad/rad) so one singularity threshold works for a
+        0.3 m desktop arm and a 1.3 m UR15 alike."""
+        cached = getattr(self, "_char_length", None)
+        if cached is not None:
+            return cached
+        length = 0.0
+        try:
+            q_min, q_max = self._model.model.get_joint_limits_in_chain(
+                self._base, self._tip)
+            lo = np.array([a if np.isfinite(a) and abs(a) <= 2 * np.pi else -np.pi
+                           for a in q_min], dtype=float)
+            hi = np.array([b if np.isfinite(b) and abs(b) <= 2 * np.pi else np.pi
+                           for b in q_max], dtype=float)
+            mid = 0.5 * (lo + hi)
+            for q in (lo, hi, mid, 0.5 * (lo + mid), 0.5 * (hi + mid)):
+                pose = self.compute_fk(q)
+                if pose is not None:
+                    length = max(length, float(np.linalg.norm(np.asarray(pose, dtype=float)[:3])))
+        except Exception:
+            length = 0.0
+        self._char_length = length if length > 0.05 else 1.0
+        return self._char_length
+
+    def min_singular_value(
+        self,
+        q: np.ndarray,
+    ) -> float:
+        """
+        Smallest singular value of the length-scaled 6 x N geometric
+        Jacobian at q (linear rows divided by characteristic_length()).
+
+        ~0 at a kinematic singularity (e.g. a fully stretched arm); a
+        well-conditioned pose of a UR-class arm is typically >= ~0.15.
+        Returns 0.0 if the Jacobian can't be computed (treated as unsafe).
+        """
+        J = self.compute_jacobian(q)
+        if J is None:
+            return 0.0
+        J = np.asarray(J, dtype=float)
+        if J.ndim != 2 or not np.all(np.isfinite(J)):
+            return 0.0
+        scale = np.array([1.0 / self.characteristic_length()] * 3 + [1.0] * 3)
+        return float(np.linalg.svd(scale[: J.shape[0], None] * J, compute_uv=False)[-1])
+
     def _call_cached_jacobian_locked(
         self,
         q: np.ndarray,

@@ -39,6 +39,11 @@ class PlannedTrajectory:
     # boundaries.
     exit_qd: Optional[np.ndarray] = None
     exit_qdd: Optional[np.ndarray] = None
+    # Duration (s) of the joint-space pre-move to the ready pose that
+    # plan_trajectory prepended because the start pose was singular
+    # (0.0 when no pre-move was needed). leg_time_ranges already
+    # include this offset.
+    safe_prefix_duration: float = 0.0
 
 
 @dataclass
@@ -155,6 +160,8 @@ def plan_trajectory(
     qd_exit_hint: Optional[np.ndarray] = None,
     qdd_exit_hint: Optional[np.ndarray] = None,
     compute_fk_path: bool = False,
+    ready_q: Optional[np.ndarray] = None,
+    sigma_min_thresh: float = 0.05,
 ) -> PlannedTrajectory:
     """Plan a full motion run in ONE call per homogeneous method group.
 
@@ -175,6 +182,14 @@ def plan_trajectory(
     by the execution path. Defaults to False; pass True only if you
     have a real consumer for fk_path (e.g. a future visualization
     tool). When False, fk_path is an empty list.
+
+    ready_q / sigma_min_thresh: if ready_q is given and the start pose
+    q_seed is (near-)singular (Jacobian smallest singular value <
+    sigma_min_thresh), a joint-space S-curve to ready_q is prepended
+    and every leg is then planned (IK-seeded) from ready_q instead of
+    from the singular pose. This stops IK from picking an arbitrary
+    elbow/wrist branch out of a singularity. The pre-move ends at
+    rest. ready_q=None (default) preserves the old behaviour exactly.
     """
     q_seed = np.asarray(q_seed, dtype=float)
     groups = _group_by_method(legs)
@@ -183,6 +198,18 @@ def plan_trajectory(
     leg_time_ranges: List[Tuple[str, float, float]] = []
     t_offset = 0.0
     q_current = q_seed.copy()
+
+    # Singular start -> joint-space pre-move to the ready pose first.
+    has_prefix = False
+    if ready_q is not None:
+        prefix = _safe_prefix(q_seed, np.asarray(ready_q, dtype=float),
+                              config, kin, sigma_min_thresh, legs[0].step_id)
+        if prefix is not None:
+            prefix_pts, q_ready = prefix
+            full_points.extend(prefix_pts)
+            t_offset = float(prefix_pts[-1].t)
+            q_current = q_ready.copy()
+            has_prefix = True
 
     final_exit_qd: Optional[np.ndarray] = None
     final_exit_qdd: Optional[np.ndarray] = None
@@ -193,8 +220,10 @@ def plan_trajectory(
         is_first = group_idx == 0
         is_last = group_idx == n_groups - 1
 
-        group_qd0 = qd_seed if is_first else None
-        group_qdd0 = qdd_seed if is_first else None
+        # After a pre-move the arm is at rest at the ready pose, so the
+        # caller's qd_seed (measured at the singular start) no longer applies.
+        group_qd0 = qd_seed if (is_first and not has_prefix) else None
+        group_qdd0 = qdd_seed if (is_first and not has_prefix) else None
         group_qd_exit_hint = qd_exit_hint if is_last else None
         group_qdd_exit_hint = qdd_exit_hint if is_last else None
 
@@ -210,7 +239,7 @@ def plan_trajectory(
         # Hard zero-velocity knot at method-change boundaries.
         # The new group's first point is the same physical waypoint, so we
         # drop it and force the previous group's last point to zero.
-        if full_points and not is_first:
+        if full_points and (not is_first or has_prefix):
             if isinstance(full_points[-1], TrajectoryPoint):
                 if full_points[-1].qd is not None:
                     full_points[-1].qd = np.zeros_like(full_points[-1].qd)
@@ -258,12 +287,70 @@ def plan_trajectory(
         fk_path=fk_path,
         exit_qd=final_exit_qd,
         exit_qdd=final_exit_qdd,
+        safe_prefix_duration=float(prefix_pts[-1].t) if has_prefix else 0.0,
     )
 
 
 # ------------------------------------------------------------------
 # Internal helpers
 # ------------------------------------------------------------------
+
+def _safe_prefix(
+    q_seed: np.ndarray,
+    ready_q: np.ndarray,
+    config: TrajectoryConfig,
+    kin: KinematicsFacade,
+    sigma_min_thresh: float,
+    first_step_id: str,
+):
+    """Joint-space S-curve from a singular q_seed to ready_q.
+
+    Returns (points, q_ready) or None when no pre-move is needed
+    (q_seed is not singular, or already at ready_q). The ready pose is
+    shifted by whole turns so the move takes the shortest joint path.
+    """
+    if kin.min_singular_value(q_seed) >= sigma_min_thresh:
+        return None
+
+    if ready_q.shape != q_seed.shape:
+        raise PlanningError(first_step_id, 3,
+                            f"ready_pose has {ready_q.size} joints, expected {q_seed.size}")
+
+    if kin.min_singular_value(ready_q) < sigma_min_thresh:
+        raise PlanningError(first_step_id, 3,
+                            "ready_pose is itself (near-)singular — choose a bent pose")
+
+    active = kin.get_active_joints()
+    q_ready = kin.shortest_equivalent(ready_q, q_seed, active, config.pos_limits)
+
+    if np.max(np.abs(q_ready - q_seed)) < 1e-6:
+        return None
+
+    if config.vel_limits is None or config.acc_limits is None or config.jerk_limits is None:
+        raise PlanningError(first_step_id, 3,
+                            "safe pre-move requires vel_limits, acc_limits and jerk_limits")
+
+    try:
+        pts = kin.traj_planner.create_trajectory(
+            waypoints=[{'q': q_seed.copy()}, {'q': q_ready.copy()}],
+            traj_method='js',
+            traj_type='scurve',
+            duration_per_segment=config.duration_per_segment,
+            dt=config.dt,
+            n_blend=config.n_blend,
+            speed_factor=config.speed_factor,
+            vel_limits=config.vel_limits,
+            acc_limits=config.acc_limits,
+            jerk_limits=config.jerk_limits,
+        )
+    except Exception as e:
+        raise PlanningError(first_step_id, 3, f"safe pre-move failed: {e}")
+
+    if not pts or len(pts) < 2:
+        raise PlanningError(first_step_id, 3, "safe pre-move produced no trajectory")
+
+    return pts, q_ready
+
 
 def _normalize_traj_type(method: str, traj_type: str) -> str:
     if method != 'js':

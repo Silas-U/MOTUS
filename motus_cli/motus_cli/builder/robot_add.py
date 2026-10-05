@@ -34,7 +34,7 @@ from .resource_resolver import (
 )
 from . import dependency_resolver as _deps
 from .config_generator import generate_configs, ConfigGenerationResult
-from .safe_pose import choose_home_pose
+from .safe_pose import choose_home_pose, choose_ready_pose
 
 _URDF_EXTENSIONS = (".urdf", ".xacro", ".urdf.xacro")
 
@@ -251,9 +251,17 @@ def robot_add(
         expanded_xml, analysis.base_link, analysis.tip_link,
         [j.name for j in analysis.chain_joints],
     )
-    cfg = generate_configs(analysis, robot_name, home_pose=home_pose)
+    # ready_pose: bent, non-singular IK seed / safe pre-move target (home_pose is the
+    # stretched, singular spawn pose).
+    ready_pose, ready_note = choose_ready_pose(
+        expanded_xml, analysis.base_link, analysis.tip_link,
+        [j.name for j in analysis.chain_joints], home_pose,
+    )
+    cfg = generate_configs(analysis, robot_name, home_pose=home_pose, ready_pose=ready_pose)
     if home_note:
         cfg.warnings.append(home_note)
+    if ready_note:
+        cfg.warnings.append(ready_note)
     (pkg_dir / "config").mkdir(parents=True, exist_ok=True)
     (pkg_dir / "config" / "robot.yaml").write_text(cfg.robot_yaml_text, encoding="utf-8")
     (pkg_dir / "config" / "controllers.yaml").write_text(cfg.controllers_yaml_text, encoding="utf-8")
