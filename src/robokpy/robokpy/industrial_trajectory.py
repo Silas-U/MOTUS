@@ -1179,7 +1179,8 @@ def scurve_joint_trajectory(waypoints,
             t_arr = t_arr[1:]
 
         for t in t_arr:
-            q = np.zeros(n_joints)
+            # Stationary joints (h[j] ~ 0) must HOLD q0[j], not default to 0.
+            q = np.array(q0, dtype=float)
             qd = np.zeros(n_joints)
             qdd = np.zeros(n_joints)
             for j in range(n_joints):
@@ -1317,7 +1318,8 @@ def general_scurve_joint_trajectory(waypoints,
             t_arr = t_arr[1:]
 
         for t in t_arr:
-            q = np.zeros(n_joints)
+            # Stationary joints (h[j] ~ 0) must HOLD q0[j], not default to 0.
+            q = np.array(q0, dtype=float)
             qd = np.zeros(n_joints)
             qdd = np.zeros(n_joints)
             for j in range(n_joints):

@@ -20,6 +20,7 @@ class KinematicSolver(Node):
         self.declare_parameter('robot_description', "")
         self.declare_parameter('mask', [0]*6)
         self.declare_parameter('kinematic_solver_backend', 'robokpy')
+        self.declare_parameter('ready_pose', [])
 
         robot_description = self.get_parameter('robot_description').value
         self.mask = list(self.get_parameter('mask').value)
@@ -49,6 +50,9 @@ class KinematicSolver(Node):
         self.declare_parameter('home_pose', [0.0]*num_joints)
         home_q = np.array(self.get_parameter('home_pose').value)
 
+        ready = list(self.get_parameter('ready_pose').value)
+        if len(ready) == num_joints:
+            home_q = np.array(ready)
         self.ik.set_preferred_posture(home_q)
 
         # -----------------------------

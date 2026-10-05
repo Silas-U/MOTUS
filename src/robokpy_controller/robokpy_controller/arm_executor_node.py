@@ -238,6 +238,16 @@ class ArmExecutorNode(Node):
             [],
         )
 
+        # Non-singular "ready" joint configuration (same joint order as
+        # home_pose). When set it (a) replaces home_pose as the IK
+        # fallback seed and preferred posture, so IK never leans on a
+        # stretched/singular pose, and (b) is the target of an automatic
+        # joint-space pre-move whenever a plan starts from a singular
+        # pose (smallest Jacobian singular value < singular_sigma_min).
+        # Empty = disabled (previous behaviour).
+        self.declare_parameter('ready_pose', [])
+        self.declare_parameter('singular_sigma_min', 0.05)
+
         # Master switch for trajectory_marker/ee_trajectory_marker
         # publishing (and the compute_fk_path=True plan cost that
         # feeds them — see [plan-profile] kin.get_fk_xyz). Already
@@ -307,7 +317,28 @@ class ArmExecutorNode(Node):
         self.declare_parameter('home_pose', [0.0] * num_joints)
         home_q = list(self.get_parameter('home_pose').value)
 
-        fallback_seeds = [home_q]
+        raw_ready = list(self.get_parameter('ready_pose').value)
+        self._ready_q: Optional[np.ndarray] = None
+        if raw_ready:
+            if len(raw_ready) != num_joints:
+                self.get_logger().warning(
+                    f"[arm_executor] ready_pose has {len(raw_ready)} values, "
+                    f"expected {num_joints} — ignoring it"
+                )
+            else:
+                self._ready_q = np.asarray(raw_ready, dtype=float)
+                if self._kin.min_singular_value(self._ready_q) < 0.05:
+                    self.get_logger().warning(
+                        "[arm_executor] ready_pose is (near-)singular — "
+                        "choose a bent pose; ignoring it"
+                    )
+                    self._ready_q = None
+        self._sigma_min_thresh = float(self.get_parameter('singular_sigma_min').value)
+
+        # Seed IK from the ready pose when there is one; home_pose may be a
+        # stretched, singular spawn pose (the builder's "candle" pose).
+        seed_q = list(self._ready_q) if self._ready_q is not None else home_q
+        fallback_seeds = [seed_q]
 
         raw_extra = list(self.get_parameter('ik_fallback_seeds').value)
         if raw_extra:
@@ -348,7 +379,7 @@ class ArmExecutorNode(Node):
             planning_base_link, planning_tip_link
         )
         self._kin.model.ik.set_joint_limits(q_min, q_max)
-        self._kin.model.ik.set_preferred_posture(np.array(home_q))
+        self._kin.model.ik.set_preferred_posture(np.array(seed_q))
 
         # TEMP PROFILING — instruments self._kin's IK/FK/traj_planner
         # calls with timers; report() below prints the breakdown after
@@ -1357,6 +1388,8 @@ class ArmExecutorNode(Node):
                     config,
                     self._kin,
                     compute_fk_path=want_viz,
+                    ready_q=self._ready_q,
+                    sigma_min_thresh=self._sigma_min_thresh,
                 )
 
                 planned = self._consume_prefetched_plan(

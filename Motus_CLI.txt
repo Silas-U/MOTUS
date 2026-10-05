@@ -16,3 +16,6 @@ motus doctor
 
 motus tool add /home/meta/Documents/robotiq_description-main --profile robotiq_2f_85 --replace --align-approach --tcp-offset 0 0 0.145
 motus build && motus launch --sim
+
+   git apply --check ~/Downloads/motus_safe_ready_pose.patch
+   git apply ~/Downloads/motus_safe_ready_pose.patch

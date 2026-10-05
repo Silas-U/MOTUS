@@ -732,6 +732,25 @@ class KinematicsFacade:
                 q_arr,
             )
 
+    def min_singular_value(
+        self,
+        q: np.ndarray,
+    ) -> float:
+        """
+        Smallest singular value of the 6 x N geometric Jacobian at q.
+
+        ~0 at a kinematic singularity (e.g. a fully stretched arm); a
+        well-conditioned UR-class pose is typically >= ~0.1. Returns 0.0
+        if the Jacobian can't be computed (treated as "unsafe").
+        """
+        J = self.compute_jacobian(q)
+        if J is None:
+            return 0.0
+        J = np.asarray(J, dtype=float)
+        if J.ndim != 2 or not np.all(np.isfinite(J)):
+            return 0.0
+        return float(np.linalg.svd(J, compute_uv=False)[-1])
+
     def _call_cached_jacobian_locked(
         self,
         q: np.ndarray,
