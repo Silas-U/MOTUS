@@ -64,6 +64,8 @@ from typing import List, Optional
 
 import numpy as np
 
+from rcl_interfaces.msg import ParameterDescriptor
+from .ready_pose import find_ready_pose
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer, ActionClient
@@ -245,7 +247,13 @@ class ArmExecutorNode(Node):
         # joint-space pre-move whenever a plan starts from a singular
         # pose (smallest Jacobian singular value < singular_sigma_min).
         # Empty = disabled (previous behaviour).
-        self.declare_parameter('ready_pose', [])
+        # dynamic_typing: a bare [] default is typed BYTE_ARRAY by rclpy, which
+        # then rejects the DOUBLE_ARRAY a robot.yaml supplies (node dies at
+        # declare time -> 'execute_move_step unavailable').
+        self.declare_parameter(
+            'ready_pose', [],
+            ParameterDescriptor(dynamic_typing=True),
+        )
         self.declare_parameter('singular_sigma_min', 0.05)
 
         # Master switch for trajectory_marker/ee_trajectory_marker
@@ -317,6 +325,8 @@ class ArmExecutorNode(Node):
         self.declare_parameter('home_pose', [0.0] * num_joints)
         home_q = list(self.get_parameter('home_pose').value)
 
+        self._sigma_min_thresh = float(self.get_parameter('singular_sigma_min').value)
+
         raw_ready = list(self.get_parameter('ready_pose').value)
         self._ready_q: Optional[np.ndarray] = None
         if raw_ready:
@@ -327,13 +337,37 @@ class ArmExecutorNode(Node):
                 )
             else:
                 self._ready_q = np.asarray(raw_ready, dtype=float)
-                if self._kin.min_singular_value(self._ready_q) < 0.05:
+                if self._kin.min_singular_value(self._ready_q) < self._sigma_min_thresh:
                     self.get_logger().warning(
                         "[arm_executor] ready_pose is (near-)singular — "
                         "choose a bent pose; ignoring it"
                     )
                     self._ready_q = None
-        self._sigma_min_thresh = float(self.get_parameter('singular_sigma_min').value)
+
+        # No (usable) ready_pose configured: if home_pose is itself singular
+        # (e.g. the builder's upright spawn pose) derive a ready pose now,
+        # so projects without a `ready_pose` entry still get a safe IK seed
+        # and a safe first move.
+        if (
+            self._ready_q is None
+            and self._kin.min_singular_value(np.asarray(home_q, dtype=float))
+            < self._sigma_min_thresh
+        ):
+            found = find_ready_pose(
+                self._kin, np.asarray(home_q, dtype=float), n_samples=400)
+            if found is not None:
+                self._ready_q = found[0]
+                self.get_logger().warning(
+                    "[arm_executor] home_pose is singular and no ready_pose is "
+                    f"configured — derived one automatically: "
+                    f"{np.round(self._ready_q, 4).tolist()} "
+                    f"(add it to robot.yaml as ready_pose to pin it)"
+                )
+            else:
+                self.get_logger().warning(
+                    "[arm_executor] home_pose is singular and no ready pose could "
+                    "be derived — IK may flip branches; set a bent home_pose/ready_pose"
+                )
 
         # Seed IK from the ready pose when there is one; home_pose may be a
         # stretched, singular spawn pose (the builder's "candle" pose).

@@ -207,3 +207,144 @@ def choose_home_pose(expanded_xml: str, base_link: str, tip_link: str,
             f"frame {lowest:.2f} m). It is a stretched, near-singular pose and the IK seed -- if IK "
             f"misbehaves from the start, set a slightly bent home_pose in robot.yaml.")
     return best, note
+
+# ---------------------------------------------------------------------------
+# READY POSE
+#
+# home_pose (above) is the SPAWN pose: upright and stretched, i.e. a
+# singularity. Motus also seeds IK from home_pose, and from a singular seed the
+# elbow/wrist branch is arbitrary -- which is the "sudden sweep / elbow
+# up<->down flip" failure. So every generated robot.yaml also gets a
+# `ready_pose`: a bent, well-conditioned pose near the spawn pose. The
+# executor uses it as the IK seed / preferred posture and, when a plan starts
+# from a singular pose, first moves the arm there in joint space (see
+# robokpy_controller/planner_core.py). robokpy_controller/ready_pose.py
+# derives one at runtime if a project's robot.yaml has none -- keep the search
+# routine below in sync with it.
+# ---------------------------------------------------------------------------
+
+READY_SIGMA_MIN = 0.05        # same threshold the runtime uses (length-scaled Jacobian)
+READY_NEAR_BEST = 0.85        # accept candidates within this fraction of the best sigma
+READY_TOOL_DOWN_COS = 0.9     # prefer tool z-axis within ~25 deg of straight down
+READY_SAMPLES = 3000
+
+
+def _chain_jacobian(chain, q_by_joint):
+    """(lowest joint-frame z, tip z, tip z-axis, 6xN Jacobian, characteristic
+    length) for a pose, in the base frame. numpy imported lazily so the rest
+    of the builder doesn't depend on it."""
+    import numpy as np
+    T = np.eye(4)
+    cols, started = [], False
+    lowest, length = math.inf, 0.0
+    for j in chain:
+        Tj = np.array(j["T"], dtype=float)
+        length += float(np.linalg.norm(Tj[:3, 3]))
+        T = T @ Tj
+        if j["type"] in ("revolute", "continuous", "prismatic"):
+            started = True
+            ax = np.array(j["axis"], dtype=float)
+            ax = ax / (np.linalg.norm(ax) or 1.0)
+            cols.append((j["type"], T[:3, :3] @ ax, T[:3, 3].copy()))
+            q = q_by_joint.get(j["name"], 0.0)
+            if j["type"] == "prismatic":
+                step = np.eye(4)
+                step[:3, 3] = ax * q
+            else:
+                step = np.array(_axis_rotation(j["axis"], q), dtype=float)
+            T = T @ step
+        if started:
+            lowest = min(lowest, T[2, 3])
+    p_tip = T[:3, 3]
+    J = np.zeros((6, len(cols)))
+    for k, (typ, axis_w, origin_w) in enumerate(cols):
+        if typ == "prismatic":
+            J[:3, k] = axis_w
+        else:
+            J[:3, k] = np.cross(axis_w, p_tip - origin_w)
+            J[3:, k] = axis_w
+    return (lowest if started else math.inf), float(T[2, 3]), T[:3, 2].copy(), J, max(length, 1e-3)
+
+
+def _search_ready_pose(lo, hi, q_ref, evaluate, n_samples=READY_SAMPLES, seed=_SEED,
+                      near_frac=READY_NEAR_BEST):
+    """Well-conditioned pose near q_ref. IDENTICAL in intent to
+    robokpy_controller.ready_pose.search_ready_pose (keep in sync).
+    evaluate(q) -> None | (sigma, tool_down)."""
+    import numpy as np
+    rng = random.Random(seed)
+    q_ref = np.asarray(q_ref, dtype=float)
+    cands = []
+    for _ in range(n_samples):
+        q = np.array([rng.uniform(a, b) for a, b in zip(lo, hi)])
+        r = evaluate(q)
+        if r is not None:
+            cands.append((q, float(r[0]), bool(r[1])))
+    if not cands:
+        return None
+    best = max(c[1] for c in cands)
+    if best <= 0.0:
+        return None
+    short = [c for c in cands if c[1] >= near_frac * best]
+    pool = [c for c in short if c[2]] or short
+    q, sigma, _ = min(pool, key=lambda c: float(np.linalg.norm(c[0] - q_ref)))
+    return q, sigma
+
+
+def choose_ready_pose(expanded_xml: str, base_link: str, tip_link: str,
+                      joint_names: list[str],
+                      home_pose: list[float] | None = None) -> tuple[list[float] | None, str | None]:
+    """Returns (ready_pose in joint_names order, note or None). ready_pose is
+    None (with a note) if one can't be derived -- the runtime then derives its
+    own if home_pose is singular.
+
+    Criteria: above the floor (every joint frame and the tip), inside 80% of
+    each joint's range, smallest singular value of the length-scaled Jacobian
+    within 85% of the best found, tool pointing down if possible, and as
+    close to home_pose as those allow (short first move)."""
+    try:
+        import numpy as np
+    except ImportError:
+        return None, "ready_pose: numpy not available; the runtime will derive one if home_pose is singular"
+    try:
+        chain = _parse_chain(expanded_xml, base_link, tip_link)
+    except ET.ParseError:
+        chain = None
+    if not chain:
+        return None, "ready_pose: could not rebuild the kinematic chain; the runtime will derive one"
+    by_name = {j["name"]: j for j in chain}
+    if any(n not in by_name for n in joint_names):
+        return None, "ready_pose: chain joints don't match the analysis; the runtime will derive one"
+
+    lo, hi = [], []
+    for n in joint_names:
+        j = by_name[n]
+        a = j["lo"] if j["lo"] is not None else -math.pi
+        b = j["hi"] if j["hi"] is not None else math.pi
+        if j["type"] == "continuous" or b - a > 2 * math.pi:
+            a, b = -math.pi, math.pi
+        mid, half = (a + b) / 2, (b - a) / 2 * LIMIT_FRACTION
+        lo.append(mid - half)
+        hi.append(mid + half)
+
+    required = min(TARGET_CLEARANCE, _first_pivot_z(chain)) - 1e-6
+    q_ref = list(home_pose) if home_pose and len(home_pose) == len(joint_names) else [0.0] * len(joint_names)
+
+    def evaluate(q):
+        lowest, tip_z, z_axis, J, length = _chain_jacobian(chain, dict(zip(joint_names, q)))
+        if lowest < required or tip_z < required:
+            return None
+        scale = np.array([1.0 / length] * 3 + [1.0] * 3)
+        sigma = float(np.linalg.svd(scale[:, None] * J, compute_uv=False)[-1]) if J.shape[1] else 0.0
+        return sigma, bool(z_axis[2] <= -READY_TOOL_DOWN_COS)
+
+    found = _search_ready_pose(lo, hi, q_ref, evaluate)
+    if found is None or found[1] < READY_SIGMA_MIN:
+        return None, ("ready_pose: no well-conditioned pose above the ground plane was found; "
+                      "set ready_pose in robot.yaml by hand (a bent, non-singular pose)")
+    q, sigma = found
+    ready = [round(float(v), 4) + 0.0 for v in q]
+    note = ("ready_pose: a bent, well-conditioned pose near home_pose; used as the IK seed and as the safe "
+            "pose the arm moves to before planning when it starts from the singular home_pose. Verify it is "
+            "clear of your cell before running on hardware.")
+    return ready, note

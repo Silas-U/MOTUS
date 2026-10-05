@@ -1,4 +1,5 @@
 import rclpy
+from rcl_interfaces.msg import ParameterDescriptor
 from rclpy.node import Node
 from geometry_msgs.msg import Pose
 from std_msgs.msg import Float64MultiArray, String
@@ -20,7 +21,8 @@ class KinematicSolver(Node):
         self.declare_parameter('robot_description', "")
         self.declare_parameter('mask', [0]*6)
         self.declare_parameter('kinematic_solver_backend', 'robokpy')
-        self.declare_parameter('ready_pose', [])
+        self.declare_parameter(
+            'ready_pose', [], ParameterDescriptor(dynamic_typing=True))
 
         robot_description = self.get_parameter('robot_description').value
         self.mask = list(self.get_parameter('mask').value)
