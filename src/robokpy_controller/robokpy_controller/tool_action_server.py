@@ -907,16 +907,23 @@ class ParallelJawActuator(GraspActuator):
     def __init__(self, node: Node, config: dict, logger):
         self._node = node
         self.logger = logger
-        action_name = config.get(
-            'gripper_action_name', 'gripper_action_controller/gripper_cmd')
+        # Accept the canonical keys the generated tools.yaml uses
+        # (action_name, joint_name, open_position, ...) as well as the
+        # legacy gripper_-prefixed ones. Reading only the legacy keys made
+        # the generated config silently fall back to the un-namespaced
+        # default action name ("gripper action server unavailable") and
+        # to the default open/closed/effort/close-ratio values.
+        def _cfg(canonical, default):
+            return config.get('gripper_' + canonical, config.get(canonical, default))
+
+        action_name = _cfg('action_name', 'gripper_action_controller/gripper_cmd')
         self._client = ActionClient(node, ParallelGripperCommand, action_name)
-        self._joint_name = config.get(
-            'gripper_joint_name', 'robotiq_85_left_knuckle_joint')
-        self._open_pos = config.get('gripper_open_position', 0.001)
-        self._closed_pos = config.get('gripper_closed_position', 0.554)
-        self._max_effort = config.get('gripper_max_effort', 50.0)
-        self._timeout = config.get('gripper_action_timeout', 5.0)
-        self._min_close_ratio = config.get('gripper_min_close_ratio', 0.7)
+        self._joint_name = _cfg('joint_name', 'robotiq_85_left_knuckle_joint')
+        self._open_pos = _cfg('open_position', 0.001)
+        self._closed_pos = _cfg('closed_position', 0.554)
+        self._max_effort = _cfg('max_effort', 50.0)
+        self._timeout = _cfg('action_timeout', 5.0)
+        self._min_close_ratio = _cfg('min_close_ratio', 0.7)
 
     def _target_position(self, object_type_cfg: Optional[dict], reference_size: float) -> float:
         if not object_type_cfg or reference_size <= 0:

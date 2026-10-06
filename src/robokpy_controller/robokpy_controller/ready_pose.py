@@ -35,6 +35,8 @@ DEFAULT_SIGMA_MIN = 0.05
 LIMIT_FRACTION = 0.8   # candidates stay within 80% of each joint's range
 NEAR_BEST_FRACTION = 0.85
 TOOL_DOWN_COS = 0.9    # tool z-axis within ~25 deg of straight down
+ELBOW_UP_FRAC = 0.05   # elbow at least this fraction of the arm length above the shoulder-wrist line
+FORWARD_FRAC = 0.10    # tool at least this fraction of the arm length in FRONT of the base
 
 
 def search_ready_pose(
@@ -49,13 +51,17 @@ def search_ready_pose(
     """Pick a well-conditioned pose close to q_ref.
 
     evaluate(q) -> None if q is unacceptable (e.g. below the floor), else
-    (sigma, tool_down) where sigma is the length-scaled Jacobian's smallest
-    singular value and tool_down says the tool approach axis points down.
+    (sigma, tool_down, elbow_up): sigma is the length-scaled Jacobian's
+    smallest singular value, tool_down says the tool approach axis points
+    down, elbow_up says the elbow is clearly above the shoulder-wrist line.
 
-    Strategy: sample joint space uniformly inside [lo, hi]; keep the
-    candidates whose sigma is within near_frac of the best seen; among
-    those prefer tool-down poses (pick-and-place), then take the one with
-    the smallest joint-space distance to q_ref so the pre-move is short.
+    Strategy: sample joint space uniformly inside [lo, hi]; ELBOW-UP poses
+    only (elbow-down poses collide with the table/base in a pick-and-place
+    cell, and the ready pose is also the IK posture bias, so it must be on
+    the elbow-up branch) unless none exist; keep the candidates whose sigma
+    is within near_frac of the best seen; among those prefer tool-down
+    poses, then take the one with the smallest joint-space distance to
+    q_ref so the pre-move is short.
     """
     lo = np.asarray(lo, dtype=float)
     hi = np.asarray(hi, dtype=float)
@@ -68,9 +74,12 @@ def search_ready_pose(
         r = evaluate(q)
         if r is None:
             continue
-        cands.append((q, float(r[0]), bool(r[1])))
+        cands.append((q, float(r[0]), bool(r[1]), bool(r[2]) if len(r) > 2 else True))
     if not cands:
         return None
+    up = [c for c in cands if c[3]]
+    if up:
+        cands = up
 
     best = max(c[1] for c in cands)
     if best <= 0.0:
@@ -78,7 +87,23 @@ def search_ready_pose(
     short = [c for c in cands if c[1] >= near_frac * best]
     down = [c for c in short if c[2]]
     pool = down if down else short
-    q, sigma, _ = min(pool, key=lambda c: float(np.linalg.norm(c[0] - q_ref)))
+    q, sigma, tool_down, elbow_up = min(
+        pool, key=lambda c: float(np.linalg.norm(c[0] - q_ref)))
+    # Pull each joint back toward q_ref where that costs nothing (e.g. the
+    # base pan does not affect conditioning or the elbow), so the pre-move is
+    # short instead of an arbitrary sweep. Accept only if still valid,
+    # still well-conditioned, still elbow-up and still tool-down.
+    for j in range(len(q)):
+        q2 = q.copy()
+        q2[j] = q_ref[j]
+        r = evaluate(q2)
+        if r is None or float(r[0]) < near_frac * best:
+            continue
+        if elbow_up and not (bool(r[2]) if len(r) > 2 else True):
+            continue
+        if tool_down and not bool(r[1]):
+            continue
+        q, sigma = q2, float(r[0])
     return q, sigma
 
 
@@ -120,7 +145,12 @@ def find_ready_pose(
             return None
         sigma = kin.min_singular_value(q)
         z_axis = _quat_z_axis(pose[3:7])
-        return sigma, bool(z_axis[2] <= -TOOL_DOWN_COS)
+        length = kin.characteristic_length()
+        # "elbow up" must hold on the working side: a pose that reaches behind
+        # the base can be elbow-up there yet leads into elbow-down in front.
+        elbow_up = (kin.elbow_height(q) >= ELBOW_UP_FRAC * length
+                    and kin.forward_reach(q) >= FORWARD_FRAC * length)
+        return sigma, bool(z_axis[2] <= -TOOL_DOWN_COS), bool(elbow_up)
 
     return search_ready_pose(lo, hi, q_ref, evaluate,
                              n_samples=n_samples, seed=seed)

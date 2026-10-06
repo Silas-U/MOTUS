@@ -3,10 +3,6 @@
 /**:
   ros__parameters:
     home_pose: [0.0, -1.5708, 0.0, -1.5708, 0.0, 0.0]
-    # Bent, well-conditioned pose (sigma_min~0.25, tool down, J3<0 family). IK seed,
-    # preferred posture, and the target of the automatic pre-move when a plan
-    # starts from a singular pose such as the upright spawn pose above.
-    ready_pose: [-0.4174, -0.2487, -1.4778, -2.9859, 1.5708, -1.9881]
     marker_scale: 0.2
     publish_ee_path: True
     tool_type: none

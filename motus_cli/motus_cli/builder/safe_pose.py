@@ -227,11 +227,15 @@ READY_SIGMA_MIN = 0.05        # same threshold the runtime uses (length-scaled J
 READY_NEAR_BEST = 0.85        # accept candidates within this fraction of the best sigma
 READY_TOOL_DOWN_COS = 0.9     # prefer tool z-axis within ~25 deg of straight down
 READY_SAMPLES = 3000
+READY_ELBOW_UP_FRAC = 0.05    # elbow >= this fraction of the arm length above the shoulder-wrist line
+READY_FORWARD_FRAC = 0.10     # tool >= this fraction of the arm length in FRONT of the base
 
 
 def _chain_jacobian(chain, q_by_joint):
     """(lowest joint-frame z, tip z, tip z-axis, 6xN Jacobian, characteristic
-    length) for a pose, in the base frame. numpy imported lazily so the rest
+    length, elbow height) for a pose, in the base frame. Elbow height is the
+    signed height of joint 3's origin above the line joint 2 -> joint 5
+    (shoulder -> wrist centre): > 0 is elbow-up, 0.0 for chains under 5 joints. numpy imported lazily so the rest
     of the builder doesn't depend on it."""
     import numpy as np
     T = np.eye(4)
@@ -263,14 +267,52 @@ def _chain_jacobian(chain, q_by_joint):
         else:
             J[:3, k] = np.cross(axis_w, p_tip - origin_w)
             J[3:, k] = axis_w
-    return (lowest if started else math.inf), float(T[2, 3]), T[:3, 2].copy(), J, max(length, 1e-3)
+    elbow_h = 0.0
+    if len(cols) >= 5:
+        sh, el, wr = cols[1][2], cols[2][2], cols[4][2]
+        d = wr - sh
+        dd = float(np.dot(d, d))
+        if dd > 1e-12:
+            elbow_h = float((el - (sh + float(np.dot(el - sh, d)) / dd * d))[2])
+    return ((lowest if started else math.inf), float(T[2, 3]), T[:3, 2].copy(), J,
+            max(length, 1e-3), elbow_h)
+
+
+def _tip_xy(chain, q_by_joint):
+    """Tip (x, y) in the base frame (plain FK; numpy imported lazily)."""
+    import numpy as np
+    T = np.eye(4)
+    for j in chain:
+        T = T @ np.array(j["T"], dtype=float)
+        if j["type"] in ("revolute", "continuous"):
+            T = T @ np.array(_axis_rotation(j["axis"], q_by_joint.get(j["name"], 0.0)), dtype=float)
+        elif j["type"] == "prismatic":
+            step = np.eye(4)
+            ax = np.array(j["axis"], dtype=float)
+            step[:3, 3] = ax / (np.linalg.norm(ax) or 1.0) * q_by_joint.get(j["name"], 0.0)
+            T = T @ step
+    return T[:2, 3].copy()
+
+
+def _forward_reach(chain, joint_names, q):
+    """Tip distance along the arm's forward direction (where it points when
+    stretched out, all joints 0, after rotating only joint 1 to q[0]).
+    +inf when undetermined. Negative = tool behind the base."""
+    import numpy as np
+    f = _tip_xy(chain, {joint_names[0]: q[0]})
+    n = float(np.linalg.norm(f))
+    if n < 1e-6:
+        return math.inf
+    return float(np.dot(_tip_xy(chain, dict(zip(joint_names, q))), f / n))
 
 
 def _search_ready_pose(lo, hi, q_ref, evaluate, n_samples=READY_SAMPLES, seed=_SEED,
                       near_frac=READY_NEAR_BEST):
     """Well-conditioned pose near q_ref. IDENTICAL in intent to
     robokpy_controller.ready_pose.search_ready_pose (keep in sync).
-    evaluate(q) -> None | (sigma, tool_down)."""
+    evaluate(q) -> None | (sigma, tool_down, elbow_up). Elbow-up poses only
+    (unless there are none): elbow-down collides with the base/table and the
+    ready pose is also the IK posture bias."""
     import numpy as np
     rng = random.Random(seed)
     q_ref = np.asarray(q_ref, dtype=float)
@@ -279,15 +321,32 @@ def _search_ready_pose(lo, hi, q_ref, evaluate, n_samples=READY_SAMPLES, seed=_S
         q = np.array([rng.uniform(a, b) for a, b in zip(lo, hi)])
         r = evaluate(q)
         if r is not None:
-            cands.append((q, float(r[0]), bool(r[1])))
+            cands.append((q, float(r[0]), bool(r[1]), bool(r[2]) if len(r) > 2 else True))
     if not cands:
         return None
+    cands = [c for c in cands if c[3]] or cands
     best = max(c[1] for c in cands)
     if best <= 0.0:
         return None
     short = [c for c in cands if c[1] >= near_frac * best]
     pool = [c for c in short if c[2]] or short
-    q, sigma, _ = min(pool, key=lambda c: float(np.linalg.norm(c[0] - q_ref)))
+    q, sigma, tool_down, elbow_up = min(
+        pool, key=lambda c: float(np.linalg.norm(c[0] - q_ref)))
+    # Pull each joint back toward q_ref where that costs nothing (e.g. the
+    # base pan does not affect conditioning or the elbow), so the pre-move is
+    # short instead of an arbitrary sweep. Accept only if still valid,
+    # still well-conditioned, still elbow-up and still tool-down.
+    for j in range(len(q)):
+        q2 = q.copy()
+        q2[j] = q_ref[j]
+        r = evaluate(q2)
+        if r is None or float(r[0]) < near_frac * best:
+            continue
+        if elbow_up and not (bool(r[2]) if len(r) > 2 else True):
+            continue
+        if tool_down and not bool(r[1]):
+            continue
+        q, sigma = q2, float(r[0])
     return q, sigma
 
 
@@ -331,12 +390,16 @@ def choose_ready_pose(expanded_xml: str, base_link: str, tip_link: str,
     q_ref = list(home_pose) if home_pose and len(home_pose) == len(joint_names) else [0.0] * len(joint_names)
 
     def evaluate(q):
-        lowest, tip_z, z_axis, J, length = _chain_jacobian(chain, dict(zip(joint_names, q)))
+        lowest, tip_z, z_axis, J, length, elbow_h = _chain_jacobian(chain, dict(zip(joint_names, q)))
         if lowest < required or tip_z < required:
             return None
         scale = np.array([1.0 / length] * 3 + [1.0] * 3)
         sigma = float(np.linalg.svd(scale[:, None] * J, compute_uv=False)[-1]) if J.shape[1] else 0.0
-        return sigma, bool(z_axis[2] <= -READY_TOOL_DOWN_COS)
+        # "elbow up" must hold on the working side: a pose reaching behind
+        # the base can be elbow-up there yet leads into elbow-down in front.
+        elbow_up = (elbow_h >= READY_ELBOW_UP_FRAC * length
+                    and _forward_reach(chain, joint_names, q) >= READY_FORWARD_FRAC * length)
+        return sigma, bool(z_axis[2] <= -READY_TOOL_DOWN_COS), bool(elbow_up)
 
     found = _search_ready_pose(lo, hi, q_ref, evaluate)
     if found is None or found[1] < READY_SIGMA_MIN:

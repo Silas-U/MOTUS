@@ -34,7 +34,7 @@ JOINTS = ["j1", "j2", "j3", "j4", "j5", "j6"]
 
 
 def _sigma(chain, q):
-    _lowest, _tip, _z, J, length = safe_pose._chain_jacobian(chain, dict(zip(JOINTS, q)))
+    _lowest, _tip, _z, J, length, _elbow = safe_pose._chain_jacobian(chain, dict(zip(JOINTS, q)))
     scale = np.array([1.0 / length] * 3 + [1.0] * 3)
     return float(np.linalg.svd(scale[:, None] * J, compute_uv=False)[-1])
 
@@ -72,3 +72,15 @@ def test_robot_add_writes_ready_pose_to_robot_yaml(tmp_path):
     assert len(vals) == 6 and any(abs(v) > 1e-6 for v in vals)
     # every entry must stay a float literal: rclpy rejects int arrays for DOUBLE_ARRAY params
     assert all("." in v or "e" in v.lower() for v in m.group(1).split(","))
+
+
+def test_ready_pose_is_on_the_elbow_up_working_side():
+    """Elbow-down (or reaching behind the base) is the branch that collides
+    with the base/table in a pick-and-place cell."""
+    home, _ = safe_pose.choose_home_pose(ARM6, "base_link", "tool0", JOINTS)
+    ready, _ = safe_pose.choose_ready_pose(ARM6, "base_link", "tool0", JOINTS, home)
+    chain = safe_pose._parse_chain(ARM6, "base_link", "tool0")
+    q = dict(zip(JOINTS, ready))
+    *_, length, elbow_h = safe_pose._chain_jacobian(chain, q)
+    assert elbow_h >= safe_pose.READY_ELBOW_UP_FRAC * length
+    assert safe_pose._forward_reach(chain, JOINTS, ready) >= safe_pose.READY_FORWARD_FRAC * length

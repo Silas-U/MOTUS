@@ -52,9 +52,9 @@ class KinematicSolver(Node):
         self.declare_parameter('home_pose', [0.0]*num_joints)
         home_q = np.array(self.get_parameter('home_pose').value)
 
-        ready = list(self.get_parameter('ready_pose').value)
-        if len(ready) == num_joints:
-            home_q = np.array(ready)
+        # Live jogging keeps biasing IK toward home_pose exactly as before.
+        # (ready_pose is declared so robot.yaml can carry it, but it is used
+        # only by arm_executor, which validates it -- elbow-up, non-singular.)
         self.ik.set_preferred_posture(home_q)
 
         # -----------------------------

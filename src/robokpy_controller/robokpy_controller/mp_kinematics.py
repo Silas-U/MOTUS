@@ -732,6 +732,53 @@ class KinematicsFacade:
                 q_arr,
             )
 
+    def elbow_height(self, q: np.ndarray) -> float:
+        """Signed height (m, base +z) of the elbow joint origin above the
+        straight line from the shoulder joint origin to the wrist-centre
+        joint origin (joints 2 -> 3 -> 5 of a 6-DOF arm, i.e. the
+        shoulder_lift, elbow and wrist_2 origins on a UR).
+
+        > 0: the elbow bulges upward ("elbow up"); < 0: elbow down; ~0:
+        the arm is stretched out/folded flat. Returns 0.0 for chains with
+        fewer than 5 joints or on any failure (no preference)."""
+        try:
+            q_arr = self._validate_joint_vector(q, "elbow vector")
+            if self._num_joints < 5:
+                return 0.0
+            with self._lock:
+                self._fk.compute_chain(q_arr, self._base, self._tip)
+                o = [np.asarray(p, dtype=float) for p in self._fk.joint_origins]
+            shoulder, elbow, wrist = o[1], o[2], o[4]
+            d = wrist - shoulder
+            dd = float(np.dot(d, d))
+            if dd < 1e-12:
+                return 0.0
+            foot = shoulder + float(np.dot(elbow - shoulder, d)) / dd * d
+            return float((elbow - foot)[2])
+        except Exception:
+            return 0.0
+
+    def forward_reach(self, q: np.ndarray) -> float:
+        """Horizontal TCP distance (m) from the base axis measured along the
+        arm's "forward" direction at q's pan angle. Forward is where the arm
+        points when stretched out (all joints 0) after rotating only joint 1
+        to q[0]. Negative = the tool is behind the base, i.e. the arm is
+        folded back over itself; poses there sit on the wrong IK branch for
+        work in front of the robot (the planner then ends up elbow-down).
+        Returns +inf when it can't be determined (no preference)."""
+        try:
+            q_arr = np.asarray(q, dtype=float)
+            fwd = np.zeros_like(q_arr)
+            fwd[0] = q_arr[0]
+            f = np.asarray(self.compute_fk(fwd)[:2], dtype=float)
+            n = float(np.linalg.norm(f))
+            if n < 1e-6:
+                return float("inf")
+            t = np.asarray(self.compute_fk(q_arr)[:2], dtype=float)
+            return float(np.dot(t, f / n))
+        except Exception:
+            return float("inf")
+
     def characteristic_length(self) -> float:
         """Robot-size length scale (m): largest TCP distance from the base
         over a few spread-out poses inside the joint limits. Cached.

@@ -343,6 +343,15 @@ class ArmExecutorNode(Node):
                         "choose a bent pose; ignoring it"
                     )
                     self._ready_q = None
+                elif (self._kin.elbow_height(self._ready_q) < 0.0
+                      or self._kin.forward_reach(self._ready_q) < 0.0):
+                    self.get_logger().warning(
+                        "[arm_executor] ready_pose is on the wrong IK branch "
+                        "(elbow below the shoulder-wrist line, or tool behind the "
+                        "base) — planning from it ends up elbow-down and collides "
+                        "with the base/table; ignoring it and deriving an elbow-up one"
+                    )
+                    self._ready_q = None
 
         # No (usable) ready_pose configured: if home_pose is itself singular
         # (e.g. the builder's upright spawn pose) derive a ready pose now,
@@ -354,7 +363,7 @@ class ArmExecutorNode(Node):
             < self._sigma_min_thresh
         ):
             found = find_ready_pose(
-                self._kin, np.asarray(home_q, dtype=float), n_samples=400)
+                self._kin, np.asarray(home_q, dtype=float), n_samples=800)
             if found is not None:
                 self._ready_q = found[0]
                 self.get_logger().warning(
@@ -369,9 +378,25 @@ class ArmExecutorNode(Node):
                     "be derived — IK may flip branches; set a bent home_pose/ready_pose"
                 )
 
-        # Seed IK from the ready pose when there is one; home_pose may be a
-        # stretched, singular spawn pose (the builder's "candle" pose).
-        seed_q = list(self._ready_q) if self._ready_q is not None else home_q
+        # Seed IK / bias posture from the ready pose ONLY when home_pose is
+        # singular (the builder's "candle" pose carries no branch information).
+        # A healthy, user-chosen home_pose keeps being the seed, exactly as
+        # before the ready-pose feature existed.
+        home_singular = (
+            self._kin.min_singular_value(np.asarray(home_q, dtype=float))
+            < self._sigma_min_thresh
+        )
+        use_ready = self._ready_q is not None and home_singular
+        seed_q = list(self._ready_q) if use_ready else home_q
+        if self._ready_q is not None:
+            self.get_logger().info(
+                f"[arm_executor] ready_pose={np.round(self._ready_q, 4).tolist()} "
+                f"elbow_height={self._kin.elbow_height(self._ready_q):+.3f} m "
+                f"forward_reach={self._kin.forward_reach(self._ready_q):+.3f} m "
+                f"sigma_min={self._kin.min_singular_value(self._ready_q):.3f} "
+                f"home_singular={home_singular} "
+                f"(IK seed/posture: {'ready_pose' if use_ready else 'home_pose'})"
+            )
         fallback_seeds = [seed_q]
 
         raw_extra = list(self.get_parameter('ik_fallback_seeds').value)
@@ -1356,6 +1381,32 @@ class ArmExecutorNode(Node):
             # ==========================================================
 
             seed_pose = self._kin.compute_fk(q_seed)
+
+            # Leading legs the arm is ALREADY at (e.g. re-running a recipe
+            # whose first leg is `move_home` while the arm is parked at
+            # home) are satisfied as-is: skip them instead of aborting the
+            # whole run. Only the live-pose -> first-leg pair is handled
+            # here; duplicates between recipe legs still abort below.
+            skipped = []
+            while legs:
+                pos_dist, angle = self._pose_array_dist(seed_pose, legs[0].target_pose)
+                if not (pos_dist < self.DEGENERATE_POS_EPS_M
+                        and angle < self.DEGENERATE_ANGLE_EPS_RAD):
+                    break
+                skipped.append(legs.pop(0))
+            if skipped:
+                self.get_logger().info(
+                    f"[arm_executor] arm is already at "
+                    f"{[leg.step_id for leg in skipped]} — skipping "
+                    f"{'that leg' if len(skipped) == 1 else 'those legs'}"
+                )
+                if not legs:
+                    goal_handle.succeed()
+                    result.success = True
+                    result.error_code = 0
+                    result.final_state = q_seed.tolist()
+                    return result
+
             dup = self._find_degenerate_leg_pair(seed_pose, legs)
 
             if dup is not None:
