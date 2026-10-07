@@ -3,6 +3,9 @@
 /**:
   ros__parameters:
     home_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # Bent, well-conditioned pose: IK seed + safe pre-move target when a plan
+    # starts from a singular pose (home_pose is the stretched spawn pose).
+    ready_pose: [0.0, 0.0, -2.0036, 0.0, 0.0, 0.0]
     marker_scale: 0.2
     publish_ee_path: True
     tool_type: none
