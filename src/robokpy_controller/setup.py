@@ -72,7 +72,7 @@ setup(
     maintainer='meta',
     maintainer_email='silasudofia469@gmail.com',
     description='TODO: Package description',
-    license='TODO: License declaration',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

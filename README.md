@@ -531,6 +531,6 @@ Motus provides the ROS2 integration and execution layer around it.
 
 ## License
 
-Motus is an independent project.
+Motus is released under the [MIT License](LICENSE).
 
-RoboKpy is a proprietary kinematics library developed alongside Motus. This repository contains the ROS2 integration layer and associated tools for robot configuration, motion execution, simulation, and cell orchestration.
+RoboKpy, the kinematics and trajectory-generation library developed alongside Motus, is open source under the same MIT License (`src/robokpy/LICENSE`). This repository contains RoboKpy together with the ROS2 integration layer and the tools for robot configuration, motion execution, simulation, and cell orchestration.

@@ -35,7 +35,7 @@ setup(
     maintainer='you',
     maintainer_email='you@example.com',
     description='Generated Motus robot project for ur5_cell.',
-    license='TODO: License declaration',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [],
