@@ -110,6 +110,10 @@ def generate_launch_description():
     # currently assumed single-instance-per-world, not per-arm.
     embed_object_catalog_plugin_arg = DeclareLaunchArgument(
         'embed_object_catalog_plugin', default_value='true')
+    # Multi-arm: name used to give this arm's DetachableJoint plugins their
+    # own topics. Empty = legacy single-arm topic names.
+    catalog_plugin_arm_arg = DeclareLaunchArgument(
+        'catalog_plugin_arm', default_value='')
 
     # --- NEW: external robot-description override args (all optional) ---
     robot_description_path_arg = DeclareLaunchArgument(
@@ -148,6 +152,7 @@ def generate_launch_description():
     spawn_z = LaunchConfiguration('spawn_z')
     objects_config_path_launch = LaunchConfiguration('objects_config_path')
     embed_object_catalog_plugin = LaunchConfiguration('embed_object_catalog_plugin')
+    catalog_plugin_arm = LaunchConfiguration('catalog_plugin_arm')
 
     robot_description_path_launch = LaunchConfiguration('robot_description_path')
     robot_config_path_launch = LaunchConfiguration('robot_config_path')
@@ -313,7 +318,7 @@ def generate_launch_description():
             f'package://{resolved_mesh_package}/meshes', meshes_path)
         if embed_plugin:
             robot_description_sim_gz = robot_description_sim_gz.replace(
-                '</robot>', catalog.to_gazebo_plugin_sdf() + '\n</robot>')
+                '</robot>', catalog.to_gazebo_plugin_sdf(catalog_plugin_arm.perform(context)) + '\n</robot>')
 
         gz_urdf_file = os.path.join(tempfile.gettempdir(), f'robot_sim_gz_{ns}.urdf')
         with open(gz_urdf_file, 'w') as f:
@@ -526,7 +531,7 @@ def generate_launch_description():
     return LaunchDescription([
         namespace_arg, arm_type_arg, controllers_yaml_arg, use_sim_arg,
         spawn_x_arg, spawn_y_arg, spawn_z_arg,
-        objects_config_path_arg, embed_object_catalog_plugin_arg,
+        objects_config_path_arg, embed_object_catalog_plugin_arg, catalog_plugin_arm_arg,
         robot_description_path_arg, robot_config_path_arg,
         controllers_yaml_full_path_arg, mesh_package_name_arg,
         external_xacro_args_arg,

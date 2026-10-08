@@ -7,6 +7,7 @@ start_recipe — into one command, replacing calling them separately by
 hand.
 
     ros2 run robokpy_controller run_recipe /path/to/recipe.yaml
+    ros2 run robokpy_controller run_recipe --cancel      # stop the running recipe
 
 Deliberately does NOT run preflight_recipe first — that plans every run
 in full, and chaining it in here would mean paying for trajectory
@@ -25,12 +26,32 @@ from std_srvs.srv import Trigger
 
 from robokpy_interfaces.srv import LoadRecipe
 
+from robokpy_controller import dds_env
+
 
 class _RecipeRunner(Node):
     def __init__(self):
         super().__init__('run_recipe_client')
         self._load_client = self.create_client(LoadRecipe, 'load_recipe')
         self._start_client = self.create_client(Trigger, 'start_recipe')
+
+    def cancel(self) -> bool:
+        client = self.create_client(Trigger, 'cancel_recipe')
+        if not client.wait_for_service(timeout_sec=5.0):
+            self.get_logger().error(
+                "[run_recipe] 'cancel_recipe' service not available — "
+                "is cell_orchestrator running (and up to date)?")
+            return False
+        future = client.call_async(Trigger.Request())
+        rclpy.spin_until_future_complete(self, future, timeout_sec=15.0)
+        if future.result() is None:
+            self.get_logger().error('[run_recipe] cancel_recipe call timed out')
+            return False
+        if not future.result().success:
+            self.get_logger().error(f'[run_recipe] cancel rejected: {future.result().message}')
+            return False
+        self.get_logger().info(f'[run_recipe] {future.result().message}')
+        return True
 
     def load_and_start(self, recipe_path: str) -> bool:
         if not self._load_client.wait_for_service(timeout_sec=5.0):
@@ -75,13 +96,18 @@ class _RecipeRunner(Node):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Load and start a recipe in one command.')
-    parser.add_argument('recipe_path')
+        description='Load and start a recipe in one command, or cancel the running one.')
+    parser.add_argument('recipe_path', nargs='?')
+    parser.add_argument('--cancel', action='store_true',
+                        help='stop the running recipe and return the cell to idle')
     args = parser.parse_args()
+    if not args.cancel and not args.recipe_path:
+        parser.error('give a recipe path, or --cancel')
 
+    dds_env.apply_default()
     rclpy.init()
     node = _RecipeRunner()
-    ok = node.load_and_start(args.recipe_path)
+    ok = node.cancel() if args.cancel else node.load_and_start(args.recipe_path)
     node.destroy_node()
     rclpy.shutdown()
     sys.exit(0 if ok else 1)

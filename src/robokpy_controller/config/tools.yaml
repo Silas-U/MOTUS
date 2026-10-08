@@ -11,9 +11,9 @@ gripper_1:
 gripper_2:
   backend: gripper_action
   action_name: arm2/gripper_action_controller/gripper_cmd
-  joint_name: right_finger_joint
-  open_position: 0.0015
-  closed_position: 0.035
+  joint_name: robotiq_85_left_knuckle_joint
+  open_position: 0.001
+  closed_position: 0.154
   max_effort: 5.0
   action_timeout: 5.0
 
@@ -89,3 +89,21 @@ grasp_attach_1:
   # vacuum_topic: /vacuum_controller/cmd
   # vacuum_on_value: on
   # vacuum_off_value: off
+
+
+# Second arm's grasp tool. Identical to grasp_attach_1 except for the arm it
+# drives; in a multi-arm cell the launch file sets parent_model from the
+# arm prefix of gripper_action_name ("arm2/..." -> arm2_robot), so the bridge
+# welds the object to arm2's gripper.
+grasp_attach_2:
+  backend: grasp_attach
+  service_name: /grasp_attach
+  service_timeout: 5.0
+  gripper_mechanism: parallel_jaw
+  gripper_action_name: arm2/gripper_action_controller/gripper_cmd
+  gripper_joint_name: robotiq_85_left_knuckle_joint
+  gripper_open_position: 0.001
+  gripper_closed_position: 0.154
+  gripper_max_effort: 50.0
+  gripper_action_timeout: 5.0
+  gripper_min_close_ratio: 0.3

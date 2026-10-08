@@ -68,16 +68,18 @@ from rcl_interfaces.msg import ParameterDescriptor
 from .ready_pose import find_ready_pose
 import rclpy
 from rclpy.node import Node
-from rclpy.action import ActionServer, ActionClient
+from rclpy.action import ActionServer, ActionClient, CancelResponse
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, String
+from rclpy.qos import QoSProfile, DurabilityPolicy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
 from control_msgs.action import FollowJointTrajectory
 
 from robokpy_interfaces.action import ExecuteMoveStep
+from robokpy_interfaces.srv import SystemMode
 
 from .planner_core import (
     plan_trajectory,
@@ -518,6 +520,34 @@ class ArmExecutorNode(Node):
         )
 
         # ==============================================================
+        # System-mode guard
+        #
+        # In PLANNER mode robot_state_manager publishes a *virtual*
+        # joint state (q_collision), not the live one, so the
+        # execution monitor can "confirm" a target the arm never
+        # reached. Running a recipe therefore needs ACTIVE mode; this
+        # node enforces that itself (see _ensure_active_mode) instead
+        # of relying on the operator to have set it.
+        # ==============================================================
+
+        self._system_mode: Optional[str] = None
+        self._joint_msg_count = 0
+        mode_qos = QoSProfile(depth=1)
+        mode_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.create_subscription(
+            String,
+            'system_mode',
+            self._system_mode_cb,
+            mode_qos,
+            callback_group=self._cb_group,
+        )
+        self._mode_client = self.create_client(
+            SystemMode,
+            'set_system_mode',
+            callback_group=self._cb_group,
+        )
+
+        # ==============================================================
         # JTC action client
         # ==============================================================
 
@@ -541,6 +571,7 @@ class ArmExecutorNode(Node):
             ExecuteMoveStep,
             'execute_move_step',
             execute_callback=self._execute_move_step_cb,
+            cancel_callback=lambda _goal_handle: CancelResponse.ACCEPT,
             callback_group=self._cb_group,
         )
 
@@ -568,6 +599,7 @@ class ArmExecutorNode(Node):
             q = np.asarray(msg.data, dtype=float)
 
             self._q_current = q
+            self._joint_msg_count += 1
 
             now = (
                 self.get_clock().now().nanoseconds * 1e-9
@@ -1088,6 +1120,35 @@ class ArmExecutorNode(Node):
                 reported += 1
 
             # ----------------------------------------------------------
+            # Operator / orchestrator cancelled this ExecuteMoveStep goal.
+            # Cancel the JTC goal so the arm stops (the controller holds
+            # the position it has reached) and report it as a cancel, not
+            # a failure.
+            # ----------------------------------------------------------
+
+            if goal_handle is not None and goal_handle.is_cancel_requested:
+
+                self.get_logger().warn(
+                    '[arm_executor] cancel requested; stopping motion'
+                )
+
+                try:
+
+                    self._wait_for_future(
+                        jtc_handle.cancel_goal_async(),
+                        self.JTC_CANCEL_TIMEOUT_SEC,
+                        'JTC goal cancellation (operator cancel)',
+                    )
+
+                except Exception as exc:
+
+                    self.get_logger().warn(
+                        f'[arm_executor] JTC cancel failed: {exc}'
+                    )
+
+                return False
+
+            # ----------------------------------------------------------
             # JTC result arrived
             # ----------------------------------------------------------
 
@@ -1268,6 +1329,68 @@ class ArmExecutorNode(Node):
     # Action handler
     # ==================================================================
 
+    # ==================================================================
+    # System-mode guard
+    # ==================================================================
+
+    def _system_mode_cb(self, msg: String):
+        self._system_mode = msg.data
+
+    def _ensure_active_mode(self, timeout_sec: float = 3.0) -> bool:
+        """
+        Make sure this arm's system mode is ACTIVE before a run.
+
+        Returns True when ACTIVE (already, or after switching it),
+        False if the mode could not be set — the caller must then
+        abort rather than execute against a virtual joint state.
+        """
+
+        if self._system_mode == 'ACTIVE':
+            return True
+
+        self.get_logger().warn(
+            f'[arm_executor] system mode is {self._system_mode or "unknown"}, '
+            'not ACTIVE — switching to ACTIVE for this run'
+        )
+
+        if not self._mode_client.wait_for_service(timeout_sec=timeout_sec):
+            self.get_logger().error(
+                '[arm_executor] set_system_mode service not available — '
+                'cannot switch to ACTIVE'
+            )
+            return False
+
+        req = SystemMode.Request()
+        req.new_mode = 'ACTIVE'
+        resp = self._wait_for_future(
+            self._mode_client.call_async(req),
+            timeout_sec,
+            'set_system_mode(ACTIVE)',
+        )
+        if resp is None or not resp.success:
+            self.get_logger().error(
+                '[arm_executor] set_system_mode(ACTIVE) failed: '
+                f'{getattr(resp, "message", "no response")}'
+            )
+            return False
+
+        # The mode flips the source of current_joint_state from the
+        # virtual to the live state; wait for a fresh sample so the
+        # first leg is not seeded from the virtual one.
+        start_count = self._joint_msg_count
+        deadline = time.monotonic() + timeout_sec
+        while self._joint_msg_count < start_count + 2:
+            if time.monotonic() >= deadline:
+                self.get_logger().error(
+                    '[arm_executor] no live joint state after switching '
+                    'to ACTIVE'
+                )
+                return False
+            time.sleep(self.FUTURE_POLL_SEC)
+
+        self._system_mode = 'ACTIVE'
+        return True
+
     def _execute_move_step_cb(
         self,
         goal_handle,
@@ -1346,6 +1469,19 @@ class ArmExecutorNode(Node):
             config = self._resolve_config(
                 goal_handle.request
             )
+
+            # ==========================================================
+            # Recipes need ACTIVE mode (live joint state)
+            # ==========================================================
+
+            if not self._ensure_active_mode():
+
+                goal_handle.abort()
+
+                result.success = False
+                result.error_code = 1
+
+                return result
 
             # ==========================================================
             # We need live state to seed planning
@@ -1582,6 +1718,21 @@ class ArmExecutorNode(Node):
                 planned,
                 goal_handle=goal_handle,
             )
+
+            if not ok and goal_handle.is_cancel_requested:
+
+                self.get_logger().warn(
+                    '[arm_executor] ExecuteMoveStep cancelled during motion'
+                )
+
+                self._clear_prefetch()
+
+                goal_handle.canceled()
+
+                result.success = False
+                result.error_code = 5
+
+                return result
 
             if not ok:
 

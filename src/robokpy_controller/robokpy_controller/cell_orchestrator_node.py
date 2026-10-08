@@ -22,6 +22,7 @@ from typing import Optional
 
 import rclpy
 from rclpy.node import Node
+from rclpy.task import Future
 from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
@@ -110,6 +111,13 @@ class CellOrchestrator(Node):
             LoadRecipe, 'load_recipe', self._load_recipe_cb, callback_group=self._cb_group)
         self._start_recipe_srv = self.create_service(
             Trigger, 'start_recipe', self._start_recipe_cb, callback_group=self._cb_group)
+        self._cancel_recipe_srv = self.create_service(
+            Trigger, 'cancel_recipe', self._cancel_recipe_cb, callback_group=self._cb_group)
+        # tool_action_server's release_all: opens grippers / detaches held objects
+        self._release_client = self.create_client(
+            Trigger, 'release_all', callback_group=self._cb_group)
+        # models this orchestrator spawned and has not despawned (cleaned up on cancel)
+        self._spawned: set[str] = set()
 
         # --- DAG state ---
         self.state = CellState.IDLE
@@ -178,6 +186,120 @@ class CellOrchestrator(Node):
         response.message = f'Started {self._active_recipe_id}'
         return response
 
+    async def _cancel_recipe_cb(self, request, response):
+        ok, message = self.cancel()
+        if not ok:
+            response.success, response.message = False, message
+            return response
+        notes = [message]
+
+        # 1. let go of anything held and open the gripper(s)
+        if self._release_client.service_is_ready():
+            try:
+                r = await self._await_timeout(
+                    self._release_client.call_async(Trigger.Request()), 10.0)
+                notes.append(f'tools: {r.message}')
+                ok = ok and r.success
+            except TimeoutError:
+                notes.append('tools: release_all timed out')
+                ok = False
+        else:
+            notes.append('tools: release_all unavailable (tool_action_server not running?)')
+            ok = False
+
+        # 2. despawn every object this cell spawned
+        with self._lock:
+            models = sorted(self._spawned)
+        if models and not self._despawn_client.service_is_ready():
+            notes.append(f'objects: despawn_object unavailable, {len(models)} left in the sim')
+            ok = False
+        elif models:
+            pending = {m: self._despawn_client.call_async(self._despawn_request(m))
+                       for m in models}
+            gone, left = [], []
+            for model, fut in pending.items():
+                try:
+                    r = await self._await_timeout(fut, 5.0)
+                    ok_one = bool(r.success)
+                except TimeoutError:
+                    ok_one = False
+                if ok_one:
+                    with self._lock:
+                        self._spawned.discard(model)
+                    gone.append(model)
+                else:
+                    left.append(model)
+            notes.append(f'objects: despawned {gone}' + (f', FAILED {left}' if left else ''))
+            ok = ok and not left
+        response.success = ok
+        response.message = '; '.join(notes)
+        self.get_logger().info(f'[DAG] cancel cleanup: {response.message}')
+        return response
+
+    @staticmethod
+    def _despawn_request(child_model: str):
+        req = DespawnObject.Request()
+        req.child_model = child_model
+        return req
+
+    async def _await_timeout(self, future, timeout_sec: float):
+        """`await future`, but raise TimeoutError instead of hanging if it never completes."""
+        timer = None
+        if not future.done():
+            def _on_timeout():
+                if not future.done():
+                    future.set_exception(TimeoutError())
+
+            timer = self.create_timer(timeout_sec, _on_timeout, callback_group=self._cb_group)
+        try:
+            return await future
+        finally:
+            if timer is not None:
+                self.destroy_timer(timer)
+
+    def cancel(self) -> tuple[bool, str]:
+        """Operator cancel: stop in-flight goals and return the cell to IDLE so a
+        new recipe can be loaded. Late results from the cancelled run are ignored
+        (every step's goal epoch is bumped)."""
+        with self._lock:
+            if self.state == CellState.ESTOP:
+                return False, 'Cell is in ESTOP; clear the safety trip first'
+            if self.state == CellState.IDLE and not self._steps and not self._spawned:
+                return True, 'Nothing to cancel'
+            recipe_id = self._active_recipe_id
+            handles = {id(h): h for h in self._goal_handles.values()}.values()
+            for sid in list(self._steps):
+                self._goal_epoch[sid] = self._goal_epoch.get(sid, 0) + 1
+            for timer in self._watchdogs.values():
+                timer.cancel()
+            self._watchdogs = {}
+            held = list(self._active_resources.items())
+            self._active_resources = {}
+            self._goal_handles = {}
+            self._held_step_id = None
+            self._steps = {}
+            self._dependents = {}
+            self._in_degree = {}
+            self._progress_watchers = {}
+            self._progress_fired = set()
+            self._completed = set()
+            self._results = {}
+            self._run_of = {}
+            self._active_content_hash = ''
+            self._active_recipe_id = ''
+            self.state = CellState.IDLE
+            self._publish_cell_state()
+        for owner_id, resources in held:
+            self._resource_lock.release(resources, owner_id)
+        for handle in handles:
+            try:
+                handle.cancel_goal_async()
+            except Exception as exc:
+                self.get_logger().warn(f'[DAG] cancel: goal cancel failed: {exc}')
+        self.get_logger().warn(
+            f'[DAG] recipe {recipe_id or "(none)"} cancelled by operator; cell is IDLE')
+        return True, f'Cancelled {recipe_id or "recipe"}; cell is IDLE'
+
     def load_recipe(self, steps: list, recipe_id: str = ''):
         with self._lock:
             self._steps = {s.step_id: s for s in steps}
@@ -194,7 +316,6 @@ class CellOrchestrator(Node):
             for timer in self._watchdogs.values():
                 timer.cancel()
             self._watchdogs = {}
-            self._goal_epoch = {}
             self._active_resources = {}
 
             for s in steps:
@@ -466,14 +587,24 @@ class CellOrchestrator(Node):
             if fb.percent_complete >= 1.0 and fb.current_step_id in run[:-1]:
                 to_dispatch = []
                 with self._lock:
+                    if self.state != CellState.EXECUTING or owner_id not in self._steps:
+                        return
                     self._completed.add(fb.current_step_id)
                     to_dispatch.extend(self._resolve_pending_progress(fb.current_step_id))
                 for dep_id in to_dispatch:
                     self._dispatch(dep_id)
 
+        send_epoch = epoch
         handle = await client.send_goal_async(goal, feedback_callback=feedback_cb)
         with self._lock:
-            self._cancel_watchdog(owner_id)
+            cancelled = not self._is_current(owner_id, send_epoch)
+            if not cancelled:
+                self._cancel_watchdog(owner_id)
+        if cancelled:
+            # cancel() ran while the goal was being sent: stop it, touch nothing else
+            if handle.accepted:
+                handle.cancel_goal_async()
+            return
         if not handle.accepted:
             self.get_logger().error(f'[DAG] {arm_id}: ExecuteMoveStep goal rejected')
             self._release_owner_resources(owner_id)
@@ -488,11 +619,25 @@ class CellOrchestrator(Node):
 
         result = (await handle.get_result_async()).result
         with self._lock:
+            if not self._is_current(owner_id, epoch):
+                return          # cancelled by the operator; cancel() already cleaned up
             self._cancel_watchdog(owner_id)
 
         self._release_owner_resources(owner_id)
         if result.success:
             self._results[owner_id] = result
+            # The result is authoritative: a successful run means every leg ran.
+            # Per-leg feedback can be dropped, so don't rely on it alone to count
+            # the non-final legs (a missed one would leave the recipe at N-1/N
+            # and the cell stuck in EXECUTING).
+            late = []
+            with self._lock:
+                for sid in run[:-1]:
+                    if sid not in self._completed:
+                        self._completed.add(sid)
+                        late.extend(self._resolve_pending_progress(sid))
+            for dep_id in late:
+                self._dispatch(dep_id)
             self._on_step_completed(run[-1])
         else:
             self.get_logger().error(
@@ -566,6 +711,7 @@ class CellOrchestrator(Node):
             req.qx, req.qy, req.qz, req.qw = step.qx, step.qy, step.qz, step.qw
             req.color = step.color
             future = self._spawn_client.call_async(req)
+            child_model = ''
         else:
             if not self._despawn_client.wait_for_service(timeout_sec=2.0):
                 self.get_logger().error('[DAG] /despawn_object unavailable')
@@ -593,11 +739,30 @@ class CellOrchestrator(Node):
             req.child_model = child_model
             future = self._despawn_client.call_async(req)
 
-        future.add_done_callback(lambda f: self._on_spawn_result(step.step_id, f, epoch))
+        future.add_done_callback(
+            lambda f: self._on_spawn_result(step.step_id, f, epoch, step.operation, child_model))
+
+    def _despawn_orphan(self, child_model: str):
+        if not self._despawn_client.service_is_ready():
+            self.get_logger().error(f'[DAG] cannot despawn orphan "{child_model}": service down')
+            return
+        fut = self._despawn_client.call_async(self._despawn_request(child_model))
+
+        def _done(f):
+            r = f.result()
+            if r is not None and r.success:
+                with self._lock:
+                    self._spawned.discard(child_model)
+
+        fut.add_done_callback(_done)
 
     def _dispatch_wait(self, step: WaitStep):
+        epoch = self._new_epoch(step.step_id)
+
         def fire():
             timer.cancel()
+            if not self._is_current(step.step_id, epoch):
+                return
             self.get_logger().info(f'[DAG] {step.step_id}: wait complete')
             self._release_owner_resources(step.step_id)
             self._on_step_completed(step.step_id)
@@ -643,11 +808,26 @@ class CellOrchestrator(Node):
         else:
             self._on_step_failed(step_id)
 
-    def _on_spawn_result(self, step_id: str, future, epoch: int):
+    def _on_spawn_result(self, step_id: str, future, epoch: int,
+                         operation: str = 'spawn', despawn_target: str = ''):
         response = future.result()
         with self._lock:
-            if not self._is_current(step_id, epoch):
-                return
+            # Track what is alive in the sim, even for a result that arrives after a
+            # cancel -- those objects still exist and must not be orphaned.
+            if operation == 'spawn' and response.success and response.child_model:
+                self._spawned.add(response.child_model)
+            elif operation != 'spawn' and response.success and despawn_target:
+                self._spawned.discard(despawn_target)
+            stale = not self._is_current(step_id, epoch)
+            orphan = (stale and operation == 'spawn' and response.success
+                      and response.child_model)
+        if orphan:
+            self.get_logger().warn(
+                f'[DAG] {step_id}: spawned "{orphan}" after the recipe was cancelled; despawning')
+            self._despawn_orphan(orphan)
+        if stale:
+            return
+        with self._lock:
             self._cancel_watchdog(step_id)
             self.get_logger().info(f'[DAG] {step_id}: spawn result success={response.success}')
             success = response.success

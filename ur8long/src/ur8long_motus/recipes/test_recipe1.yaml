@@ -1,0 +1,63 @@
+recipe_id: test_moves
+
+steps:
+
+- id: move_to_approach
+  type: move
+  traj_method: js
+  target_pose:
+   {x: 0.1636, y: 0.5674, z: 0.7079, qx: 0.9996, qy: -0.0136, qz: 0.0223, qw: 0.0099}
+  depends_on: []
+
+- id: move_above_object_pick
+  type: move
+  traj_method: ts
+  blend_radius: 0.8
+  target_pose:
+    {x: 0.5921, y: 0.5559, z: 0.7271, qx: 0.9996, qy: -0.0136, qz: 0.0223, qw: 0.0099}
+  depends_on: [move_to_approach]
+
+- id: pick
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: 0.6074, y: 0.5488, z: 0.3826, qx: 0.9996, qy: -0.0136, qz: 0.0223, qw: 0.0099}
+  depends_on: [move_above_object_pick]
+
+- id: retract_pick
+  type: move
+  traj_method: ts
+  blend_radius: 0.8
+  target_pose:
+    {x: 0.5932, y: 0.5554, z: 0.7025, qx: 0.9996, qy: -0.0136, qz: 0.0223, qw: 0.0099}
+  depends_on: [pick]
+
+- id: move_to_place
+  type: move
+  traj_method: ts
+  blend_radius: 0.8
+  target_pose:
+   {x: -0.3105, y: 0.5797, z: 0.6619, qx: 0.9998, qy: -0.0138, qz: 0.0047, qw: 0.0097}
+  depends_on: [retract_pick]
+
+- id: place_object
+  type: move
+  traj_method: ts
+  target_pose:
+    {x: -0.3077, y: 0.5737, z: 0.3545, qx: 0.9998, qy: -0.0138, qz: 0.0047, qw: 0.0097}
+  depends_on: [move_to_place]
+
+- id: retract_place
+  type: move
+  traj_method: ts
+  blend_radius: 0.8
+  target_pose:
+    {x: -0.3109, y: 0.5807, z: 0.7141, qx: 0.9998, qy: -0.0138, qz: 0.0047, qw: 0.0097}
+  depends_on: [place_object]
+
+- id: move_home
+  type: move
+  traj_method: ts
+  target_pose:
+   {x: 0.1636, y: 0.5674, z: 0.7079, qx: 0.9996, qy: -0.0136, qz: 0.0223, qw: 0.0099}
+  depends_on: [retract_place]

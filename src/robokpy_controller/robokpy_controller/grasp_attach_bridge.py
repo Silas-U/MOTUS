@@ -51,32 +51,55 @@ class GraspAttachBridge(Node):
 
         self._catalog = ObjectCatalog(objects_config_path)
 
+        # Multi-arm cells: one DetachableJoint set per arm, topics keyed
+        # by arm namespace. Empty = single-arm legacy topics.
+        self.declare_parameter('arms', [''])
+        self._arms = [a for a in self.get_parameter('arms').value if a]
+        arm_keys = self._arms or ['']
+
         # Pre-create one attach + one detach publisher per catalog
         # instance — bounded set, known at startup, no need to create
         # publishers dynamically per-request.
         self._attach_pubs = {}
         self._detach_pubs = {}
-        for inst in self._catalog.all_instances():
-            self._attach_pubs[inst.child_model] = self.create_publisher(
-                Empty, self._catalog.attach_topic(inst.child_model), 10)
-            self._detach_pubs[inst.child_model] = self.create_publisher(
-                Empty, self._catalog.detach_topic(inst.child_model), 10)
+        for arm in arm_keys:
+            for inst in self._catalog.all_instances():
+                self._attach_pubs[(arm, inst.child_model)] = self.create_publisher(
+                    Empty, self._catalog.attach_topic(inst.child_model, arm), 10)
+                self._detach_pubs[(arm, inst.child_model)] = self.create_publisher(
+                    Empty, self._catalog.detach_topic(inst.child_model, arm), 10)
 
         # joint_id bookkeeping — see module docstring. Not persisted;
         # resets on node restart, matching sim's own reset-on-relaunch
         # semantics.
         self._next_joint_id = 1
-        self._active_joints: dict = {}  # joint_id -> (child_model, child_link)
+        self._active_joints: dict = {}  # joint_id -> (arm, child_model, child_link)
 
         self._srv = self.create_service(
             GraspAttach, 'grasp_attach', self._handle_request)
 
         self.get_logger().info(
-            f'grasp_attach_bridge ready — {len(self._attach_pubs)} catalog '
-            f'instances loaded from {objects_config_path}')
+            f'grasp_attach_bridge ready — {len(self._attach_pubs)} attach '
+            f'channels (arms={self._arms or "single"}) loaded from '
+            f'{objects_config_path}')
+
+    def _arm_for(self, parent_model: str) -> str:
+        """Map a request's parent_model ('arm2_robot' or 'arm2') to an arm
+        namespace. Single-arm cells always resolve to ''."""
+        if not self._arms:
+            return ''
+        name = parent_model[:-len('_robot')] if parent_model.endswith('_robot') else parent_model
+        if name in self._arms:
+            return name
+        self.get_logger().warn(
+            f'grasp_attach parent_model "{parent_model}" matches no arm in '
+            f'{self._arms} — using "{self._arms[0]}"')
+        return self._arms[0]
 
     def _handle_request(self, request, response):
-        if request.parent_model and request.parent_model != self._catalog.parent_model:
+        if self._arms:
+            pass  # parent_model selects the arm; catalog name is not compared
+        elif request.parent_model and request.parent_model != self._catalog.parent_model:
             self.get_logger().warn(
                 f'grasp_attach request parent_model "{request.parent_model}" '
                 f'does not match catalog parent_model "{self._catalog.parent_model}" '
@@ -89,7 +112,8 @@ class GraspAttachBridge(Node):
 
     def _handle_attach(self, request, response):
         child_model = request.child_model
-        if not child_model or child_model not in self._attach_pubs:
+        arm = self._arm_for(request.parent_model)
+        if not child_model or (arm, child_model) not in self._attach_pubs:
             response.success = False
             response.message = f'Unknown child_model "{child_model}" — not in catalog'
             response.joint_id = 0
@@ -100,7 +124,15 @@ class GraspAttachBridge(Node):
         # attach — see orchestrator.py's epoch/watchdog docstring) would
         # otherwise re-publish attach and leak a second, never-detached
         # joint_id for the same child_model.
-        for existing_id, (existing_model, _existing_link) in self._active_joints.items():
+        for existing_id, (existing_arm, existing_model, _l) in self._active_joints.items():
+            if existing_model == child_model and existing_arm != arm:
+                response.success = False
+                response.message = (
+                    f'"{child_model}" is already held by arm "{existing_arm}" '
+                    f'(joint_id={existing_id}) — detach it before "{arm}" grasps it')
+                response.joint_id = 0
+                self.get_logger().error(response.message)
+                return response
             if existing_model == child_model:
                 response.success = True
                 response.message = (
@@ -125,11 +157,11 @@ class GraspAttachBridge(Node):
                 f'"{inst.child_link}" — publishing anyway, the DetachableJoint '
                 f'plugin was generated with the catalog value, not this one')
 
-        self._attach_pubs[child_model].publish(Empty())
+        self._attach_pubs[(arm, child_model)].publish(Empty())
 
         joint_id = self._next_joint_id
         self._next_joint_id += 1
-        self._active_joints[joint_id] = (child_model, inst.child_link)
+        self._active_joints[joint_id] = (arm, child_model, inst.child_link)
 
         response.success = True
         response.message = f'Published attach for "{child_model}" (joint_id={joint_id})'
@@ -146,8 +178,8 @@ class GraspAttachBridge(Node):
             self.get_logger().error(response.message)
             return response
 
-        child_model, _child_link = self._active_joints.pop(joint_id)
-        self._detach_pubs[child_model].publish(Empty())
+        arm, child_model, _child_link = self._active_joints.pop(joint_id)
+        self._detach_pubs[(arm, child_model)].publish(Empty())
 
         response.success = True
         response.message = f'Published detach for "{child_model}" (joint_id={joint_id})'

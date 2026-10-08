@@ -1,0 +1,104 @@
+{
+  "motus_manifest_version": 1,
+  "project_name": "ur8long",
+  "package_name": "ur8long_motus",
+  "source_description_path": "/home/meta/Documents/Universal_Robots_ROS2_Description",
+  "parent_workspace_root": "/home/meta/Documents/robotics_workspace_new",
+  "builder_version": "0.1.0",
+  "last_build_fingerprint": "a48094f31bab1945",
+  "world": {
+    "file": "worlds/motus_world.sdf",
+    "core_sha256": "921f460b9c9d5896d4697f1cd85472843baaf578bae89eb4d0a67ea1e07cb823",
+    "copy_sha256": "921f460b9c9d5896d4697f1cd85472843baaf578bae89eb4d0a67ea1e07cb823"
+  },
+  "xacro_args": {
+    "name": "ur8long",
+    "ur_type": "ur8long",
+    "joint_limit_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/joint_limits.yaml",
+    "kinematics_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/default_kinematics.yaml",
+    "physical_params": "/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/physical_parameters.yaml",
+    "visual_params": "/home/meta/Documents/robotics_workspace_new/ur8long/src/ur8long_motus/config/visual_parameters.yaml",
+    "tf_prefix": "",
+    "transmission_hw_interface": "",
+    "safety_limits": "false",
+    "safety_pos_margin": "0.15",
+    "safety_k_position": "20",
+    "force_abs_paths": "false",
+    "controllers_yaml_path": "",
+    "namespace": "",
+    "home_pose": ""
+  },
+  "tools": {
+    "gripper_1": {
+      "inputs": {
+        "source_path": "/home/meta/Documents/robotiq_description-main",
+        "tool_id": "gripper_1",
+        "kind": "parallel_gripper",
+        "profile": "robotiq_2f_85",
+        "macro": null,
+        "macro_args": {},
+        "mount_link": null,
+        "tcp_link": "gripper_1_tcp",
+        "primary_joint": null,
+        "open_position": null,
+        "closed_position": null,
+        "max_effort": null,
+        "tcp_offset": [
+          0.0,
+          0.0,
+          0.145
+        ],
+        "mount_rpy": [
+          0.0,
+          -1.570796,
+          -0.0
+        ],
+        "approach_offset": null
+      },
+      "descriptor": {
+        "id": "gripper_1",
+        "kind": "parallel_gripper",
+        "profile": "robotiq_2f_85",
+        "macro": "robotiq_85_gripper",
+        "macro_file": "robotiq_85_gripper.urdf.xacro",
+        "macro_args": {},
+        "mount_link": "tool0",
+        "tcp_link": "gripper_1_tcp",
+        "tcp_offset": [
+          0.0,
+          0.0,
+          0.145
+        ],
+        "primary_joint": "robotiq_85_left_knuckle_joint",
+        "state_only_joints": [
+          "robotiq_85_left_finger_joint",
+          "robotiq_85_left_finger_tip_joint",
+          "robotiq_85_left_inner_knuckle_joint",
+          "robotiq_85_right_finger_joint",
+          "robotiq_85_right_finger_tip_joint",
+          "robotiq_85_right_inner_knuckle_joint",
+          "robotiq_85_right_knuckle_joint"
+        ],
+        "joint_lower": 0.0,
+        "joint_upper": 0.804,
+        "open_position": 0.001,
+        "closed_position": 0.154,
+        "max_effort": 5.0,
+        "controller": {
+          "action_monitor_rate": 20.0,
+          "goal_tolerance": 0.01,
+          "allow_stalling": true,
+          "stall_velocity_threshold": 0.001,
+          "stall_timeout": 0.3,
+          "max_effort": 5.0
+        },
+        "approach_offset": 0.0097,
+        "grasp_tool_id": "grasp_attach_1",
+        "notes": [
+          "Targets, effort and approach_offset were measured with Motus's bundled robotiq_85_macro.xacro (TCP 0.104 m from the flange). approach_offset is only applied when the imported TCP matches."
+        ]
+      }
+    }
+  },
+  "arm_tip_link": "tool0"
+}

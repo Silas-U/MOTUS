@@ -31,7 +31,7 @@ from .builder.doctor import run_doctor, print_report, DoctorFatalError
 from .builder.build_cmd import run_build, BuildError
 from .builder.launch_cmd import run_launch, LaunchError
 from .builder.tool_add import tool_add, tool_remove, list_tools, ToolAddError
-from .builder import project_assets
+from .builder import project_assets, scene
 from .builder.project_assets import ProjectAssetsError
 
 
@@ -184,6 +184,29 @@ def _cmd_world_diff(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_world_table(args: argparse.Namespace) -> int:
+    center = tuple(args.center) if args.center else None
+    try:
+        r = scene.table_in_project(
+            os.getcwd(), length=args.length, width=args.width, height=args.height,
+            center=center, top_thickness=args.thickness, remove=args.remove)
+    except (scene.SceneError, ProjectAssetsError) as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    if r.get("created_world"):
+        print("  created the project world from the core world")
+    if r["action"] == "removed":
+        print(f"  removed the table and restored the floor in {r['path']}")
+    else:
+        reach = f" (robot reach ~{r['reach']:.2f} m)" if r.get("reach") else ""
+        print(f"  {r['action']} a {r['length']:.2f} x {r['width']:.2f} m table, top at z = 0, "
+              f"{r['height']:.2f} m above the floor{reach}")
+        print(f"  centred at x={r['center'][0]:.2f} y={r['center'][1]:.2f} "
+              f"(the robot base stays at the world origin)")
+    print("Done. Run `motus build` to install the world, then `motus launch --sim`.")
+    return 0
+
+
 def _cmd_tool_remove(args: argparse.Namespace) -> int:
     try:
         tool_remove(os.getcwd(), args.tool_id)
@@ -297,6 +320,21 @@ def build_parser() -> argparse.ArgumentParser:
     world_sub.add_parser("status", help="compare the project world with the core world").set_defaults(
         func=_cmd_world_status)
     world_sub.add_parser("diff", help="show project world vs core world").set_defaults(func=_cmd_world_diff)
+    wt = world_sub.add_parser(
+        "table", help="put the robot and its objects on a workbench (tabletop = the z = 0 plane)")
+    wt.add_argument("--length", type=float, default=None,
+                    help="table size along x in metres (default: sized from the robot's reach)")
+    wt.add_argument("--width", type=float, default=None,
+                    help="table size along y in metres (default: sized from the robot's reach)")
+    wt.add_argument("--height", type=float, default=scene.DEFAULT_HEIGHT,
+                    help=f"tabletop height above the floor (default {scene.DEFAULT_HEIGHT} m)")
+    wt.add_argument("--thickness", type=float, default=scene.DEFAULT_TOP_THICKNESS,
+                    help="tabletop thickness in metres")
+    wt.add_argument("--center", type=float, nargs=2, metavar=("X", "Y"), default=None,
+                    help="table centre (default: the robot base sits 25%% of the length in from "
+                         "the back edge, so most of the table is in front of it)")
+    wt.add_argument("--remove", action="store_true", help="remove the table and restore the floor")
+    wt.set_defaults(func=_cmd_world_table)
 
     doctor = sub.add_parser("doctor", help="validate the current project")
     doctor.add_argument("--verbose", action="store_true")

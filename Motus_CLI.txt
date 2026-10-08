@@ -1,10 +1,10 @@
 motus robot add /home/meta/Documents/Universal_Robots_ROS2_Description \
-  --arg name=ur15 \
-  --arg ur_type=ur15 \
-  --arg joint_limit_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/joint_limits.yaml \
-  --arg kinematics_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/default_kinematics.yaml \
-  --arg physical_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/physical_parameters.yaml \
-  --arg visual_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur15/visual_parameters.yaml
+  --arg name=ur8long \
+  --arg ur_type=ur8long \
+  --arg joint_limit_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/joint_limits.yaml \
+  --arg kinematics_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/default_kinematics.yaml \
+  --arg physical_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/physical_parameters.yaml \
+  --arg visual_params=/home/meta/Documents/Universal_Robots_ROS2_Description/config/ur8long/visual_parameters.yaml
 motus doctor
 
 #mycobot projects
@@ -16,3 +16,178 @@ motus doctor
 
 motus tool add /home/meta/Documents/robotiq_description-main --profile robotiq_2f_85 --replace --align-approach --tcp-offset 0 0 0.145
 motus build && motus launch --sim
+
+#Adding a table to the sim
+
+motus world table                                  # auto size from the arm's reach
+motus world table --length 2.4 --width 1.6         # bigger table (x length, y width, metres)
+motus world table --height 0.9                     # taller; the floor drops to match
+motus world table --center 0.6 0.0                 # move the table relative to the robot base
+motus world table --thickness 0.05                 # thicker top
+motus world table --remove                         # back to the plain floor
+motus world status                                 # check the project world against the core one
+motus build
+
+
+
+
+The table scene, the stall fix, and the safe-start and elbow-up work from earlier are all working in sim. These are good candidates for next:
+
+cancel_recipe: a service plus run_recipe --cancel, so you can abort a run without restarting the launch.
+Collision awareness: the planner knows about the floor but not the table or cubes. Adding the tabletop would stop a bad recipe from driving the tool into the table.
+Second arm: a second arm on the same table, to test resource_lock and the DAG across arms.
+Cleanup: untrack the __pycache__/*.pyc files via .gitignore, and look at the object_spawner "no attach confirmation" warning if it keeps showing up.
+
+Pick one and I'll start. The 11 commits are still local, so push safe-ready-pose from your machine, or tell me to request write access and I'll push it.
+
+
+
+
+
+
+
+
+[cell_orchestrator-40] [INFO] [1791456995.244976869] [cell_orchestrator]: [DAG] 6 batched motion run(s): [('home_arm1', 'above_pick_arm1', 'down_pick_arm1'), ('home_arm2', 'above_pick_arm2', 'down_pick_arm2'), ('up_drop_arm1', 'return_arm1'), ('up_drop_arm2', 'return_arm2'), ('up_pick_arm1', 'above_drop_arm1', 'down_drop_arm1'), ('up_pick_arm2', 'above_drop_arm2', 'down_drop_arm2')]
+[cell_orchestrator-40] [INFO] [1791456995.254622010] [cell_orchestrator]: Recipe loaded: two_arm_pick_and_place [902c8eb307977419] (24 steps)
+[cell_orchestrator-40] [INFO] [1791456995.494355565] [cell_orchestrator]: [DAG] dispatching spawn_c1 (SpawnStep)
+[parameter_bridge-29] [INFO] [1791456995.936191984] [grasp_attach_gz_bridge]: Passing message from ROS std_msgs/msg/Empty to Gazebo gz.msgs.Empty (showing msg only once per type)
+[object_spawner-32] [INFO] [1791456996.049050131] [object_spawner]: Spawned "cube_small_1" at (0.4, 0.15, 0.015)
+[cell_orchestrator-40] [INFO] [1791456996.106077159] [cell_orchestrator]: [DAG] spawn_c1: spawn result success=True
+[cell_orchestrator-40] [INFO] [1791456996.150884552] [cell_orchestrator]: [DAG] spawn_c1: COMPLETED (1/24)
+[cell_orchestrator-40] [INFO] [1791456996.192658689] [cell_orchestrator]: [DAG] dispatching spawn_c2 (SpawnStep)
+[object_spawner-32] [INFO] [1791456996.570203624] [object_spawner]: Spawned "cube_small_2" at (1.6, -0.15, 0.015)
+[cell_orchestrator-40] [INFO] [1791456996.585918196] [cell_orchestrator]: [DAG] spawn_c2: spawn result success=True
+[cell_orchestrator-40] [INFO] [1791456996.601076351] [cell_orchestrator]: [DAG] spawn_c2: COMPLETED (2/24)
+[cell_orchestrator-40] [INFO] [1791456996.617429196] [cell_orchestrator]: [DAG] dispatching motion run ['home_arm1', 'above_pick_arm1', 'down_pick_arm1']
+[cell_orchestrator-40] [INFO] [1791456996.624148839] [cell_orchestrator]: [DAG] dispatching motion run ['home_arm2', 'above_pick_arm2', 'down_pick_arm2']
+[arm_executor-11] [INFO] [1791456996.659161967] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791456996.662783510] [arm1.arm_executor]: [arm_executor] executing 3 leg(s): ['home_arm1', 'above_pick_arm1', 'down_pick_arm1']
+[arm_executor-24] [INFO] [1791456996.705408742] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-24] [INFO] [1791456996.710791330] [arm2.arm_executor]: [arm_executor] executing 3 leg(s): ['home_arm2', 'above_pick_arm2', 'down_pick_arm2']
+[arm_executor-11] [INFO] [1791456997.124469925] [arm1.arm_executor]: [arm_executor] plan ready for 3 leg(s) (0.445s)
+[arm_executor-11] [INFO] [1791456997.132462743] [arm1.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791456997.158490412] [arm1.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      1     260.57   260.568       58.5%
+[arm_executor-11] [INFO] [1791456997.173173865] [arm1.arm_executor]: [plan-profile] traj_planner._ik_chain                        1      97.37    97.374       21.9%
+[arm_executor-24] [INFO] [1791456997.191113871] [arm2.arm_executor]: [arm_executor] plan ready for 3 leg(s) (0.442s)
+[arm_executor-24] [INFO] [1791456997.198211614] [arm2.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791456997.199189576] [arm1.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      93.85    93.851       21.1%
+[arm_executor-11] [INFO] [1791456997.201209763] [arm1.arm_executor]: [plan-profile] kin.solve_ik                                  3      40.58    13.528        9.1%
+[arm_executor-24] [INFO] [1791456997.213235476] [arm2.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      1     146.33   146.333       33.1%
+[arm_executor-11] [INFO] [1791456997.221381039] [arm1.arm_executor]: [plan-profile] kin.compute_fk                                2      28.93    14.464        6.5%
+[arm_executor-24] [INFO] [1791456997.232559206] [arm2.arm_executor]: [plan-profile] traj_planner.create_trajectory                1     139.70   139.700       31.6%
+[arm_executor-24] [INFO] [1791456997.239889849] [arm2.arm_executor]: [plan-profile] kin.solve_ik                                  3      79.96    26.652       18.1%
+[arm_executor-24] [INFO] [1791456997.241236964] [arm2.arm_executor]: [plan-profile] traj_planner._ik_chain                        1      78.63    78.634       17.8%
+[arm_executor-11] [INFO] [1791456997.244066156] [arm1.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.17     0.057        0.0%
+[arm_executor-11] [INFO] [1791456997.245435439] [arm1.arm_executor]: [plan-profile] TOTAL (measured buckets):    521.48 ms
+[arm_executor-24] [INFO] [1791456997.251815883] [arm2.arm_executor]: [plan-profile] kin.compute_fk                                2      67.40    33.698       15.3%
+[arm_executor-11] [INFO] [1791456997.261571635] [arm1.arm_executor]: [plan-profile] TOTAL (wall clock):           445.10 ms
+[arm_executor-11] [INFO] [1791456997.264925729] [arm1.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): -76.38 ms
+[arm_executor-11] [INFO] [1791456997.269461136] [arm1.arm_executor]: [plan-profile] ik solve iterations: 10 solves, avg 2.70 iters/solve, max 3
+[arm_executor-24] [INFO] [1791456997.272483357] [arm2.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.17     0.056        0.0%
+[arm_executor-24] [INFO] [1791456997.273836058] [arm2.arm_executor]: [plan-profile] TOTAL (measured buckets):    512.19 ms
+[arm_executor-24] [INFO] [1791456997.276719161] [arm2.arm_executor]: [plan-profile] TOTAL (wall clock):           441.71 ms
+[arm_executor-11] [INFO] [1791456997.277161306] [arm1.arm_executor]: [plan-profile] topp internal split (1 calls, 10 total path pts): assembly(ik_chain+slerp+bezier)=105.53ms  resample=6.97ms  topp.savgol_filter=144.93ms  topp.mvc_combine=0.52ms  topp.accel_precompute=0.10ms  topp.loop(accel_bounds sweep)=0.93ms  topp.finalize=0.15ms  points_construction=0.09ms
+[arm_executor-24] [INFO] [1791456997.278024231] [arm2.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): -70.47 ms
+[arm_executor-24] [INFO] [1791456997.280068641] [arm2.arm_executor]: [plan-profile] ik solve iterations: 10 solves, avg 2.70 iters/solve, max 3
+[arm_executor-24] [INFO] [1791456997.287458691] [arm2.arm_executor]: [plan-profile] topp internal split (1 calls, 10 total path pts): assembly(ik_chain+slerp+bezier)=79.20ms  resample=19.82ms  topp.savgol_filter=27.60ms  topp.mvc_combine=0.20ms  topp.accel_precompute=14.22ms  topp.loop(accel_bounds sweep)=0.80ms  topp.finalize=0.20ms  points_construction=0.09ms
+[ruby $(which gz) sim-27] [INFO] [1791456997.306061214] [arm1.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791456997.306348328] [arm1.arm_controller]: Accepted new action goal
+[ruby $(which gz) sim-27] [INFO] [1791456997.328738739] [arm2.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791456997.332027685] [arm2.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791456999.097263896] [arm1.arm_executor]: [arm_executor] completed leg 'home_arm1'
+[arm_executor-24] [INFO] [1791456999.100049740] [arm2.arm_executor]: [arm_executor] completed leg 'home_arm2'
+[arm_executor-11] [INFO] [1791456999.634851705] [arm1.arm_executor]: [arm_executor] completed leg 'above_pick_arm1'
+[arm_executor-24] [INFO] [1791456999.670731966] [arm2.arm_executor]: [arm_executor] completed leg 'above_pick_arm2'
+[arm_executor-11] [INFO] [1791457000.780076068] [arm1.arm_executor]: [arm_executor] completed leg 'down_pick_arm1'
+[arm_executor-24] [INFO] [1791457000.790749414] [arm2.arm_executor]: [arm_executor] completed leg 'down_pick_arm2'
+[ruby $(which gz) sim-27] [INFO] [1791457008.302031838] [arm1.arm_controller]: Goal reached, success!
+[ruby $(which gz) sim-27] [INFO] [1791457008.343637080] [arm2.arm_controller]: Goal reached, success!
+[arm_executor-11] [INFO] [1791457008.401887500] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[arm_executor-24] [INFO] [1791457008.404231240] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[cell_orchestrator-40] [INFO] [1791457008.450960882] [cell_orchestrator]: [DAG] down_pick_arm2: COMPLETED (7/24)
+[cell_orchestrator-40] [INFO] [1791457008.476067844] [cell_orchestrator]: [DAG] dispatching grip_arm2 (ToolStep)
+[cell_orchestrator-40] [INFO] [1791457008.526517158] [cell_orchestrator]: [DAG] down_pick_arm1: COMPLETED (8/24)
+[cell_orchestrator-40] [INFO] [1791457008.548590234] [cell_orchestrator]: [DAG] dispatching grip_arm1 (ToolStep)
+[cell_orchestrator-40] [INFO] [1791457008.593129386] [cell_orchestrator]: [DAG] grip_arm2: goal accepted
+[cell_orchestrator-40] [INFO] [1791457008.598663685] [cell_orchestrator]: [DAG] grip_arm1: goal accepted
+[tool_action_server-36] [INFO] [1791457008.596618861] [tool_action_server]: [GRASP_ATTACH] grasp_attach_2: gripper engaging (bg) — welding now
+[tool_action_server-36] [INFO] [1791457008.605024318] [tool_action_server]: [GRASP_ATTACH] grasp_attach_1: gripper engaging (bg) — welding now
+[ruby $(which gz) sim-27] [INFO] [1791457008.694253056] [arm2.gripper_action_controller]: Received & accepted new action goal
+[grasp_attach_bridge-30] [INFO] [1791457008.731889228] [grasp_attach_bridge]: Published attach for "cube_small_2" (joint_id=1)
+[grasp_attach_bridge-30] [INFO] [1791457008.738171276] [grasp_attach_bridge]: Published attach for "cube_small_1" (joint_id=2)
+[ruby $(which gz) sim-27] [INFO] [1791457008.759715341] [arm1.gripper_action_controller]: Received & accepted new action goal
+[tool_action_server-36] [INFO] [1791457008.780052143] [tool_action_server]: [GRASP_ATTACH] grasp_attach_1: attached "cube_small_1" to wrist_3_link (joint_id=2)
+[tool_action_server-36] [INFO] [1791457008.787197877] [tool_action_server]: [GRASP_ATTACH] grasp_attach_2: attached "cube_small_2" to wrist_3_link (joint_id=1)
+[tool_action_server-36] [INFO] [1791457008.794726137] [tool_action_server]: Tool result → grasp_attach_2:closed_grasped
+[tool_action_server-36] [INFO] [1791457008.797811876] [tool_action_server]: Tool result → grasp_attach_1:closed_grasped
+[cell_orchestrator-40] [INFO] [1791457008.849284135] [cell_orchestrator]: [DAG] grip_arm2: result success=True
+[cell_orchestrator-40] [INFO] [1791457008.861958733] [cell_orchestrator]: [DAG] grip_arm2: COMPLETED (9/24)
+[cell_orchestrator-40] [INFO] [1791457008.876892762] [cell_orchestrator]: [DAG] grip_arm1: result success=True
+[cell_orchestrator-40] [INFO] [1791457008.878013222] [cell_orchestrator]: [DAG] grip_arm1: COMPLETED (10/24)
+[cell_orchestrator-40] [INFO] [1791457008.888516796] [cell_orchestrator]: [DAG] dispatching motion run ['up_pick_arm2', 'above_drop_arm2', 'down_drop_arm2']
+[cell_orchestrator-40] [INFO] [1791457008.906803963] [cell_orchestrator]: [DAG] dispatching motion run ['up_pick_arm1', 'above_drop_arm1', 'down_drop_arm1']
+[arm_executor-24] [INFO] [1791457008.931814496] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-24] [INFO] [1791457008.970770831] [arm2.arm_executor]: [arm_executor] executing 3 leg(s): ['up_pick_arm2', 'above_drop_arm2', 'down_drop_arm2']
+[arm_executor-11] [INFO] [1791457009.000665707] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791457009.019878017] [arm1.arm_executor]: [arm_executor] executing 3 leg(s): ['up_pick_arm1', 'above_drop_arm1', 'down_drop_arm1']
+[arm_executor-11] [INFO] [1791457009.508895043] [arm1.arm_executor]: [arm_executor] plan ready for 3 leg(s) (0.431s)
+[arm_executor-11] [INFO] [1791457009.510758992] [arm1.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791457009.522061892] [arm1.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      2     194.86    97.428       45.2%
+[arm_executor-11] [INFO] [1791457009.534999773] [arm1.arm_executor]: [plan-profile] kin.compute_fk                                3     107.40    35.800       24.9%
+[arm_executor-11] [INFO] [1791457009.536307561] [arm1.arm_executor]: [plan-profile] traj_planner._ik_chain                        2     104.70    52.349       24.3%
+[arm_executor-24] [INFO] [1791457009.535275557] [arm2.arm_executor]: [arm_executor] plan ready for 3 leg(s) (0.537s)
+[arm_executor-11] [INFO] [1791457009.545721724] [arm1.arm_executor]: [plan-profile] kin.solve_ik                                  3      64.58    21.527       15.0%
+[arm_executor-11] [INFO] [1791457009.550531424] [arm1.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      46.54    46.536       10.8%
+[arm_executor-11] [INFO] [1791457009.551751406] [arm1.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.24     0.080        0.1%
+[arm_executor-24] [INFO] [1791457009.550597669] [arm2.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791457009.554360168] [arm1.arm_executor]: [plan-profile] TOTAL (measured buckets):    518.31 ms
+[arm_executor-24] [INFO] [1791457009.556363483] [arm2.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      2     344.37   172.183       64.1%
+[arm_executor-24] [INFO] [1791457009.557593080] [arm2.arm_executor]: [plan-profile] traj_planner._ik_chain                        2     191.04    95.518       35.6%
+[arm_executor-24] [INFO] [1791457009.561612632] [arm2.arm_executor]: [plan-profile] kin.solve_ik                                  3      91.97    30.656       17.1%
+[arm_executor-11] [INFO] [1791457009.564603174] [arm1.arm_executor]: [plan-profile] TOTAL (wall clock):           430.79 ms
+[arm_executor-11] [INFO] [1791457009.566359932] [arm1.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): -87.52 ms
+[arm_executor-11] [INFO] [1791457009.567843395] [arm1.arm_executor]: [plan-profile] ik solve iterations: 20 solves, avg 2.70 iters/solve, max 3
+[arm_executor-11] [INFO] [1791457009.569446381] [arm1.arm_executor]: [plan-profile] topp internal split (2 calls, 20 total path pts): assembly(ik_chain+slerp+bezier)=113.71ms  resample=10.16ms  topp.savgol_filter=28.24ms  topp.mvc_combine=3.61ms  topp.accel_precompute=0.19ms  topp.loop(accel_bounds sweep)=23.00ms  topp.finalize=0.38ms  points_construction=0.21ms
+[arm_executor-24] [INFO] [1791457009.568580423] [arm2.arm_executor]: [plan-profile] kin.compute_fk                                3      61.53    20.509       11.5%
+[arm_executor-24] [INFO] [1791457009.573081112] [arm2.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      30.98    30.979        5.8%
+[arm_executor-24] [INFO] [1791457009.575199449] [arm2.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.16     0.053        0.0%
+[arm_executor-24] [INFO] [1791457009.576625633] [arm2.arm_executor]: [plan-profile] TOTAL (measured buckets):    720.03 ms
+[arm_executor-24] [INFO] [1791457009.578089570] [arm2.arm_executor]: [plan-profile] TOTAL (wall clock):           537.17 ms
+[arm_executor-24] [INFO] [1791457009.579506550] [arm2.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): -182.87 ms
+[arm_executor-24] [INFO] [1791457009.581914987] [arm2.arm_executor]: [plan-profile] ik solve iterations: 20 solves, avg 2.85 iters/solve, max 4
+[ruby $(which gz) sim-27] [INFO] [1791457009.580623254] [arm1.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791457009.580684693] [arm1.arm_controller]: Accepted new action goal
+[arm_executor-24] [INFO] [1791457009.584237709] [arm2.arm_executor]: [plan-profile] topp internal split (2 calls, 20 total path pts): assembly(ik_chain+slerp+bezier)=194.31ms  resample=9.49ms  topp.savgol_filter=126.64ms  topp.mvc_combine=0.70ms  topp.accel_precompute=3.64ms  topp.loop(accel_bounds sweep)=1.75ms  topp.finalize=6.28ms  points_construction=0.54ms
+[ruby $(which gz) sim-27] [INFO] [1791457009.602406995] [arm2.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791457009.602482666] [arm2.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791457012.332218494] [arm1.arm_executor]: [arm_executor] completed leg 'up_pick_arm1'
+[arm_executor-11] [INFO] [1791457013.240885741] [arm1.arm_executor]: [arm_executor] completed leg 'above_drop_arm1'
+[arm_executor-24] [INFO] [1791457013.280032946] [arm2.arm_executor]: [arm_executor] completed leg 'up_pick_arm2'
+[arm_executor-24] [INFO] [1791457014.253969010] [arm2.arm_executor]: [arm_executor] completed leg 'above_drop_arm2'
+[arm_executor-11] [INFO] [1791457014.409942981] [arm1.arm_executor]: [arm_executor] completed leg 'down_drop_arm1'
+[arm_executor-24] [INFO] [1791457015.368972559] [arm2.arm_executor]: [arm_executor] completed leg 'down_drop_arm2'
+[ruby $(which gz) sim-27] [INFO] [1791457028.918034052] [arm1.arm_controller]: Goal reached, success!
+[arm_executor-11] [INFO] [1791457028.985237542] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[cell_orchestrator-40] [INFO] [1791457029.003287240] [cell_orchestrator]: [DAG] down_drop_arm1: COMPLETED (15/24)
+[cell_orchestrator-40] [INFO] [1791457029.010470264] [cell_orchestrator]: [DAG] dispatching release_arm1 (ToolStep)
+[cell_orchestrator-40] [INFO] [1791457029.030030576] [cell_orchestrator]: [DAG] release_arm1: goal accepted
+[grasp_attach_bridge-30] [INFO] [1791457029.090988426] [grasp_attach_bridge]: Published detach for "cube_small_1" (joint_id=2)
+[tool_action_server-36] [INFO] [1791457029.108291753] [tool_action_server]: [GRASP_ATTACH] grasp_attach_1: detached joint 2 ("cube_small_1")
+[tool_action_server-36] [INFO] [1791457029.119649522] [tool_action_server]: Tool result → grasp_attach_1:opened
+[ruby $(which gz) sim-27] [INFO] [1791457029.173515003] [arm1.gripper_action_controller]: Received & accepted new action goal
+[cell_orchestrator-40] [INFO] [1791457029.178461252] [cell_orchestrator]: [DAG] release_arm1: result success=True
+[cell_orchestrator-40] [INFO] [1791457029.194729729] [cell_orchestrator]: [DAG] release_arm1: COMPLETED (16/24)
+[cell_orchestrator-40] [INFO] [1791457029.208727795] [cell_orchestrator]: [DAG] dispatching motion run ['up_drop_arm1', 'return_arm1']
+[arm_executor-11] [INFO] [1791457029.237019486] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791457029.239197332] [arm1.arm_executor]: [arm_executor] executing 2 leg(s): ['up_drop_arm1', 'return_arm1']
+[arm_executor-11] [ERROR] [1791457029.366928952] [arm1.arm_executor]: [arm_executor] planning failed for 'up_drop_arm1': Planning failed at up_drop_arm1 (code 2): IK failure along blended path
+[cell_orchestrator-40] [ERROR] [1791457029.391968634] [cell_orchestrator]: [DAG] up_drop_arm1: ExecuteMoveStep failed, error_code=2
+[cell_orchestrator-40] [ERROR] [1791457029.394514178] [cell_orchestrator]: [DAG] up_drop_arm1: FAILED
+[arm_executor-24] [WARN] [1791457029.468767081] [arm2.arm_executor]: [arm_executor] cancel requested; stopping motion
+[ruby $(which gz) sim-27] [INFO] [1791457029.480997180] [arm2.arm_controller]: Got request to cancel goal
+[ruby $(which gz) sim-27] [INFO] [1791457029.481172737] [arm2.arm_controller]: Canceling active action goal because cancel callback received.
+[arm_executor-24] [WARN] [1791457029.500357248] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep cancelled during motion
+[cell_orchestrator-40] [ERROR] [1791457029.548945007] [cell_orchestrator]: [DAG] up_pick_arm2: ExecuteMoveStep failed, error_code=5
+[cell_orchestrator-40] [ERROR] [1791457029.554993933] [cell_orchestrator]: [DAG] up_pick_arm2: FAILED
+
+

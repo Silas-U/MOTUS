@@ -119,6 +119,7 @@ motus launch --sim    # or --real
 | `motus robot add <path>` | Import or replace the robot description: parse, resolve resources, copy meshes, generate `robot.yaml` and `controllers.yaml`, and inject the `ros2_control` / Gazebo blocks the vendor URDF lacks |
 | `motus tool add / list / remove` | Manage end-effectors. Tool config lives between `MOTUS-TOOL-BEGIN/END` markers; anything outside is yours |
 | `motus world init / status / diff` | Give the project its own Gazebo world and `recipes/` folder, and compare it with the core world |
+| `motus world table [--length L --width W --height H --center X Y --remove]` | Put the robot on a workbench: a static table whose top face is the `z = 0` plane (floor lowered by the table height), sized from the arm's reach unless given. Recipes and cube spawn heights work unchanged; run `motus build` afterwards |
 | `motus doctor [--verbose]` | Check package layout, URDF parsing, mesh resources, link/joint names, config files and their types, and controller joint names |
 | `motus build` | Run `doctor`, then `colcon build` the project (no `--symlink-install`) |
 | `motus launch --sim / --real` | Source the parent workspace, then the project overlay, and launch the cell |
@@ -364,6 +365,12 @@ ros2 run robokpy_controller run_recipe test0.yaml
 
 A recipe can be run again straight away; legs the arm is already at are skipped.
 
+To stop a recipe part-way: the arm halts where it is, the gripper opens and any held object is detached, every object the cell spawned is despawned, and the cell returns to idle so a new recipe can be loaded:
+
+```bash
+ros2 run robokpy_controller run_recipe --cancel
+```
+
 or:
 
 ```bash
@@ -420,6 +427,10 @@ Cell
 ```
 
 The goal is to keep the arm implementation reusable while allowing the cell layer to coordinate multiple robots.
+
+**Grasping with several arms.** In a multi-arm cell every arm gets its own set of Gazebo attach joints, so any arm can pick any catalog object. Each arm has its own grasp tool: `grasp_attach_1` welds to `arm1`'s gripper and `grasp_attach_2` to `arm2`'s (the launch file picks the arm from the arm prefix of the tool's `gripper_action_name`). An object held by one arm cannot be grasped by another until it is released.
+
+Motion `target_pose` values are in the arm's own base frame, so for an arm mounted at world `x = 1.2` subtract 1.2 from a world x. `from_spawn_step` currently yields world coordinates and is only correct for an arm at the world origin. A working example is `recipes/test_two_arm_pick_place.yaml`.
 
 ## Safety and manual control
 

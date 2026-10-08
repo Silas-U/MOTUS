@@ -85,6 +85,7 @@ import inspect
 import threading
 from typing import Optional, Dict, Any, Callable
 from rclpy.task import Future
+from std_srvs.srv import Trigger
 from robokpy_interfaces.srv import GraspAttach, ResolveObjectPose
 from robokpy_interfaces.action import ExecuteToolOp
 
@@ -245,6 +246,11 @@ class ToolBackend:
     def cleanup(self):
         """Release hardware resources on shutdown."""
         pass
+
+    async def release_all(self):
+        """Operator cancel: let go of whatever the tool is holding. Default no-op;
+        only backends that can hold something (grasp/attach) override it."""
+        return None
 
 
 # ── Mock backend (simulation / testing) ──────────────────
@@ -1331,6 +1337,22 @@ class GraspAttachBackend(ToolBackend):
             self._fire_and_forget(self._actuator.disengage(), 'disengage')
             return 'opened'
 
+    async def release_all(self):
+        """Detach whatever is held (unweld) and open the gripper / vacuum off, even
+        if nothing is tracked as held, so a cancelled recipe leaves a clean tool."""
+        if self._held_joint_id is not None:
+            status = await self._call(attach=False, child_model='', child_link='')
+            if status != 'opened':
+                # e.g. the bridge no longer knows this joint; forget it and open anyway
+                self.logger.warn(
+                    f'[GRASP_ATTACH] {self.tool_id}: release on cancel returned "{status}"; '
+                    f'clearing held state')
+                self._held_joint_id = None
+                self._held_child_desc = None
+                await self._actuator.disengage()
+        else:
+            await self._actuator.disengage()
+
     def cleanup(self):
         if self._held_joint_id is not None:
             self.logger.warn(
@@ -1380,11 +1402,31 @@ class ToolActionServer(Node):
             callback_group=self._cb_group,
         )
 
+        self._release_all_srv = self.create_service(
+            Trigger, 'release_all', self._release_all_cb, callback_group=self._cb_group)
+
         self.get_logger().info(
             f'Tool Action Server Ready  '
             f'({len(self._backends)} tool(s) loaded: '
             f'{list(self._backends.keys())})'
         )
+
+    async def _release_all_cb(self, request, response):
+        """Used by the orchestrator's cancel_recipe: every tool lets go of what it holds."""
+        released, failed = [], []
+        for tool_id, backend in list(self._backends.items()):
+            try:
+                async with self._get_tool_lock(tool_id):
+                    await backend.release_all()
+                released.append(tool_id)
+            except Exception as e:
+                self.get_logger().error(f'release_all failed for "{tool_id}": {e}')
+                failed.append(tool_id)
+        response.success = not failed
+        response.message = (f'released {released}' if not failed
+                            else f'released {released}, FAILED {failed}')
+        self.get_logger().info(f'release_all: {response.message}')
+        return response
 
     def _get_tool_lock(self, tool_id: str) -> _AsyncLock:
         with self._action_locks_guard:

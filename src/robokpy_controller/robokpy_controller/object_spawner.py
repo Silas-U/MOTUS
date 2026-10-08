@@ -76,6 +76,9 @@ class ObjectSpawner(Node):
 
         self.declare_parameter('objects_config_path', '')
         self.declare_parameter('world_name', 'motus_world')
+        # Multi-arm: every arm has its own DetachableJoint per instance,
+        # and ALL of them auto-attach on spawn, so all must be undone.
+        self.declare_parameter('arms', [''])
         objects_config_path = self.get_parameter('objects_config_path').value
         world_name = self.get_parameter('world_name').value
         if not objects_config_path:
@@ -117,16 +120,19 @@ class ObjectSpawner(Node):
         # ObjectCatalog.state_topic() for why that topic is safe to
         # rely on (it's the plugin's own default output, not something
         # we're inferring).
-        self._attach_confirmed: dict = {}   # child_model -> threading.Event
+        self._arms = [a for a in self.get_parameter('arms').value if a] or ['']
+        self._attach_confirmed: dict = {}   # (arm, child_model) -> threading.Event
         self._detach_pubs = {}
-        for inst in self._catalog.all_instances():
-            self._attach_confirmed[inst.child_model] = threading.Event()
-            self._detach_pubs[inst.child_model] = self.create_publisher(
-                Empty, self._catalog.detach_topic(inst.child_model), 10)
-            self.create_subscription(
-                String, self._catalog.state_topic(inst.child_model),
-                self._make_state_cb(inst.child_model), 10,
-                callback_group=ReentrantCallbackGroup())
+        for arm in self._arms:
+            for inst in self._catalog.all_instances():
+                key = (arm, inst.child_model)
+                self._attach_confirmed[key] = threading.Event()
+                self._detach_pubs[key] = self.create_publisher(
+                    Empty, self._catalog.detach_topic(inst.child_model, arm), 10)
+                self.create_subscription(
+                    String, self._catalog.state_topic(inst.child_model, arm),
+                    self._make_state_cb(key), 10,
+                    callback_group=ReentrantCallbackGroup())
 
         cb_group = ReentrantCallbackGroup()
 
@@ -160,14 +166,14 @@ class ObjectSpawner(Node):
             time.sleep(0.02)
         return not event.is_set()
 
-    def _make_state_cb(self, child_model: str):
+    def _make_state_cb(self, key):
         """Returns a callback bound to one catalog instance's state
         topic. Sets the instance's Event on a real "attached"
         confirmation from the plugin itself, clears it on "detached" —
         this is what lets _handle_spawn wait for a genuine attach
         instead of racing a blind sleep against it."""
         def _cb(msg: String):
-            ev = self._attach_confirmed[child_model]
+            ev = self._attach_confirmed[key]
             if msg.data == 'attached':
                 ev.set()
             elif msg.data == 'detached':
@@ -283,24 +289,23 @@ class ObjectSpawner(Node):
         # "detach then sleep" isn't safe: detach before the plugin's
         # own auto-attach has landed is silently dropped, not queued.
         # Wait for the plugin's own confirmation instead.
-        attach_event = self._attach_confirmed[child_model]
-        if not attach_event.wait(timeout=5.0):
-            self.get_logger().warn(
-                f'"{child_model}": no attach confirmation from '
-                f'DetachableJoint within 5.0s — detaching anyway as a '
-                f'best effort, but this instance may end up welded to '
-                f'the gripper if the auto-attach lands after this point')
-        self._detach_pubs[child_model].publish(Empty())
+        keys = [(arm, child_model) for arm in self._arms]
+        for key in keys:
+            if not self._attach_confirmed[key].wait(timeout=5.0):
+                self.get_logger().warn(
+                    f'"{child_model}": no attach confirmation from '
+                    f'DetachableJoint ({key[0] or "single-arm"}) within 5.0s — '
+                    f'detaching anyway as a best effort, but this instance may '
+                    f'end up welded to the gripper if the auto-attach lands '
+                    f'after this point')
+            self._detach_pubs[key].publish(Empty())
 
-        # Confirm the detach itself actually landed too (Event.clear()
-        # happens in _make_state_cb on a real "detached" message) —
-        # best-effort: log if it doesn't confirm, don't fail the spawn
-        # over it, since a stuck weld will surface immediately and
-        # obviously in the very next motion leg rather than silently.
-        if not self._wait_for_clear(attach_event, timeout=1.0):
-            self.get_logger().warn(
-                f'"{child_model}": no detach confirmation within 1.0s '
-                f'after publishing — proceeding anyway')
+        # Confirm the detaches landed too (best-effort, see above).
+        for key in keys:
+            if not self._wait_for_clear(self._attach_confirmed[key], timeout=1.0):
+                self.get_logger().warn(
+                    f'"{child_model}": no detach confirmation ({key[0] or "single-arm"}) '
+                    f'within 1.0s after publishing — proceeding anyway')
 
         response.success = True
         response.message = f'Spawned "{child_model}" at ' \

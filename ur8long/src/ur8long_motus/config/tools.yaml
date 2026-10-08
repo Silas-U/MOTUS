@@ -1,0 +1,31 @@
+# tools.yaml -- tool_action_server backend config.
+# Blocks between MOTUS-TOOL-BEGIN/END are owned by `motus tool add`; anything
+# outside them is yours and is never touched.
+# Needs the canonical gripper config keys (action_name/joint_name/...) -- i.e. a
+# tool_action_server.py with the normalized schema.
+
+# MOTUS-TOOL-BEGIN gripper_1
+gripper_1:
+  backend: gripper_action
+  action_name: arm1/gripper_action_controller/gripper_cmd
+  joint_name: robotiq_85_left_knuckle_joint
+  open_position: 0.001
+  closed_position: 0.154
+  max_effort: 5.0
+  action_timeout: 5.0
+
+grasp_attach_1:
+  backend: grasp_attach
+  service_name: /grasp_attach
+  service_timeout: 5.0
+  # parent_model / parent_link / objects_catalog_path are injected at launch
+  # from objects.yaml (cell.launch.py).
+  gripper_mechanism: parallel_jaw
+  action_name: arm1/gripper_action_controller/gripper_cmd
+  joint_name: robotiq_85_left_knuckle_joint
+  open_position: 0.001
+  closed_position: 0.154
+  max_effort: 50.0
+  action_timeout: 5.0
+  min_close_ratio: 0.3
+# MOTUS-TOOL-END gripper_1

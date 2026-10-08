@@ -17,13 +17,10 @@ today's launch commands and test recipes still work unchanged.
 Adding a second arm is: add an entry to cell_arms.yaml. Nothing in this
 file or in arm.launch.py needs to change.
 
-OPEN QUESTION, not resolved here: the object-catalog Gazebo plugin
-(`catalog.to_gazebo_plugin_sdf()`) is embedded into exactly one arm's
-URDF (the first one in `arms_config`) on the assumption that it's a
-world-level concern and shouldn't be duplicated per-arm. Confirm that's
-actually how grasp_attach_bridge/object_spawner expect it before running
-a real two-arm test — if the plugin needs to be per-robot, this needs to
-flip to embedding it in every arm instead.
+Object-catalog plugin: in a multi-arm cell EVERY arm's URDF embeds its own
+DetachableJoint set (topics /grasp_attach/<arm>/<object>/...), so any arm can
+grasp any object; grasp_attach_bridge picks the arm from the request's
+parent_model ("arm2_robot" -> arm2). Single-arm launches are unchanged.
 """
 
 from launch import LaunchDescription
@@ -43,12 +40,16 @@ import yaml
 
 from ament_index_python.packages import get_package_prefix
 from robokpy_controller.object_catalog import ObjectCatalog
+from robokpy_controller import dds_env
 from robokpy_controller.project_paths import resolve_world_file, resolve_recipes_dir
 
 
 def generate_launch_description():
 
     rmw_env = SetEnvironmentVariable('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp')
+    # Same default the CLI tools use; a user-set CYCLONEDDS_URI wins.
+    dds_env.apply_default()
+    dds_uri_env = SetEnvironmentVariable('CYCLONEDDS_URI', os.environ['CYCLONEDDS_URI'])
 
     robokpy_interfaces_prefix = get_package_prefix('robokpy_interfaces')
     gz_plugin_lib_path = os.path.join(robokpy_interfaces_prefix, 'lib')
@@ -201,6 +202,22 @@ def generate_launch_description():
         if single_arm_mode and robot_description_path_str:
             logger.info(f'[Cell] single-arm mode using external robot description: {robot_description_path_str}')
 
+        multi_arm = len(arms) > 1
+        grasp_arms = arm_namespaces if multi_arm else []
+        if multi_arm:
+            # Route each grasp_attach tool to ITS arm: the arm is the namespace
+            # prefix of the tool's gripper action ("arm2/gripper_action_...").
+            for tool_id, cfg in tools_dict.items():
+                if cfg.get('backend') != 'grasp_attach':
+                    continue
+                prefix = str(cfg.get('gripper_action_name', '')).strip('/').split('/')[0]
+                if prefix in arm_namespaces:
+                    cfg['parent_model'] = f'{prefix}_robot'
+                else:
+                    logger.warn(f'[Cell] {tool_id}: cannot tell which arm it drives '
+                                f'(gripper_action_name has no arm prefix) — grasps use '
+                                f'"{arm_namespaces[0]}"')
+            tools_config = json.dumps(tools_dict)
         arm_includes = []
         for i, a in enumerate(arms):
             arm_launch_arguments = {
@@ -213,8 +230,11 @@ def generate_launch_description():
                 'spawn_y': str(a.get('spawn_y', 0.0)),
                 'spawn_z': str(a.get('spawn_z', 0.0)),
                 'objects_config_path': objects_config_path,
-                # See module docstring — first arm only, unconfirmed assumption.
-                'embed_object_catalog_plugin': 'true' if i == 0 else 'false',
+                # Multi-arm: every arm carries its own DetachableJoint set
+                # (per-arm topics) so any arm can grasp any catalog object.
+                # Single arm: unchanged legacy plugin/topics.
+                'embed_object_catalog_plugin': 'true' if (multi_arm or i == 0) else 'false',
+                'catalog_plugin_arm': a['namespace'] if multi_arm else '',
             }
             # NEW: forward the external-description override args through
             # to arm.launch.py, single-arm mode only (i == 0 and only one
@@ -250,14 +270,15 @@ def generate_launch_description():
 
         grasp_attach_gz_bridge = Node(
             package='ros_gz_bridge', executable='parameter_bridge', name='grasp_attach_gz_bridge',
-            output='screen', arguments=catalog.to_ros_gz_bridge_args(),
+            output='screen', arguments=catalog.to_ros_gz_bridge_args(grasp_arms),
             condition=IfCondition(use_sim),
         )
 
         grasp_attach_bridge_node = Node(
             package='robokpy_controller', executable='grasp_attach_bridge',
             name='grasp_attach_bridge', output='screen',
-            parameters=[{'objects_config_path': objects_config_path}],
+            parameters=[{'objects_config_path': objects_config_path,
+                         'arms': grasp_arms or ['']}],
             condition=IfCondition(use_sim),
         )
 
@@ -274,7 +295,8 @@ def generate_launch_description():
         object_spawner_node = Node(
             package='robokpy_controller', executable='object_spawner', name='object_spawner',
             output='screen',
-            parameters=[{'objects_config_path': objects_config_path, 'world_name': 'motus_world'}],
+            parameters=[{'objects_config_path': objects_config_path, 'world_name': 'motus_world',
+                         'arms': grasp_arms or ['']}],
             condition=IfCondition(use_sim),
         )
 
@@ -347,6 +369,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         rmw_env,
+        dds_uri_env,
         gz_plugin_path_env,
         use_sim_arg,
         launch_rviz_arg,

@@ -122,13 +122,23 @@ class ObjectCatalog:
                 ))
         return instances
 
-    def attach_topic(self, child_model: str) -> str:
+    # --- Per-arm topic naming -------------------------------------------
+    # Single-arm cells (arm == '') keep the original topic names exactly.
+    # In a multi-arm cell every arm's URDF carries its OWN DetachableJoint
+    # per instance, so each needs unique topics: /grasp_attach/<arm>/...
+    def attach_topic(self, child_model: str, arm: str = '') -> str:
+        if arm:
+            return f'/grasp_attach/{arm}/{child_model}/attach'
         return f'/grasp_attach/{child_model}/attach'
 
-    def detach_topic(self, child_model: str) -> str:
+    def detach_topic(self, child_model: str, arm: str = '') -> str:
+        if arm:
+            return f'/grasp_attach/{arm}/{child_model}/detach'
         return f'/grasp_attach/{child_model}/detach'
 
-    def state_topic(self, child_model: str) -> str:
+    def state_topic(self, child_model: str, arm: str = '') -> str:
+        if arm:
+            return f'/grasp_attach/{arm}/{child_model}/state'
         return f'/model/{child_model}/detachable_joint/state'
 
     def lookup_by_model(self, child_model: str) -> ObjectInstance:
@@ -137,31 +147,37 @@ class ObjectCatalog:
                 return inst
         raise KeyError(f'No catalog instance found for child_model "{child_model}"')
 
-    def to_gazebo_plugin_sdf(self) -> str:
+    def to_gazebo_plugin_sdf(self, arm: str = '') -> str:
         lines = ['  <gazebo>']
         for inst in self.all_instances():
+            # Two plugins on the same child_model would both publish to
+            # the default state topic, so a per-arm output_topic is set.
+            output = (f'      <output_topic>{self.state_topic(inst.child_model, arm)}'
+                      f'</output_topic>\n') if arm else ''
             lines.append(
                 f'    <plugin filename="gz-sim-detachable-joint-system" '
                 f'name="gz::sim::systems::DetachableJoint">\n'
                 f'      <parent_link>{self.parent_link}</parent_link>\n'
                 f'      <child_model>{inst.child_model}</child_model>\n'
                 f'      <child_link>{inst.child_link}</child_link>\n'
-                f'      <attach_topic>{self.attach_topic(inst.child_model)}</attach_topic>\n'
-                f'      <detach_topic>{self.detach_topic(inst.child_model)}</detach_topic>\n'
+                f'      <attach_topic>{self.attach_topic(inst.child_model, arm)}</attach_topic>\n'
+                f'      <detach_topic>{self.detach_topic(inst.child_model, arm)}</detach_topic>\n'
+                f'{output}'
                 f'    </plugin>'
             )
         lines.append('  </gazebo>')
         return '\n'.join(lines)
 
-    def to_ros_gz_bridge_args(self) -> list:
+    def to_ros_gz_bridge_args(self, arms=None) -> list:
         args = []
-        for inst in self.all_instances():
-            args.append(
-                f'{self.attach_topic(inst.child_model)}@std_msgs/msg/Empty]gz.msgs.Empty')
-            args.append(
-                f'{self.detach_topic(inst.child_model)}@std_msgs/msg/Empty]gz.msgs.Empty')
-            args.append(
-                f'{self.state_topic(inst.child_model)}@std_msgs/msg/String[gz.msgs.StringMsg')
+        for arm in (list(arms) if arms else ['']):
+            for inst in self.all_instances():
+                args.append(
+                    f'{self.attach_topic(inst.child_model, arm)}@std_msgs/msg/Empty]gz.msgs.Empty')
+                args.append(
+                    f'{self.detach_topic(inst.child_model, arm)}@std_msgs/msg/Empty]gz.msgs.Empty')
+                args.append(
+                    f'{self.state_topic(inst.child_model, arm)}@std_msgs/msg/String[gz.msgs.StringMsg')
         return args
 
     def instance_model_sdf(self, inst: ObjectInstance, color_str: str = '') -> str:
