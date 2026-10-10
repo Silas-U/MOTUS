@@ -793,39 +793,12 @@ Gazebo and the `ros_gz_*` packages are not required when running against real ha
 
 A typical development workflow is:
 
-```text
-Robot description
-       │
-       ▼
-Robot configuration
-       │
-       ▼
-RoboKpy
-(Kinematics + Planning)
-       │
-       ▼
-Motus ROS2 interfaces
-       │
-       ▼
-Arm Executor
-       │
-       ▼
-ros2_control
-       │
-       ▼
-Robot
-```
+<p align="center"><img src="Docs/images/pipeline.svg" width="420" alt="Motus pipeline from robot description to robot"></p>
 
 For a complete cell:
 
-```text
-                 ┌─── Arm 1 ───► Controller ───► Robot
-                 │
-Recipe ─► Cell ──┼─── Arm 2 ───► Controller ───► Robot
-                 │
-                 ├─── Tools
-                 └─── Objects
-```
+<p align="center"><img src="Docs/images/flow.webp" width="420" alt="Motus pipeline from robot description to robot"></p>
+
 
 ## Known issues
 
