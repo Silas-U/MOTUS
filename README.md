@@ -4,6 +4,16 @@
 
 [![ROS2](https://img.shields.io/badge/ROS2-Jazzy-blue)](https://docs.ros.org/en/jazzy/) [![Python](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/) [![Gazebo](https://img.shields.io/badge/Gazebo%20Sim-8.x-orange)](https://gazebosim.org/) [![Status](https://img.shields.io/badge/status-active--development-yellow)]()
 
+<p align="center">
+  <img src="Docs/images/hero-two-arm-cell.png" width="900" alt="Two UR5 arms on a table, each with a cube in front of it">
+  <br><em>Two arms in one Motus cell (Gazebo simulation).</em>
+</p>
+
+<!-- <p align="center">
+  <img src="Docs/images/two-arm-pick-place.gif" width="800" alt="Both arms picking and placing their own cube in parallel">
+  <br><em>The two-arm pick-and-place recipe running end to end.</em>
+</p> -->
+
 Motus is a ROS2 framework for planning, simulating, and executing motion for serial robotic arms.
 
 It is built on top of **RoboKpy**, which provides the underlying kinematics and trajectory generation.
@@ -118,6 +128,11 @@ motus build           # doctor-gated colcon build of the project package
 motus launch --sim    # or --real
 ```
 
+<!-- <p align="center">
+  <img src="Docs/images/cli-workflow.gif" width="800" alt="Terminal recording: motus create project, robot add, tool add, doctor, build, launch">
+  <br><em>From a robot description to a running simulation with the `motus` CLI.</em>
+</p> -->
+
 | Command | What it does |
 |---|---|
 | `motus create project <name>` | Scaffold a project; `--from <path>` imports a robot in the same step |
@@ -231,6 +246,11 @@ motus world table --remove                     # remove the table, restore the f
 
 The tabletop is the `z = 0` plane (the floor is lowered by the table height), so recipe heights do not change. By default the robot base sits 25 % of the length in from the back edge. For a multi-arm cell the default table spans every arm; for a long row of arms, set `--length` yourself. Run `motus build` after changing the world.
 
+<!-- <p align="center">
+  <img src="Docs/images/world-table.png" width="800" alt="A robot on a workbench in Gazebo, next to the same scene on the bare floor">
+  <br><em>`motus world table`: the tabletop is the z = 0 plane, so recipe heights do not change.</em>
+</p> -->
+
 ### `motus cell add-arm | remove-arm | list | sync`
 
 ```bash
@@ -318,6 +338,11 @@ Robots spawn upright and fully stretched, which is a kinematic singularity. Seed
 2. **Ready pose.** If a plan starts from a singular pose, the planner first adds a joint-space S-curve to a `ready_pose` (a bent, non-singular posture) and plans every leg from there. The ready pose is also the IK seed and posture bias while the home pose is singular.
 3. **Elbow-up branch.** A ready pose must be elbow-up and reach in front of the base, because planning from an elbow-down pose collides with the base and table. `arm_executor` rejects a configured `ready_pose` on the wrong branch, warns, and derives a replacement.
 
+<!-- <p align="center">
+  <img src="Docs/images/safe-start.png" width="800" alt="Left: robot upright at a singular pose. Right: the bent, elbow-up ready pose">
+  <br><em>Singular start pose (left) and the ready pose the planner moves to first (right).</em>
+</p> -->
+
 Where the ready pose comes from:
 
 - **The builder** writes `ready_pose` into `robot.yaml` for every robot it generates (`motus_cli/builder/safe_pose.py`).
@@ -361,6 +386,11 @@ grasp_attach_2:
 
 `grasp_attach` supports two mechanisms: `parallel_jaw` (closes to a width scaled to the object's size) and `suction`. Engage and disengage run in the background so the arm does not pause at each pick and place.
 
+<!-- <p align="center">
+  <img src="Docs/images/grasp-attach.png" width="600" alt="A gripper holding a cube in simulation">
+  <br><em>`grasp_attach`: the gripper closes and the cube is welded to the gripper link.</em>
+</p> -->
+
 Gripper settings in `tools.yaml` use plain keys (`action_name`, `joint_name`, `open_position`, `closed_position`, `max_effort`, `action_timeout`, `min_close_ratio`). The older `gripper_`-prefixed spellings are still accepted.
 
 ### Objects
@@ -387,6 +417,11 @@ Recipes can reference a spawned object's pose with `from_spawn_step`, optionally
 ## ROS2 architecture
 
 Motus is split into cell-level and arm-level components.
+
+<!-- <p align="center">
+  <img src="Docs/images/architecture.svg" width="800" alt="Cell-level components shared by arm1 and arm2, and each arm's own node stack">
+  <br><em>Cell-level components (shared) and per-arm stacks (namespaced).</em>
+</p> -->
 
 ### Cell
 
@@ -588,6 +623,11 @@ The full guide, with the pitfalls, is in `Docs/motus_recipe_authoring_guid.MD`.
 
 `Docs/examples/two_arm_pick_place.yaml` is a complete two-arm recipe: both arms home, pick their own cube, carry it across the table, release it, return home, and the cubes are despawned. The arms run in parallel and need no shared lock because each stays on its own side.
 
+<!-- <p align="center">
+  <img src="Docs/images/recipe-dag.svg" width="800" alt="Step graph of the two-arm recipe: spawn, parallel pick and place for each arm, then despawn">
+  <br><em>The recipe as a step graph: the two arms run in parallel between the spawns and the despawns.</em>
+</p> -->
+
 ```bash
 motus cell add-arm arm2 --x 1.6              # second arm, 1.6 m along x
 motus world table --length 3.0               # table long enough for both arms and their cubes
@@ -604,6 +644,11 @@ Design rules behind it (they apply to every multi-arm recipe):
 - **Check the table covers every cube**: arm2 at x = 1.6 with cubes at x = 2.0 needs a table that reaches about x = 2.1 m.
 - **Spawn order fixes the instances.** `spawn_c1` is `cube_large_1`, `spawn_c2` is `cube_large_2`. Any arm can grasp any cube; the recipe just chooses which.
 - **A despawn lists its spawn step** in `depends_on`.
+
+<!-- <p align="center">
+  <img src="Docs/images/behind-vs-front.png" width="800" alt="Left: arm2 reaching behind its base in an awkward pose. Right: arm2 working in front of its base">
+  <br><em>Targets behind the base (left) force an over-the-top configuration; work in front of each arm (right).</em>
+</p> -->
 
 ## Simulation
 
@@ -829,5 +874,3 @@ Motus provides the ROS2 integration and execution layer around it.
 ## License
 
 Motus is released under the [MIT License](LICENSE).
-
-RoboKpy, the kinematics and trajectory-generation library developed alongside Motus, is open source under the same MIT License (`src/robokpy/LICENSE`). This repository contains RoboKpy together with the ROS2 integration layer and the tools for robot configuration, motion execution, simulation, and cell orchestration.
