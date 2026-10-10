@@ -9,10 +9,10 @@
   <br><em>Two arms in one Motus cell (Gazebo simulation).</em>
 </p>
 
-<!-- <p align="center">
+<p align="center">
   <img src="Docs/images/two-arm-pick-place.gif" width="800" alt="Both arms picking and placing their own cube in parallel">
   <br><em>The two-arm pick-and-place recipe running end to end.</em>
-</p> -->
+</p>
 
 Motus is a ROS2 framework for planning, simulating, and executing motion for serial robotic arms.
 
