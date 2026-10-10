@@ -418,10 +418,10 @@ Recipes can reference a spawned object's pose with `from_spawn_step`, optionally
 
 Motus is split into cell-level and arm-level components.
 
-<!-- <p align="center">
+<p align="center">
   <img src="Docs/images/architecture.svg" width="800" alt="Cell-level components shared by arm1 and arm2, and each arm's own node stack">
   <br><em>Cell-level components (shared) and per-arm stacks (namespaced).</em>
-</p> -->
+</p>
 
 ### Cell
 
@@ -623,10 +623,10 @@ The full guide, with the pitfalls, is in `Docs/motus_recipe_authoring_guid.MD`.
 
 `Docs/examples/two_arm_pick_place.yaml` is a complete two-arm recipe: both arms home, pick their own cube, carry it across the table, release it, return home, and the cubes are despawned. The arms run in parallel and need no shared lock because each stays on its own side.
 
-<!-- <p align="center">
+<p align="center">
   <img src="Docs/images/recipe-dag.svg" width="800" alt="Step graph of the two-arm recipe: spawn, parallel pick and place for each arm, then despawn">
   <br><em>The recipe as a step graph: the two arms run in parallel between the spawns and the despawns.</em>
-</p> -->
+</p>
 
 ```bash
 motus cell add-arm arm2 --x 1.6              # second arm, 1.6 m along x
