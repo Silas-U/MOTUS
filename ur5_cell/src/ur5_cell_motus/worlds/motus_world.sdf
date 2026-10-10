@@ -137,16 +137,16 @@ gz service -s /world/empty/create \
     <!-- MOTUS-TABLE-BEGIN (managed by `motus world table`; edit outside this block) -->
     <model name="motus_table">
       <static>true</static>
-      <pose>0.3625 0 0 0 0 0</pose>
+      <pose>1.1625 0 0 0 0 0</pose>
       <link name="link">
       <collision name="top_collision">
         <pose>0 0 -0.02 0 0 0</pose>
-        <geometry><box><size>1.45 1.15 0.04</size></box></geometry>
+        <geometry><box><size>3.05 1.15 0.04</size></box></geometry>
           <surface><friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction></surface>
       </collision>
       <visual name="top_visual">
         <pose>0 0 -0.02 0 0 0</pose>
-        <geometry><box><size>1.45 1.15 0.04</size></box></geometry>
+        <geometry><box><size>3.05 1.15 0.04</size></box></geometry>
         <material>
           <ambient>0.62 0.45 0.28 1</ambient>
           <diffuse>0.62 0.45 0.28 1</diffuse>
@@ -154,11 +154,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="leg1_collision">
-        <pose>0.655 0.505 -0.395 0 0 0</pose>
+        <pose>1.455 0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
       </collision>
       <visual name="leg1_visual">
-        <pose>0.655 0.505 -0.395 0 0 0</pose>
+        <pose>1.455 0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
@@ -167,11 +167,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="leg2_collision">
-        <pose>0.655 -0.505 -0.395 0 0 0</pose>
+        <pose>1.455 -0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
       </collision>
       <visual name="leg2_visual">
-        <pose>0.655 -0.505 -0.395 0 0 0</pose>
+        <pose>1.455 -0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
@@ -180,11 +180,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="leg3_collision">
-        <pose>-0.655 0.505 -0.395 0 0 0</pose>
+        <pose>-1.455 0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
       </collision>
       <visual name="leg3_visual">
-        <pose>-0.655 0.505 -0.395 0 0 0</pose>
+        <pose>-1.455 0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
@@ -193,11 +193,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="leg4_collision">
-        <pose>-0.655 -0.505 -0.395 0 0 0</pose>
+        <pose>-1.455 -0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
       </collision>
       <visual name="leg4_visual">
-        <pose>-0.655 -0.505 -0.395 0 0 0</pose>
+        <pose>-1.455 -0.505 -0.395 0 0 0</pose>
         <geometry><box><size>0.06 0.06 0.71</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
@@ -207,11 +207,11 @@ gz service -s /world/empty/create \
       </visual>
       <collision name="rail_front_collision">
         <pose>0 0.505 -0.08 0 0 0</pose>
-        <geometry><box><size>1.31 0.03 0.08</size></box></geometry>
+        <geometry><box><size>2.91 0.03 0.08</size></box></geometry>
       </collision>
       <visual name="rail_front_visual">
         <pose>0 0.505 -0.08 0 0 0</pose>
-        <geometry><box><size>1.31 0.03 0.08</size></box></geometry>
+        <geometry><box><size>2.91 0.03 0.08</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
           <diffuse>0.22 0.23 0.26 1</diffuse>
@@ -220,11 +220,11 @@ gz service -s /world/empty/create \
       </visual>
       <collision name="rail_back_collision">
         <pose>0 -0.505 -0.08 0 0 0</pose>
-        <geometry><box><size>1.31 0.03 0.08</size></box></geometry>
+        <geometry><box><size>2.91 0.03 0.08</size></box></geometry>
       </collision>
       <visual name="rail_back_visual">
         <pose>0 -0.505 -0.08 0 0 0</pose>
-        <geometry><box><size>1.31 0.03 0.08</size></box></geometry>
+        <geometry><box><size>2.91 0.03 0.08</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
           <diffuse>0.22 0.23 0.26 1</diffuse>
@@ -232,11 +232,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="rail_left_collision">
-        <pose>0.655 0 -0.08 0 0 0</pose>
+        <pose>1.455 0 -0.08 0 0 0</pose>
         <geometry><box><size>0.03 1.01 0.08</size></box></geometry>
       </collision>
       <visual name="rail_left_visual">
-        <pose>0.655 0 -0.08 0 0 0</pose>
+        <pose>1.455 0 -0.08 0 0 0</pose>
         <geometry><box><size>0.03 1.01 0.08</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>
@@ -245,11 +245,11 @@ gz service -s /world/empty/create \
         </material>
       </visual>
       <collision name="rail_right_collision">
-        <pose>-0.655 0 -0.08 0 0 0</pose>
+        <pose>-1.455 0 -0.08 0 0 0</pose>
         <geometry><box><size>0.03 1.01 0.08</size></box></geometry>
       </collision>
       <visual name="rail_right_visual">
-        <pose>-0.655 0 -0.08 0 0 0</pose>
+        <pose>-1.455 0 -0.08 0 0 0</pose>
         <geometry><box><size>0.03 1.01 0.08</size></box></geometry>
         <material>
           <ambient>0.22 0.23 0.26 1</ambient>

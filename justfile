@@ -24,15 +24,8 @@ single-arm-sim-custom arm_type controllers_yaml:
 
 # --- Multi-arm cell ---
 
-# Multi-arm cell, sim, arms defined in config/cell_arms.yaml
-cell-sim:
-    ros2 launch {{pkg}} cell.launch.py use_sim:=true arms_config:=config/cell_arms.yaml
-
-# Multi-arm cell, real hardware
-cell-real:
-    ros2 launch {{pkg}} cell.launch.py use_sim:=false arms_config:=config/cell_arms.yaml
-
-# Multi-arm cell, sim, custom arms config path
+# Multi-arm cell, sim, from an arms file (a Motus project's is config/cell_arms.yaml;
+# create it with `motus cell add-arm`)
 cell-sim-custom arms_config:
     ros2 launch {{pkg}} cell.launch.py use_sim:=true arms_config:={{arms_config}}
 

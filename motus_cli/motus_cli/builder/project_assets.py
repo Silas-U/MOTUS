@@ -85,7 +85,7 @@ def check_world_xml(path: Path) -> str | None:
 
 
 def _rewrite_launch_wrapper(project_root: Path, manifest: dict, pkg_dir: Path) -> str | None:
-    """Regenerate the launch wrapper when it predates world_file/recipes_dir, or when it
+    """Regenerate the launch wrapper when it predates world_file/recipes_dir/arms_config, or when it
     points at the wrong entry xacro (self-heals a previously mis-generated file).
     The entry xacro is always `<project_name>.urdf.xacro` (see robot_add.py) -- never guess
     from a directory listing: urdf/ also holds copied tool macros."""
@@ -95,7 +95,7 @@ def _rewrite_launch_wrapper(project_root: Path, manifest: dict, pkg_dir: Path) -
         return None
     entry_name = f"{name}.urdf.xacro"
     text = launch_path.read_text(encoding="utf-8")
-    if "world_file" in text and f"'{entry_name}'" in text:
+    if "world_file" in text and "arms_config" in text and f"'{entry_name}'" in text:
         return None
     if not (pkg_dir / "urdf" / entry_name).is_file():
         raise ProjectAssetsError(f"urdf/{entry_name} not found -- run `motus robot add <path>` first.")

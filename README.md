@@ -19,15 +19,19 @@ Motus can be used with Gazebo simulation or real hardware, using the same planni
 - [Synopsis](#synopsis)
 - [Getting going](#getting-going)
 - [Motus CLI: robot projects](#motus-cli-robot-projects)
+- [Command reference](#command-reference)
 - [Robot models](#robot-models)
 - [Motion planning](#motion-planning)
 - [Safe start and elbow-up posture](#safe-start-and-elbow-up-posture)
 - [Tools and objects](#tools-and-objects)
 - [ROS2 architecture](#ros2-architecture)
 - [Recipes](#recipes)
+- [System modes](#system-modes)
 - [Simulation](#simulation)
 - [Multi-arm cells](#multi-arm-cells)
 - [Safety and manual control](#safety-and-manual-control)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
 - [Requirements](#requirements)
 - [Known issues](#known-issues)
 - [Contributing](#contributing)
@@ -47,7 +51,9 @@ Motus provides ROS2 components for:
 - Tool and I/O actions, including gripper attachment from a manufacturer description
 - Object spawning and attachment in simulation
 - Recipe-based task execution with offline validation
-- Single-arm and multi-arm operation
+- Single-arm and multi-arm operation, with per-arm grasp tools so any arm can pick any object
+- Automatic arm mode handling (ACTIVE before a recipe, optional PLANNER restore afterwards)
+- Recipe cancel that releases held objects and despawns what the cell spawned
 - Gazebo simulation and real hardware execution
 
 The motion planning layer is provided by RoboKpy. Motus handles the ROS2 side of the system: nodes, interfaces, execution, controllers, tools, simulation, and coordination between multiple components.
@@ -76,7 +82,6 @@ Common development and launch commands are provided through the `justfile`.
 
 ```bash
 just single-arm-sim
-just cell-sim
 just ps
 ```
 
@@ -133,6 +138,130 @@ What the importer handles for you:
 - **Upright spawn pose.** The robot spawns upright and straight, clear of the floor, and `home_pose` in `robot.yaml` stays editable.
 - **Ready pose.** A bent, well-conditioned `ready_pose` is written next to `home_pose` (see [Safe start](#safe-start-and-elbow-up-posture)).
 - **Tool profiles.** `--profile robotiq_2f_85` supplies known gripper settings. They never override what the description itself says.
+
+## Command reference
+
+Every `motus` command, with an example. Run them from the project folder (the one that holds `motus.json`) unless noted. `motus --help` and `motus <command> --help` list the options.
+
+### Project layout
+
+`motus create project my_cell` produces a workspace with one thin ROS2 package:
+
+```text
+my_cell/
+├── motus.json                 # what the CLI remembers: xacro args, tools, parent workspace
+└── src/my_cell_motus/
+    ├── config/                # robot.yaml, controllers.yaml, tools.yaml, objects.yaml,
+    │                          #   cell_arms.yaml (multi-arm cells)
+    ├── urdf/  meshes/         # the imported robot description
+    ├── launch/                # my_cell.launch.py wrapper around the core cell launch
+    ├── recipes/               # your recipes (after `motus world init`)
+    └── worlds/                # your Gazebo world (after `motus world init`)
+```
+
+### `motus create project`
+
+```bash
+motus create project my_cell                                  # empty project in ./my_cell
+motus create project my_cell --dest ~/robots                  # create it elsewhere
+motus create project ur_cell --from /path/to/Universal_Robots_ROS2_Description \
+  --arg ur_type=ur5e                                          # import a robot in the same step
+```
+
+`--arg NAME=VALUE` is forwarded to xacro (repeatable) and is ignored without `--from`.
+
+### `motus robot add`
+
+Imports or replaces the project's robot description. Everything it needs from the description is derived, so any serial arm works.
+
+```bash
+motus robot add /path/to/Universal_Robots_ROS2_Description \
+  --arg name=ur5e --arg ur_type=ur5e \
+  --arg joint_limit_params=/path/to/config/ur5e/joint_limits.yaml \
+  --arg kinematics_params=/path/to/config/ur5e/default_kinematics.yaml \
+  --arg physical_params=/path/to/config/ur5e/physical_parameters.yaml \
+  --arg visual_params=/path/to/config/ur5e/visual_parameters.yaml
+```
+
+### `motus tool add | list | remove`
+
+```bash
+# a known gripper profile (Robotiq 2F-85), TCP 0.145 m out of the flange
+motus tool add /path/to/robotiq_description --profile robotiq_2f_85 \
+  --id gripper_1 --replace --align-approach --tcp-offset 0 0 0.145
+
+# any xacro gripper macro, with the values you know
+motus tool add /path/to/my_gripper_description --macro my_gripper \
+  --mount tool0 --tcp-offset 0 0 0.12 --open 0.0 --closed 0.04 --max-effort 40 \
+  --arg stroke=0.08
+
+motus tool list                 # id, kind, mount link, driver joint and TCP link of each tool
+motus tool remove gripper_1     # remove the tool and its managed config
+```
+
+`motus tool add` writes two entries in `tools.yaml`: the real gripper (`gripper_1`) and its simulation grasp sidekick (`grasp_attach_1`). The grasp tool carries `parent_model: arm1_robot`, the Gazebo model it welds objects to. After `--replace`, run `motus cell sync` so the extra arms' tools follow arm1's.
+
+| Option | Meaning |
+|---|---|
+| `--profile` | Known tool settings, e.g. `robotiq_2f_85`. Never override what the description says |
+| `--id` | Tool id used in recipes (default `gripper_1`) |
+| `--macro`, `--mount`, `--tcp` | Xacro macro, link to mount on (default the arm's tip), TCP link |
+| `--tcp-offset X Y Z` | Grasp point in the flange frame (metres, +Z out of the flange); creates a TCP frame if there is none |
+| `--mount-rpy R P Y` | Rotate the tool on the mount (radians) |
+| `--approach-offset` | Grasp height above the object centre |
+| `--align-approach` | Rotate the tool so the fingertips point out of the flange |
+| `--primary-joint`, `--open`, `--closed`, `--max-effort` | Driver joint and its limits |
+| `--arg NAME=VALUE` | Macro parameter (repeatable) |
+| `--replace` | Redo an existing tool of the same id |
+
+### `motus world init | status | diff | table`
+
+```bash
+motus world init                    # copy the core world into the project and create recipes/
+motus world init --force            # replace the project world (a .bak is kept)
+motus world status                  # is the project world in sync with the core world?
+motus world diff                    # show the differences
+
+motus world table                              # workbench sized from the arm's reach
+motus world table --length 3.0 --width 1.2     # explicit size (metres, along x and y)
+motus world table --length 3.0 --center 1.1 0  # explicit centre
+motus world table --height 0.8 --thickness 0.05
+motus world table --remove                     # remove the table, restore the floor
+```
+
+The tabletop is the `z = 0` plane (the floor is lowered by the table height), so recipe heights do not change. By default the robot base sits 25 % of the length in from the back edge. For a multi-arm cell the default table spans every arm; for a long row of arms, set `--length` yourself. Run `motus build` after changing the world.
+
+### `motus cell add-arm | remove-arm | list | sync`
+
+```bash
+motus cell add-arm arm2 --x 1.6             # arm2: a copy of the project's robot, base at x = 1.6 m
+motus cell add-arm arm3 --x 3.2 --y 0.0 --z 0.0
+motus cell list                             # arms and their base poses
+motus cell remove-arm arm3
+motus cell sync                             # rebuild the extra arms' tools from arm1's
+```
+
+`add-arm` writes `config/cell_arms.yaml`, generates the extra arm's tools (`gripper_2`, `grasp_attach_2`, ...) with the right `parent_model` for that arm (`arm2_robot`), writes a starting recipe `recipes/multi_arm_example.yaml`, and wires the project's launch wrapper. It refuses bases closer than the robot's footprint and warns when the workspaces overlap (use a shared `resources:` lock, see [Recipes](#recipes)). `add-arm` does not resize an existing table: check the table covers the new arm (`motus world table --length ...`).
+
+### `motus doctor | build | launch`
+
+```bash
+motus doctor --verbose     # validate the project on disk; changes nothing
+motus build                # doctor, then colcon build the project package
+motus launch --sim         # Gazebo simulation (default)
+motus launch --real        # real hardware
+```
+
+### ROS-side commands
+
+| Command | What it does |
+|---|---|
+| `ros2 run robokpy_controller run_recipe <recipe.yaml>` | Load and start a recipe: a path, or a file name found in the project's `recipes/`. The orchestrator sets the arms to ACTIVE itself |
+| `ros2 run robokpy_controller run_recipe --cancel` | Stop the running recipe, release held objects, despawn spawned objects, return the cell to idle |
+| `ros2 run robokpy_controller preflight_recipe --ros-args --params-file <robokpy_base.yaml> --params-file <robot.yaml> -p recipe_path:=<recipe.yaml>` | Validate a recipe without moving anything: compile, group runs, resolve poses, and plan every run with the real IK |
+| `ros2 service call arm1/set_system_mode robokpy_interfaces/srv/SystemMode "{new_mode: 'ACTIVE'}"` | Set one arm's [system mode](#system-modes) by hand |
+| `ros2 topic echo /arm2/joint_states --once` | Joint positions of one arm |
+| `just single-arm-sim`, `just cell-sim-custom <arms.yaml>`, `just run-recipe <recipe> [arm]`, `just activate [arm]`, `just ps` | Shortcuts from the `justfile` (`just --list` shows all) |
 
 ## Robot models
 
@@ -220,6 +349,16 @@ The checks are kinematic only (joint frames and tool above the floor). They do n
 | `mock` | Stand-in when there is no hardware |
 | `grasp_attach` | Simulation grasp: closes the gripper and welds the object to the gripper link |
 
+Every `grasp_attach` tool names the arm it belongs to with `parent_model` (`arm1_robot`, `arm2_robot`, ...), because each arm has its own gripper link in Gazebo. `motus tool add` writes `parent_model: arm1_robot`, and `motus cell add-arm` rewrites it for each new arm. Without it the weld goes to whichever arm `objects.yaml` names (arm1), and the object sticks to the wrong gripper.
+
+```yaml
+grasp_attach_2:
+  backend: grasp_attach
+  parent_model: arm2_robot            # the arm this tool grasps with
+  service_name: /grasp_attach
+  action_name: arm2/gripper_action_controller/gripper_cmd
+```
+
 `grasp_attach` supports two mechanisms: `parallel_jaw` (closes to a width scaled to the object's size) and `suction`. Engage and disengage run in the background so the arm does not pause at each pick and place.
 
 Gripper settings in `tools.yaml` use plain keys (`action_name`, `joint_name`, `open_position`, `closed_position`, `max_effort`, `action_timeout`, `min_close_ratio`). The older `gripper_`-prefixed spellings are still accepted.
@@ -240,6 +379,8 @@ grasp_attach_bridge  ──►  object_pose_resolver
         ▼
 tool_action_server (grasp_attach)
 ```
+
+Objects are handed out in spawn order: the first `cube_large` spawned is `cube_large_1`, the second `cube_large_2`, and a `tool` step grasps one by name (`command: "attach:cube_large_2"`). Every instance is welded to the arms at spawn, and the spawner detaches it again; it waits for the detach confirmation and re-sends the request up to four times before it logs an error.
 
 Recipes can reference a spawned object's pose with `from_spawn_step`, optionally with `use_spawn_orientation`, so grasp poses follow where an object was actually spawned. The grasp approach offset comes from the catalog.
 
@@ -300,17 +441,15 @@ This keeps state, motion commands, controllers, and execution state isolated bet
 
 ### Launch configuration
 
-The arms in a cell are defined in YAML.
+The arms in a cell are defined in YAML, and that file belongs to **your project**, not to the core package. Create a multi-arm cell from a project folder:
 
-The current example configuration is:
-
-```text
-config/cell_arms.yaml
+```bash
+motus cell add-arm arm2 --x 1.2     # adds arm2 (a copy of the project's robot) at x = 1.2 m
+motus cell list
+motus build && motus launch
 ```
 
-An arm entry contains information such as its namespace, robot type, and spawn position.
-
-The cell launch file uses this configuration to create the required arm instances.
+This writes `config/cell_arms.yaml` (namespace and spawn pose per arm), generates each extra arm's tool entries (`gripper_2`, `grasp_attach_2`, ...) from arm1's, creates a starting recipe `recipes/multi_arm_example.yaml`, and makes the project's launch wrapper pass the file to the cell. The core `cell.launch.py` only reads an `arms_config` it is given; it ships no multi-arm example of its own.
 
 ## Recipes
 
@@ -348,20 +487,13 @@ Motion steps are passed to the motion planning layer, while tool, I/O, and objec
 
 Consecutive motion steps can be blended into a continuous trajectory where the motion constraints allow it.
 
-To execute a recipe, first set the target arm to `ACTIVE`:
+### Running recipes
 
 ```bash
-ros2 service call \
-  arm1/set_system_mode \
-  robokpy_interfaces/srv/SystemMode \
-  "{new_mode: 'ACTIVE'}"
+ros2 run robokpy_controller run_recipe two_arm_pick_place.yaml
 ```
 
-Then:
-
-```bash
-ros2 run robokpy_controller run_recipe test0.yaml
-```
+`run_recipe` loads the recipe and starts it. Before the first step the orchestrator sets every arm to `ACTIVE` (see [System modes](#system-modes)), so there is no manual mode call. Validate a recipe without moving anything with `preflight_recipe` (see the [command reference](#ros-side-commands)).
 
 A recipe can be run again straight away; legs the arm is already at are skipped.
 
@@ -376,6 +508,102 @@ or:
 ```bash
 just run-recipe test0.yaml
 ```
+
+### Recipe examples
+
+A recipe is a flat list of steps. Each step has an `id`, a `type` and a `depends_on` list. Poses are in the **arm's own base frame**.
+
+```yaml
+recipe_id: single_pick
+steps:
+- id: spawn_c1                 # put a cube in the world
+  type: spawn
+  operation: spawn
+  type_id: cube_large
+  x: 0.40
+  y: 0.25
+  z: 0.03
+  color: red
+  depends_on: []
+
+- id: home                     # joint-space move (js): smooth, may sweep
+  type: move
+  arm_id: arm1
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.425, y: 0.0, z: 0.383, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [spawn_c1]
+
+- id: down                     # Cartesian move (ts): straight line, for approaches
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.40, y: 0.25, z: 0.0924, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [home]
+
+- id: grip                     # weld the cube to this arm's gripper
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_large_1"
+  recovery: retry
+  max_retries: 2
+  depends_on: [down]
+
+- id: settle
+  type: wait
+  duration_sec: 0.5
+  depends_on: [grip]
+
+- id: lift
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.40, y: 0.25, z: 0.3249, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [settle]
+
+- id: drop
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  depends_on: [lift]
+
+- id: despawn_c1               # clean up
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_c1
+  depends_on: [drop, spawn_c1]   # a despawn must list its spawn step
+```
+
+Rules that matter in practice:
+
+- **Consecutive moves of one arm are planned as one run** and blended. A `wait` step breaks a run, so put one around every grasp and release.
+- **A step that uses another step's result** (`from_spawn_step`) must list that step in `depends_on` as a plain, full-completion dependency.
+- **`resources: [name]`** on a step takes a named lock while it runs; two arms share a zone by using the same name (see `recipes/multi_arm_example.yaml` after `motus cell add-arm`).
+- **Move poses** use `traj_method: ts` for straight-line approach and retreat, and `js` (with `traj_type: scurve`) for long repositioning.
+- **Progress dependencies** (`{progress: step_id, threshold: 0.85}`) start a step while the previous motion is still finishing, e.g. closing a gripper at the end of a descent.
+
+The full guide, with the pitfalls, is in `Docs/motus_recipe_authoring_guid.MD`.
+
+#### Two-arm pick and place
+
+`Docs/examples/two_arm_pick_place.yaml` is a complete two-arm recipe: both arms home, pick their own cube, carry it across the table, release it, return home, and the cubes are despawned. The arms run in parallel and need no shared lock because each stays on its own side.
+
+```bash
+motus cell add-arm arm2 --x 1.6              # second arm, 1.6 m along x
+motus world table --length 3.0               # table long enough for both arms and their cubes
+motus build
+motus launch --sim
+# in another terminal, from the project folder:
+cp /path/to/motus/Docs/examples/two_arm_pick_place.yaml src/<project>_motus/recipes/
+ros2 run robokpy_controller run_recipe two_arm_pick_place.yaml
+```
+
+Design rules behind it (they apply to every multi-arm recipe):
+
+- **Put each arm's work in front of its own base.** Here `cube_large_1` is at world x = 0.40 for arm1 and `cube_large_2` at x = 2.00 for arm2, which is x = 0.40 in arm2's base frame, so both arms use the same poses. Targets behind a base force the IK onto an over-the-top branch (shoulder lift past -pi) with large shoulder-pan and wrist-3 swings, and the arm flails on the way back to home.
+- **Check the table covers every cube**: arm2 at x = 1.6 with cubes at x = 2.0 needs a table that reaches about x = 2.1 m.
+- **Spawn order fixes the instances.** `spawn_c1` is `cube_large_1`, `spawn_c2` is `cube_large_2`. Any arm can grasp any cube; the recipe just chooses which.
+- **A despawn lists its spawn step** in `depends_on`.
 
 ## Simulation
 
@@ -428,9 +656,24 @@ Cell
 
 The goal is to keep the arm implementation reusable while allowing the cell layer to coordinate multiple robots.
 
-**Grasping with several arms.** In a multi-arm cell every arm gets its own set of Gazebo attach joints, so any arm can pick any catalog object. Each arm has its own grasp tool: `grasp_attach_1` welds to `arm1`'s gripper and `grasp_attach_2` to `arm2`'s (the launch file picks the arm from the arm prefix of the tool's `gripper_action_name`). An object held by one arm cannot be grasped by another until it is released.
+**Grasping with several arms.** In a multi-arm cell every arm gets its own set of Gazebo attach joints for every catalog object, so any arm can pick any object. Each arm has its own grasp tool: `grasp_attach_1` welds to `arm1`'s gripper and `grasp_attach_2` to `arm2`'s, through the tool's explicit `parent_model` (written by `motus tool add` / `motus cell add-arm`). An object held by one arm cannot be grasped by another until it is released.
 
-Motion `target_pose` values are in the arm's own base frame, so for an arm mounted at world `x = 1.2` subtract 1.2 from a world x. `from_spawn_step` currently yields world coordinates and is only correct for an arm at the world origin. A working example is `recipes/test_two_arm_pick_place.yaml`.
+Motion `target_pose` values are in the arm's own base frame, so for an arm mounted at world `x = 1.2` subtract 1.2 from a world x. `from_spawn_step` currently yields world coordinates and is only correct for an arm at the world origin. Your project's `recipes/multi_arm_example.yaml` (from `motus cell add-arm`) shows the layout; the arms take turns in a shared zone through a `shared_zone` resource.
+
+## System modes
+
+Each arm has a system mode. In `PLANNER` mode the arm publishes a *virtual* joint state (what interactive marker control plans against); in `ACTIVE` mode it publishes the real joint state, which recipes need.
+
+- **Before a recipe starts**, the orchestrator sets every arm to `ACTIVE` and logs `[DAG] arms set to ACTIVE mode: ['arm1', 'arm2']`. An arm that cannot be reached or refuses is logged and left to the next layer.
+- **Per run**, each `arm_executor` also makes sure its own arm is `ACTIVE` before it plans (`_ensure_active_mode`), so a run is safe even when started from somewhere other than `run_recipe`.
+- **After a recipe**, arms stay `ACTIVE` by default. The orchestrator parameter `restore_planner_mode` (default `false`) switches the arms back to `PLANNER` when a recipe finishes, aborts or is cancelled, for setups that want interactive marker control back automatically. It is read once at start-up.
+
+Set a mode by hand at any time:
+
+```bash
+ros2 service call arm1/set_system_mode robokpy_interfaces/srv/SystemMode "{new_mode: 'PLANNER'}"
+ros2 service call arm2/set_system_mode robokpy_interfaces/srv/SystemMode "{new_mode: 'ACTIVE'}"
+```
 
 ## Safety and manual control
 
@@ -438,6 +681,49 @@ Motion `target_pose` values are in the arm's own base frame, so for an arm mount
 - **`joint_jog_server`** provides direct manual joint control (calibration, teaching, override), outside the recipe DAG.
 - **`resource_lock`** is a plain named mutex for shared zones or tools between arms.
 - **Vision** steps are a foundation only; there is no production vision backend yet.
+
+## Testing
+
+The unit tests run without ROS (the ROS modules are stubbed):
+
+```bash
+# CLI: project scaffolding, tools, cell arms, world table, safe pose
+cd motus_cli && python3 -m pytest -q tests
+
+# controller: cancel, active-mode guard, multi-arm grasp wiring
+cd src/robokpy_controller
+PYTHONPATH=../robokpy python3 -m pytest -q \
+  test/test_cancel_recipe.py test/test_active_mode_guard.py test/test_multi_arm_grasp.py
+```
+
+`motus_cli/tests/test_tool_add.py::test_unbuilt_vendor_package_with_find_is_resolved` needs `ament_index_python`, so it only passes in a sourced ROS environment.
+
+## Troubleshooting
+
+| Symptom | Cause and fix |
+|---|---|
+| Both cubes attach to arm1 | A `grasp_attach_N` tool lacks `parent_model: armN_robot`. Add it, or re-run `motus cell sync` |
+| `"cube_large_2" belongs to arm ...` | An old build with one owner arm per cube. Any arm can grasp any cube now; update `robokpy_controller` |
+| `... already held by arm armX` | The cube is still welded to another arm: release it first |
+| An arm swings into an awkward pose after placing | Its targets are behind the base. Move the work in front of the arm (see [Two-arm pick and place](#two-arm-pick-and-place)); check with `preflight_recipe` |
+| `IK failure along blended path` | A pose is unreachable from the previous one. Run `preflight_recipe`, shorten the move, or add an intermediate pose |
+| `no attach confirmation from DetachableJoint` | The spawner could not detach the cube at spawn. It retries; if it persists, restart the launch cleanly (below) |
+| Gazebo never comes up, `spawn_robot` loops on `Requesting list of world names` | Leftover processes from an earlier run |
+| Recipe load fails: `has from_spawn_step=... but does not list it` | Add the spawn step to the despawn's `depends_on` |
+
+Stop a launch with **Ctrl+C**. `Ctrl+Z` only suspends it and leaves Gazebo and ROS running. To clean up after a bad stop:
+
+```bash
+pkill -9 -f "gz sim"; pkill -9 -f ros2; ros2 daemon stop
+```
+
+Useful checks:
+
+```bash
+gz topic -i -t /grasp_attach/arm2/cube_large_2/attach   # who publishes / subscribes
+grep -n "parent_model" src/<project>_motus/config/tools.yaml
+ls /tmp/robot_sim_gz_arm*.urdf                          # the URDF each arm was spawned from
+```
 
 ## Requirements
 

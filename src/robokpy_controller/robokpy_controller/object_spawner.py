@@ -300,12 +300,22 @@ class ObjectSpawner(Node):
                     f'after this point')
             self._detach_pubs[key].publish(Empty())
 
-        # Confirm the detaches landed too (best-effort, see above).
+        # Confirm the detaches landed too. A detach published once can be
+        # dropped (bridge/plugin race); an arm whose joint stays welded drags
+        # the cube along with it, so re-publish until the plugin reports
+        # "detached" (bounded: 4 tries).
         for key in keys:
-            if not self._wait_for_clear(self._attach_confirmed[key], timeout=1.0):
+            for attempt in range(4):
+                if self._wait_for_clear(self._attach_confirmed[key], timeout=1.0):
+                    break
                 self.get_logger().warn(
                     f'"{child_model}": no detach confirmation ({key[0] or "single-arm"}) '
-                    f'within 1.0s after publishing — proceeding anyway')
+                    f'within 1.0s — re-publishing detach (try {attempt + 2}/5)')
+                self._detach_pubs[key].publish(Empty())
+            else:
+                self.get_logger().error(
+                    f'"{child_model}": still no detach confirmation from '
+                    f'({key[0] or "single-arm"}) — the cube may be welded to that arm')
 
         response.success = True
         response.message = f'Spawned "{child_model}" at ' \

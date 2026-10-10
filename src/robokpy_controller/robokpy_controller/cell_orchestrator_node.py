@@ -34,7 +34,8 @@ from geometry_msgs.msg import Pose
 
 from robokpy_interfaces.action import ExecuteToolOp, ExecuteVisionOp, ExecuteMoveStep
 from robokpy_interfaces.msg import CellState as CellStateMsg
-from robokpy_interfaces.srv import ResumeExecution, LoadRecipe, SpawnObject, DespawnObject
+from robokpy_interfaces.srv import (
+    ResumeExecution, LoadRecipe, SpawnObject, DespawnObject, SystemMode)
 
 from .recipe_compiler import RecipeCompiler, RecipeValidationError
 from .object_catalog import ObjectCatalog, ObjectInstance
@@ -116,6 +117,16 @@ class CellOrchestrator(Node):
         # tool_action_server's release_all: opens grippers / detaches held objects
         self._release_client = self.create_client(
             Trigger, 'release_all', callback_group=self._cb_group)
+        # Each arm's arm_executor switches its arm to ACTIVE mode for a run (PLANNER
+        # publishes a virtual joint state). When the recipe ends, put the arms back
+        # in PLANNER so interactive marker control works again.
+        self.declare_parameter('restore_planner_mode', False)
+        self._restore_planner = bool(self.get_parameter('restore_planner_mode').value)
+        self._mode_clients = {
+            ns: self.create_client(
+                SystemMode, f'/{ns}/set_system_mode', callback_group=self._cb_group)
+            for ns in arm_namespaces
+        }
         # models this orchestrator spawned and has not despawned (cleaned up on cancel)
         self._spawned: set[str] = set()
 
@@ -177,7 +188,11 @@ class CellOrchestrator(Node):
         response.content_hash = content_hash
         return response
 
-    def _start_recipe_cb(self, request, response):
+    async def _start_recipe_cb(self, request, response):
+        with self._lock:
+            ready = self.state == CellState.PLANNING
+        if ready:
+            await self._activate_arms()
         if not self.start():
             response.success = False
             response.message = f'No recipe ready (state={self.state.value})'
@@ -185,6 +200,33 @@ class CellOrchestrator(Node):
         response.success = True
         response.message = f'Started {self._active_recipe_id}'
         return response
+
+    async def _activate_arms(self):
+        """Put every arm in ACTIVE mode before the recipe starts (PLANNER publishes a
+        virtual joint state). Best effort: an arm that cannot be reached or refuses is
+        logged and left to arm_executor's own per-run ACTIVE guard."""
+        pending = {}
+        for ns, client in self._mode_clients.items():
+            if not client.service_is_ready():
+                self.get_logger().warn(
+                    f'[DAG] {ns}: set_system_mode unavailable; relying on arm_executor guard')
+                continue
+            req = SystemMode.Request()
+            req.new_mode = 'ACTIVE'
+            pending[ns] = client.call_async(req)
+        done = []
+        for ns, fut in pending.items():
+            try:
+                r = await self._await_timeout(fut, 5.0)
+            except TimeoutError:
+                self.get_logger().warn(f'[DAG] {ns}: ACTIVE mode request timed out')
+                continue
+            if r.success:
+                done.append(ns)
+            else:
+                self.get_logger().warn(f'[DAG] {ns}: ACTIVE mode refused: {r.message}')
+        if done:
+            self.get_logger().info(f'[DAG] arms set to ACTIVE mode: {sorted(done)}')
 
     async def _cancel_recipe_cb(self, request, response):
         ok, message = self.cancel()
@@ -257,6 +299,32 @@ class CellOrchestrator(Node):
             if timer is not None:
                 self.destroy_timer(timer)
 
+    def _restore_planner_mode(self, reason: str):
+        """Ask every arm to go back to PLANNER mode. Fire-and-forget: never blocks the
+        DAG, and an unreachable arm only logs a warning."""
+        if not self._restore_planner:
+            return
+        for ns, client in self._mode_clients.items():
+            if not client.service_is_ready():
+                self.get_logger().warn(
+                    f'[DAG] {ns}: set_system_mode unavailable; arm left in its current mode')
+                continue
+            req = SystemMode.Request()
+            req.new_mode = 'PLANNER'
+            future = client.call_async(req)
+            future.add_done_callback(
+                lambda f, ns=ns: self._on_mode_restored(ns, f))
+        self.get_logger().info(f'[DAG] {reason}: switching arms back to PLANNER mode')
+
+    def _on_mode_restored(self, ns: str, future):
+        try:
+            resp = future.result()
+        except Exception as exc:
+            self.get_logger().warn(f'[DAG] {ns}: PLANNER mode request failed: {exc}')
+            return
+        if not resp.success:
+            self.get_logger().warn(f'[DAG] {ns}: PLANNER mode refused: {resp.message}')
+
     def cancel(self) -> tuple[bool, str]:
         """Operator cancel: stop in-flight goals and return the cell to IDLE so a
         new recipe can be loaded. Late results from the cancelled run are ignored
@@ -298,6 +366,7 @@ class CellOrchestrator(Node):
                 self.get_logger().warn(f'[DAG] cancel: goal cancel failed: {exc}')
         self.get_logger().warn(
             f'[DAG] recipe {recipe_id or "(none)"} cancelled by operator; cell is IDLE')
+        self._restore_planner_mode('cancel')
         return True, f'Cancelled {recipe_id or "recipe"}; cell is IDLE'
 
     def load_recipe(self, steps: list, recipe_id: str = ''):
@@ -865,11 +934,14 @@ class CellOrchestrator(Node):
                 self._in_degree[dep_id] -= 1
                 if self._in_degree[dep_id] == 0:
                     to_dispatch.append(dep_id)
-            if len(self._completed) == len(self._steps):
+            finished = len(self._completed) == len(self._steps)
+            if finished:
                 self.state = CellState.IDLE
                 self._publish_cell_state()
         for dep_id in to_dispatch:
             self._dispatch(dep_id)
+        if finished:
+            self._restore_planner_mode('recipe finished')
 
     def _on_step_failed(self, step_id: str):
         self.get_logger().error(f'[DAG] {step_id}: FAILED')
@@ -902,6 +974,7 @@ class CellOrchestrator(Node):
             self._publish_cell_state(last_error=last_error)
         for handle in handles:
             handle.cancel_goal_async()
+        self._restore_planner_mode('recipe aborted')
 
     def _safety_cb(self, msg: Bool):
         if not msg.data:

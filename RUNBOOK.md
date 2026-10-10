@@ -7,7 +7,7 @@ whenever you fix something you'd otherwise re-debug from scratch next time.
 
 ```
 just single-arm-sim     # one arm, Gazebo, RViz — the default dev loop
-just cell-sim           # multi-arm, from config/cell_arms.yaml
+motus cell add-arm arm2 --x 1.2   # multi-arm: defined in YOUR project, then `motus launch`
 just ps                 # sanity-check nodes after launch
 just tf-frames          # sanity-check TF tree
 ```

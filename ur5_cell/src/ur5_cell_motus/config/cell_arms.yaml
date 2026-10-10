@@ -1,0 +1,12 @@
+# cell_arms.yaml -- the arms of this project's cell. Managed by `motus cell`
+# (add-arm / remove-arm); every arm is this project's own robot. Positions are
+# the arm base in the WORLD frame, metres. Hand edits to spawn_* are kept.
+arms:
+- namespace: arm1
+  spawn_x: 0.0
+  spawn_y: 0.0
+  spawn_z: 0.0
+- namespace: arm2
+  spawn_x: 1.6
+  spawn_y: 0.0
+  spawn_z: 0.0

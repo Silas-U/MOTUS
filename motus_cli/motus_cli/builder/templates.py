@@ -128,6 +128,8 @@ def generate_launch_description():
     # exactly as before.
     project_world = os.path.join(this_pkg_share, 'worlds', 'motus_world.sdf')
     project_recipes = os.path.join(this_pkg_share, 'recipes')
+    # Extra arms (see `motus cell add-arm`). Empty string = single-arm cell.
+    project_arms = os.path.join(this_pkg_share, 'config', 'cell_arms.yaml')
 
     cell_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -143,6 +145,7 @@ def generate_launch_description():
             'tools_config_path': tools_yaml if os.path.isfile(tools_yaml) else '',
             'world_file': project_world if os.path.isfile(project_world) else '',
             'recipes_dir': project_recipes if os.path.isdir(project_recipes) else '',
+            'arms_config': project_arms if os.path.isfile(project_arms) else '',
         }}.items(),
     )
 

@@ -213,6 +213,18 @@ def project_reach(project_root) -> float | None:
         return None
 
 
+def _arm_bases(pkg_dir) -> list:
+    """[(x, y), ...] of the project's arms from config/cell_arms.yaml; [] for a single-arm cell."""
+    import yaml
+    from pathlib import Path
+    p = Path(pkg_dir) / "config" / "cell_arms.yaml"
+    try:
+        arms = (yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("arms") or []
+        return [(float(a.get("spawn_x", 0.0)), float(a.get("spawn_y", 0.0))) for a in arms]
+    except (OSError, yaml.YAMLError, AttributeError, TypeError, ValueError):
+        return []
+
+
 def table_in_project(project_root, *, length=None, width=None, height=DEFAULT_HEIGHT,
                      center=None, top_thickness=DEFAULT_TOP_THICKNESS,
                      remove=False) -> dict:
@@ -240,6 +252,13 @@ def table_in_project(project_root, *, length=None, width=None, height=DEFAULT_HE
     else:
         reach = project_reach(root) if (length is None or width is None) else None
         dl, dw = default_size(reach)
+        # Multi-arm cell (`motus cell add-arm`): the default table spans every arm base.
+        bases = _arm_bases(pkg_dir)
+        if len(bases) > 1 and length is None and width is None and center is None:
+            xs, ys = [b[0] for b in bases], [b[1] for b in bases]
+            length = _round_up(dl + max(xs) - min(xs))
+            width = _round_up(dw + max(ys) - min(ys))
+            center = (min(xs) - 0.25 * dl + length / 2, (max(ys) + min(ys)) / 2)
         length = length if length is not None else dl
         width = width if width is not None else dw
         new = apply_table(text, length, width, height, center, top_thickness)

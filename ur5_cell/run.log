@@ -1,0 +1,768 @@
+[INFO] [launch]: All log files can be found below /home/meta/.ros/log/2026-10-10-09-38-34-518000-meta-Inspiron-3542-36490
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [cell.launch]: [Cell] arms=['arm1', 'arm2']
+[WARNING] [cell.launch]: [Cell] grasp_attach_1: cannot tell which arm it drives (gripper_action_name has no arm prefix) — grasps use "arm1"
+[WARNING] [cell.launch]: [Cell] grasp_attach_2: cannot tell which arm it drives (gripper_action_name has no arm prefix) — grasps use "arm1"
+[INFO] [arm.launch.arm1]: [arm1] arm_type=ur5e, tool_type=none, ik_backend=pinocchio, embed_object_catalog_plugin=True, external_description=True
+warning: redefining global symbol: pi
+when processing file: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/robotiq_85_gripper.urdf.xacro
+included from: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/ur5_cell.urdf.xacro
+warning: redefining global symbol: pi
+when processing file: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/robotiq_85_gripper.urdf.xacro
+included from: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/ur5_cell.urdf.xacro
+[INFO] [arm.launch.arm2]: [arm2] arm_type=ur5e, tool_type=none, ik_backend=pinocchio, embed_object_catalog_plugin=True, external_description=True
+warning: redefining global symbol: pi
+when processing file: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/robotiq_85_gripper.urdf.xacro
+included from: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/ur5_cell.urdf.xacro
+warning: redefining global symbol: pi
+when processing file: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/robotiq_85_gripper.urdf.xacro
+included from: /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/urdf/ur5_cell.urdf.xacro
+[INFO] [robot_state_publisher-1]: process started with pid [36511]
+[INFO] [create-2]: process started with pid [36512]
+[INFO] [robot_state_publisher-3]: process started with pid [36513]
+[INFO] [robot_state_publisher-4]: process started with pid [36514]
+[INFO] [static_transform_publisher-5]: process started with pid [36515]
+[INFO] [robot_state_interface_virtual-6]: process started with pid [36516]
+[INFO] [robot_command_server-7]: process started with pid [36517]
+[INFO] [robot_state_manager-8]: process started with pid [36518]
+[INFO] [pose_target_interface-9]: process started with pid [36519]
+[INFO] [kinematic_solver-10]: process started with pid [36520]
+[INFO] [arm_executor-11]: process started with pid [36521]
+[INFO] [virtual_jog_relay-12]: process started with pid [36522]
+[INFO] [joint_jog_server-13]: process started with pid [36523]
+[INFO] [robot_state_publisher-14]: process started with pid [36524]
+[INFO] [create-15]: process started with pid [36525]
+[INFO] [robot_state_publisher-16]: process started with pid [36526]
+[INFO] [robot_state_publisher-17]: process started with pid [36527]
+[INFO] [static_transform_publisher-18]: process started with pid [36528]
+[INFO] [robot_state_interface_virtual-19]: process started with pid [36529]
+[INFO] [robot_command_server-20]: process started with pid [36530]
+[INFO] [robot_state_manager-21]: process started with pid [36531]
+[INFO] [pose_target_interface-22]: process started with pid [36532]
+[INFO] [kinematic_solver-23]: process started with pid [36533]
+[INFO] [arm_executor-24]: process started with pid [36534]
+[INFO] [virtual_jog_relay-25]: process started with pid [36535]
+[INFO] [joint_jog_server-26]: process started with pid [36536]
+[INFO] [ruby $(which gz) sim-27]: process started with pid [36537]
+[INFO] [parameter_bridge-28]: process started with pid [36539]
+[INFO] [parameter_bridge-29]: process started with pid [36540]
+[INFO] [grasp_attach_bridge-30]: process started with pid [36547]
+[INFO] [parameter_bridge-31]: process started with pid [36550]
+[INFO] [object_spawner-32]: process started with pid [36555]
+[INFO] [parameter_bridge-33]: process started with pid [36556]
+[INFO] [object_pose_resolver-34]: process started with pid [36557]
+[INFO] [safety_bridge-35]: process started with pid [36558]
+[INFO] [tool_action_server-36]: process started with pid [36559]
+[INFO] [rviz2-37]: process started with pid [36561]
+[static_transform_publisher-5] [WARN] [1791621529.308892061] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-18] [WARN] [1791621529.384245862] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-5] [INFO] [1791621529.520494862] [arm1.virtual_world_bridge]: Spinning until stopped - publishing transform
+[static_transform_publisher-5] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-5] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-5] from 'world' to 'arm1/virtual/world'
+[static_transform_publisher-18] [INFO] [1791621529.590161656] [arm2.virtual_world_bridge]: Spinning until stopped - publishing transform
+[static_transform_publisher-18] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-18] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-18] from 'world' to 'arm2/virtual/world'
+[create-2] [INFO] [1791621529.964643269] [arm1.spawn_robot]: Requesting list of world names.
+[create-15] [INFO] [1791621529.969178569] [arm2.spawn_robot]: Requesting list of world names.
+[parameter_bridge-28] [INFO] [1791621530.328179082] [gz_clock_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.381008232] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_1/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_1/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.387962946] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_1/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_1/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.395613164] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_1/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_1/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.414490744] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_2/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_2/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.419234200] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_2/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_2/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.426963683] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_2/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_2/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.436205364] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_3/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_3/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.446901310] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_3/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_3/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.451120296] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_3/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_3/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.463426051] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_4/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_4/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.471224426] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_4/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_4/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.479146589] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_4/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_4/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.489337671] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_5/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_5/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.501561111] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_5/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_5/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.511564999] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_5/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_5/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.527776517] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_6/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_6/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.533199558] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_small_6/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_small_6/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.540827474] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_small_6/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_small_6/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.547090325] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_1/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_1/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.562931553] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_1/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_1/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.589991755] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_large_1/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_large_1/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.617857218] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_2/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_2/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.652073341] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_2/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_2/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.699400284] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_large_2/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_large_2/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-31] [INFO] [1791621530.700814862] [entity_management_gz_bridge]: Creating ROS->GZ service bridge [/world/motus_world/create (ros_gz_interfaces/srv/SpawnEntity -> /)]
+[parameter_bridge-31] [INFO] [1791621530.710416393] [entity_management_gz_bridge]: Creating ROS->GZ service bridge [/world/motus_world/remove (ros_gz_interfaces/srv/DeleteEntity -> /)]
+[parameter_bridge-29] [INFO] [1791621530.732492675] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_3/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_3/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.761487496] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_3/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_3/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.782966811] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_large_3/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_large_3/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-33] [INFO] [1791621530.816838970] [object_pose_gz_bridge]: Creating GZ->ROS Bridge: [/world/motus_world/dynamic_pose/info (gz.msgs.Pose_V) -> /world/motus_world/dynamic_pose/info (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.819643588] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_4/attach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_4/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.835444212] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm1/cube_large_4/detach (std_msgs/msg/Empty) -> /grasp_attach/arm1/cube_large_4/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.850922590] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm1/cube_large_4/state (gz.msgs.StringMsg) -> /grasp_attach/arm1/cube_large_4/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.878723278] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_1/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_1/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.906536387] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_1/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_1/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.939989397] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_1/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_1/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.972824674] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_2/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_2/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621530.998816416] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_2/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_2/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.016786556] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_2/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_2/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.045081904] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_3/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_3/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.070155586] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_3/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_3/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.094155701] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_3/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_3/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.118540509] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_4/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_4/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.149574062] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_4/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_4/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.151357285] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_4/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_4/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.188085202] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_5/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_5/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.210419294] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_5/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_5/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.259286410] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_5/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_5/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.310631018] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_6/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_6/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.337828975] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_small_6/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_small_6/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.361695819] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_small_6/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_small_6/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.415017375] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_1/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_1/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.445226669] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_1/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_1/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.447553912] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_large_1/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_large_1/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.487266847] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_2/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_2/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.523194903] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_2/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_2/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.524982331] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_large_2/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_large_2/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.567427304] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_3/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_3/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.600822581] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_3/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_3/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.619293858] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_large_3/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_large_3/state (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.646339470] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_4/attach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_4/attach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.669830294] [grasp_attach_gz_bridge]: Creating ROS->GZ Bridge: [/grasp_attach/arm2/cube_large_4/detach (std_msgs/msg/Empty) -> /grasp_attach/arm2/cube_large_4/detach (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-29] [INFO] [1791621531.695792592] [grasp_attach_gz_bridge]: Creating GZ->ROS Bridge: [/grasp_attach/arm2/cube_large_4/state (gz.msgs.StringMsg) -> /grasp_attach/arm2/cube_large_4/state (std_msgs/msg/String)] (Lazy 0)
+[robot_state_publisher-17] [INFO] [1791621532.797097084] [arm2.virtual_robot_state_publisher]: Robot initialized
+[robot_state_publisher-14] [INFO] [1791621532.798655476] [arm2.gz_robot_state_publisher]: Robot initialized
+[robot_state_publisher-4] [INFO] [1791621532.801009165] [arm1.virtual_robot_state_publisher]: Robot initialized
+[robot_state_publisher-1] [INFO] [1791621532.803142588] [arm1.gz_robot_state_publisher]: Robot initialized
+[robot_state_publisher-16] [INFO] [1791621532.808085806] [arm2.rviz_gz_robot_state_publisher]: Robot initialized
+[robot_state_publisher-3] [INFO] [1791621532.811046907] [arm1.rviz_gz_robot_state_publisher]: Robot initialized
+[create-15] [INFO] [1791621534.977752149] [arm2.spawn_robot]: Requesting list of world names.
+[create-2] [INFO] [1791621534.980688666] [arm1.spawn_robot]: Requesting list of world names.
+[virtual_jog_relay-12] [INFO] [1791621538.737510834] [arm1.virtual_jog_relay]: Virtual Jog Relay started
+[safety_bridge-35] [WARN] [1791621539.004488879] [safety_bridge]: safety_bridge is running with a PLACEHOLDER hardware read — wire _read_hardware_signal() to the actual safety I/O before deploying to real hardware.
+[virtual_jog_relay-25] [INFO] [1791621539.518119942] [arm2.virtual_jog_relay]: Virtual Jog Relay started
+[grasp_attach_bridge-30] [INFO] [1791621539.773906143] [grasp_attach_bridge]: grasp_attach_bridge ready — 20 attach channels (arms=['arm1', 'arm2']) loaded from /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/objects.yaml
+[create-15] [INFO] [1791621539.979970042] [arm2.spawn_robot]: Requesting list of world names.
+[create-2] [INFO] [1791621539.983461143] [arm1.spawn_robot]: Requesting list of world names.
+[robot_command_server-20] [INFO] [1791621540.195646849] [arm2.robot_command_server]: Checking for control services...
+[joint_jog_server-13] [INFO] [1791621540.322492313] [arm1.joint_jog_server]: Joint Jog Server ready — manual joint control only, outside the recipe DAG
+[robot_command_server-20] [INFO] [1791621541.201203564] [arm2.robot_command_server]: Checking for control services...
+[create-15] [INFO] [1791621541.449462350] [arm2.spawn_robot]: Waiting messages on topic [/arm2/gz_robot_description].
+[create-15] [INFO] [1791621541.549807134] [arm2.spawn_robot]: Requested creation of entity.
+[create-15] [INFO] [1791621541.549881275] [arm2.spawn_robot]: OK creation of entity.
+[create-2] [INFO] [1791621541.567443339] [arm1.spawn_robot]: Waiting messages on topic [/arm1/gz_robot_description].
+[create-2] [INFO] [1791621541.601586971] [arm1.spawn_robot]: Requested creation of entity.
+[create-2] [INFO] [1791621541.601650229] [arm1.spawn_robot]: OK creation of entity.
+[robot_command_server-7] [INFO] [1791621541.639660854] [arm1.robot_command_server]: Checking for control services...
+[INFO] [create-2]: process has finished cleanly [pid 36512]
+[INFO] [create-15]: process has finished cleanly [pid 36525]
+[INFO] [spawner-38]: process started with pid [36998]
+[INFO] [spawner-39]: process started with pid [36999]
+[object_pose_resolver-34] [INFO] [1791621542.187458323] [object_pose_resolver]: object_pose_resolver ready — tracking up to 10 possible catalog instances
+[robot_command_server-20] [INFO] [1791621542.224351362] [arm2.robot_command_server]: Checking for control services...
+[object_spawner-32] [INFO] [1791621542.323560047] [object_spawner]: object_spawner ready — world="motus_world", 10 possible instances across 2 types
+[joint_jog_server-26] [INFO] [1791621542.644774373] [arm2.joint_jog_server]: Joint Jog Server ready — manual joint control only, outside the recipe DAG
+[robot_command_server-7] [INFO] [1791621542.646720278] [arm1.robot_command_server]: Checking for control services...
+[tool_action_server-36] [INFO] [1791621542.807575806] [tool_action_server]: Tool loaded: gripper_1 [gripper_action]
+[tool_action_server-36] [INFO] [1791621542.898909761] [tool_action_server]: Tool loaded: grasp_attach_1 [grasp_attach]
+[tool_action_server-36] [INFO] [1791621542.952187525] [tool_action_server]: Tool loaded: gripper_2 [gripper_action]
+[tool_action_server-36] [INFO] [1791621543.052640526] [tool_action_server]: Tool loaded: grasp_attach_2 [grasp_attach]
+[tool_action_server-36] [INFO] [1791621543.131052509] [tool_action_server]: Tool Action Server Ready  (4 tool(s) loaded: ['gripper_1', 'grasp_attach_1', 'gripper_2', 'grasp_attach_2'])
+[robot_command_server-20] [INFO] [1791621543.232971066] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[robot_command_server-7] [INFO] [1791621543.666237350] [arm1.robot_command_server]: Checking for control services...
+[rviz2-37] [INFO] [1791621543.812631548] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-37] [INFO] [1791621543.812960458] [rviz2]: OpenGl version: 4.6 (GLSL 4.6)
+[rviz2-37] [INFO] [1791621544.107601355] [rviz2]: Stereo is NOT SUPPORTED
+[robot_command_server-20] [INFO] [1791621544.243695631] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621544.563521996] [arm2.gz_ros_control]: [gz_ros2_control] Fixed joint [base_joint] (Entity=78)] is skipped
+[robot_command_server-7] [INFO] [1791621544.678731045] [arm1.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621544.976022797] [arm2.gz_ros_control]: Loading controller_manager
+[robot_command_server-20] [INFO] [1791621545.266135626] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621545.683939718] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621546.281069948] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621546.686454864] [arm1.robot_command_server]: Checking for control services...
+[rviz2-37] [INFO] [1791621546.704907359] [rviz2]: Connected on namespace: /arm1/ik_marker_server
+[robot_command_server-20] [INFO] [1791621547.304117877] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621547.695881185] [arm1.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621547.969377055] [arm2.controller_manager]: Using ROS clock for triggering controller manager cycles.
+[ruby $(which gz) sim-27] [INFO] [1791621548.004534808] [arm2.controller_manager]: Subscribing to '/arm2/robot_description' topic for robot description.
+[ruby $(which gz) sim-27] [WARN] [1791621548.045713268] [arm2.gz_ros_control]: Waiting RM to load and initialize hardware...
+[ruby $(which gz) sim-27] [INFO] [1791621548.048134914] [arm2.controller_manager]: Received robot description from topic.
+[ruby $(which gz) sim-27] [INFO] [1791621548.048264885] [arm2.controller_manager]: Enforcing command limits is disabled. Command limits from URDF will be ignored.
+[spawner-38] [INFO] [1791621548.054576005] [arm1.joint_state_broadcaster_spawner]: waiting for service /arm1/controller_manager/list_controllers to become available...
+[ruby $(which gz) sim-27] [INFO] [1791621548.065446597] [arm2.gz_ros_control]: The position_proportional_gain has been set to: 0.1
+[ruby $(which gz) sim-27] [INFO] [1791621548.065586326] [arm2.gz_ros_control]: Loading joint: shoulder_pan_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.065623872] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.065650475] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.065727016] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.065760092] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.065789736] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.065810592] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.065861915] [arm2.gz_ros_control]: Loading joint: shoulder_lift_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.065882567] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.065900695] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.065926382] [arm2.gz_ros_control]: 			 found initial value: -1.570800
+[ruby $(which gz) sim-27] [INFO] [1791621548.065948332] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.065966144] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.065983301] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066022257] [arm2.gz_ros_control]: Loading joint: elbow_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066043466] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066061767] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066085559] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066108171] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066125434] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066142107] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066183978] [arm2.gz_ros_control]: Loading joint: wrist_1_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066207989] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066225459] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066247310] [arm2.gz_ros_control]: 			 found initial value: -1.570800
+[ruby $(which gz) sim-27] [INFO] [1791621548.066268069] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066285202] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066301804] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066338348] [arm2.gz_ros_control]: Loading joint: wrist_2_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066359333] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066376254] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066400034] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066420012] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066437457] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066453838] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066491719] [arm2.gz_ros_control]: Loading joint: wrist_3_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066510403] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066527518] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066546777] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066567277] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066585138] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066602576] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066643346] [arm2.gz_ros_control]: Loading joint: robotiq_85_left_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066666290] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066684110] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066719872] [arm2.gz_ros_control]: 			 found initial value: 0.001000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066792805] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066824742] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066849277] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.066872655] [arm2.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621548.066893972] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.066911855] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.066941830] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.066977964] [arm2.gz_ros_control]: Loading joint: robotiq_85_left_finger_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.066997023] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067014556] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.067031902] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.067055974] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.067075655] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067108006] [arm2.gz_ros_control]: Loading joint: robotiq_85_left_finger_tip_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.067134879] [arm2.gz_ros_control]: Joint 'robotiq_85_left_finger_tip_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: -1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621548.067160019] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067178367] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.067196858] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.067215165] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.067234304] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067268955] [arm2.gz_ros_control]: Loading joint: robotiq_85_left_inner_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.067296450] [arm2.gz_ros_control]: Joint 'robotiq_85_left_inner_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621548.067319626] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067338647] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.067358045] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.067377315] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.067396838] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067431360] [arm2.gz_ros_control]: Loading joint: robotiq_85_right_finger_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.067452445] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067470062] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.067487577] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.067836510] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.067864655] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067908574] [arm2.gz_ros_control]: Loading joint: robotiq_85_right_finger_tip_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.067939892] [arm2.gz_ros_control]: Joint 'robotiq_85_right_finger_tip_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: -1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621548.067962051] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.067981222] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.068001557] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.068022226] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.068042251] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.068076674] [arm2.gz_ros_control]: Loading joint: robotiq_85_right_inner_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.068102992] [arm2.gz_ros_control]: Joint 'robotiq_85_right_inner_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621548.068123152] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.068140696] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.068158786] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.068176524] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.068205557] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.068242350] [arm2.gz_ros_control]: Loading joint: robotiq_85_right_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621548.068267505] [arm2.gz_ros_control]: Joint 'robotiq_85_right_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621548.068289630] [arm2.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621548.068307836] [arm2.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621548.068353708] [arm2.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621548.068377568] [arm2.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621548.068396916] [arm2.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621548.068833180] [arm2.controller_manager]: Initialize hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [WARN] [1791621548.068925750] [arm2.controller_manager.hardware_component.system.ur5_cell_motus_GazeboSystem]: Executor is not available during hardware component initialization for 'ur5_cell_motus_GazeboSystem'. Skipping node creation!
+[ruby $(which gz) sim-27] [INFO] [1791621548.069238116] [arm2.controller_manager]: Successful initialization of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [INFO] [1791621548.069986162] [arm2.controller_manager]: Activating component 'ur5_cell_motus_GazeboSystem'.
+[ruby $(which gz) sim-27] [INFO] [1791621548.070061813] [resource_manager]: 'configure' hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [INFO] [1791621548.070085995] [arm2.gz_ros_control]: System Successfully configured!
+[ruby $(which gz) sim-27] [INFO] [1791621548.070115890] [resource_manager]: Successful 'configure' of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [INFO] [1791621548.070160629] [resource_manager]: 'activate' hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [INFO] [1791621548.070209082] [resource_manager]: Successful 'activate' of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [WARN] [1791621548.070369386] [arm2.controller_manager]: Component 'ur5_cell_motus_GazeboSystem' does not have read or write statistics initialized, skipping registration.
+[ruby $(which gz) sim-27] [INFO] [1791621548.070411943] [arm2.controller_manager]: Resource Manager has been successfully initialized. Starting Controller Manager services...
+[robot_command_server-20] [INFO] [1791621548.324636155] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621548.705668734] [arm1.robot_command_server]: Checking for control services...
+[INFO] [cell_orchestrator-40]: process started with pid [37090]
+[robot_command_server-20] [INFO] [1791621549.332471718] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621549.712248712] [arm1.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [1;31m[Err] [Physics.cc:1727] [0m[1;31mAttempting to create a mimic constraint for joint [[0m[1;31mrobotiq_85_left_inner_knuckle_joint[0m[1;31m] but the chosen physics engine does not support [0m[1;31mmimic constraints, so no constraint will be [0m[1;31mcreated.[0m[1;31m[0m
+[robot_command_server-20] [INFO] [1791621550.336209432] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621550.719263795] [arm1.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [1;31m[Err] [SystemLoader.cc:92] [0m[1;31mFailed to load system plugin [[0m[1;31mlibroboticsgroup_upatras_gazebo_mimic_joint_plugin.so[0m[1;31m] : Could not find shared library.[0m[1;31m[0m
+[ruby $(which gz) sim-27] [INFO] [1791621550.956946147] [arm1.gz_ros_control]: [gz_ros2_control] Fixed joint [base_joint] (Entity=141)] is skipped
+[ruby $(which gz) sim-27] [INFO] [1791621550.971538765] [arm1.gz_ros_control]: Loading controller_manager
+[robot_command_server-20] [INFO] [1791621551.353541672] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621551.479112461] [arm1.controller_manager]: Using ROS clock for triggering controller manager cycles.
+[ruby $(which gz) sim-27] [INFO] [1791621551.517076562] [arm1.controller_manager]: Subscribing to '/arm1/robot_description' topic for robot description.
+[ruby $(which gz) sim-27] [WARN] [1791621551.533430457] [arm1.gz_ros_control]: Waiting RM to load and initialize hardware...
+[ruby $(which gz) sim-27] [INFO] [1791621551.537320367] [arm1.controller_manager]: Received robot description from topic.
+[ruby $(which gz) sim-27] [INFO] [1791621551.537423156] [arm1.controller_manager]: Enforcing command limits is disabled. Command limits from URDF will be ignored.
+[ruby $(which gz) sim-27] [INFO] [1791621551.633937945] [arm1.gz_ros_control]: The position_proportional_gain has been set to: 0.1
+[ruby $(which gz) sim-27] [INFO] [1791621551.634132028] [arm1.gz_ros_control]: Loading joint: shoulder_pan_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.634173726] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.634199812] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.634236577] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.634273726] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.634298100] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.634316611] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635376528] [arm1.gz_ros_control]: Loading joint: shoulder_lift_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.635418461] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.635441422] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635473232] [arm1.gz_ros_control]: 			 found initial value: -1.570800
+[ruby $(which gz) sim-27] [INFO] [1791621551.635499168] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.635519495] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.635536323] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635645424] [arm1.gz_ros_control]: Loading joint: elbow_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.635665985] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.635683126] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635723434] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.635751571] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.635771712] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.635789361] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635902790] [arm1.gz_ros_control]: Loading joint: wrist_1_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.635927059] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.635944926] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.635967964] [arm1.gz_ros_control]: 			 found initial value: -1.570800
+[ruby $(which gz) sim-27] [INFO] [1791621551.635988950] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.636006472] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636023518] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636125449] [arm1.gz_ros_control]: Loading joint: wrist_2_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.636156670] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636175387] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636202365] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.636227267] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.636246408] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636263526] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636366877] [arm1.gz_ros_control]: Loading joint: wrist_3_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.636390955] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636406216] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636427396] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.636449687] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.636469124] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636487630] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636594747] [arm1.gz_ros_control]: Loading joint: robotiq_85_left_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.636619493] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.636638007] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.636662924] [arm1.gz_ros_control]: 			 found initial value: 0.001000
+[ruby $(which gz) sim-27] [INFO] [1791621551.665796560] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.665893116] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.665931432] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.665959613] [arm1.gz_ros_control]: 			 found initial value: 0.000000
+[ruby $(which gz) sim-27] [INFO] [1791621551.665985115] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666006733] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.666120641] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.666223147] [arm1.gz_ros_control]: Loading joint: robotiq_85_left_finger_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.666253624] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666276564] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.666298034] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.666330172] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.666353481] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666448300] [arm1.gz_ros_control]: Loading joint: robotiq_85_left_finger_tip_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.666485675] [arm1.gz_ros_control]: Joint 'robotiq_85_left_finger_tip_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: -1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621551.666518808] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666539524] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.666560655] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.666581469] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.666603189] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666686710] [arm1.gz_ros_control]: Loading joint: robotiq_85_left_inner_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.666739635] [arm1.gz_ros_control]: Joint 'robotiq_85_left_inner_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621551.666763657] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666782279] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.666801473] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.666819447] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.666837238] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666916963] [arm1.gz_ros_control]: Loading joint: robotiq_85_right_finger_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.666942895] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.666961947] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.666982002] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.667002209] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.667022021] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667094952] [arm1.gz_ros_control]: Loading joint: robotiq_85_right_finger_tip_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.667124310] [arm1.gz_ros_control]: Joint 'robotiq_85_right_finger_tip_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: -1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621551.667145665] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667162848] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.667181419] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.667198906] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.667216564] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667284618] [arm1.gz_ros_control]: Loading joint: robotiq_85_right_inner_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.667310630] [arm1.gz_ros_control]: Joint 'robotiq_85_right_inner_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621551.667331377] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667350163] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.667368477] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.667386323] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.667416671] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667492041] [arm1.gz_ros_control]: Loading joint: robotiq_85_right_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621551.667516185] [arm1.gz_ros_control]: Joint 'robotiq_85_right_knuckle_joint'is mimicking joint 'robotiq_85_left_knuckle_joint' with multiplier: 1 and offset: 0
+[ruby $(which gz) sim-27] [INFO] [1791621551.667536743] [arm1.gz_ros_control]: 	State:
+[ruby $(which gz) sim-27] [INFO] [1791621551.667555409] [arm1.gz_ros_control]: 		 position
+[ruby $(which gz) sim-27] [INFO] [1791621551.667608118] [arm1.gz_ros_control]: 		 velocity
+[ruby $(which gz) sim-27] [INFO] [1791621551.667631248] [arm1.gz_ros_control]: 		 effort
+[ruby $(which gz) sim-27] [INFO] [1791621551.667650399] [arm1.gz_ros_control]: 	Command:
+[ruby $(which gz) sim-27] [INFO] [1791621551.670775398] [arm1.controller_manager]: Initialize hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [WARN] [1791621551.670856537] [arm1.controller_manager.hardware_component.system.ur5_cell_motus_GazeboSystem]: Executor is not available during hardware component initialization for 'ur5_cell_motus_GazeboSystem'. Skipping node creation!
+[ruby $(which gz) sim-27] [INFO] [1791621551.671036244] [arm1.controller_manager]: Successful initialization of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [INFO] [1791621551.671528809] [arm1.controller_manager]: Activating component 'ur5_cell_motus_GazeboSystem'.
+[ruby $(which gz) sim-27] [INFO] [1791621551.671570353] [resource_manager]: 'configure' hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [INFO] [1791621551.671581533] [arm1.gz_ros_control]: System Successfully configured!
+[ruby $(which gz) sim-27] [INFO] [1791621551.671606777] [resource_manager]: Successful 'configure' of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [INFO] [1791621551.671633046] [resource_manager]: 'activate' hardware 'ur5_cell_motus_GazeboSystem' 
+[ruby $(which gz) sim-27] [INFO] [1791621551.671645738] [resource_manager]: Successful 'activate' of hardware 'ur5_cell_motus_GazeboSystem'
+[ruby $(which gz) sim-27] [WARN] [1791621551.672830878] [arm1.controller_manager]: Component 'ur5_cell_motus_GazeboSystem' does not have read or write statistics initialized, skipping registration.
+[ruby $(which gz) sim-27] [INFO] [1791621551.672893993] [arm1.controller_manager]: Resource Manager has been successfully initialized. Starting Controller Manager services...
+[robot_command_server-7] [INFO] [1791621551.738374102] [arm1.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621551.902578386] [arm1.controller_manager]: Loading controller : 'joint_state_broadcaster' of type 'joint_state_broadcaster/JointStateBroadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621551.902750801] [arm1.controller_manager]: Loading controller 'joint_state_broadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621551.938410525] [arm1.controller_manager]: Controller 'joint_state_broadcaster' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-38] [INFO] [1791621552.003549125] [arm1.joint_state_broadcaster_spawner]: Loaded joint_state_broadcaster
+[ruby $(which gz) sim-27] [INFO] [1791621552.219458137] [arm1.controller_manager]: Configuring controller: 'joint_state_broadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621552.219962466] [arm1.joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[robot_command_server-20] [INFO] [1791621552.389650628] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621552.553365023] [arm1.controller_manager]: Activating controllers: [ joint_state_broadcaster ]
+[cell_orchestrator-40] [INFO] [1791621552.563066031] [cell_orchestrator]: CellOrchestrator ready, arms=['arm1', 'arm2']
+[robot_command_server-7] [INFO] [1791621552.766145028] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621553.414069054] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [WARN] [1791621553.766616570] [arm2.gz_ros_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.008 s).
+[robot_command_server-7] [INFO] [1791621553.780933074] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621554.459374118] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621554.794927453] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621555.481351591] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621555.609349125] [arm1.controller_manager]: Successfully switched controllers!
+[spawner-38] [INFO] [1791621555.714869261] [arm1.joint_state_broadcaster_spawner]: Configured and activated joint_state_broadcaster
+[robot_command_server-7] [INFO] [1791621555.828091411] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621556.520574517] [arm2.robot_command_server]: Checking for control services...
+[INFO] [spawner-38]: process has finished cleanly [pid 36998]
+[INFO] [spawner-41]: process started with pid [37159]
+[robot_command_server-7] [INFO] [1791621556.860586395] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621557.526198555] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621557.908927807] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621558.531372562] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621558.949634224] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621559.547481530] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621559.770938248] [arm2.controller_manager]: Loading controller : 'joint_state_broadcaster' of type 'joint_state_broadcaster/JointStateBroadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621559.771031624] [arm2.controller_manager]: Loading controller 'joint_state_broadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621559.855771909] [arm2.controller_manager]: Controller 'joint_state_broadcaster' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[robot_command_server-7] [INFO] [1791621560.044667872] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621560.634490519] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621561.080205507] [arm1.robot_command_server]: Checking for control services...
+[spawner-39] [INFO] [1791621561.175098341] [arm2.joint_state_broadcaster_spawner]: Loaded joint_state_broadcaster
+[ruby $(which gz) sim-27] [INFO] [1791621561.297220878] [arm2.controller_manager]: Configuring controller: 'joint_state_broadcaster'
+[ruby $(which gz) sim-27] [INFO] [1791621561.297504914] [arm2.joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[robot_command_server-20] [INFO] [1791621561.675894908] [arm2.robot_command_server]: Checking for control services...
+[ruby $(which gz) sim-27] [INFO] [1791621562.066474648] [arm2.controller_manager]: Activating controllers: [ joint_state_broadcaster ]
+[ruby $(which gz) sim-27] [INFO] [1791621562.165840486] [arm2.controller_manager]: Successfully switched controllers!
+[robot_command_server-7] [INFO] [1791621562.209496735] [arm1.robot_command_server]: Checking for control services...
+[robot_state_manager-8] [INFO] [1791621562.721883785] [arm1.robot_state_manager]: joint names =['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
+[robot_state_manager-8] [INFO] [1791621562.769946724] [arm1.robot_state_manager]: Robot State Manager started
+[robot_state_manager-8] [INFO] [1791621562.775236549] [arm1.robot_state_manager]: Robot initialized with home_pose + FK target
+[spawner-39] [INFO] [1791621562.747099557] [arm2.joint_state_broadcaster_spawner]: Configured and activated joint_state_broadcaster
+[robot_command_server-20] [INFO] [1791621562.808420516] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621563.318138018] [arm1.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621563.896043037] [arm1.robot_command_server]: Service available
+[robot_state_manager-8] [INFO] [1791621563.901216999] [arm1.robot_state_manager]: Recieved state request: PLANNER
+[robot_state_manager-8] [INFO] [1791621563.905748110] [arm1.robot_state_manager]: System mode updated -> PLANNER
+[robot_command_server-20] [INFO] [1791621563.986964039] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-7] [INFO] [1791621564.048234082] [arm1.robot_command_server]: Command Server Ready
+[robot_command_server-7] [INFO] [1791621564.242874645] [arm1.robot_command_server]: Success: True
+[robot_command_server-7] [INFO] [1791621564.331354223] [arm1.robot_command_server]: Message: Mode updated successfully
+[robot_state_interface_virtual-19] [INFO] [1791621564.572325589] [arm2.robot_state_interface_virtual]: Robot State Interface Virtual started (backend=pinocchio, base=base_link, tip=gripper_1_tcp)
+[robot_command_server-20] [INFO] [1791621565.198413714] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621566.307192271] [arm2.robot_command_server]: Checking for control services...
+[robot_command_server-20] [INFO] [1791621567.395805406] [arm2.robot_command_server]: Checking for control services...
+[spawner-41] [INFO] [1791621567.572908582] [arm1.arm_controller_spawner]: waiting for service /arm1/controller_manager/list_controllers to become available...
+[kinematic_solver-10] [INFO] [1791621568.319201875] [arm1.kinematic_solver]: Kinematic Solver Started (backend=pinocchio)
+[robot_command_server-20] [INFO] [1791621568.413864895] [arm2.robot_command_server]: Checking for control services...
+[pose_target_interface-9] [INFO] [1791621568.867057755] [arm1.pose_target_interface]: home_pose=[-3.69726460e-06  3.36450000e-01  1.00105900e+00  7.07106781e-01
+[pose_target_interface-9]   2.59734824e-06  2.59734824e-06 -7.07106781e-01]
+[INFO] [spawner-39]: process has finished cleanly [pid 36999]
+[INFO] [spawner-42]: process started with pid [37263]
+[robot_state_interface_virtual-6] [INFO] [1791621569.154686139] [arm1.robot_state_interface_virtual]: Robot State Interface Virtual started (backend=pinocchio, base=base_link, tip=gripper_1_tcp)
+[robot_command_server-20] [INFO] [1791621569.419628619] [arm2.robot_command_server]: Checking for control services...
+[pose_target_interface-22] [INFO] [1791621569.789385124] [arm2.pose_target_interface]: home_pose=[-3.69726460e-06  3.36450000e-01  1.00105900e+00  7.07106781e-01
+[pose_target_interface-22]   2.59734824e-06  2.59734824e-06 -7.07106781e-01]
+[ruby $(which gz) sim-27] [INFO] [1791621569.869806715] [arm1.controller_manager]: Loading controller : 'arm_controller' of type 'joint_trajectory_controller/JointTrajectoryController'
+[ruby $(which gz) sim-27] [INFO] [1791621569.869882890] [arm1.controller_manager]: Loading controller 'arm_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621570.166194105] [arm1.controller_manager]: Controller 'arm_controller' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[rviz2-37] [INFO] [1791621570.259288045] [rviz2]: Sending request for interactive markers
+[pose_target_interface-9] [INFO] [1791621570.271033987] [arm1.pose_target_interface]: Interactive Marker Node started
+[pose_target_interface-9] [INFO] [1791621570.289681977] [arm1.pose_target_interface]: pose_target_interface: execution_state -> SERVO
+[pose_target_interface-9] [INFO] [1791621570.335539450] [arm1.pose_target_interface]: pose_target_interface: system_mode -> PLANNER
+[robot_state_manager-21] [INFO] [1791621570.388171207] [arm2.robot_state_manager]: joint names =['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
+[robot_command_server-20] [INFO] [1791621570.434968077] [arm2.robot_command_server]: Checking for control services...
+[robot_state_manager-21] [INFO] [1791621570.652907845] [arm2.robot_state_manager]: Robot State Manager started
+[robot_command_server-20] [INFO] [1791621570.700090158] [arm2.robot_command_server]: Service available
+[robot_command_server-20] [INFO] [1791621570.709517388] [arm2.robot_command_server]: Command Server Ready
+[robot_state_manager-21] [INFO] [1791621570.746714652] [arm2.robot_state_manager]: Robot initialized with home_pose + FK target
+[robot_state_manager-21] [INFO] [1791621570.780013438] [arm2.robot_state_manager]: Recieved state request: PLANNER
+[robot_state_manager-21] [INFO] [1791621570.808340428] [arm2.robot_state_manager]: System mode updated -> PLANNER
+[rviz2-37] [INFO] [1791621570.814530616] [rviz2]: Service response received for initialization
+[robot_command_server-20] [INFO] [1791621570.821392969] [arm2.robot_command_server]: Success: True
+[robot_command_server-20] [INFO] [1791621570.830203627] [arm2.robot_command_server]: Message: Mode updated successfully
+[pose_target_interface-22] [INFO] [1791621571.067491393] [arm2.pose_target_interface]: Interactive Marker Node started
+[pose_target_interface-22] [INFO] [1791621571.073369089] [arm2.pose_target_interface]: pose_target_interface: execution_state -> SERVO
+[pose_target_interface-22] [INFO] [1791621571.077160451] [arm2.pose_target_interface]: pose_target_interface: system_mode -> PLANNER
+[spawner-41] [INFO] [1791621571.434379766] [arm1.arm_controller_spawner]: Loaded arm_controller
+[ruby $(which gz) sim-27] [INFO] [1791621571.707819874] [arm1.controller_manager]: Configuring controller: 'arm_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621571.712620244] [arm1.arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ruby $(which gz) sim-27] [INFO] [1791621571.712835887] [arm1.arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[ruby $(which gz) sim-27] [INFO] [1791621571.713023520] [arm1.arm_controller]: Using 'splines' interpolation method.
+[ruby $(which gz) sim-27] [INFO] [1791621571.727765905] [arm1.arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[ruby $(which gz) sim-27] [INFO] [1791621571.759990947] [arm1.arm_controller]: Setting initial scaling factor to 1.000000
+[ruby $(which gz) sim-27] [INFO] [1791621571.760065224] [arm1.arm_controller]: No scaling interface set. This controller will not read speed scaling from the hardware.
+[ruby $(which gz) sim-27] [INFO] [1791621571.847982058] [arm1.controller_manager]: Activating controllers: [ arm_controller ]
+[ruby $(which gz) sim-27] [INFO] [1791621571.954440831] [arm1.controller_manager]: Successfully switched controllers!
+[spawner-41] [INFO] [1791621572.072194693] [arm1.arm_controller_spawner]: Configured and activated arm_controller
+[INFO] [spawner-41]: process has finished cleanly [pid 37159]
+[INFO] [spawner-43]: process started with pid [37289]
+[ruby $(which gz) sim-27] [INFO] [1791621576.006084218] [arm2.controller_manager]: Loading controller : 'arm_controller' of type 'joint_trajectory_controller/JointTrajectoryController'
+[ruby $(which gz) sim-27] [INFO] [1791621576.006158833] [arm2.controller_manager]: Loading controller 'arm_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621576.020872373] [arm2.controller_manager]: Controller 'arm_controller' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[kinematic_solver-23] [INFO] [1791621576.335290454] [arm2.kinematic_solver]: Kinematic Solver Started (backend=pinocchio)
+[spawner-42] [INFO] [1791621577.803186524] [arm2.arm_controller_spawner]: Loaded arm_controller
+[ruby $(which gz) sim-27] [INFO] [1791621577.823611915] [arm2.controller_manager]: Configuring controller: 'arm_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621577.824204198] [arm2.arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ruby $(which gz) sim-27] [INFO] [1791621577.824272365] [arm2.arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[ruby $(which gz) sim-27] [INFO] [1791621577.824316051] [arm2.arm_controller]: Using 'splines' interpolation method.
+[ruby $(which gz) sim-27] [INFO] [1791621577.854711667] [arm2.arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[ruby $(which gz) sim-27] [INFO] [1791621578.090244191] [arm2.arm_controller]: Setting initial scaling factor to 1.000000
+[ruby $(which gz) sim-27] [INFO] [1791621578.090314641] [arm2.arm_controller]: No scaling interface set. This controller will not read speed scaling from the hardware.
+[ruby $(which gz) sim-27] [INFO] [1791621578.192905688] [arm2.controller_manager]: Activating controllers: [ arm_controller ]
+[ruby $(which gz) sim-27] [INFO] [1791621578.231808703] [arm2.controller_manager]: Successfully switched controllers!
+[spawner-42] [INFO] [1791621578.357434206] [arm2.arm_controller_spawner]: Configured and activated arm_controller
+[INFO] [spawner-42]: process has finished cleanly [pid 37263]
+[INFO] [spawner-44]: process started with pid [37294]
+[ruby $(which gz) sim-27] [INFO] [1791621586.919693070] [arm1.controller_manager]: Loading controller : 'gripper_action_controller' of type 'parallel_gripper_action_controller/GripperActionController'
+[ruby $(which gz) sim-27] [INFO] [1791621586.919808751] [arm1.controller_manager]: Loading controller 'gripper_action_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621587.119311558] [arm1.controller_manager]: Controller 'gripper_action_controller' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-43] [INFO] [1791621588.100466683] [arm1.gripper_action_controller_spawner]: Loaded gripper_action_controller
+[ruby $(which gz) sim-27] [INFO] [1791621588.148832007] [arm1.controller_manager]: Configuring controller: 'gripper_action_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621588.149034543] [arm1.gripper_action_controller]: Action status changes will be monitored at 20.000000 Hz.
+[ruby $(which gz) sim-27] [INFO] [1791621588.149100424] [arm1.gripper_action_controller]: Joint name is : robotiq_85_left_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621588.292184193] [arm1.controller_manager]: Activating controllers: [ gripper_action_controller ]
+[ruby $(which gz) sim-27] [INFO] [1791621588.405987985] [arm1.controller_manager]: Successfully switched controllers!
+[spawner-43] [INFO] [1791621588.517179245] [arm1.gripper_action_controller_spawner]: Configured and activated gripper_action_controller
+[INFO] [spawner-43]: process has finished cleanly [pid 37289]
+[ruby $(which gz) sim-27] [INFO] [1791621590.898512359] [arm2.controller_manager]: Loading controller : 'gripper_action_controller' of type 'parallel_gripper_action_controller/GripperActionController'
+[ruby $(which gz) sim-27] [INFO] [1791621590.898617272] [arm2.controller_manager]: Loading controller 'gripper_action_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621590.903222306] [arm2.controller_manager]: Controller 'gripper_action_controller' node arguments: --ros-args --params-file /home/meta/Documents/robotics_workspace_new/ur5_cell/install/ur5_cell_motus/share/ur5_cell_motus/config/controllers.yaml -p use_sim_time:=true --param use_sim_time:=true 
+[spawner-44] [INFO] [1791621591.750542132] [arm2.gripper_action_controller_spawner]: Loaded gripper_action_controller
+[ruby $(which gz) sim-27] [INFO] [1791621591.829925868] [arm2.controller_manager]: Configuring controller: 'gripper_action_controller'
+[ruby $(which gz) sim-27] [INFO] [1791621591.830102161] [arm2.gripper_action_controller]: Action status changes will be monitored at 20.000000 Hz.
+[ruby $(which gz) sim-27] [INFO] [1791621591.830155365] [arm2.gripper_action_controller]: Joint name is : robotiq_85_left_knuckle_joint
+[ruby $(which gz) sim-27] [INFO] [1791621591.912004411] [arm2.controller_manager]: Activating controllers: [ gripper_action_controller ]
+[ruby $(which gz) sim-27] [INFO] [1791621592.104380129] [arm2.controller_manager]: Successfully switched controllers!
+[spawner-44] [INFO] [1791621592.288229166] [arm2.gripper_action_controller_spawner]: Configured and activated gripper_action_controller
+[INFO] [spawner-44]: process has finished cleanly [pid 37294]
+[arm_executor-24] [WARN] [1791621609.536868472] [arm2.arm_executor]: [arm_executor] home_pose is singular and no ready_pose is configured — derived one automatically: [0.0, -1.5708, 1.7637, -0.6366, -0.6274, 0.0] (add it to robot.yaml as ready_pose to pin it)
+[arm_executor-24] [INFO] [1791621609.742841135] [arm2.arm_executor]: [arm_executor] ready_pose=[0.0, -1.5708, 1.7637, -0.6366, -0.6274, 0.0] elbow_height=+0.312 m forward_reach=+0.394 m sigma_min=0.246 home_singular=True (IK seed/posture: ready_pose)
+[arm_executor-24] [INFO] [1791621609.746651097] [arm2.arm_executor]: [arm_executor] IK fallback seeding: home_pose + 0 configured extra seed(s)
+[arm_executor-11] [WARN] [1791621610.866943946] [arm1.arm_executor]: [arm_executor] home_pose is singular and no ready_pose is configured — derived one automatically: [0.0, -1.5708, 1.7637, -0.6366, -0.6274, 0.0] (add it to robot.yaml as ready_pose to pin it)
+[arm_executor-11] [INFO] [1791621611.169441644] [arm1.arm_executor]: [arm_executor] ready_pose=[0.0, -1.5708, 1.7637, -0.6366, -0.6274, 0.0] elbow_height=+0.312 m forward_reach=+0.394 m sigma_min=0.246 home_singular=True (IK seed/posture: ready_pose)
+[arm_executor-11] [INFO] [1791621611.174670985] [arm1.arm_executor]: [arm_executor] IK fallback seeding: home_pose + 0 configured extra seed(s)
+[arm_executor-11] [INFO] [1791621612.309321432] [arm1.arm_executor]: ArmExecutor ready (JTC: /arm1/arm_controller/follow_joint_trajectory)
+[arm_executor-24] [INFO] [1791621612.442951605] [arm2.arm_executor]: ArmExecutor ready (JTC: /arm2/arm_controller/follow_joint_trajectory)
+[cell_orchestrator-40] [INFO] [1791622290.795597160] [cell_orchestrator]: [DAG] 6 batched motion run(s): [('above_pick_arm1', 'down_pick_arm1'), ('above_pick_arm2', 'down_pick_arm2'), ('up_pick_arm1', 'above_place_arm1', 'down_place_arm1'), ('up_pick_arm2', 'above_place_arm2', 'down_place_arm2'), ('up_place_arm1', 'return_arm1'), ('up_place_arm2', 'return_arm2')]
+[cell_orchestrator-40] [INFO] [1791622290.801073389] [cell_orchestrator]: Recipe loaded: two_arm_pick_place [8d040c1c4a1a1ba5] (30 steps)
+[cell_orchestrator-40] [INFO] [1791622291.501450228] [cell_orchestrator]: [DAG] dispatching spawn_c1 (SpawnStep)
+[parameter_bridge-29] [INFO] [1791622291.907068774] [grasp_attach_gz_bridge]: Passing message from ROS std_msgs/msg/Empty to Gazebo gz.msgs.Empty (showing msg only once per type)
+[object_spawner-32] [INFO] [1791622292.015852423] [object_spawner]: Spawned "cube_large_1" at (0.4, 0.25, 0.03)
+[cell_orchestrator-40] [INFO] [1791622292.050920328] [cell_orchestrator]: [DAG] spawn_c1: spawn result success=True
+[cell_orchestrator-40] [INFO] [1791622292.069171712] [cell_orchestrator]: [DAG] spawn_c1: COMPLETED (1/30)
+[cell_orchestrator-40] [INFO] [1791622292.107071692] [cell_orchestrator]: [DAG] dispatching spawn_c2 (SpawnStep)
+[object_spawner-32] [INFO] [1791622292.427097495] [object_spawner]: Spawned "cube_large_2" at (1.2, 0.25, 0.03)
+[cell_orchestrator-40] [INFO] [1791622292.436658143] [cell_orchestrator]: [DAG] spawn_c2: spawn result success=True
+[cell_orchestrator-40] [INFO] [1791622292.457644379] [cell_orchestrator]: [DAG] spawn_c2: COMPLETED (2/30)
+[cell_orchestrator-40] [INFO] [1791622292.487408998] [cell_orchestrator]: [DAG] dispatching motion run ['home_arm1']
+[cell_orchestrator-40] [INFO] [1791622292.510076393] [cell_orchestrator]: [DAG] dispatching motion run ['home_arm2']
+[arm_executor-11] [INFO] [1791622292.558676374] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791622292.582247035] [arm1.arm_executor]: [arm_executor] executing 1 leg(s): ['home_arm1']
+[arm_executor-24] [INFO] [1791622292.589065972] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-24] [INFO] [1791622292.605340455] [arm2.arm_executor]: [arm_executor] executing 1 leg(s): ['home_arm2']
+[arm_executor-24] [WARN] [1791622292.617640441] [arm2.arm_executor]: [arm_executor] system mode is PLANNER, not ACTIVE — switching to ACTIVE for this run
+[arm_executor-11] [WARN] [1791622292.623256153] [arm1.arm_executor]: [arm_executor] system mode is PLANNER, not ACTIVE — switching to ACTIVE for this run
+[robot_state_manager-8] [INFO] [1791622292.629890446] [arm1.robot_state_manager]: Recieved state request: ACTIVE
+[robot_state_manager-21] [INFO] [1791622292.648834392] [arm2.robot_state_manager]: Recieved state request: ACTIVE
+[robot_state_manager-8] [INFO] [1791622292.651580555] [arm1.robot_state_manager]: System mode updated -> ACTIVE
+[pose_target_interface-9] [INFO] [1791622292.656361747] [arm1.pose_target_interface]: pose_target_interface: system_mode -> ACTIVE
+[pose_target_interface-22] [INFO] [1791622292.668596516] [arm2.pose_target_interface]: pose_target_interface: system_mode -> ACTIVE
+[robot_state_manager-21] [INFO] [1791622292.677019289] [arm2.robot_state_manager]: System mode updated -> ACTIVE
+[arm_executor-24] [INFO] [1791622293.362857294] [arm2.arm_executor]: [arm_executor] plan ready for 1 leg(s) (0.574s)
+[arm_executor-24] [INFO] [1791622293.441591253] [arm2.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-24] [INFO] [1791622293.446178679] [arm2.arm_executor]: [plan-profile] traj_planner.create_trajectory                2      83.25    41.624       14.5%
+[arm_executor-24] [INFO] [1791622293.448431696] [arm2.arm_executor]: [plan-profile] kin.solve_ik                                  1      71.45    71.453       12.5%
+[arm_executor-24] [INFO] [1791622293.464906507] [arm2.arm_executor]: [plan-profile] kin.compute_fk                                1       5.68     5.682        1.0%
+[arm_executor-24] [INFO] [1791622293.466202296] [arm2.arm_executor]: [plan-profile] kin.shortest_equivalent                       2       0.13     0.066        0.0%
+[arm_executor-24] [INFO] [1791622293.467504690] [arm2.arm_executor]: [plan-profile] TOTAL (measured buckets):    160.52 ms
+[arm_executor-24] [INFO] [1791622293.468896143] [arm2.arm_executor]: [plan-profile] TOTAL (wall clock):           573.81 ms
+[arm_executor-24] [INFO] [1791622293.470198779] [arm2.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 413.29 ms
+[ruby $(which gz) sim-27] [INFO] [1791622293.500038029] [arm2.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622293.500258999] [arm2.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791622293.541714842] [arm1.arm_executor]: [arm_executor] plan ready for 1 leg(s) (0.762s)
+[arm_executor-11] [INFO] [1791622293.561911622] [arm1.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791622293.582724435] [arm1.arm_executor]: [plan-profile] traj_planner.create_trajectory                2     230.64   115.318       30.3%
+[arm_executor-11] [INFO] [1791622293.584232409] [arm1.arm_executor]: [plan-profile] kin.solve_ik                                  1      35.62    35.625        4.7%
+[arm_executor-11] [INFO] [1791622293.590142259] [arm1.arm_executor]: [plan-profile] kin.compute_fk                                1      32.29    32.285        4.2%
+[arm_executor-11] [INFO] [1791622293.600318500] [arm1.arm_executor]: [plan-profile] kin.shortest_equivalent                       2       0.39     0.195        0.1%
+[arm_executor-11] [INFO] [1791622293.614672942] [arm1.arm_executor]: [plan-profile] TOTAL (measured buckets):    298.94 ms
+[arm_executor-11] [INFO] [1791622293.616856894] [arm1.arm_executor]: [plan-profile] TOTAL (wall clock):           761.64 ms
+[arm_executor-11] [INFO] [1791622293.634345055] [arm1.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 462.71 ms
+[ruby $(which gz) sim-27] [INFO] [1791622293.669028752] [arm1.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622293.669187152] [arm1.arm_controller]: Accepted new action goal
+[arm_executor-24] [INFO] [1791622295.882730904] [arm2.arm_executor]: [arm_executor] completed leg 'home_arm2'
+[arm_executor-11] [INFO] [1791622296.036502484] [arm1.arm_executor]: [arm_executor] completed leg 'home_arm1'
+[ruby $(which gz) sim-27] [INFO] [1791622299.072045114] [arm2.arm_controller]: Goal reached, success!
+[ruby $(which gz) sim-27] [INFO] [1791622299.158188437] [arm1.arm_controller]: Goal reached, success!
+[arm_executor-24] [INFO] [1791622299.191617793] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[arm_executor-11] [INFO] [1791622299.237015836] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[cell_orchestrator-40] [INFO] [1791622299.241652240] [cell_orchestrator]: [DAG] home_arm2: COMPLETED (3/30)
+[cell_orchestrator-40] [INFO] [1791622299.244922976] [cell_orchestrator]: [DAG] dispatching w_h_arm2 (WaitStep)
+[cell_orchestrator-40] [INFO] [1791622299.293577591] [cell_orchestrator]: [DAG] home_arm1: COMPLETED (4/30)
+[cell_orchestrator-40] [INFO] [1791622299.320505484] [cell_orchestrator]: [DAG] dispatching w_h_arm1 (WaitStep)
+[cell_orchestrator-40] [INFO] [1791622299.752186232] [cell_orchestrator]: [DAG] w_h_arm2: wait complete
+[cell_orchestrator-40] [INFO] [1791622299.776083817] [cell_orchestrator]: [DAG] w_h_arm2: COMPLETED (5/30)
+[cell_orchestrator-40] [INFO] [1791622299.777471883] [cell_orchestrator]: [DAG] dispatching motion run ['above_pick_arm2', 'down_pick_arm2']
+[cell_orchestrator-40] [INFO] [1791622299.833243270] [cell_orchestrator]: [DAG] w_h_arm1: wait complete
+[cell_orchestrator-40] [INFO] [1791622299.878804244] [cell_orchestrator]: [DAG] w_h_arm1: COMPLETED (6/30)
+[cell_orchestrator-40] [INFO] [1791622299.889537106] [cell_orchestrator]: [DAG] dispatching motion run ['above_pick_arm1', 'down_pick_arm1']
+[arm_executor-24] [INFO] [1791622299.882115024] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-24] [INFO] [1791622299.883573157] [arm2.arm_executor]: [arm_executor] executing 2 leg(s): ['above_pick_arm2', 'down_pick_arm2']
+[arm_executor-11] [INFO] [1791622299.958539280] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791622299.964574230] [arm1.arm_executor]: [arm_executor] executing 2 leg(s): ['above_pick_arm1', 'down_pick_arm1']
+[arm_executor-24] [INFO] [1791622300.263182692] [arm2.arm_executor]: [arm_executor] plan ready for 2 leg(s) (0.319s)
+[arm_executor-24] [INFO] [1791622300.264413069] [arm2.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-24] [INFO] [1791622300.272277357] [arm2.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      1      45.53    45.530       14.3%
+[arm_executor-24] [INFO] [1791622300.280121240] [arm2.arm_executor]: [plan-profile] kin.solve_ik                                  2      26.56    13.280        8.3%
+[arm_executor-24] [INFO] [1791622300.281593572] [arm2.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      25.92    25.917        8.1%
+[arm_executor-24] [INFO] [1791622300.286848696] [arm2.arm_executor]: [plan-profile] kin.compute_fk                                2      15.61     7.803        4.9%
+[arm_executor-24] [INFO] [1791622300.291753314] [arm2.arm_executor]: [plan-profile] traj_planner._ik_chain                        1      13.29    13.295        4.2%
+[arm_executor-24] [INFO] [1791622300.293134125] [arm2.arm_executor]: [plan-profile] kin.shortest_equivalent                       2       0.11     0.053        0.0%
+[arm_executor-24] [INFO] [1791622300.309818165] [arm2.arm_executor]: [plan-profile] TOTAL (measured buckets):    127.01 ms
+[arm_executor-24] [INFO] [1791622300.312362023] [arm2.arm_executor]: [plan-profile] TOTAL (wall clock):           319.45 ms
+[arm_executor-24] [INFO] [1791622300.314903454] [arm2.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 192.44 ms
+[arm_executor-24] [INFO] [1791622300.323269063] [arm2.arm_executor]: [plan-profile] ik solve iterations: 10 solves, avg 1.90 iters/solve, max 2
+[arm_executor-24] [INFO] [1791622300.327499479] [arm2.arm_executor]: [plan-profile] topp internal split (1 calls, 10 total path pts): assembly(ik_chain+slerp+bezier)=14.41ms  resample=14.26ms  topp.savgol_filter=15.30ms  topp.mvc_combine=0.17ms  topp.accel_precompute=0.08ms  topp.loop(accel_bounds sweep)=0.70ms  topp.finalize=0.14ms  points_construction=0.08ms
+[ruby $(which gz) sim-27] [INFO] [1791622300.343577548] [arm2.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622300.343869727] [arm2.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791622300.405765256] [arm1.arm_executor]: [arm_executor] plan ready for 2 leg(s) (0.417s)
+[arm_executor-11] [INFO] [1791622300.407605420] [arm1.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791622300.408899512] [arm1.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      1      47.96    47.961       11.5%
+[arm_executor-11] [INFO] [1791622300.410049039] [arm1.arm_executor]: [plan-profile] traj_planner._ik_chain                        1      15.21    15.214        3.7%
+[arm_executor-11] [INFO] [1791622300.414390867] [arm1.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      12.67    12.670        3.0%
+[arm_executor-11] [INFO] [1791622300.416436774] [arm1.arm_executor]: [plan-profile] kin.compute_fk                                2      12.67     6.334        3.0%
+[arm_executor-11] [INFO] [1791622300.418568690] [arm1.arm_executor]: [plan-profile] kin.solve_ik                                  2      11.80     5.898        2.8%
+[arm_executor-11] [INFO] [1791622300.420086578] [arm1.arm_executor]: [plan-profile] kin.shortest_equivalent                       2       0.11     0.053        0.0%
+[arm_executor-11] [INFO] [1791622300.421562823] [arm1.arm_executor]: [plan-profile] TOTAL (measured buckets):    100.42 ms
+[arm_executor-11] [INFO] [1791622300.427121333] [arm1.arm_executor]: [plan-profile] TOTAL (wall clock):           416.69 ms
+[arm_executor-11] [INFO] [1791622300.428559512] [arm1.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 316.27 ms
+[arm_executor-11] [INFO] [1791622300.432490087] [arm1.arm_executor]: [plan-profile] ik solve iterations: 10 solves, avg 1.90 iters/solve, max 2
+[arm_executor-11] [INFO] [1791622300.434323522] [arm1.arm_executor]: [plan-profile] topp internal split (1 calls, 10 total path pts): assembly(ik_chain+slerp+bezier)=15.67ms  resample=1.17ms  topp.savgol_filter=28.92ms  topp.mvc_combine=0.19ms  topp.accel_precompute=0.08ms  topp.loop(accel_bounds sweep)=1.23ms  topp.finalize=0.18ms  points_construction=0.12ms
+[ruby $(which gz) sim-27] [INFO] [1791622300.438982298] [arm1.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622300.439050303] [arm1.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791622301.283797592] [arm1.arm_executor]: [arm_executor] completed leg 'above_pick_arm1'
+[arm_executor-11] [INFO] [1791622302.005336247] [arm1.arm_executor]: [arm_executor] completed leg 'down_pick_arm1'
+[arm_executor-24] [INFO] [1791622302.496293062] [arm2.arm_executor]: [arm_executor] completed leg 'above_pick_arm2'
+[arm_executor-24] [INFO] [1791622303.238361140] [arm2.arm_executor]: [arm_executor] completed leg 'down_pick_arm2'
+[ruby $(which gz) sim-27] [INFO] [1791622303.962591839] [arm1.arm_controller]: Goal reached, success!
+[arm_executor-11] [INFO] [1791622304.064142243] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[cell_orchestrator-40] [INFO] [1791622304.134790312] [cell_orchestrator]: [DAG] down_pick_arm1: COMPLETED (9/30)
+[cell_orchestrator-40] [INFO] [1791622304.170380083] [cell_orchestrator]: [DAG] dispatching grip_arm1 (ToolStep)
+[cell_orchestrator-40] [INFO] [1791622304.229458231] [cell_orchestrator]: [DAG] grip_arm1: goal accepted
+[tool_action_server-36] [INFO] [1791622304.253487938] [tool_action_server]: [GRASP_ATTACH] grasp_attach_1: gripper engaging (bg) — welding now
+[ruby $(which gz) sim-27] [INFO] [1791622304.357975905] [arm1.gripper_action_controller]: Received & accepted new action goal
+[grasp_attach_bridge-30] [INFO] [1791622304.382047854] [grasp_attach_bridge]: Published attach for "cube_large_1" (joint_id=1)
+[tool_action_server-36] [INFO] [1791622304.443591364] [tool_action_server]: [GRASP_ATTACH] grasp_attach_1: attached "cube_large_1" to wrist_3_link (joint_id=1)
+[tool_action_server-36] [INFO] [1791622304.446144124] [tool_action_server]: Tool result → grasp_attach_1:closed_grasped
+[cell_orchestrator-40] [INFO] [1791622304.458607861] [cell_orchestrator]: [DAG] grip_arm1: result success=True
+[cell_orchestrator-40] [INFO] [1791622304.461792971] [cell_orchestrator]: [DAG] grip_arm1: COMPLETED (10/30)
+[cell_orchestrator-40] [INFO] [1791622304.466162517] [cell_orchestrator]: [DAG] dispatching w_g_arm1 (WaitStep)
+[cell_orchestrator-40] [INFO] [1791622304.975282626] [cell_orchestrator]: [DAG] w_g_arm1: wait complete
+[cell_orchestrator-40] [INFO] [1791622304.986558232] [cell_orchestrator]: [DAG] w_g_arm1: COMPLETED (11/30)
+[cell_orchestrator-40] [INFO] [1791622305.016551972] [cell_orchestrator]: [DAG] dispatching motion run ['up_pick_arm1', 'above_place_arm1', 'down_place_arm1']
+[arm_executor-11] [INFO] [1791622305.099972090] [arm1.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-11] [INFO] [1791622305.123115545] [arm1.arm_executor]: [arm_executor] executing 3 leg(s): ['up_pick_arm1', 'above_place_arm1', 'down_place_arm1']
+[arm_executor-11] [INFO] [1791622306.530428463] [arm1.arm_executor]: [arm_executor] plan ready for 3 leg(s) (1.313s)
+[arm_executor-11] [INFO] [1791622306.533430099] [arm1.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-11] [INFO] [1791622306.586515983] [arm1.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      2     248.74   124.371       18.9%
+[arm_executor-11] [INFO] [1791622306.623417983] [arm1.arm_executor]: [plan-profile] traj_planner._ik_chain                        2     152.49    76.247       11.6%
+[arm_executor-11] [INFO] [1791622306.624603092] [arm1.arm_executor]: [plan-profile] kin.compute_fk                                3      94.17    31.389        7.2%
+[arm_executor-11] [INFO] [1791622306.631512514] [arm1.arm_executor]: [plan-profile] traj_planner.create_trajectory                1      83.94    83.944        6.4%
+[arm_executor-11] [INFO] [1791622306.654452945] [arm1.arm_executor]: [plan-profile] kin.solve_ik                                  3      52.19    17.397        4.0%
+[arm_executor-11] [INFO] [1791622306.659340499] [arm1.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.16     0.054        0.0%
+[arm_executor-11] [INFO] [1791622306.673053176] [arm1.arm_executor]: [plan-profile] TOTAL (measured buckets):    631.70 ms
+[arm_executor-11] [INFO] [1791622306.683196070] [arm1.arm_executor]: [plan-profile] TOTAL (wall clock):           1313.18 ms
+[arm_executor-11] [INFO] [1791622306.684513752] [arm1.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 681.48 ms
+[arm_executor-11] [INFO] [1791622306.700302688] [arm1.arm_executor]: [plan-profile] ik solve iterations: 20 solves, avg 2.00 iters/solve, max 3
+[arm_executor-11] [INFO] [1791622306.702190603] [arm1.arm_executor]: [plan-profile] topp internal split (2 calls, 20 total path pts): assembly(ik_chain+slerp+bezier)=153.15ms  resample=55.35ms  topp.savgol_filter=31.29ms  topp.mvc_combine=0.38ms  topp.accel_precompute=0.17ms  topp.loop(accel_bounds sweep)=1.45ms  topp.finalize=0.30ms  points_construction=0.20ms
+[ruby $(which gz) sim-27] [INFO] [1791622306.752572368] [arm1.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622306.752656027] [arm1.arm_controller]: Accepted new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622307.103267449] [arm2.arm_controller]: Goal reached, success!
+[arm_executor-24] [INFO] [1791622307.215674060] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep completed successfully
+[cell_orchestrator-40] [INFO] [1791622307.242010175] [cell_orchestrator]: [DAG] down_pick_arm2: COMPLETED (12/30)
+[cell_orchestrator-40] [INFO] [1791622307.254014476] [cell_orchestrator]: [DAG] dispatching grip_arm2 (ToolStep)
+[cell_orchestrator-40] [INFO] [1791622307.285374455] [cell_orchestrator]: [DAG] grip_arm2: goal accepted
+[tool_action_server-36] [INFO] [1791622307.303932371] [tool_action_server]: [GRASP_ATTACH] grasp_attach_2: gripper engaging (bg) — welding now
+[ruby $(which gz) sim-27] [INFO] [1791622307.344137611] [arm2.gripper_action_controller]: Received & accepted new action goal
+[grasp_attach_bridge-30] [INFO] [1791622307.410167351] [grasp_attach_bridge]: Published attach for "cube_large_2" (joint_id=2)
+[tool_action_server-36] [INFO] [1791622307.427295249] [tool_action_server]: [GRASP_ATTACH] grasp_attach_2: attached "cube_large_2" to wrist_3_link (joint_id=2)
+[tool_action_server-36] [INFO] [1791622307.430317239] [tool_action_server]: Tool result → grasp_attach_2:closed_grasped
+[cell_orchestrator-40] [INFO] [1791622307.453595889] [cell_orchestrator]: [DAG] grip_arm2: result success=True
+[cell_orchestrator-40] [INFO] [1791622307.464386836] [cell_orchestrator]: [DAG] grip_arm2: COMPLETED (13/30)
+[cell_orchestrator-40] [INFO] [1791622307.469475293] [cell_orchestrator]: [DAG] dispatching w_g_arm2 (WaitStep)
+[arm_executor-11] [INFO] [1791622307.902605783] [arm1.arm_executor]: [arm_executor] completed leg 'up_pick_arm1'
+[cell_orchestrator-40] [INFO] [1791622307.983305996] [cell_orchestrator]: [DAG] w_g_arm2: wait complete
+[cell_orchestrator-40] [INFO] [1791622307.984590586] [cell_orchestrator]: [DAG] w_g_arm2: COMPLETED (15/30)
+[cell_orchestrator-40] [INFO] [1791622308.030653441] [cell_orchestrator]: [DAG] dispatching motion run ['up_pick_arm2', 'above_place_arm2', 'down_place_arm2']
+[arm_executor-24] [INFO] [1791622308.089552554] [arm2.arm_executor]: [arm_executor] ExecuteMoveStep started
+[arm_executor-24] [INFO] [1791622308.100755824] [arm2.arm_executor]: [arm_executor] executing 3 leg(s): ['up_pick_arm2', 'above_place_arm2', 'down_place_arm2']
+[arm_executor-24] [INFO] [1791622308.385042200] [arm2.arm_executor]: [arm_executor] plan ready for 3 leg(s) (0.273s)
+[arm_executor-24] [INFO] [1791622308.388079804] [arm2.arm_executor]: [plan-profile] call site                                 count   total ms    avg ms  % of total
+[arm_executor-24] [INFO] [1791622308.389760304] [arm2.arm_executor]: [plan-profile] traj_planner.create_topp_blended_cartesian_trajectory      2      58.80    29.399       21.5%
+[arm_executor-24] [INFO] [1791622308.392208831] [arm2.arm_executor]: [plan-profile] traj_planner._ik_chain                        2      29.82    14.910       10.9%
+[arm_executor-24] [INFO] [1791622308.394260636] [arm2.arm_executor]: [plan-profile] kin.compute_fk                                3      13.19     4.397        4.8%
+[arm_executor-24] [INFO] [1791622308.397082464] [arm2.arm_executor]: [plan-profile] kin.solve_ik                                  3       9.55     3.184        3.5%
+[arm_executor-24] [INFO] [1791622308.398584524] [arm2.arm_executor]: [plan-profile] traj_planner.create_trajectory                1       7.26     7.265        2.7%
+[arm_executor-24] [INFO] [1791622308.407039053] [arm2.arm_executor]: [plan-profile] kin.shortest_equivalent                       3       0.17     0.056        0.1%
+[arm_executor-24] [INFO] [1791622308.414437236] [arm2.arm_executor]: [plan-profile] TOTAL (measured buckets):    118.79 ms
+[arm_executor-24] [INFO] [1791622308.416606621] [arm2.arm_executor]: [plan-profile] TOTAL (wall clock):           273.09 ms
+[arm_executor-24] [INFO] [1791622308.420916484] [arm2.arm_executor]: [plan-profile] Unaccounted (bookkeeping/py): 154.30 ms
+[arm_executor-24] [INFO] [1791622308.423216582] [arm2.arm_executor]: [plan-profile] ik solve iterations: 20 solves, avg 2.00 iters/solve, max 3
+[arm_executor-24] [INFO] [1791622308.425068667] [arm2.arm_executor]: [plan-profile] topp internal split (2 calls, 20 total path pts): assembly(ik_chain+slerp+bezier)=30.72ms  resample=6.91ms  topp.savgol_filter=17.00ms  topp.mvc_combine=0.38ms  topp.accel_precompute=0.18ms  topp.loop(accel_bounds sweep)=1.52ms  topp.finalize=0.31ms  points_construction=0.20ms
+[ruby $(which gz) sim-27] [INFO] [1791622308.429935397] [arm2.arm_controller]: Received new action goal
+[ruby $(which gz) sim-27] [INFO] [1791622308.430050036] [arm2.arm_controller]: Accepted new action goal
+[arm_executor-11] [INFO] [1791622309.097775825] [arm1.arm_executor]: [arm_executor] completed leg 'above_place_arm1'
+[ruby $(which gz) sim-27] [1;32mMsg[0m [NameManager::issueNewName] (Skeleton::Joint | arm1_robot) The name [fixed] is a duplicate, so it has been renamed to [fixed(1)]
+[ruby $(which gz) sim-27] [1;32mMsg[0m [NameManager::issueNewName] (Skeleton::N4dart8dynamics9ShapeNodeE | arm1_robot) The name [link:collision] is a duplicate, so it has been renamed to [link:collision(1)]
+[arm_executor-24] [INFO] [1791622309.606576364] [arm2.arm_executor]: [arm_executor] completed leg 'up_pick_arm2'
+[arm_executor-11] [INFO] [1791622310.221174089] [arm1.arm_executor]: [arm_executor] completed leg 'down_place_arm1'
+[arm_executor-24] [INFO] [1791622310.780147337] [arm2.arm_executor]: [arm_executor] completed leg 'above_place_arm2'
+[arm_executor-24] [INFO] [1791622311.913131906] [arm2.arm_executor]: [arm_executor] completed leg 'down_place_arm2'

@@ -41,6 +41,9 @@ def orch():
     o._active_resources = {"a": ["arm1"]}
     o._held_step_id, o._active_recipe_id, o._active_content_hash = None, "r1", "h"
     o._spawned = {"cube_small_1", "cube_large_2"}
+    o._restore_planner = True
+    o._mode_clients = {}
+    o.get_logger = lambda: MagicMock()
     h = MagicMock()
     o._goal_handles = {"a": h, "b": h}              # one batched run shares one handle
     o.state = CellState.EXECUTING
@@ -200,3 +203,49 @@ def test_release_all_recovers_when_the_bridge_forgot_the_joint():
     b._call = _failing
     _run(b.release_all())
     assert calls == [("call", False), ("disengage",)] and b._held_joint_id is None
+
+
+def _mode_clients(*ready):
+    clients = {}
+    for i, r in enumerate(ready, 1):
+        c = MagicMock()
+        c.service_is_ready.return_value = r
+        clients[f"arm{i}"] = c
+    return clients
+
+
+def test_cancel_puts_every_ready_arm_back_in_planner_mode(orch):
+    orch._mode_clients = _mode_clients(True, True)
+    orch.cancel()
+    for c in orch._mode_clients.values():
+        c.call_async.assert_called_once()
+        assert c.call_async.call_args[0][0].new_mode == "PLANNER"
+
+
+def test_unreachable_arm_is_skipped_not_fatal(orch):
+    orch._mode_clients = _mode_clients(True, False)
+    ok, _ = orch.cancel()
+    assert ok
+    orch._mode_clients["arm1"].call_async.assert_called_once()
+    orch._mode_clients["arm2"].call_async.assert_not_called()
+
+
+def test_restore_can_be_disabled(orch):
+    orch._restore_planner = False
+    orch._mode_clients = _mode_clients(True)
+    orch.cancel()
+    orch._mode_clients["arm1"].call_async.assert_not_called()
+
+
+def test_recipe_completion_restores_planner_only_when_all_steps_done(orch):
+    orch._mode_clients = _mode_clients(True)
+    orch._dispatch = MagicMock()
+    orch._resolve_pending_progress = MagicMock(return_value=[])
+    orch._steps = {"a": object(), "b": object()}
+    orch._completed = set()
+    orch._dependents, orch._in_degree = {"a": ["b"], "b": []}, {"a": 0, "b": 1}
+    orch._on_step_completed("a")
+    orch._mode_clients["arm1"].call_async.assert_not_called()      # b still pending
+    orch._on_step_completed("b")
+    orch._mode_clients["arm1"].call_async.assert_called_once()
+    assert orch.state == orch._cs.IDLE

@@ -8,6 +8,8 @@ cli.py
     motus tool add [SOURCE] [--profile KEY] [--id ID] ...  # attach a gripper
     motus tool list | motus tool remove ID
     motus world init [--force] | status | diff   # project-owned world + recipes
+    motus cell add-arm NAME --x X [--y Y] [--z Z]  # multi-arm cell, defined in the project
+    motus cell list | remove-arm NAME | sync
     motus doctor [--verbose]          # validates the current project on disk
     motus build                       # doctor-gated colcon build
     motus launch [--sim/--real]       # ros2 launch wrapper
@@ -26,6 +28,7 @@ import os
 import sys
 
 from .builder import package_generator
+from .builder import cell_arms
 from .builder.robot_add import robot_add, RobotAddError
 from .builder.doctor import run_doctor, print_report, DoctorFatalError
 from .builder.build_cmd import run_build, BuildError
@@ -139,6 +142,53 @@ def _cmd_tool_list(args: argparse.Namespace) -> int:
     for d in tools:
         print(f"{d['id']}: {d['kind']} on {d['mount_link']}, driver={d['primary_joint']}, "
               f"tcp={d['tcp_link']}")
+    return 0
+
+
+def _cmd_cell_add_arm(args: argparse.Namespace) -> int:
+    try:
+        report = cell_arms.add_arm(os.getcwd(), args.name, args.x, args.y, args.z)
+    except cell_arms.CellArmsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print(f"Added {args.name} at ({args.x}, {args.y}, {args.z}).")
+    report.print_summary()
+    return 0
+
+
+def _cmd_cell_remove_arm(args: argparse.Namespace) -> int:
+    try:
+        report = cell_arms.remove_arm(os.getcwd(), args.name)
+    except cell_arms.CellArmsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print(f"Removed {args.name}.")
+    report.print_summary()
+    return 0
+
+
+def _cmd_cell_list(args: argparse.Namespace) -> int:
+    try:
+        arms = cell_arms.list_arms(os.getcwd())
+    except cell_arms.CellArmsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    for a in arms:
+        print(f"{a['namespace']}: x={a.get('spawn_x', 0.0)} y={a.get('spawn_y', 0.0)} "
+              f"z={a.get('spawn_z', 0.0)}")
+    if len(arms) == 1:
+        print("single-arm cell (add another with `motus cell add-arm arm2 --x 1.2`).")
+    return 0
+
+
+def _cmd_cell_sync(args: argparse.Namespace) -> int:
+    try:
+        report = cell_arms.sync_tools(os.getcwd())
+    except cell_arms.CellArmsError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    print("Extra arms' tools rebuilt from arm1's.")
+    report.print_summary()
     return 0
 
 
@@ -335,6 +385,23 @@ def build_parser() -> argparse.ArgumentParser:
                          "the back edge, so most of the table is in front of it)")
     wt.add_argument("--remove", action="store_true", help="remove the table and restore the floor")
     wt.set_defaults(func=_cmd_world_table)
+
+    cell = sub.add_parser("cell", help="turn this project into a multi-arm cell")
+    cell_sub = cell.add_subparsers(dest="cell_command", required=True)
+    ca = cell_sub.add_parser(
+        "add-arm", help="add another copy of this project's robot (arm2, arm3, ...) to the cell")
+    ca.add_argument("name", help="arm name: arm2, arm3, ... (arm1 is the project's first arm)")
+    ca.add_argument("--x", type=float, required=True, help="base position x in the world, metres")
+    ca.add_argument("--y", type=float, default=0.0, help="base position y (default 0)")
+    ca.add_argument("--z", type=float, default=0.0, help="base position z (default 0)")
+    ca.set_defaults(func=_cmd_cell_add_arm)
+    cr = cell_sub.add_parser("remove-arm", help="remove an extra arm from the cell")
+    cr.add_argument("name")
+    cr.set_defaults(func=_cmd_cell_remove_arm)
+    cell_sub.add_parser("list", help="list the cell's arms").set_defaults(func=_cmd_cell_list)
+    cell_sub.add_parser(
+        "sync", help="rebuild the extra arms' tools from arm1's (after `motus tool add --replace`)"
+    ).set_defaults(func=_cmd_cell_sync)
 
     doctor = sub.add_parser("doctor", help="validate the current project")
     doctor.add_argument("--verbose", action="store_true")

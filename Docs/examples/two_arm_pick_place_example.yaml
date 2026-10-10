@@ -1,0 +1,238 @@
+recipe_id: two_arm_pick_place
+# arm1 (world x=0) and arm2 (world x=1.6) each pick one cube_large and place it.
+# Move poses are in EACH ARM'S OWN BASE FRAME. World cube positions:
+#   cube_large_1 (arm1): pick world (0.40, 0.25) -> place (0.40, -0.25)
+#   cube_large_2 (arm2): pick world (2.00, 0.25) -> place (2.00, -0.25)  [= base (0.40, +/-0.25), same as arm1]
+# Both cubes sit IN FRONT of their arm (normal shoulder-lift/elbow branch, no pan wrap-around);
+# reaching behind the base forces lift < -pi and pan/wrist-3 winding (checked offline with IK).
+# Pick/place heights reuse test_recipe1 (pick z 0.0924, place z 0.0876, approach 0.2435).
+# Spawn order fixes the instances: spawn_c1 -> cube_large_1, spawn_c2 -> cube_large_2.
+# `wait` steps keep moves around each grasp in separate runs (as in multi_arm_example).
+#
+# Needs: two arms (arm1 at world x=0, arm2 at x=1.6: `motus cell add-arm arm2 --x 1.6`), tools
+# grasp_attach_1 / grasp_attach_2 (each with its own parent_model), and a table that reaches
+# world x ~2.1 m (`motus world table --length 3.0`). Adjust the poses for other layouts.
+
+steps:
+
+- id: spawn_c1
+  type: spawn
+  operation: spawn
+  type_id: cube_large
+  x: 0.40
+  y: 0.25
+  z: 0.03
+  qx: 0.0
+  qy: 0.0
+  qz: 0.0
+  qw: 1.0
+  color: red
+  depends_on: []
+
+- id: spawn_c2
+  type: spawn
+  operation: spawn
+  type_id: cube_large
+  x: 2.00
+  y: 0.25
+  z: 0.03
+  qx: 0.0
+  qy: 0.0
+  qz: 0.0
+  qw: 1.0
+  color: blue
+  depends_on: [spawn_c1]
+
+# ---------------- arm1 ----------------
+
+- id: home_arm1
+  type: move
+  arm_id: arm1
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.425, y: 0.0, z: 0.383, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [spawn_c2]
+
+- id: w_h_arm1
+  type: wait
+  duration_sec: 0.5
+  depends_on: [home_arm1]
+
+- id: above_pick_arm1
+  type: move
+  arm_id: arm1
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.4, y: 0.25, z: 0.2435, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_h_arm1]
+
+- id: down_pick_arm1
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.4, y: 0.25, z: 0.0924, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [above_pick_arm1]
+
+- id: grip_arm1
+  type: tool
+  tool_id: grasp_attach_1
+  command: "attach:cube_large_1"
+  recovery: retry
+  max_retries: 2
+  depends_on: [down_pick_arm1]
+
+- id: w_g_arm1
+  type: wait
+  duration_sec: 0.5
+  depends_on: [grip_arm1]
+
+- id: up_pick_arm1
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.4, y: 0.25, z: 0.3249, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_g_arm1]
+
+- id: above_place_arm1
+  type: move
+  arm_id: arm1
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.4, y: -0.25, z: 0.3249, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [up_pick_arm1]
+
+- id: down_place_arm1
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.4, y: -0.25, z: 0.0876, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [above_place_arm1]
+
+- id: release_arm1
+  type: tool
+  tool_id: grasp_attach_1
+  command: release
+  depends_on: [down_place_arm1]
+
+- id: w_r_arm1
+  type: wait
+  duration_sec: 0.5
+  depends_on: [release_arm1]
+
+- id: up_place_arm1
+  type: move
+  arm_id: arm1
+  traj_method: ts
+  target_pose: {x: 0.4, y: -0.25, z: 0.3326, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_r_arm1]
+
+- id: return_arm1
+  type: move
+  arm_id: arm1
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.425, y: 0.0, z: 0.383, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [up_place_arm1]
+
+# ---------------- arm2 ----------------
+
+- id: home_arm2
+  type: move
+  arm_id: arm2
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.425, y: 0.0, z: 0.383, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [spawn_c2]
+
+- id: w_h_arm2
+  type: wait
+  duration_sec: 0.5
+  depends_on: [home_arm2]
+
+- id: above_pick_arm2
+  type: move
+  arm_id: arm2
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.4, y: 0.25, z: 0.2435, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_h_arm2]
+
+- id: down_pick_arm2
+  type: move
+  arm_id: arm2
+  traj_method: ts
+  target_pose: {x: 0.4, y: 0.25, z: 0.0924, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [above_pick_arm2]
+
+- id: grip_arm2
+  type: tool
+  tool_id: grasp_attach_2
+  command: "attach:cube_large_2"
+  recovery: retry
+  max_retries: 2
+  depends_on: [down_pick_arm2]
+
+- id: w_g_arm2
+  type: wait
+  duration_sec: 0.5
+  depends_on: [grip_arm2]
+
+- id: up_pick_arm2
+  type: move
+  arm_id: arm2
+  traj_method: ts
+  target_pose: {x: 0.4, y: 0.25, z: 0.3249, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_g_arm2]
+
+- id: above_place_arm2
+  type: move
+  arm_id: arm2
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.4, y: -0.25, z: 0.3249, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [up_pick_arm2]
+
+- id: down_place_arm2
+  type: move
+  arm_id: arm2
+  traj_method: ts
+  target_pose: {x: 0.4, y: -0.25, z: 0.0876, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [above_place_arm2]
+
+- id: release_arm2
+  type: tool
+  tool_id: grasp_attach_2
+  command: release
+  depends_on: [down_place_arm2]
+
+- id: w_r_arm2
+  type: wait
+  duration_sec: 0.5
+  depends_on: [release_arm2]
+
+- id: up_place_arm2
+  type: move
+  arm_id: arm2
+  traj_method: ts
+  target_pose: {x: 0.4, y: -0.25, z: 0.3326, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [w_r_arm2]
+
+- id: return_arm2
+  type: move
+  arm_id: arm2
+  traj_method: js
+  traj_type: scurve
+  target_pose: {x: 0.425, y: 0.0, z: 0.383, qx: 1.0, qy: 0.0, qz: 0.0, qw: 0.0}
+  depends_on: [up_place_arm2]
+
+- id: despawn_c1
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_c1
+  depends_on: [return_arm1, return_arm2, spawn_c1]
+
+- id: despawn_c2
+  type: spawn
+  operation: despawn
+  from_spawn_step: spawn_c2
+  depends_on: [despawn_c1, spawn_c2]
